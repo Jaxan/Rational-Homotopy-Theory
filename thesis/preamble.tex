@@ -1,0 +1,88 @@
+
+% clickable tocs
+\usepackage{hyperref}
+
+% floating figures
+\usepackage{float}
+
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix, arrows, decorations}
+\tikzset{node distance=2.5em, row sep=2.2em, column sep=2.7em, auto}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Matrices have a upper bound for its size
+\setcounter{MaxMatrixCols}{20}
+
+% Remove trailing `contents` after toc
+\renewcommand{\contentsname}{}
+
+% for the fib arrow
+\usepackage{amssymb}
+
+% mathbb for lowercase
+\usepackage{bbm}
+
+% for slanted text/symbols
+\usepackage{slantsc}
+
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\tensor}{\otimes}
+\DeclareMathOperator*{\bigtensor}{\bigotimes}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Np}{{\mathbb{N}^{>0}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\k}{\mathbbm{k}}
+
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\Set}{\cat{Set}}
+\newcommand{\sSet}{\cat{sSet}}
+\newcommand{\Top}{\cat{Top}}
+\newcommand{\DELTA}{\cat{\Delta}}
+\newcommand{\grMod}[1]{\cat{gr-{#1}Mod}}
+\newcommand{\grAlg}[1]{\cat{gr-{#1}Alg}}
+
+\newcommand{\Hom}[3]{\mathbf{Hom}_{#1}(#2, #3)}
+\newcommand{\id}{\mathbf{id}}
+
+\newcommand{\I}{\,\mid\,}
+\newcommand{\del}{\partial}				% boundary
+\newcommand{\iso}{\cong}				% isomorphic
+\newcommand{\eq}{\sim}					% homotopic
+\newcommand{\tot}[1]{\xrightarrow{\,\,{#1}\,\,}}	% arrow with name
+\newcommand{\mapstot}[1]{\xmapsto{\,\,{#1}\,\,}}	% mapsto with name
+\newcommand{\cof}{\hookrightarrow}		% cofibration
+\newcommand{\fib}{\twoheadrightarrow}	% fibration
+\newcommand{\we}{\tot{\simeq}}			% weak equivalence
+\renewcommand{\deg}[1]{|{#1}|}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\newcommand{\todo}[1]{
+	\addcontentsline{tdo}{todo}{\protect{#1}}
+	$\ast$ \marginpar{\tiny $\ast$ #1}
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}

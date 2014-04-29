@@ -1,0 +1,62 @@
+
+\section{Definitions}
+\label{sec:definitions}
+
+\subsection{Graded algebra}
+
+In this section $\k$ will be any commutative ring. We will recap some of the basic definitions of commutative algebra in a graded setting. By \emph{linear}, \emph{module}, \emph{tensor product}, \dots we always mean $\k$-linear, $\k$-module, tensor product over $\k$, \dots.
+
+\begin{definition}
+	A \emph{graded module} $M$ is a family of modules $\{M_n\}_{n\in\Z}$. An element $x \in M_n$ is called a \emph{homogenous element} and said to be of \emph{degree $\deg{x} = n$}. We will often identify $M = \bigoplus_{n \in \Z} M_n$.
+\end{definition}
+
+For an arbitrary module $M$ we can consider the graded module $M[0]$ \emph{concentrated in degree $0$} defined by setting $M[0]_0 = M$ and $M[0]_n = 0$ for $i \neq 0$. If clear from the context we will denote this graded module by $M$. In particular $\k$ is a graded module concentrated in degree $0$.
+
+\begin{definition}
+	A linear map $f: M \to N$ between graded modules is \emph{graded of degree $p$} if it respects the grading, i.e. $\restr{f}{M_n} : M_n \to N_{n+p}$.
+\end{definition}
+
+\begin{definition}
+	The graded maps $f: M \to N$ between graded modules can be arranged in a graded module by defining:
+	$$ \Hom{gr}{M}{N}_n = \{ f: M \to N \I f \text{ is graded of degree } n \}. $$
+\end{definition}
+
+Note that not all linear maps can be decomposed into a sum of graded maps. In other words $\Hom{gr}{M}{N} \subset \Hom{}{M}{N}$ might not be equal.
+
+Recall that the tensor product of modules distributes over direct sums. So if $M = \bigoplus_{n \in \Z} M_n$ and $N = \bigoplus_{n \in \Z} N_n$, then
+$$ M \tensor N \iso \bigoplus_{n \in Z} \bigoplus_{m \in Z} M_m \tensor N_n \iso \bigoplus_{n \in Z} \bigoplus_{i + j = n} M_i \tensor N_j. $$
+This defines a natural grading on the tensor product.
+
+\begin{definition}
+	The graded tensor product is defined as:
+	$$ (M \tensor N)_n = \bigoplus_{i + j = n} M_i \tensor N_j. $$
+\end{definition}
+
+The graded modules together with graded maps of degree $0$ form the category $\grMod{\k}$ of graded modules. Together with the tensor product and the ground ring, $(\grMod{\k}, \tensor, \k)$ is a monoidal category. This now dictates the definition of a graded algebra.
+
+\begin{definition}
+	A \emph{graded algebra} consists of a graded module $A$ together with two graded maps of degree $0$:
+	$$ \mu: A \tensor A \to A \quad\text{ and }\quad \eta: k \to A $$
+	such that $\mu$ is associative and $\eta$ is a unit for $\mu$.
+
+	A graded map between two graded algebra will be called \emph{graded algebra map} if the map is compatible with the multiplication and unit.
+\end{definition}
+
+Again these objects form a category, denoted as $\grAlg{\k}$.
+
+\begin{definition}
+	A graded algebra $A$ is \emph{commutative} if for all $x, y \in A$
+	$$ xy = (-1)^{\deg{x}\deg{y}}yx. $$
+\end{definition}
+
+
+\subsection{Differential graded algebra}
+Now define differentials... and the categories $\cat{DGA}_\k, \cat{CGDA}_\k$.
+
+Note that a monoidal object of differential graded modules is the same as a graded algebra with a differential.
+
+Conclude with (co)chain complexes and (co)chain (co)algebras.
+
+
+\subsection{Model categories}
+
