@@ -1,16 +1,16 @@
-
+% -*- root: thesis.tex -*-
 \section{Definitions}
 \label{sec:definitions}
 
 \subsection{Graded algebra}
 
-In this section $\k$ will be any commutative ring. We will recap some of the basic definitions of commutative algebra in a graded setting. By \emph{linear}, \emph{module}, \emph{tensor product}, \dots we always mean $\k$-linear, $\k$-module, tensor product over $\k$, \dots.
+In this section $\k$ will be any commutative ring. We will recap some of the basic definitions of commutative algebra in a graded setting. By \emph{linear}, \emph{module}, \emph{tensor product}, etc \dots we always mean $\k$-linear, $\k$-module, tensor product over $\k$, etc \dots.
 
 \begin{definition}
-	A \emph{graded module} $M$ is a family of modules $\{M_n\}_{n\in\Z}$. An element $x \in M_n$ is called a \emph{homogenous element} and said to be of \emph{degree $\deg{x} = n$}. We will often identify $M = \bigoplus_{n \in \Z} M_n$.
+	A \emph{graded module} $M$ is a family of modules $\{M_n\}_{n\in\Z}$. An element $x \in M_n$ is called a \emph{homogeneous element} and said to be of \emph{degree $\deg{x} = n$}. We will often identify $M = \bigoplus_{n \in \Z} M_n$.
 \end{definition}
 
-For an arbitrary module $M$ we can consider the graded module $M[0]$ \emph{concentrated in degree $0$} defined by setting $M[0]_0 = M$ and $M[0]_n = 0$ for $i \neq 0$. If clear from the context we will denote this graded module by $M$. In particular $\k$ is a graded module concentrated in degree $0$.
+For an ordinary module $M$ we can consider the graded module $M[0]$ \emph{concentrated in degree $0$} defined by setting $M[0]_0 = M$ and $M[0]_n = 0$ for $i \neq 0$. If clear from the context we will denote this graded module by $M$. In particular $\k$ is a graded module concentrated in degree $0$.
 
 \begin{definition}
 	A linear map $f: M \to N$ between graded modules is \emph{graded of degree $p$} if it respects the grading, i.e. $\restr{f}{M_n} : M_n \to N_{n+p}$.
@@ -18,10 +18,10 @@ For an arbitrary module $M$ we can consider the graded module $M[0]$ \emph{conce
 
 \begin{definition}
 	The graded maps $f: M \to N$ between graded modules can be arranged in a graded module by defining:
-	$$ \Hom{gr}{M}{N}_n = \{ f: M \to N \I f \text{ is graded of degree } n \}. $$
+	$$ \Hom_{gr}(M, N)_n = \{ f: M \to N \I f \text{ is graded of degree } n \}. $$
 \end{definition}
 
-Note that not all linear maps can be decomposed into a sum of graded maps. In other words $\Hom{gr}{M}{N} \subset \Hom{}{M}{N}$ might not be equal.
+Note that not all linear maps can be decomposed into a sum of graded maps, so that $\Hom_{gr}(M, N) \subset \Hom(M, N)$ may be proper for some $M$ and $N$.
 
 Recall that the tensor product of modules distributes over direct sums. So if $M = \bigoplus_{n \in \Z} M_n$ and $N = \bigoplus_{n \in \Z} N_n$, then
 $$ M \tensor N \iso \bigoplus_{n \in Z} \bigoplus_{m \in Z} M_m \tensor N_n \iso \bigoplus_{n \in Z} \bigoplus_{i + j = n} M_i \tensor N_j. $$
@@ -32,31 +32,80 @@ This defines a natural grading on the tensor product.
 	$$ (M \tensor N)_n = \bigoplus_{i + j = n} M_i \tensor N_j. $$
 \end{definition}
 
-The graded modules together with graded maps of degree $0$ form the category $\grMod{\k}$ of graded modules. Together with the tensor product and the ground ring, $(\grMod{\k}, \tensor, \k)$ is a monoidal category. This now dictates the definition of a graded algebra.
+The graded modules together with graded maps of degree $0$ form the category $\grMod{\k}$ of graded modules. From now on we will simply refer to maps instead of graded maps. Together with the tensor product and the ground ring, $(\grMod{\k}, \tensor, \k)$ is a monoidal category. This now dictates the definition of a graded algebra.
 
 \begin{definition}
-	A \emph{graded algebra} consists of a graded module $A$ together with two graded maps of degree $0$:
+	A \emph{graded algebra} consists of a graded module $A$ together with two maps of degree $0$:
 	$$ \mu: A \tensor A \to A \quad\text{ and }\quad \eta: k \to A $$
 	such that $\mu$ is associative and $\eta$ is a unit for $\mu$.
 
-	A graded map between two graded algebra will be called \emph{graded algebra map} if the map is compatible with the multiplication and unit.
+	A map between two graded algebra will be called a \emph{graded algebra map} if the map is compatible with the multiplication and unit. Such a map is necessarily of degree $0$.
 \end{definition}
 
 Again these objects form a category, denoted as $\grAlg{\k}$.
 
 \begin{definition}
 	A graded algebra $A$ is \emph{commutative} if for all $x, y \in A$
-	$$ xy = (-1)^{\deg{x}\deg{y}}yx. $$
+	$$ xy = (-1)^{\deg{x}\deg{y}} yx. $$
 \end{definition}
+
+\todo{Add a remark about the signs somewhere}
 
 
 \subsection{Differential graded algebra}
-Now define differentials... and the categories $\cat{DGA}_\k, \cat{CGDA}_\k$.
 
-Note that a monoidal object of differential graded modules is the same as a graded algebra with a differential.
+\begin{definition}
+	A \emph{differential graded module} $(M, d)$ is a graded module $M$ together with a map $d: M \to M$ of degree $-1$, called a \emph{differential}, such that $dd = 0$. A map $f: M \to N$ is a \emph{chain map} if it is compatible with the differential, i.e. $d_N f = f d_M$.
+\end{definition}
 
-Conclude with (co)chain complexes and (co)chain (co)algebras.
+A differential graded module $(M, d)$ with $M_i = 0$ for all $i < 0$ is a \emph{chain complex}. A differential graded module $(M, d)$ with $M_i = 0$ for all $i > 0$ is a \emph{cochain complex}. It will be convenient to define $M^i = M_{-i}$ in the latter case, so that $M = \bigoplus_{n \in \N} M^i$ and $d$ is a map of \emph{upper degree} 1.
+
+The tensor product of two differential graded modules is again a differential graded module if we define the differential as follows. \todo{Define this}
+
+Finally we come to the definition of a differential graded algebra. This will be a graded algebra with a differential. Of course we want this to be compatible with the algebra structure, or stated differently: we want $\mu$ and $\eta$ to be chain maps.
+
+\begin{definition}
+	A \emph{differential graded algebra (DGA)} is a graded algebra $A$ together with an differential $d$ such that in addition:
+	$$ d(xy) = d(x) y + (-1)^{\deg{x}} x d(y) \quad\text{ for all } x, y \in A. $$
+\end{definition}
+
+It is not hard to see that this definition precisely defines the monoidal objects in the category of differential graded modules. The category of DGAs will be denoted by $\DGA_\k$, the category of commutative DGAs (CDGAs) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
+
+Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i = 0$ for $i < 0$. Similarly if $M^i = 0$ for all $i < 0$, then $M$ is a \emph{cochain algebra}.
 
 
 \subsection{Model categories}
 
+\newcommand{\W}{\mathfrak{W}}
+\newcommand{\Fib}{\mathfrak{Fib}}
+\newcommand{\Cof}{\mathfrak{Cof}}
+
+\begin{definition}
+	A \emph{model category} is a category $\cat{C}$ together with three subcategories:
+	\begin{itemize}
+		\item the class of weak equivalences $\W$,
+		\item the class of fibrations $\Fib$ and
+		\item the class of cofibrations $\Cof$,
+	\end{itemize}
+	such that the following five axioms hold:
+	\begin{itemize}
+		\item[MC1] All finite limits and colimits exist in $\cat{C}$.
+		\item[MC2] If $f$, $g$ and $fg$ are maps such that two of them are weak equivalences, then so it the third. This is called the \emph{2-out-of-3} property.
+		\item[MC3] All three classes of maps are closed under retracts\todo{Either draw the diagram or define a retract earlier}.
+		\item[MC4] In any commuting square as follows where $i \in \Cof$ and $p \in \Fib$, there exist a lift if either 
+		\begin{itemize}
+			\item[a)] $i \in \W$ or
+			\item[b)] $p \in \W$.
+		\end{itemize}
+		\todo{insert diagram}
+		\item[MC5] Any map $f : A \to B$ can be factored as $f = pi$, where either
+		\begin{itemize}
+			\item[a)] $i \in \Cof \cap \W$ and $p \in \Fib$ or
+			\item[b)] $i \in \Cof$ and $p \in \Fib \cap \W$.
+		\end{itemize}
+	\end{itemize}
+\end{definition}
+
+\todo{define notation $\cof$ $\fib$}
+\todo{define (co)fibrant objects}
+\todo{maybe some basic propositions}
