@@ -1,7 +1,9 @@
 
 \section{Model structure on $\CDGA_\k$}
 
-In this section we will define a model structure on CDGAs over a field $\k$ \todo{Can $\k$ be a c. ring here?}, where the weak equivalences are quasi isomorphisms and fibrations are surjective maps. The cofibrations are defined to be the maps with a left lifting property with respect to trivial fibrations.
+\TODO{First discuss the model structure on (co)chain complexes. Then discuss that we want the adjunction $(\Lambda, U)$ to be a Quillen pair. Then state that (co)chain complexes are cofib. generated, so we can cofib. generate CDGAs.}
+
+In this section we will define a model structure on CDGAs over a field $\k$ of characteristic zero\todo{Can $\k$ be a c. ring here?}, where the weak equivalences are quasi isomorphisms and fibrations are surjective maps. The cofibrations are defined to be the maps with a left lifting property with respect to trivial fibrations.
 
 \begin{proposition}
 	There is a model structure on $\CDGA_\k$ where $f: A \to B$ is
@@ -51,7 +53,7 @@ Next we will prove the factorization property [MC5]. We will do this by Quillen'
 	The maps $i_n$ are trivial cofibrations and the maps $j_n$ are cofibrations.
 \end{lemma}
 \begin{proof}
-	Since $H(T(n)) = \k$ we see that indeed $H(i_n)$ is an isomorphism. For the lifting property of $i_n$ and $j_n$ simply use surjectivity of the fibrations. \todo{give a bit more detail}
+	Since $H(T(n)) = \k$ \todo{Note that this only hold when characteristic = 0} we see that indeed $H(i_n)$ is an isomorphism. For the lifting property of $i_n$ and $j_n$ simply use surjectivity of the fibrations. \todo{give a bit more detail}
 \end{proof}
 
 \begin{lemma}

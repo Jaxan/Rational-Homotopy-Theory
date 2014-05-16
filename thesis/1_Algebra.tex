@@ -29,9 +29,14 @@ Recall that the tensor product of modules distributes over direct sums. This def
 \begin{definition}
 	The graded tensor product is defined as:
 	$$ (M \tensor N)_n = \bigoplus_{i + j = n} M_i \tensor N_j. $$
+	The tensor product extends to graded maps. Let $f: A \to B$ and $g:X \to Y$ be two graded maps, then their tensor product $f \tensor g: A \tensor B \to X \tensor Y$ is defined as:
+	$$ (f \tensor g)(a \tensor x) = (-1)^{\deg{a}\deg{g}} \cdot f(a) \tensor g(x). $$
 \end{definition}
 
-The graded modules together with graded maps of degree $0$ form the category $\grMod{\k}$ of graded modules. From now on we will simply refer to maps instead of graded maps. Together with the tensor product and the ground ring, $(\grMod{\k}, \tensor, \k)$ is a monoidal category. This now dictates the definition of a graded algebra.
+The sign is due to \emph{Koszuls sign convention}: whenever two elements next to each other are swapped (in this case $g$ and $a$) a minus sign appears if both elements are of odd degree. More formally we can define a swap map
+$$ \tau : A \tensor B \to B \tensor A : a \tensor b \mapsto (-1)^{\deg{a}\deg{b}} b \tensor a. $$
+
+The graded modules together with graded maps of degree $0$ form the category $\grMod{\k}$ of graded modules. From now on we will simply refer to maps instead of graded maps. Together with the tensor product and the ground ring, $(\grMod{\k}, \tensor, \k)$ is a symmetric monoidal category (with the symmetry given by $\tau$). This now dictates the definition of a graded algebra.
 
 \begin{definition}
 	A \emph{graded algebra} consists of a graded module $A$ together with two maps of degree $0$:
@@ -48,8 +53,6 @@ Again these objects and maps form a category, denoted as $\grAlg{\k}$. We will d
 	$$ xy = (-1)^{\deg{x}\deg{y}} yx. $$
 \end{definition}
 
-\todo{Add a remark about the signs somewhere}
-
 
 \subsection{Differential graded algebra}
 
@@ -59,14 +62,21 @@ Again these objects and maps form a category, denoted as $\grAlg{\k}$. We will d
 
 A differential graded module $(M, d)$ with $M_i = 0$ for all $i < 0$ is a \emph{chain complex}. A differential graded module $(M, d)$ with $M_i = 0$ for all $i > 0$ is a \emph{cochain complex}. It will be convenient to define $M^i = M_{-i}$ in the latter case, so that $M = \bigoplus_{n \in \N} M^i$ and $d$ is a map of \emph{upper degree} $+1$.
 
-The tensor product of two differential graded modules is again a differential graded module if we define the differential as follows. \todo{Define this}
+\begin{definition}
+	Let $(M, d_M)$ and $(N, d_N)$ be two differential graded modules, their tensor product $M \tensor N$ is a differential graded module with the differential given by:
+	$$ d_{M \tensor N} = d_M \tensor \id_N + \id_M \tensor d_N. $$
+\end{definition}
+
+\todo{Prove that this is in fact a differential?}
 
 Finally we come to the definition of a differential graded algebra. This will be a graded algebra with a differential. Of course we want this to be compatible with the algebra structure, or stated differently: we want $\mu$ and $\eta$ to be chain maps.
 
 \begin{definition}
-	A \emph{differential graded algebra (DGA)} is a graded algebra $A$ together with an differential $d$ such that in addition:
+	A \emph{differential graded algebra (DGA)} is a graded algebra $A$ together with an differential $d$ such that in addition the \emph{Leibniz rule} holds:
 	$$ d(xy) = d(x) y + (-1)^{\deg{x}} x d(y) \quad\text{ for all } x, y \in A. $$
 \end{definition}
+
+\todo{Define the notion of derivation?}
 
 It is not hard to see that this definition precisely defines the monoidal objects in the category of differential graded modules. The category of DGAs will be denoted by $\DGA_\k$, the category of commutative DGAs (CDGAs) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
 
@@ -94,6 +104,13 @@ For differential graded algebras we can consider the (co)homology by forgetting 
 	is a graded algebra.
 \end{lemma}
 \begin{proof}
-	\todo{}
+	\todo{Maybe just state this?}
 \end{proof}
 
+\TODO{Discuss:
+\titem The Künneth theorem (especially in the case of fields)
+\titem The tensor algebra $T : Ch^\ast(\Q) \to \DGA_\Q$ and free cdga $\Lambda : Ch^\ast(\Q) \to \CDGA_\Q$
+\titem Coalgebras and Hopfalgebras?
+\titem Define reduced/connected differential graded things
+\titem Singular (co)homology as a quick example?
+}

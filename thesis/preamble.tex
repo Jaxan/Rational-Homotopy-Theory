@@ -34,6 +34,7 @@
 \newcommand{\Np}{{\mathbb{N}^{>0}}}		% positive numbers
 \newcommand{\Z}{\mathbb{Z}}				% integers
 \newcommand{\R}{\mathbb{R}}				% reals
+\newcommand{\Q}{\mathbb{Q}}				% rationals
 \renewcommand{\k}{\mathbbm{k}}			% default ground ring
 
 % Basic category stuff
@@ -76,11 +77,25 @@
   \right|_{#2} % this is the delimiter
   }}
 
-% todos
+% Todos in the margin
 \newcommand{\todo}[1]{
 	\addcontentsline{tdo}{todo}{\protect{#1}}
 	$\ast$ \marginpar{\tiny $\ast$ #1}
 }
+% Big todos in text
+\newcommand{\TODO}[1]{
+	\addcontentsline{tdo}{todo}{\protect{#1}}
+	{\tiny $\ast$ #1}
+}
+% TODO item, as itemize does not work
+\newcommand{\titem}[0]{\\-\qquad}
+% List of todos
+\makeatletter
+	\newcommand \listoftodos{\section*{Todo list} \@starttoc{tdo}}
+	\newcommand\l@todo[2]{
+		\par\noindent \textit{#2}, \parbox{10cm}{#1}\par
+	}
+\makeatother
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
