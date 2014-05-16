@@ -7,7 +7,7 @@
 \newcommand{\Cof}{\mathfrak{Cof}}
 
 \begin{definition}
-	A \emph{model category} is a category $\cat{C}$ together with three subcategories:
+	A \emph{(closed) model category} is a category $\cat{C}$ together with three subcategories:
 	\begin{itemize}
 		\item the class of weak equivalences $\W$,
 		\item the class of fibrations $\Fib$ and
@@ -59,7 +59,7 @@
 	An object $A$ in a model category $\cat{C}$ will be called \emph{fibrant} if $A \to \cat{1}$ is a fibration and \emph{cofibrant} if $\cat{0} \to A$ is a cofibration.
 \end{definition}
 
-Note that axiom [MC5a] allows us to replace any object $X$ with a weakly equivalent fibrant object $X^{fib}$ and a weakly equivalent cofibrant object $X^{cof}$, as seen in the following diagram:
+Note that axiom [MC5a] allows us to replace any object $X$ with a weakly equivalent fibrant object $X^{fib}$ and by [MC5b] by a weakly equivalent cofibrant object $X^{cof}$, as seen in the following diagram:
 
 \begin{center}
 \begin{tikzpicture}
@@ -86,4 +86,18 @@ Note that axiom [MC5a] allows us to replace any object $X$ with a weakly equival
 \end{tikzpicture}
 \end{center}
 
-\todo{maybe some basic propositions}
+\todo{Maybe some basic propositions:
+> Over/under category (or simply pointed objects)   \\
+> If a map has LLP/RLP wrt fib/cof, it is a cof/fib \\
+> Fibs are preserved under pullbacks/limits         \\
+}
+
+\todo{Define homotopy category}
+
+\todo{Cofibrantly generated mod cats?}
+
+\todo{Small obj. argument?}
+
+\subsection{Quillen pairs}
+In order to relate model categories and their associated homotopy categories we need a notion of maps between them.
+\todo{Definition etc}

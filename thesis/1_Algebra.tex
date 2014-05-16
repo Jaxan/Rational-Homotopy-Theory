@@ -41,7 +41,7 @@ The graded modules together with graded maps of degree $0$ form the category $\g
 	A map between two graded algebra will be called a \emph{graded algebra map} if the map is compatible with the multiplication and unit. Such a map is necessarily of degree $0$.
 \end{definition}
 
-Again these objects and maps form a category, denoted as $\grAlg{\k}$.
+Again these objects and maps form a category, denoted as $\grAlg{\k}$. We will denote multiplication by a dot or juxtaposition, instead of explicitly mentioning $\mu$.
 
 \begin{definition}
 	A graded algebra $A$ is \emph{commutative} if for all $x, y \in A$
@@ -57,7 +57,7 @@ Again these objects and maps form a category, denoted as $\grAlg{\k}$.
 	A \emph{differential graded module} $(M, d)$ is a graded module $M$ together with a map $d: M \to M$ of degree $-1$, called a \emph{differential}, such that $dd = 0$. A map $f: M \to N$ is a \emph{chain map} if it is compatible with the differential, i.e. $d_N f = f d_M$.
 \end{definition}
 
-A differential graded module $(M, d)$ with $M_i = 0$ for all $i < 0$ is a \emph{chain complex}. A differential graded module $(M, d)$ with $M_i = 0$ for all $i > 0$ is a \emph{cochain complex}. It will be convenient to define $M^i = M_{-i}$ in the latter case, so that $M = \bigoplus_{n \in \N} M^i$ and $d$ is a map of \emph{upper degree} 1.
+A differential graded module $(M, d)$ with $M_i = 0$ for all $i < 0$ is a \emph{chain complex}. A differential graded module $(M, d)$ with $M_i = 0$ for all $i > 0$ is a \emph{cochain complex}. It will be convenient to define $M^i = M_{-i}$ in the latter case, so that $M = \bigoplus_{n \in \N} M^i$ and $d$ is a map of \emph{upper degree} $+1$.
 
 The tensor product of two differential graded modules is again a differential graded module if we define the differential as follows. \todo{Define this}
 
@@ -72,6 +72,7 @@ It is not hard to see that this definition precisely defines the monoidal object
 
 Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i = 0$ for $i < 0$. Similarly if $M^i = 0$ for all $i < 0$, then $M$ is a \emph{cochain algebra}.
 
+\todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary CDGAs.}
 
 \subsection{Homology}
 
