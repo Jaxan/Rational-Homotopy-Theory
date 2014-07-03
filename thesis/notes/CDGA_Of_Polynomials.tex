@@ -1,0 +1,71 @@
+
+\subsection{CDGA of Polynomials}
+
+\newcommand{\Apl}[0]{{A_{PL}}}
+
+We will now give a cdga model for the $n$-simplex $\Delta^n$. This then allows for simplicial methods. In the following definition one should be reminded of the topological $n$-simplex defined as convex span.
+
+\begin{definition}
+	For all $n \in \N$ define the following cdga:
+	$$ (\Apl)_n = \frac{\Lambda(x_0, \ldots, x_n, dx_0, \ldots, dx_n)}{(\sum_{i=0}^n) x_i - 1, \sum_{i=0}^n dx_i)} $$
+	So it is the free cdga with $n+1$ generators and their differentials such that $\sum_{i=0}^n x_i = 1$ and in order to be well behaved $\sum_{i=0}^n dx_i = 0$.
+\end{definition}
+
+Note that the inclusion $\Lambda(x_1, \ldots, x_n, dx_1, \ldots, dx_n) \to \Apl_n$ is an isomorphism of cdga's. So $\Apl_n$ is free and (algebra) maps from it are determined by their images on $x_i$ for $i = 1, \ldots, n$ (also note that this determines the images for $dx_i$). This fact will be used throughout.
+
+These cdga's will assemble into a simplicial cdga when we define the face and degeneracy maps as follows ($j = 1, \ldots, n$):
+
+$$ d_i(x_j) = \begin{cases}
+	x_{j-1}, &\text{ if } i < j \\
+	0,       &\text{ if } i = j \\
+	x_j,     &\text{ if } i > j
+\end{cases} \qquad d_i : \Apl_n \to \Apl_{n-1} $$
+$$ s_i(x_j) = \begin{cases}
+	x_{j+1},       &\text{ if } i < j \\
+	x_j + x_{j+1}, &\text{ if } i = j \\
+	x_j,           &\text{ if } i > j	
+\end{cases} \qquad s_i : \Apl_n \to \Apl_{n+1} $$
+
+One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace of homogeneous elements of degree $k$ as $\Apl^k \in \simplicial{\Mod{\k}}$, this is indeed a simplicial $\k$-module as the maps $d_i$ and $s_i$ are graded maps of degree $0$.
+
+\begin{lemma}
+	$\Apl^k$ is contractible.
+\end{lemma}
+\begin{proof}
+	We will prove this by defining an extra degeneracy $s: \Apl_n \to \Apl_{n+1}$. Define for $i = 1, \ldots, n$:
+	\begin{align*}
+		s(1) &= (1-x_0)^2 \\
+		s(x_i) &= (1-x_0) \cdot x_{i+1}
+	\end{align*}
+	Extend on the differentials and multiplicatively on $\Apl_n$. As $s(1) \neq 1$ this map is not an algebra map, however it well-defined as a map of cochain complexes. In particular when restricted to degree $k$ we get a linear map:
+	$$ s: \Apl^k_n \to \Apl^k_{n+1}. $$
+	Proving the necessary properties of an extra degeneracy is fairly easy. For $n \geq 1$ we get (on generators):
+	\begin{align*}
+		d_0 s(1)   &= d_0 (1 - x_0)^2 = (1 - 0) \cdot (1 - 0) = 1 \\
+		d_0 s(x_i) &= d_0((1-x_0)x_{i+1}) = d_0(1-x_0) \cdot x_i  \\
+		           &= (1-0) \cdot x_i = x_i
+	\end{align*}
+	So $d_0 s = \id$.
+	\begin{align*}
+		d_{i+1} s(1) &= d_{i+1} (1 - x_0)^2 = d_{i+1} (\sum_{j=1}^n x_j)^2 \\
+		             &= (\sum_{j=1}^{n-1} x_j)^2 = (1-x_0)^2 = s d_i(1)    \\
+		d_{i+1} s(x_j) &= d_{i+1}(1-x_0) d_{i+1}(x_j) = (1-x_0) d_i(x_{j+1}) = s d_i (x_j)
+	\end{align*}
+	So $d_{i+1} s = s d_i$. Similarly $s_{i+1} s = s s_i$. And finally for $n=0$ we have $d_1 s = 0$.
+
+	So we have an extra degeneracy $s: \Apl^k \to \Apl^k$, and hence (see for example \cite{goerss}) we have that $\Apl^k$ is contractible. As a consequence $\Apl \to \ast$ is a weak equivalence.
+\end{proof}
+
+\begin{lemma}
+	$\Apl_n^k$ is a Kan complex.
+\end{lemma}
+\begin{proof}
+	By the simple fact that $\Apl_n^k$ is a simplicial group, it is a Kan complex \cite{goerss}.
+\end{proof}
+
+\begin{corollary}
+	$\Apl^k \to \ast$ is a trivial fibration in the standard model structure on $\sSet$.
+\end{corollary}
+
+
+

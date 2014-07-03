@@ -39,22 +39,33 @@
 
 % Basic category stuff
 \newcommand{\cat}[1]{\mathbf{#1}}		% the category of ...
+\newcommand{\opCat}[1]{{#1}^{\text{op}}}% opposite category
 \newcommand{\Hom}{\mathbf{Hom}}
 \newcommand{\id}{\mathbf{id}}
 
 % Categories
 \newcommand{\Set}{\cat{Set}}			% sets
-\newcommand{\sSet}{\cat{sSet}}			% simplicial sets
 \newcommand{\Top}{\cat{Top}}			% topological spaces
 \newcommand{\DELTA}{\cat{\Delta}}		% the simplicial cat
+\newcommand{\simplicial}[1]{\cat{s{#1}}}% simplicial objects
+\newcommand{\sSet}{\simplicial{\Set}}	% simplicial sets
+\newcommand{\Mod}[1]{\cat{{#1}Mod}}		% modules over a ring
+\newcommand{\Alg}[1]{\cat{{#1}Alg}}		% algebras over a ring
 \newcommand{\grMod}[1]{\cat{gr\mbox{-}{#1}Mod}}	% graded modules over a ring
 \newcommand{\grAlg}[1]{\cat{gr\mbox{-}{#1}Alg}}	% graded algebras over a ring
-\newcommand{\DGA}{\cat{DGA}}			% differential graded algebras
-\newcommand{\CDGA}{\cat{CDGA}}			% commutative dgas
+\newcommand{\dgMod}[1]{\cat{dg\mbox{-}{#1}Mod}}	% differential graded modules over a ring
+\newcommand{\dgAlg}[1]{\cat{dg\mbox{-}{#1}Alg}}	% differential graded algebras over a ring
+\newcommand{\Ch}[1]{\cat{Ch_{n\geq0}({#1})}}	% chain complexes
+\newcommand{\CoCh}[1]{\cat{Ch^{n\geq0}({#1})}}	% cochain complexes
+\newcommand{\DGA}{\cat{DGA}}			% cochain algebras
+\newcommand{\CDGA}{\cat{CDGA}}			% commutative cochain algebras
 
 \newcommand{\cof}{\hookrightarrow}		% cofibration
 \newcommand{\fib}{\twoheadrightarrow}	% fibration
 \newcommand{\we}{\tot{\simeq}}			% weak equivalence
+
+%\newcommand{\leftadj}{\ooalign{\hss\rightleftarrows\hss\cr\bot}}
+\newcommand{\leftadj}{\rightleftarrows}
 
 % Notation and operators
 \newcommand{\I}{\,\mid\,}				% seperator in set notation
@@ -68,6 +79,7 @@
 \DeclareMathOperator*{\tensor}{\otimes}
 \DeclareMathOperator*{\bigtensor}{\bigotimes}
 \renewcommand{\deg}[1]{{|{#1}|}}
+\newcommand{\Char}[1]{char({#1})}
 
 % restriction of a function
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
@@ -102,6 +114,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}

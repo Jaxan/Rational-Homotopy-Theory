@@ -33,7 +33,7 @@ Recall that the tensor product of modules distributes over direct sums. This def
 	$$ (f \tensor g)(a \tensor x) = (-1)^{\deg{a}\deg{g}} \cdot f(a) \tensor g(x). $$
 \end{definition}
 
-The sign is due to \emph{Koszuls sign convention}: whenever two elements next to each other are swapped (in this case $g$ and $a$) a minus sign appears if both elements are of odd degree. More formally we can define a swap map
+The sign is due to \emph{Koszul's sign convention}: whenever two elements next to each other are swapped (in this case $g$ and $a$) a minus sign appears if both elements are of odd degree. More formally we can define a swap map
 $$ \tau : A \tensor B \to B \tensor A : a \tensor b \mapsto (-1)^{\deg{a}\deg{b}} b \tensor a. $$
 
 The graded modules together with graded maps of degree $0$ form the category $\grMod{\k}$ of graded modules. From now on we will simply refer to maps instead of graded maps. Together with the tensor product and the ground ring, $(\grMod{\k}, \tensor, \k)$ is a symmetric monoidal category (with the symmetry given by $\tau$). This now dictates the definition of a graded algebra.
@@ -78,11 +78,11 @@ Finally we come to the definition of a differential graded algebra. This will be
 
 \todo{Define the notion of derivation?}
 
-It is not hard to see that this definition precisely defines the monoidal objects in the category of differential graded modules. The category of DGAs will be denoted by $\DGA_\k$, the category of commutative DGAs (CDGAs) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
+It is not hard to see that this definition precisely defines the monoidal objects in the category of differential graded modules. The category of dga's will be denoted by $\DGA_\k$, the category of commutative dga's (cdga's) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
 
 Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i = 0$ for $i < 0$. Similarly if $M^i = 0$ for all $i < 0$, then $M$ is a \emph{cochain algebra}.
 
-\todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary CDGAs.}
+\todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary cdga's.}
 
 \subsection{Homology}
 
@@ -110,7 +110,7 @@ For differential graded algebras we can consider the (co)homology by forgetting 
 \TODO{Discuss:
 \titem The Künneth theorem (especially in the case of fields)
 \titem The tensor algebra $T : Ch^\ast(\Q) \to \DGA_\Q$ and free cdga $\Lambda : Ch^\ast(\Q) \to \CDGA_\Q$
-\titem Coalgebras and Hopfalgebras?
+\titem Coalgebras and Hopf algebras?
 \titem Define reduced/connected differential graded things
 \titem Singular (co)homology as a quick example?
 }

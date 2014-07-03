@@ -1,0 +1,50 @@
+
+\subsection{The free cdga}
+
+Just as in ordinary linear algebra we can form an algebra from any graded module. Furthermore we will see that a differential induces a derivation.
+
+\begin{definition}
+	The \emph{tensor algebra} of a graded module $M$ is defined as
+	$$ T(M) = \bigoplus_{n\in\N} M^{\tensor n}, $$
+	where $M^{\tensor 0} = \k$. An element $m = m_1 \tensor \ldots \tensor m_n$ has a \emph{word length} of $n$ and its degree is $\deg{m} = \sum_{i=i}^n \deg{m_i}$. The multiplication is given by the tensor product (note that the bilinearity follows immediately).
+\end{definition}
+
+Note that this construction is functorial and it is free in the following sense.
+
+\begin{lemma}
+	Let $M$ be a graded module and $A$ a graded algebra.
+	\begin{itemize}
+		\item A graded map $f: M \to A$ of degree $0$ extends uniquely to an algebra map $\overline{f} : TM \to A$.
+		\item A differential $d: M \to M$ extends uniquely to a derivation $d: TM \to TM$.
+	\end{itemize}
+\end{lemma}
+
+\begin{corollary}
+	Let $U$ be the forgetful functor from graded algebras to graded modules, then $T$ and $U$ form an adjoint pair:
+	$$ T: \grMod{\k} \leftadj \grAlg{\k} $$
+	Moreover it extends and restricts to
+	$$ T: \dgMod{\k} \leftadj \dgAlg{\k} $$
+	$$ T: \CoCh{\k} \leftadj \DGA{\k} $$
+\end{corollary}
+
+As with the symmetric algebra and exterior algebra of a vector space, we can turn this graded tensor algebra in a commutative graded algebra.
+
+\begin{definition}
+	Let $A$ be a graded algebra and define
+	$$ I = < ab - (-1)^{\deg{a}\deg{b}}ba \I a,b \in A >. $$
+	Then $A / I$ is a commutative graded algebra.
+
+	For a graded module $M$ we define the \emph{free commutative graded algebra} as
+	$$ \Lambda(M) = TM / I $$
+\end{definition}
+
+Again this extends to differential graded modules (i.e. the ideal is preserved by the derivative) and restricts to cochain complexes.
+
+\begin{lemma}
+	We have the following adjunctions:
+	$$ \Lambda: \grMod{\k} \leftadj \grAlg{\k}^{comm} $$
+	$$ \Lambda: \dgMod{\k} \leftadj \dgAlg{\k}^{comm} $$
+	$$ \Lambda: \CoCh{\k} \leftadj \CDGA_\k $$
+\end{lemma}
+
+We can now easily construct cdga's by specifying generators and their differentials.
