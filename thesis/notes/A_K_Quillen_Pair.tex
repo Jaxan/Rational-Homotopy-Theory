@@ -1,0 +1,33 @@
+
+\subsection{$A$ and $K$ form a Quillen pair}
+
+We will prove that $A$ preserves cofibrations and trivial cofibrations. We only have to check this fact for the generating (trivial) cofibrations in $\sSet$. Note that the contravariance of $A$ means that a (trivial) cofibrations should be sent to a (trivial) fibration.
+
+\begin{lemma}
+	$A(i) : A(\Delta[n]) \to A(\del \Delta[n])$ is surjective.
+\end{lemma}
+\begin{proof}
+	Let $\phi \in A(\del \Delta[n])$ be an element of degree $k$, hence it is a map $\del \Delta[n] \to \Apl^k$. We want to extend this to the whole simplex. By the fact that $\Apl^k$ is Kan and contractible we can find a lift $\overline{\phi}$ in the following diagram showing the surjectivity.
+
+	\cimage[scale=0.5]{Extend_Boundary_Form}
+\end{proof}
+
+\begin{lemma}
+	$A(j) : A(\Delta[n]) \to A(\Lambda^n_k)$ is surjective and a quasi isomorphism.
+\end{lemma}
+\begin{proof}
+	As above we get surjectivity from the Kan condition. To prove that $A(j)$ is a quasi isomorphism we pass to the singular cochain complex and use that $C^\ast(j) : C^\ast(\Delta[n]) \we C^\ast(\Lambda^n_k)$ is a quasi isomorphism. Consider the following diagram and conclude that $A(j)$ is surjective and a quasi isomorphism.
+
+	\cimage[scale=0.5]{A_Preserves_WCof}
+\end{proof}
+
+Since $A$ is a left adjoint, it preserves all colimits and by functoriality it preserves retracts. From this we can conclude the following corollary.
+
+\begin{corollary}
+	$A$ preserves all cofibrations and all trivial cofibrations and hence is a left Quillen functor.
+\end{corollary}
+
+\begin{corollary}
+	$A$ and $K$ induce an adjunction on the homotopy categories:
+	$$ \Ho{\sSet} \leftadj \opCat{\Ho{\CDGA}}. $$
+\end{corollary}

@@ -42,6 +42,7 @@
 \newcommand{\opCat}[1]{{#1}^{\text{op}}}% opposite category
 \newcommand{\Hom}{\mathbf{Hom}}
 \newcommand{\id}{\mathbf{id}}
+\newcommand{\Ho}[1]{\cat{Ho(#1)}}
 
 % Categories
 \newcommand{\Set}{\cat{Set}}			% sets
@@ -123,3 +124,10 @@
 
 % headings for a table
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+
+% simple way to center an image
+\newcommand{\cimage}[2][]{
+	\begin{center}
+	\includegraphics[#1]{#2}
+	\end{center}
+}
