@@ -24,9 +24,6 @@
 % Matrices have a upper bound for its size
 \setcounter{MaxMatrixCols}{20}
 
-% Remove trailing `contents` after toc
-\renewcommand{\contentsname}{}
-
 % for the fib arrow
 \usepackage{amssymb}
 
@@ -51,7 +48,7 @@
 % Categories
 \newcommand{\Set}{\cat{Set}}			% sets
 \newcommand{\Top}{\cat{Top}}			% topological spaces
-\newcommand{\DELTA}{\cat{\Delta}}		% the simplicial cat
+\newcommand{\DELTA}{\boldsymbol{\Delta}}% the simplicial cat
 \newcommand{\simplicial}[1]{\cat{s{#1}}}% simplicial objects
 \newcommand{\sSet}{\simplicial{\Set}}	% simplicial sets
 \newcommand{\Mod}[1]{\cat{{#1}Mod}}		% modules over a ring

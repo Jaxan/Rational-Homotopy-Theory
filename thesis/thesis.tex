@@ -9,7 +9,13 @@
 \begin{document}
 
 \maketitle
+\begin{center}
+	{\bf \today}
+\end{center}
+
+\vspace{2cm}
 \tableofcontents
+\vspace{2cm}
 
 Some general notation: \todo{leave this out, or define somewhere else?}
 \begin{itemize}
@@ -17,9 +23,7 @@ Some general notation: \todo{leave this out, or define somewhere else?}
 	\item $\Hom_\cat{C}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$.
 \end{itemize}
 
-\vspace{1cm}
-
-\newcommand{\myinput}[1]{\input{#1} \vspace{2cm}}
+\newcommand{\myinput}[1]{\include{#1}}
 
 \myinput{notes/Algebra}
 \myinput{notes/Free_CDGA}
