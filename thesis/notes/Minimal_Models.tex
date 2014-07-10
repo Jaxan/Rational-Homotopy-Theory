@@ -1,0 +1,113 @@
+
+\section{Minimal models}
+
+In this section we will discuss the so called minimal models. These are cdga's with the property that a quasi isomorphism between them is an actual isomorphism.
+
+\begin{definition}
+	An cdga $(A, d)$ is a \emph{Sullivan algebra} if
+	\begin{itemize}
+		\item $(A, d)$ is quasi-free (or semi-free), i.e. $A = \Lambda V$ is free as a cdga, and
+		\item $V$ has a filtration $V(0) \subset V(1) \subset \cdots \subset \bigcup{k \in \N} V(k) = V$ such that $d(V(k)) \subset \Lambda V(k-1)$.
+	\end{itemize}
+
+	An cdga $(A, d)$ is a \emph{minimal (Sullivan) algebra} if in addition
+	\begin{itemize}
+		\item $d$ is decomposable, i.e. $\im(d) \subset \Lambda^{\geq 2}V$.
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Let $(A, d)$ be any cdga. A \emph{(minimal) Sullivan model} is a (minimal) Sullivan algebra $(M, d)$ with a weak equivalence:
+	$$ (M, d) \we (A, d). $$
+\end{definition}
+
+The requirement that there exists a filtration can be replaced by a stronger statement.
+
+\begin{lemma}
+	Let $(A, d)$ be a cdga which is $1$-reduced, quasi-free and with a decomposable differential. Then $(A, d)$ is a minimal algebra.
+\end{lemma}
+\begin{proof}
+	Take $V(n) = \bigoplus_{k=0}^n V^k$ (note that $V^0 = v^1 = 0$). Since $d$ is decomposable we see that for $v \in V^n$: $d(v) = x \cdot y$ for some $x, y \in A$. Assuming $dv$ to be non-zero we can compute the degrees:
+	$$ \deg{x} + \deg{y} = \deg{xy} = \deg{dv} = \deg{v} + 1 = n + 1. $$
+	As $A$ is $1$-reduced we have $\deg{x}, \deg{y} \geq 2$ and so by the above $\deg{x}, \deg{y} \leq n-1$. Conclude that $d(V(k)) \subset \Lambda(V(n-1))$.
+\end{proof}
+
+
+\subsection{Existence}
+
+\begin{theorem}
+	Let $(A, d)$ be an $1$-connected cdga, then it has a minimal model.
+\end{theorem}
+\begin{proof}
+	We will construct a sequence of models $m_k: (M(k), d) \to (A, d)$ inductively.
+	\begin{itemize}
+		\item First define $V(0) = V(1) = 0$ and $m_0 = m_1 = 0$. Then set $V(2) = H^2(A)$ and define a map $m_2: V(2) \to A$ by picking representatives.
+		\item Suppose $m_k: (\Lambda V(k), d) \to (A, d)$ is constructed. Choose cocycles $a_\alpha \in A^{k+1}$ and $z_\beta \in (\Lambda V(k))^{k+2}$ such that $H^{k+1}(A) = \im(H^{k+1}(m_k)) \oplus \bigoplus_\alpha \k \cdot [a_\alpha]$ (so $m_k$ together with $a_\alpha$ span $H^{k+1}(A)$) and $\ker(H^{k+2}(m_k)) = \bigoplus_\beta \k \cdot [z_\beta]$. Note that $m_k z_\beta = db_\beta$ for some $b_\beta \in A$.
+
+		Define $V(k+1) = \bigoplus_\alpha \k \cdot v'_\alpha \oplus \bigoplus \k \cdot v''_\beta$ and set $dv'_\alpha = 0$, $dv''_\beta = z_\beta$, $m_k(v'_\alpha) = a_\alpha$ and $m_k(v''_\beta) = b_\beta$.
+	\end{itemize}
+	This ends the construction. We will prove the following assertion for $k \geq 2$:
+	$$ H^i(m_k) \text{ is } \begin{cases}
+		\text{an isomorphism} &\text{ if } i \leq k \\
+		\text{injective}      &\text{ if } i = k + 1
+	\end{cases}. $$
+	\TODO{Finish proof: $m_k$ well behaved, above assertion.}
+\end{proof}
+
+
+\subsection{Uniqueness}
+
+Before we state the uniqueness theorem we need some more properties of minimal models.
+
+\begin{lemma}
+	Sullivan algebras are cofibrant.
+\end{lemma}
+\begin{proof}
+	Consider the following lifting problem, where $\Lambda V$ is a Sullivan algebra.
+
+	\cimage[scale=0.5]{Sullivan_Lifting}
+
+	By the left adjointness of $\Lambda$ we only have to specify a map $\phi: V \to X$ sucht that $p \circ \phi = g$. We will do this by induction.
+	\begin{itemize}
+		\item Suppose $\{v_\alpha\}$ is a basis for $V(0)$. Define $V(0) \to X$ by choosing preimages $x_\alpha$ such that $p(x_\alpha) = g(v_\alpha)$ ($p$ is surjective). Define $\phi(v_\alpha) = x_\alpha$.
+		\item Suppose $\phi$ has been defined on $V(n)$. Write $V(n+1) = V(n) \oplus V'$ and let $\{v_\alpha\}$ be a basis for $V'$. Then $dv_\alpha \in \Lambda V(n)$, hence $\phi(dv_\alpha)$ is defined and
+		$$ d \phi d v_\alpha = \phi d^2 v_\alpha = 0 $$
+		$$ p \phi d v_\alpha = g d v_\alpha = d g v_\alpha. $$
+		Now $\phi d v_\alpha$ is a cycle and $p \phi d v_\alpha$ is a boundary of $g v_\alpha$. By the following lemma there is a $x_\alpha \in X$ such that $d x_\alpha = \phi d v_\alpha$ and $p x_\alpha = g v_\alpha$. The former property proves that $\phi$ is a chain map, the latter proves the needed commutativity $p \circ \phi = g$.
+	\end{itemize}
+\end{proof}
+
+\begin{lemma}
+	Let $p: X \to Y$ be a trivial fibration, $x \in X$ a cycle, $p(x) \in Y$ a boundary of $y' \in Y$. Then there is a $x' \in X$ such that
+	$$ dx' = x \quad\text{ and }\quad px' = y'. $$
+\end{lemma}
+\begin{proof}
+	We have $p^\ast [x] = [px] = 0$, since $p^\ast$ is injective we have $x = d \overline{x}$ for some $\overline{x} \in X$. Now $p \overline{x} = y' + db$ for some $b \in Y$. Choose $a \in X$ with $p a = b$, then define $x' = \overline{x} - da$. Now check the requirements: $p x' = p \overline{x} - p a = y'$ and $d x' = d \overline{x} - d d a = d \overline{x} = x$.
+\end{proof}
+
+\begin{lemma}
+	Let $f: X \we Y$ be a weak equivalence between cdga's and $M$ a minimal model for $X$. Then $f$ induces an bijection:
+	$$ f_\ast: [M, X] \tot{\iso} [M, Y]. $$
+\end{lemma}
+\begin{proof}
+	If $f$ is surjective this follows from the fact that $M$ is cofibrant and $f$ being a trivial fibration (see \cite[lemma 4.9]{dwyer}).
+
+	In general we can construct a cdga $Z$ and trivial fibrations $X \to Z$ and $Y \to Z$ inducing bijections:
+	$$ [M, X] \tot{\iso} [M, Z] \toti{\iso} [M, Y], $$
+	compatible with $f_\ast$. \cite[Proposition 12.9]{felix}.
+\end{proof}
+
+\begin{lemma}
+	Let $\phi: (M, d) \we (M', d')$ be a weak equivalence between minimal algebras. Then $\phi$ is an isomorphism.
+\end{lemma}
+\begin{proof}
+	Let $M$ and $M'$ be generated by $V$ and $V'$. Then $\phi$ induces a weak equivalence on the linear part $\phi_0: V \we V'$ \cite[Theorem 1.5.10]{loday}. Since the differentials are decomposable, their linear part vanishes. So we see that $\phi_0: (V, 0) \tot{\iso} (V', 0)$ is an isomorphism.
+	Conclude that $\phi = \Lambda \phi_0$ is an isomorphism.
+\end{proof}
+
+\begin{theorem}
+	Let $m: (M, d) \we (A, d)$ and $m': (M', d') \we (A, d)$ be two minimal models. Then there is an isomorphism $\phi (M, d) \tot{\iso} (M', d')$ such that $m' \circ \phi \eq m$.
+\end{theorem}
+\begin{proof}
+	By the previous lemmas we have $[M', M] \iso [M', A]$. By going from right to elft we get a map $\phi: M' \to M$ such that $m' \circ \phi \eq m$. On homology we get $H(m') \circ H(\phi) = H(m)$, proving that (2-out-of-3) $\phi$ is a weak equivalence. The previous lemma states that $\phi$ is then an isomorphism.
+\end{proof}

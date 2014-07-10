@@ -82,6 +82,7 @@ Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i =
 
 \todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary cdga's.}
 
+
 \subsection{Homology}
 
 Whenever we have a differential graded module we have $d \circ d = 0$, or put in other words: the image of $d$ is a submodule of the kernel of $d$. The quotient of the two graded modules will be of interest.
@@ -107,10 +108,32 @@ For differential graded algebras we can consider the (co)homology by forgetting 
 
 Note that taking homology of a differential graded module (or algebra) is functorial. Whenever a map $f: M \to N$ of differential graded modules (or algebras) induces an isomorphism on homology, we say that $f$ is a \emph{quasi isomorphism}.
 
+\begin{definition}
+	Let $M$ be a graded module. We say that $M$ is $n$-reduced if $M_i = 0$ for all $i \leq n$. Similarly we say that a graded algebra $A$ is $n$-reduced if $A_i = 0$ for all $1 \leq i \leq n$ and $\eta: \k \tot{\iso} A_0$.
+
+	Let $(M, d)$ be a chain complex (or algebra). We say that $M$ is $n$-connected if $H(M)$ is $n$-reduced as graded module (resp. algebra). Similarly for cochain complexes.
+\end{definition}
+
+
+\subsection{Classical results}
+
+We will give some classical known results of algebraic topology or homological algebra. Proofs of these theorems can be found in many places. \todo{cite at least 1 place}
+
+\begin{theorem}
+	(Universal coefficient theorem) Let $C$ be a chain complex and $A$ an abelian group, then there are natural short exact sequences for each $n$:
+	$$ 0 \to H_n(C) \tensor A \to H_n(C \tensor A) \to Tor(H_{n-1}(C), A) \to 0 $$
+	$$ 0 \to Ext(H_{n-1}(C), A) \to H^n(\Hom(C, A)) \to \Hom(H_n(C), A) \to 0 $$
+\end{theorem}
+
+The first statement generalizes to a theorem where $A$ is a chain complex itself. When choosing to work over a field the torsion will vanish and the exactness will induce an isomorphism. This is (one formulation of) the Künneth theorem.
+
+\begin{theorem}
+	(Künneth) Assume that $\k$ is a field and let $C$ and $D$ be (co)chain complexes, then there is a natural isomorphism (a linear graded map of degree $0$):
+	$$ H(C) \tensor H(D) \tot{\iso} H(C \tensor D), $$
+	where we understand both tensors as graded.
+\end{theorem}
+
 \TODO{Discuss:
-\titem The Künneth theorem (especially in the case of fields)
-\titem The tensor algebra $T : Ch^\ast(\Q) \to \DGA_\Q$ and free cdga $\Lambda : Ch^\ast(\Q) \to \CDGA_\Q$
 \titem Coalgebras and Hopf algebras?
-\titem Define reduced/connected differential graded things
 \titem Singular (co)homology as a quick example?
 }
