@@ -1,0 +1,89 @@
+
+\section{Rational homotopy theory}
+\label{sec:rational}
+
+In this section we will state the aim of rational homotopy theory. Moreover we will recall classical theorems from algebraic topology and deduce rational versions of them.
+
+In the following definition \emph{space} is to be understood as a topological space or a simplicial set. We will restrict to simply connected spaces.
+
+\Definition{rational-space}{
+	A space $X$ is a \emph{rational space} if
+	$$ \pi_i(X) \text{ is a $\Q$-vectorspace } \quad\forall i > 0. $$
+}
+
+\Definition{rational-homotopy-groups}{
+	We define the \emph{rational homotopy groups} of a space $X$ as:
+	$$ \pi_i(X) \tensor \Q \quad \forall i > 0.$$
+}
+
+Note that for a rational space $X$, the homotopy groups are isomorphic to the rational homotopy groups, i.e. $\pi_i(X) \tensor \Q \iso \pi_i(X)$.
+
+\Definition{rational-homotopy-equivalence}{
+	A map $f: X \to Y$ is a \emph{rational homotopy equivalence} if $\pi_i(f) \tensor \Q$ is a linear isomorphism for all $i > 0$.
+}
+
+\Definition{rationalization}{
+	A map $f: X \to X_0$ is a \emph{rationalization} if $X_0$ is rational and $f$ is a rational homotopy equivalence.
+}
+
+Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence iff $f$ is a weak equivalence.
+
+We will later see that any space admits a rationalization. The theory of rational homotopy theory is then the study of the homotopy category $\Ho_\Q(\Top) \iso \Ho(\Top_\Q)$, which is on its own turn equivalent to $\Ho(\sSet_\Q) \iso \Ho_\Q(\sSet)$.
+
+\subsection{Classical results from algebraic topology}
+
+We will now recall known results from algebraic topology, without proof. One can find many of these results in basic text books, such as [May, Dold, ...]. Note that all spaces are assumed to be $1$-connected.
+
+\Theorem{relative-hurewicz}{
+	(Relative Hurewicz) For any inclusion of spaces $A \subset X$ and all $i > 0$, there is a natural map
+	$$ h_i : \pi_i(X, A) \to H_i(X, A). $$
+	If furhtermore $(X,A)$ is $n$-connected, then the map $h_i$ is an isomorphism for all $i \leq n + 1$
+}
+
+\Theorem{serre-les}{
+	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence:
+	$$ \cdots \tot{\del} \pi_i(F) \tot{i_\ast} \pi_i(X) \tot{f_\ast} \pi_i(Y) \tot{\del} \cdots \to \pi_0(Y) \to \ast, $$
+	where $F$ is the fibre of $f$.
+}
+
+Using an inductive argument and the previous two theorems, one can show the following theorem (as for example shown in \cite{griffith}).
+\Theorem{whitehead-homology}{
+	(Whitehead) For any map $f: X \to Y$ we have
+	$$ \pi_i(f) \text{ is an isomorphism } \forall 0 < i < r \iff H_i(f) \text{ is an isomorphism } \forall 0 < i < r. $$
+	In particular we see that $f$ is a weak equivalence iff it induces an isomorphism on homology.
+}
+
+The following two theorems can be found in textbooks about homological algebra, such as [Weibel].
+\Theorem{universal-coefficient}{
+	(Universal Coefficient Theorem)
+	For any space $X$ and abelian group $A$, there are natural short exact sequcenes
+	$$ 0 \to H_n(X) \tensor A \to H_n(X; A) \to \Tor(H_{n-1}(X), A) \to 0, $$
+	$$ 0 \to \Ext(H_{n-1}(X), A) \to H^n(X; A) \to \Hom(H_n(X), A) \to 0. $$
+}
+
+\Theorem{kunneth}{
+	(Künneth Theorem)
+	For spaces $X$ and $Y$, there is a short exact sequence
+	$$ 0 \to H(X; A) \tensor H(Y; A) \to H(X \times Y; A) \to \Tor(H(X; A), H(Y; A)) \to 0, $$
+	where $H(X; A)$ and $H(X; A)$ are considered as graded modules and their tensor product and torsion groups are graded.
+}
+
+\subsection{Immediate results for rational homotopy theory}
+
+The latter two theorems have a direct consequence for rational homotopy theory. By taking $A = \Q$ we see that the torsion groups vanish. We have the immediate corollary.
+
+\Corollary{rational-corollaries}{
+	We have the following natural isomorphisms
+	$$ H(X) \tensor \Q \tot{\iso} H(X; \Q), $$
+	$$ H^n(X; \Q) \tot{\iso} \Hom(H(X); \Q), $$
+	$$ H(X \times Y) \tot{\iso} H(X) \tensor H(Y). $$
+}
+
+The long exact sequence for a Serre fibration also has a direct consequence for rational homotopy theory.
+\Corollary{rational-les}{
+	Let $f: X \to Y$ be a Serre fibration, then there is a natural long exact sequence of rational homotopy groups:
+	$$ \cdots \tot{\del} \pi_i(F) \tensor \Q \tot{i_\ast} \pi_i(X) \tensor \Q \tot{f_\ast} \pi_i(Y) \tensor \Q \tot{\del} \cdots, $$
+}
+
+In the next sections we will prove the rational Hurewicz and rational Whitehead theorems. These theorems are due to Serre [Serre].
+

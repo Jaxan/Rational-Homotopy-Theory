@@ -1,0 +1,39 @@
+
+\section{Serre theorems mod $C$}
+
+In this section we will prove the Whitehead and Hurewicz theorems in a rational context. Serre proved these results in [Serre]. In his paper he considered homology groups `modulo a class of abelian groups'. In our case of rational homotopy theory, this class will be the class of torsion groups.
+
+\Lemma{whitehead-decomposition}{
+	(Whitehead Decomposition)
+	For a space X, we have a decomposition in fibrations:
+	$$ \cdots \fib X(n+1) \fib X(n) \fib X(n) \fib \cdots \fib X(1) = X, $$
+	such that:
+	\begin{itemize}
+		\item $K(\pi_n(X), n-1) \cof X(n+1) \fib X(n)$ is a fiber sequence,
+		\item  There is a space $X'_n$ weakly equivelent to $X(n)$ such that $X(n+1) \ cof X'_n \fib K(\pi_n(X), n)$ is a fiber sequence, and
+		\item  $\pi_i(X(n)) = 0$ for all $i < n$ and $\pi_i(X(n)) \iso \pi_i(X)$ for all $i \leq n$.
+	\end{itemize}
+}
+
+\Theorem{absolute-serre-hurewicz}{
+	(Absolute Serre-Hurewicz Theorem)
+	Let $C$ be a Serre-class of abelian groups. Let $X$ a $1$-connected space.
+	If $\pi_i(X) \in C$ for all $i<n$, then $H_i(X) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X) \to H_i(X)$ is a $C$-isomorphism for all $i \leq n$.
+}
+
+\Theorem{relative-serre-hurewicz}{
+	(Relative Serre-Hurewicz Theorem)
+	Let $C$ be a Serre-class of abelian groups. Let $A \subset X$ be $1$-connected spaces ($A \neq \emptyset$).
+	If $\pi_i(X, A) \in C$ for all $i<n$, then $H_i(X, A) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X, A) \to H_i(X, A)$ is a $C$-isomorphism for all $i \leq n$.
+}
+
+\Theorem{serre-whitehead}{
+	(Serre-Whitehead Theorem)
+	Let $C$ be a Serre-class of abelian groups. Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
+	Then $\pi_i(f)$ is a $C$-iso for all $i<n$ $\iff$ $H_i(f)$ is a $C$-iso for all $i<n$.
+}
+
+\Corollary{serre-whitehead}{
+	Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
+	Then $f$ is a rational equivalence $\iff$ $H_i(f; \Q)$ is an isomorphism for all $i$.
+}

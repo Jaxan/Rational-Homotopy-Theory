@@ -43,7 +43,7 @@
 \newcommand{\opCat}[1]{{#1}^{\text{op}}}% opposite category
 \newcommand{\Hom}{\mathbf{Hom}}
 \newcommand{\id}{\mathbf{id}}
-\newcommand{\Ho}[1]{\cat{Ho(#1)}}
+\newcommand{\Ho}{\cat{Ho}}
 
 % Categories
 \newcommand{\Set}{\cat{Set}}			% sets
@@ -79,6 +79,8 @@
 \newcommand{\mapstot}[1]{\xmapsto{\,\,{#1}\,\,}}	% mapsto with name
 \DeclareMathOperator*{\im}{im}
 \DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tor}{Tor}
+\DeclareMathOperator*{\Ext}{Ext}
 \DeclareMathOperator*{\tensor}{\otimes}
 \DeclareMathOperator*{\bigtensor}{\bigotimes}
 \renewcommand{\deg}[1]{{|{#1}|}}
@@ -123,6 +125,22 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{example}[theorem]{Example}
+
+\newcommand{\EnvTemp}[4]{
+	\begin{#1}\label{{#2}:{#3}}
+		{#4}
+	\end{#1}
+}
+
+\newcommand{\Theorem}{\EnvTemp{theorem}{thm}}
+\newcommand{\Proposition}{\EnvTemp{proposition}{prop}}
+\newcommand{\Lemma}{\EnvTemp{lemma}{lem}}
+\newcommand{\Corollary}{\EnvTemp{corollary}{cor}}
+\newcommand{\Claim}{\EnvTemp{claim}{clm}}
+
+\newcommand{\Definition}{\EnvTemp{definition}{def}}
+\newcommand{\Notation}{\EnvTemp{notation}{not}}
+\newcommand{\Example}{\EnvTemp{example}{eg}}
 
 % headings for a table
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
