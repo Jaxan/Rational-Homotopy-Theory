@@ -3,34 +3,114 @@
 
 In this section we will prove the Whitehead and Hurewicz theorems in a rational context. Serre proved these results in [Serre]. In his paper he considered homology groups `modulo a class of abelian groups'. In our case of rational homotopy theory, this class will be the class of torsion groups.
 
-\Lemma{whitehead-decomposition}{
-	(Whitehead Decomposition)
+\Lemma{whitehead-tower}{
+	(Whitehead tower)
 	For a space X, we have a decomposition in fibrations:
 	$$ \cdots \fib X(n+1) \fib X(n) \fib X(n) \fib \cdots \fib X(1) = X, $$
 	such that:
 	\begin{itemize}
 		\item $K(\pi_n(X), n-1) \cof X(n+1) \fib X(n)$ is a fiber sequence,
 		\item  There is a space $X'_n$ weakly equivelent to $X(n)$ such that $X(n+1) \ cof X'_n \fib K(\pi_n(X), n)$ is a fiber sequence, and
-		\item  $\pi_i(X(n)) = 0$ for all $i < n$ and $\pi_i(X(n)) \iso \pi_i(X)$ for all $i \leq n$.
+		\item  $X(n)$ is $(n-1)$-connected and $\pi_i(X(n)) \iso \pi_i(X)$ for all $i \geq n$.
 	\end{itemize}
 }
 
+\renewcommand{\C}{\mathcal{C}}
+\Definition{serre-class}{
+	A class $\C \subset \Ab$ is a \Def{Serre class} if
+	\begin{itemize}
+		\item for all exact sequences $0 \to A \to B \to C \to 0$ with $A$ and $C$ in $\C$, $B$ also belongs to $\C$,
+		\item $\C$ is closed under taking direct sums (both finite and infinite).
+	\end{itemize}
+}
+
+Serre gave weaker axioms for his classes and proves the following lemmas only using these weaker axioms. However the classes we are interested in do satisfy the above (stronger) requirements. One should think of such Serre class as a class of groups we want to \emph{invert}. We will be interested in the first two of the following examples.
+
+\Example{serre-classes}{
+	We give three Serre classes without proof.
+	\begin{itemize}
+		\item The class $\C = \{ 0 \}$. With this class the following Hurewicz and Whitehead theorem will simply be the classical statements.
+		\item The class $\C$ of all torsion group. Using this class we can prove the rational version of the Hurewicz and Whitehead theorems.
+		\item Let $P$ be a set of primes, then define a class $\C$ of torsion groups for which all $p$-subgroups are trivial for all $p \in P$. This can be used to \emph{localize} at $P$.
+	\end{itemize}
+}
+
+\Definition{serre-class-maps}{
+	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is
+	\begin{itemize}
+		\item \Def{$\C$-injection} if $\ker(f) \in \C$,
+		\item \Def{$\C$-surjection} if $\coker(f) \in \C$, and
+		\item \Def{$\C$-iso} if it is both a $\C$-injection and $\C$-surjection.
+	\end{itemize}
+}
+
+Note that the map $0 \to C$ is a $\C$-iso for any $C \in \C$. \todo{Add some stuff about tensors}\todo{Five lemma mod $\C$}
+
+\Lemma{serre-class-rational-iso}{
+	Let $\C$ be the Serre class of all torsion groups. Then
+	$f$ is a $\C$-iso $\iff$ $f \tensor \Q$ is an isomorphism.
+}
+\Proof{
+	First note that if $C \in \C$ then $C \tensor \Q = 0$.
+
+	Then consider the exact sequence
+	$$ 0 \to \ker(f) \to A \tot{f} B \to \coker(f) \to 0 $$
+	and tensor this sequence with $\Q$. In this tensored sequence the kernel and cokernel vanish if and only if $f \tensor \Q$ is an isomorphism.
+}
+
+The following lemma is usually proven with spectral sequences \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more elementary proof using cellular homology.
+
+\Lemma{kreck}{
+	Let $\C$ be a Serre class. Let $p: E \fib B$ be a fibration between $1$-connected spaces and $F$ its fibre. If $\RH_i(F) \in \C$ for all $i < n$, then
+	\begin{itemize}
+		\item $H_i(E, F) \to H_i(B, b_0)$ is a $\C$-iso for $i \leq n+1$ and
+		\item $H_i(E) \to H_i(B)$ is a $\C$-iso forall $i \leq n$.
+	\end{itemize}
+}
+\Proof{
+	We will assume $B$ is a CW complex and prove this by induction on its skeleton $B^k$. By connectedness we can assume $B^0 = \{ b_0 \}$. Restrict $E$ to $E^k$ and note $E^0 = F$. Now the base case is clear: $H_i(E^0, F) \to H_i(B^0, b_0)$ is a $\C$-iso.
+
+	For the induction step, consider the long exact sequence in homology for the triples $(E^{k+1}, E^k, F)$ and $(B^{k+1}, B^k, b_0)$:
+
+	\cimage[scale=0.5]{Kreck_Exact_Sequence}
+
+	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
+}
+
+
 \Theorem{absolute-serre-hurewicz}{
 	(Absolute Serre-Hurewicz Theorem)
-	Let $C$ be a Serre-class of abelian groups. Let $X$ a $1$-connected space.
-	If $\pi_i(X) \in C$ for all $i<n$, then $H_i(X) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X) \to H_i(X)$ is a $C$-isomorphism for all $i \leq n$.
+	Let $\C$ be a Serre class of abelian groups. Let $X$ a $1$-connected space.
+	If $\pi_i(X) \in C$ for all $i<n$, then $H_i(X) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X) \to H_i(X)$ is a $\C$-isomorphism for all $i \leq n$.
+}
+\Proof{
+	We will prove the lemma by induction on $n$. Note that the base case follows from the $1$-connectedness.
+	For the induction step assume that $H_i(X) \in \C$ for all $i<n-1$ and that $h_{n-1}: \pi_{n-1}(X) \to H_{n-1}(X)$ is a $\C$-iso. Now given is that $\pi_{n-1}(X) \in \C$ and hence $H_{n-1}(X) \in \C$.
+
+	It remains to show that $h_n$ is a $\C$-iso. Use the Whitehead tower from \LemmaRef{whitehead-decomposition} to obtain $\cdots \fib X(3) \fib X(2) = X$. Note that each $X(j)$ is also $1$-connected and that $X(2) = X(1) = X$.
+
+	\Claim{}{For all $j < n$ and $i \leq n$ the induced map $H_i(X(j+1)) \to H_i(X(j))$ is a $\C$-iso.}
+	Note that $X(j+1) \fib X(j)$ is a fibration with $F = K(\pi_j(X), j-1)$ as its fibre. So by \LemmaRef{group-homology} we know $H_i(F) \in \C$ for all $i > 0$. Apply \LemmaRef{kreck} to obtain a $\C$-iso $H_i(X(j+1)) \to H_i(X(j))$ for all $j < n$ and all $i > 0$. This proves the claim.
+
+	Considering this claim for all $j < n$ gives a chain of $\C$-isos $H_i(X(n)) \to H_i(X(n-1)) \to \cdot \to H_i(X(2)) \iso H_i(X)$ for all $i \leq n$. Consider the following diagram:
+
+	\cimage[scale=0.5]{Serre_Hurewicz_Square}
+
+	where the map on the top is an isomorphism by the classical Hurewicz theorem (and $X(n)$ is $(n-1)$-connected), the map on the left is an isomorphism by the Whitehead tower and the map on the right is a $\C$-iso by the claim.
+
+	It follows that the bottom map is a $\C$-iso.
 }
 
 \Theorem{relative-serre-hurewicz}{
 	(Relative Serre-Hurewicz Theorem)
-	Let $C$ be a Serre-class of abelian groups. Let $A \subset X$ be $1$-connected spaces ($A \neq \emptyset$).
-	If $\pi_i(X, A) \in C$ for all $i<n$, then $H_i(X, A) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X, A) \to H_i(X, A)$ is a $C$-isomorphism for all $i \leq n$.
+	Let $\C$ be a Serre class of abelian groups. Let $A \subset X$ be $1$-connected spaces ($A \neq \emptyset$).
+	If $\pi_i(X, A) \in \C$ for all $i<n$, then $H_i(X, A) \in \C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X, A) \to H_i(X, A)$ is a $\C$-isomorphism for all $i \leq n$.
 }
 
 \Theorem{serre-whitehead}{
 	(Serre-Whitehead Theorem)
-	Let $C$ be a Serre-class of abelian groups. Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
-	Then $\pi_i(f)$ is a $C$-iso for all $i<n$ $\iff$ $H_i(f)$ is a $C$-iso for all $i<n$.
+	Let $\C$ be a Serre class of abelian groups. Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
+	Then $\pi_i(f)$ is a $C$-iso for all $i<n$ $\iff$ $H_i(f)$ is a $\C$-iso for all $i<n$.
 }
 
 \Corollary{serre-whitehead}{

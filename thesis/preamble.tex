@@ -48,6 +48,7 @@
 % Categories
 \newcommand{\Set}{\cat{Set}}			% sets
 \newcommand{\Top}{\cat{Top}}			% topological spaces
+\newcommand{\Ab}{\cat{Ab}}				% abelian groups
 \newcommand{\DELTA}{\boldsymbol{\Delta}}% the simplicial cat
 \newcommand{\simplicial}[1]{\cat{s{#1}}}% simplicial objects
 \newcommand{\sSet}{\simplicial{\Set}}	% simplicial sets
@@ -78,6 +79,7 @@
 \newcommand{\toti}[1]{\xleftarrow{\,\,{#1}\,\,}}	% left arrow with name
 \newcommand{\mapstot}[1]{\xmapsto{\,\,{#1}\,\,}}	% mapsto with name
 \DeclareMathOperator*{\im}{im}
+\DeclareMathOperator*{\coker}{coker}
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator*{\Tor}{Tor}
 \DeclareMathOperator*{\Ext}{Ext}
@@ -85,6 +87,7 @@
 \DeclareMathOperator*{\bigtensor}{\bigotimes}
 \renewcommand{\deg}[1]{{|{#1}|}}
 \newcommand{\Char}[1]{char({#1})}
+\newcommand{\RH}{\widetilde{H}}			% reduced homology
 
 % restriction of a function
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
@@ -137,10 +140,14 @@
 \newcommand{\Lemma}{\EnvTemp{lemma}{lem}}
 \newcommand{\Corollary}{\EnvTemp{corollary}{cor}}
 \newcommand{\Claim}{\EnvTemp{claim}{clm}}
+\newcommand{\Proof}[1]{\begin{proof}{#1}\end{proof}}
 
+\newcommand{\Def}{\emph}
 \newcommand{\Definition}{\EnvTemp{definition}{def}}
 \newcommand{\Notation}{\EnvTemp{notation}{not}}
 \newcommand{\Example}{\EnvTemp{example}{eg}}
+
+\newcommand{\LemmaRef}[1]{Lemma~\ref{lem:{#1}}}
 
 % headings for a table
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
