@@ -94,6 +94,35 @@ Note that axiom [MC5a] allows us to replace any object $X$ with a weakly equival
 \titem Small object argument
 }
 
+\Example{top-model-structure}{
+	The category $\Top$ of topological spaces admits a model structure as follows.
+	\begin{itemize}
+		\item Weak equivalences: maps inducing isomorphisms on all homotopy groups.
+		\item Fibrations: Serre fibrations, i.e. maps with the right lifting property with respect to the inclusions $D^n \cof D^n \times I$.
+		\item Cofibrations: maps $S^{n-1} \cof D^n$ and transfinite compositions of pushouts and coproducts thereof.
+	\end{itemize}
+}
+
+\Example{sset-model-structure}{
+	The category $\sSet$ of simplicial sets has the following model structure.
+	\begin{itemize}
+		\item Weak equivalences: 
+		\item Fibrations: Kan fibrations, i.e. maps with the right lifting property with respect to the inclusions $\Lambda_n^k \cof \Delta[n]$.
+		\item Cofibrations: all monomorphisms.
+	\end{itemize}
+}
+
+In this thesis we often restrict to $1$-connected spaces. The full subcategory $\Top_1$ of $1$-connected spaces satisfies MC2-MC5: the 2-out-of-3 property, retract property and lifting properties hold as we take the \emph{full} subcategory, factorizations exist as the middle space is $1$-connected as well. However $\Top_1$ does not have all limits and colimits.
+
+\Lemma{topr-no-colimit}{
+	Let $r > 0$ and $\Top_r$ be the full subcategory of $r$-connected spaces. The diagrams
+
+	\cimage[scale=0.5]{Topr_No_Coequalizer}
+	\cimage[scale=0.5]{Topr_No_Equalizer}
+
+	have no coequalizer and respectively no equalizer in $\Top_r$.
+}
+
 \todo{Define homotopy category}
 
 \subsection{Quillen pairs}
