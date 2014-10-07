@@ -29,10 +29,10 @@ $$ s_i(x_j) = \begin{cases}
 
 One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace of homogeneous elements of degree $k$ as $\Apl^k \in \simplicial{\Mod{\k}}$, this is indeed a simplicial $\k$-module as the maps $d_i$ and $s_i$ are graded maps of degree $0$.
 
-\begin{lemma}
+\Lemma{apl-contracible}{
 	$\Apl^k$ is contractible.
-\end{lemma}
-\begin{proof}
+}
+\Proof{
 	We will prove this by defining an extra degeneracy $s: \Apl_n \to \Apl_{n+1}$. Define for $i = 1, \ldots, n$:
 	\begin{align*}
 		s(1) &= (1-x_0)^2 \\
@@ -55,18 +55,29 @@ One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace
 	So $d_{i+1} s = s d_i$. Similarly $s_{i+1} s = s s_i$. And finally for $n=0$ we have $d_1 s = 0$.
 
 	So we have an extra degeneracy $s: \Apl^k \to \Apl^k$, and hence (see for example \cite{goerss}) we have that $\Apl^k$ is contractible. As a consequence $\Apl \to \ast$ is a weak equivalence.
-\end{proof}
+}
 
-\begin{lemma}
+\Lemma{apl-kan-complex}{
 	$\Apl_n^k$ is a Kan complex.
-\end{lemma}
-\begin{proof}
+}
+\Proof{
 	By the simple fact that $\Apl_n^k$ is a simplicial group, it is a Kan complex \cite{goerss}.
-\end{proof}
+}
 
-\begin{corollary}
+Combining these two lemmas gives us the following.
+\Corollary{apl-extendable}{
 	$\Apl^k \to \ast$ is a trivial fibration in the standard model structure on $\sSet$.
-\end{corollary}
+}
 
+Besides the simplicial structure of $\Apl$, there is also the structure of a cochain complex.
+\Lemma{apl-acyclic}{
+	$\Apl_n$ is acyclic, i.e. $H(\Apl_n) = \k \cdot [1]$.
+}
+\Proof{
+	This is clear foor $\Apl_0 = \k \cdot 1$. For $\Apl_1$ we see that $\Apl_1 = \Lambda(x_1, dx_1) \iso \Lambda D(0)$, which we proved to be acyclic in the previous section.
 
+	For general $n$ we can identify $\Apl_n \iso \bigtensor_{i=1}^n \Lambda(x_i, dx_i)$, because $\Lambda$ is left adjoint and hence preserves coproducts. By the Künneth theorem \TheoremRef{kunneth} we conclude $H(\Apl_n) \iso \bigtensor_{i=1}^n H \Lambda(x_i, dx_i) \iso \bigtensor_{i=1}^n H \Lambda D(0) \iso \k \cdot [1]$.
+
+	So indeed $\Apl_n$ is acyclic for all $n$.
+}
 

@@ -45,10 +45,27 @@ where the addition, multiplication and differential are defined pointwise. Concl
 
 \subsection{The singular cochain complex}
 
-Another way to model the $n$-simplex is by the singular cochain complex associated to the topological $n$-simplices. Define the following (non-commutative) dga's:
+Another way to model the $n$-simplex is by the singular cochain complex associated to the topological $n$-simplices. Define the following (non-commutative) dga's \todo{Choose: normalized or not?}:
 $$ C_n = C^\ast(\Delta^n; \k). $$
 The inclusion maps $d^i : \Delta^n \to \Delta^{n+1}$ and the maps $s^i: \Delta^n \to \Delta^{n-1}$ induce face and degeneracy maps on the dga's $C_n$, turning $C$ into a simplicial dga. Again we can extend this to functors by Kan extensions
 
 \cimage[scale=0.5]{C_Extension}
 
 where the left adjoint is precisely the functor $C^\ast$ as noted in \cite{felix}. We will relate $\Apl$ and $C$ in order to obtain a natural quasi isomorphism $A(X) \we C^\ast(X)$ for every $X \in \sSet$. Furthermore this map preserves multiplication on the homology algebras.
+
+
+\subsection{Integration and Stokes' theorem for polynomial forms}
+
+In this section we will prove that the singular cochain complex is quasi isomorphic to the cochain complex of polynomial forms. In order to do so we will define an integration map $\int_n : \Apl_n^n \to \k$, which will induce a map $\oint_n : \Apl_n \to C_n$. For the simplices $\Delta[n]$ we already showed the cohomology agrees by the acyclicity of $\Apl_n = A(\Delta[n])$ (\LemmaRef{apl-acyclic}).
+
+Let $v \in \Apl_n^n$, then we can always write it as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate analytically
+$$ \int_n v = \int_0^1 \int_0^{1-x_n} \dots \int_0^{1 - x_2 - \dots - x_n} p(x_1, \dots, x_n) dx_1 dx_2 \dots dx_n, $$
+which defines a well-defined linear map $\int_n : \Apl_n^n \to \k$. For general fields of characteristic zero we can define it formally on the generators of $\Apl_n^n$ (as vector space):
+$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n)!}. $$
+
+Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then $x$ induces a linear map $x^\ast: \Apl_n \to \Apl_k$. Let $v \in \Apl_n^k$, then $x^\ast(v) \in \Apl_k^k$, which we can integrate. Now define
+$$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
+Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
+
+Next we will show that $\oint_n$ is a chain map and taking $\oint = \{\oint_n\}_n$ gives a simplicial chain map.
+
