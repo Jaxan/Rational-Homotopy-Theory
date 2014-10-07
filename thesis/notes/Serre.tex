@@ -59,7 +59,7 @@ Note that the map $0 \to C$ is a $\C$-iso for any $C \in \C$. \todo{Add some stu
 	and tensor this sequence with $\Q$. In this tensored sequence the kernel and cokernel vanish if and only if $f \tensor \Q$ is an isomorphism.
 }
 
-The following lemma is usually proven with spectral sequences \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more elementary proof using cellular homology.
+In the following arguments we will consider fibrations and need to compute homology thereof. Unfortunately there is no long exact sequence for homology of a fibration, however the following lemma expresses something similar. It is usually proven with spectral sequences,  \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more elementary proof using cellular homology.
 
 \Lemma{kreck}{
 	Let $\C$ be a Serre class. Let $p: E \fib B$ be a fibration between $1$-connected spaces and $F$ its fibre. If $\RH_i(F) \in \C$ for all $i < n$, then
@@ -76,24 +76,37 @@ The following lemma is usually proven with spectral sequences \cite[Ch. 2 Thm 1]
 	\cimage[scale=0.5]{Kreck_Exact_Sequence}
 
 	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
+
+	\todo{finish proof}
+}
+
+\Lemma{homology-em-space}{
+	Let $\C$ be a Serre class and $C \in \C$. Then for all $n > 0$ and all $i$ we have $\RH_i(K(C, n)) \in \C$.
+}
+\Proof{
+	We prove this by induction on $n$. The base case $n = 1$ follows from group homology.
+
+	For the induction we can use the loop space and \LemmaRef{kreck}.
+
+	\todo{finish proof}
 }
 
 
 \Theorem{absolute-serre-hurewicz}{
 	(Absolute Serre-Hurewicz Theorem)
-	Let $\C$ be a Serre class of abelian groups. Let $X$ a $1$-connected space.
+	Let $\C$ be a Serre class. Let $X$ a $1$-connected space.
 	If $\pi_i(X) \in C$ for all $i<n$, then $H_i(X) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X) \to H_i(X)$ is a $\C$-isomorphism for all $i \leq n$.
 }
 \Proof{
 	We will prove the lemma by induction on $n$. Note that the base case follows from the $1$-connectedness.
 	For the induction step assume that $H_i(X) \in \C$ for all $i<n-1$ and that $h_{n-1}: \pi_{n-1}(X) \to H_{n-1}(X)$ is a $\C$-iso. Now given is that $\pi_{n-1}(X) \in \C$ and hence $H_{n-1}(X) \in \C$.
 
-	It remains to show that $h_n$ is a $\C$-iso. Use the Whitehead tower from \LemmaRef{whitehead-decomposition} to obtain $\cdots \fib X(3) \fib X(2) = X$. Note that each $X(j)$ is also $1$-connected and that $X(2) = X(1) = X$.
+	It remains to show that $h_n$ is a $\C$-iso. Use the Whitehead tower from \LemmaRef{whitehead-tower} to obtain $\cdots \fib X(3) \fib X(2) = X$. Note that each $X(j)$ is also $1$-connected and that $X(2) = X(1) = X$.
 
 	\Claim{}{For all $j < n$ and $i \leq n$ the induced map $H_i(X(j+1)) \to H_i(X(j))$ is a $\C$-iso.}
-	Note that $X(j+1) \fib X(j)$ is a fibration with $F = K(\pi_j(X), j-1)$ as its fibre. So by \LemmaRef{group-homology} we know $H_i(F) \in \C$ for all $i > 0$. Apply \LemmaRef{kreck} to obtain a $\C$-iso $H_i(X(j+1)) \to H_i(X(j))$ for all $j < n$ and all $i > 0$. This proves the claim.
+	Note that $X(j+1) \fib X(j)$ is a fibration with $F = K(\pi_j(X), j-1)$ as its fibre. So by \LemmaRef{homology-em-space} we know $H_i(F) \in \C$ for all $i$. Apply \LemmaRef{kreck} to obtain a $\C$-iso $H_i(X(j+1)) \to H_i(X(j))$ for all $j < n$ and all $i > 0$. This proves the claim.
 
-	Considering this claim for all $j < n$ gives a chain of $\C$-isos $H_i(X(n)) \to H_i(X(n-1)) \to \cdot \to H_i(X(2)) \iso H_i(X)$ for all $i \leq n$. Consider the following diagram:
+	Considering this claim for all $j < n$ gives a chain of $\C$-isos $H_i(X(n)) \to H_i(X(n-1)) \to \cdot \to H_i(X(2)) = H_i(X)$ for all $i \leq n$. Consider the following diagram:
 
 	\cimage[scale=0.5]{Serre_Hurewicz_Square}
 
@@ -104,14 +117,33 @@ The following lemma is usually proven with spectral sequences \cite[Ch. 2 Thm 1]
 
 \Theorem{relative-serre-hurewicz}{
 	(Relative Serre-Hurewicz Theorem)
-	Let $\C$ be a Serre class of abelian groups. Let $A \subset X$ be $1$-connected spaces ($A \neq \emptyset$).
+	Let $\C$ be a Serre class. Let $A \subset X$ be $1$-connected spaces such that $\pi_2(A) \to \pi_2(B)$ is surjective.
 	If $\pi_i(X, A) \in \C$ for all $i<n$, then $H_i(X, A) \in \C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X, A) \to H_i(X, A)$ is a $\C$-isomorphism for all $i \leq n$.
+}
+\Proof{
+	Note that we can assume $A \neq \emptyset$. We will prove by induction on $n$, the base case again follows by $1$-connectedness.
+
+	\todo{finish proof}
 }
 
 \Theorem{serre-whitehead}{
 	(Serre-Whitehead Theorem)
-	Let $\C$ be a Serre class of abelian groups. Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
+	Let $\C$ be a Serre class. Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
 	Then $\pi_i(f)$ is a $C$-iso for all $i<n$ $\iff$ $H_i(f)$ is a $\C$-iso for all $i<n$.
+}
+\Proof{
+	Consider the mapping cylinder $B_f$ of $f$, i.e. factor the map $f$ as a cofibration followed by a trivial fibration $f: A \cof B_f \fib B$. The inclusion $A \subset B_f$ gives a long exact sequence of homotopy groups and homology groups:
+
+	\cimage[scale=0.5]{Serre_Whitehead_LES}
+
+	We now have the equivalence of the following statements:
+	\begin{enumerate}
+		\item $\pi_i(f)$ is a $\C$-iso for all $i < n$
+		\item $\pi_i(B_f, A) \in \C$ for all $i < n$
+		\item $\RH_i(B_f, A) \in \C$ for all $i < n$
+		\item $\RH_i(f)$ is a $\C$-iso for all $i < n$.
+	\end{enumerate}
+	Where (1) $\iff$ (2) and (3) $\iff$ (4) hold by exactness and (2) $\iff$ (3) by the Serre-Hurewicz theorem.
 }
 
 \Corollary{serre-whitehead}{
