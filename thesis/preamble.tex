@@ -12,6 +12,12 @@
 % floating figures
 \usepackage{float}
 
+% for appendices
+\usepackage[toc,page]{appendix}
+
+% for multiple cites
+\usepackage{cite}
+
 \usepackage{tikz}
 \usetikzlibrary{matrix, arrows, decorations}
 \tikzset{node distance=2.5em, row sep=2.2em, column sep=2.7em, auto}
@@ -130,10 +136,12 @@
 \newtheorem{example}[theorem]{Example}
 
 \newcommand{\EnvTemp}[4]{
-	\begin{#1}\label{{#2}:{#3}}
+	\begin{#1}\label{#2:#3}
 		{#4}
 	\end{#1}
 }
+
+\newcommand{\RefTemp}[3]{{#1}~\ref{#2:#3}}
 
 \newcommand{\Theorem}{\EnvTemp{theorem}{thm}}
 \newcommand{\Proposition}{\EnvTemp{proposition}{prop}}
@@ -147,7 +155,8 @@
 \newcommand{\Notation}{\EnvTemp{notation}{not}}
 \newcommand{\Example}{\EnvTemp{example}{eg}}
 
-\newcommand{\LemmaRef}[1]{Lemma~\ref{lem:{#1}}}
+\newcommand{\TheoremRef}{\RefTemp{Theorem}{thm}}
+\newcommand{\LemmaRef}{\RefTemp{Lemma}{lem}}
 
 % headings for a table
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
