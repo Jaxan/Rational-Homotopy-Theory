@@ -7,11 +7,11 @@
 \newcommand{\Cof}{\mathfrak{Cof}}
 
 \begin{definition}
-	A \emph{(closed) model category} is a category $\cat{C}$ together with three subcategories:
+	A \Def{model category} is a category $\cat{C}$ together with three subcategories:
 	\begin{itemize}
-		\item the class of weak equivalences $\W$,
-		\item the class of fibrations $\Fib$ and
-		\item the class of cofibrations $\Cof$,
+		\item the class of \Def{weak equivalences} $\W$,
+		\item the class of \Def{fibrations} $\Fib$ and
+		\item the class of \Def{cofibrations} $\Cof$,
 	\end{itemize}
 	such that the following five axioms hold:
 	\begin{itemize}
@@ -19,45 +19,47 @@
 		\item[MC2] If $f$, $g$ and $fg$ are maps such that two of them are weak equivalences, then so it the third. This is called the \emph{2-out-of-3} property.
 		\item[MC3] All three classes of maps are closed under retracts\todo{Either draw the diagram or define a retract earlier}.
 		\item[MC4] In any commuting square as follows where $i \in \Cof$ and $p \in \Fib$,
-		\begin{center}
-		\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes]{
-			A & X \\
-			B & Y \\
-		};
+			\begin{center}
+			\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes]{
+				A & X \\
+				B & Y \\
+			};
 
-		\path[->] (m-1-1) edge (m-1-2);
-		\path[->] (m-2-1) edge (m-2-2);
-		\path[->] (m-1-1) edge node[auto] {$i$} (m-2-1);
-		\path[->] (m-1-2) edge node[auto] {$p$} (m-2-2);
+			\path[->] (m-1-1) edge (m-1-2);
+			\path[->] (m-2-1) edge (m-2-2);
+			\path[->] (m-1-1) edge node[auto] {$i$} (m-2-1);
+			\path[->] (m-1-2) edge node[auto] {$p$} (m-2-2);
 
-		\end{tikzpicture}
-		\end{center}
+			\end{tikzpicture}
+			\end{center}
 
-		 there exist a lift $h: B \to Y$ if either 
-		\begin{itemize}
-			\item[a)] $i \in \W$ or
-			\item[b)] $p \in \W$.
-		\end{itemize}
+			there exist a lift $h: B \to Y$ if either 
+			\begin{itemize}
+				\item[a)] $i \in \W$ or
+				\item[b)] $p \in \W$.
+			\end{itemize}
 		\item[MC5] Any map $f : A \to B$ can be factored in two ways:
-		\begin{itemize}
-			\item[a)] as $f = pi$, where $i \in \Cof \cap \W$ and $p \in \Fib$ and
-			\item[b)] as $f = pi$, where $i \in \Cof$ and $p \in \Fib \cap \W$.
-		\end{itemize}
+			\begin{itemize}
+				\item[a)] as $f = pi$, where $i \in \Cof \cap \W$ and $p \in \Fib$ and
+				\item[b)] as $f = pi$, where $i \in \Cof$ and $p \in \Fib \cap \W$.
+			\end{itemize}
 	\end{itemize}
 \end{definition}
 
-\begin{notation} For brevity
+\Notation{model-cats-arrows}{
+	For brevity
 	\begin{itemize}
 		\item we write $f: A \fib B$ when $f$ is a fibration,
 		\item we write $f: A \cof B$ when $f$ is a cofibration and
 		\item we write $f: A \we B$ when $f$ is a weak equivalence.
 	\end{itemize}
-\end{notation}
+	Furthermore a map which is a fibration and a weak equivalence is callend a \Def{trivial fibration}, similarly we have \Def{trivial cofibration}.
+}
 
-\begin{definition}
-	An object $A$ in a model category $\cat{C}$ will be called \emph{fibrant} if $A \to \cat{1}$ is a fibration and \emph{cofibrant} if $\cat{0} \to A$ is a cofibration.
-\end{definition}
+\Definition{model-cats-fibrant-cofibrant}{
+	An object $A$ in a model category $\cat{C}$ will be called \Def{fibrant} if $A \to \cat{1}$ is a fibration and \Def{cofibrant} if $\cat{0} \to A$ is a cofibration.
+}
 
 Note that axiom [MC5a] allows us to replace any object $X$ with a weakly equivalent fibrant object $X^{fib}$ and by [MC5b] by a weakly equivalent cofibrant object $X^{cof}$, as seen in the following diagram:
 
@@ -86,10 +88,37 @@ Note that axiom [MC5a] allows us to replace any object $X$ with a weakly equival
 \end{tikzpicture}
 \end{center}
 
+The fourth axiom actually characterizes the classes of (trivial) fibrations and (trivial) cofibrations. We will abreviate left lifting property with LLP and right lifting property with RLP. We will not prove these statements, but only expose them because we use them throughout this thesis. One can find proofs in \cite{dwyer, may}.
+
+\Lemma{model-cats-characterization}{
+	Let $\cat{C}$ be a model category.
+	\begin{itemize}
+		\item The cofibrations in $\cat{C}$ are the maps with a LLP w.r.t. trivial fibrations.
+		\item The fibrations in $\cat{C}$ are the maps with a RLP w.r.t. trivial cofibrations.
+		\item The trivial cofibrations in $\cat{C}$ are the maps with a LLP w.r.t. fibrations.
+		\item The trivial fibrations in $\cat{C}$ are the maps with a RLP w.r.t. cofibrations.
+	\end{itemize}
+}
+
+This means that once we choose weak equivalences and fibrations for a category $\cat{C}$, the third class is determined, and vice versa. The classes of fibrations behave nice with respect to pullbacks and dually cofibrations behave nice with pushouts:
+
+\Lemma{model-cats-pushouts}{
+	Let $\cat{C}$ be a model category. Consider the following two diagrams where $P$ is the pushout and pullback respectively.
+
+	\cimage{Model_Cats_Pushouts}
+
+	\begin{itemize}
+		\item If $i$ is a (trivial) cofibrations, so is $j$.
+		\item If $p$ is a (trivial) fibrations, so is $q$.
+	\end{itemize}
+}
+
+\Lemma{model-cats-coproducts}{
+	Let $\cat{C}$ be a model category. Let $f: A \cof B$ and $g:A' \cof B'$ be two (trivial) cofibrations, then the induced map of the coproducts $f+g: A+A' \to B+B'$ is also a (trivial) cofibration. Dually: the product of two (trivial) fibrations is a (trivial) fibration.
+}
+
 \TODO{Maybe some basic propositions (refer to Dwyer \& Spalinski):
 \titem Over/under category (or simply pointed objects)
-\titem If a map has LLP/RLP w.r.t. fib/cof, it is a cof/fib
-\titem Fibs are preserved under pullbacks/limits
 \titem Cofibrantly generated mod. cats.
 \titem Small object argument
 }
