@@ -58,7 +58,7 @@ where the left adjoint is precisely the functor $C^\ast$ as noted in \cite{felix
 
 In this section we will prove that the singular cochain complex is quasi isomorphic to the cochain complex of polynomial forms. In order to do so we will define an integration map $\int_n : \Apl_n^n \to \k$, which will induce a map $\oint_n : \Apl_n \to C_n$. For the simplices $\Delta[n]$ we already showed the cohomology agrees by the acyclicity of $\Apl_n = A(\Delta[n])$ (\LemmaRef{apl-acyclic}).
 
-Let $v \in \Apl_n^n$, then we can always write it as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate analytically
+Let $v \in \Apl_n^n$, then we can always write it as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate geometrically on the $n$-simplex:
 $$ \int_n v = \int_0^1 \int_0^{1-x_n} \dots \int_0^{1 - x_2 - \dots - x_n} p(x_1, \dots, x_n) dx_1 dx_2 \dots dx_n, $$
 which defines a well-defined linear map $\int_n : \Apl_n^n \to \k$. For general fields of characteristic zero we can define it formally on the generators of $\Apl_n^n$ (as vector space):
 $$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n)!}. $$
@@ -67,5 +67,66 @@ Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then
 $$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
 Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
 
-Next we will show that $\oint_n$ is a chain map and taking $\oint = \{\oint_n\}_n$ gives a simplicial chain map.
+Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C_n$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follow:
+$$ \oint_n (\sigma^\ast v)(x)
+	= (-1)^\frac{l(l-1)}{2} \int_l x^\ast(\sigma^\ast(v))
+	= (-1)^\frac{l(l-1)}{2} \int_l (\sigma \circ x)^\ast(v)
+	= \oint_k (v)(\sigma \circ x)
+	= (\oint_k (v) \circ \sigma) (x)
+	= \sigma^\ast (\oint_k(v)(x)) $$
+For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is very similar to \emph{Stokes' theorem}. \todo{proof this}
+
+We now proved that $\oint$ is indeed a simplicial chain map. Note that $\oint_n$ need not to preserve multiplication, so it fails to be a map of cochain algebras. However $\oint(1) = 1$ and so the induced map on homology sends the class of $1$ in $H(\Apl_n) = \k \dot [1]$ to the class of $1$ in $H(C_n) = \k \dot [1]$. We have proven the following lemma.
+
+\Lemma{apl-c-quasi-iso}{
+	The map $\oint_n: \Apl_n \to C_n$ is a quasi isomorphism for all $n$.
+}
+
+Recall that we can identify $\Apl_n$ with $A(\Delta[n])$ and similarly for the singular cochain complex.
+\Corollary{apl-c-quasi-iso}{
+	The induced map $\oint: A(\Delta[n]) \to C^\ast(\Delta[n])$ is a quasi isomorphism for all $n$.
+}
+
+We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphism for any space $X$. We will do this in several steps, the base case of simplices is already proven. With induction we will prove it for spaces with finitely many simplices. At last we will use a limit argument for the general case.
+
+\Theorem{apl-c-quasi-iso}{
+	The induced map $\oint: A(X) \to C^\ast(X)$ is a natural quasi isomorphism.
+}
+\Proof{
+	Assume we have a simplicial set $X$ such that $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphism. We can add a simplex by considering pushouts of the following form:
+
+	\cimage[scale=0.5]{Apl_C_Quasi_Iso_Pushout}
+
+	We can apply our two functors to it, and use the natural transformation $\oint$ to obtain the following cube:
+
+	\cimage[scale=0.5]{Apl_C_Quasi_Iso_Cube}
+
+	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}, \cite[Lemma 5.2.6]{hovey}) to conclude that also $A(X') \we C^\ast(X')$.
+
+	This proves $A(X) \we C^\ast(X)$ for any simplicial set with finitely many non-degenerate simplices. We can extend this to simplicial sets of finite dimension by attaching many simplices at once. For this observe that both $A$ and $C^\ast$ send coproducts to products and that cohomology commutes with products:
+	$$ H(A(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha A(X_\alpha)) \iso \prod_\alpha H(A(X_\alpha)), $$
+	$$ H(C^\ast(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha C^\ast(X_\alpha)) \iso \prod_\alpha H(C^\ast(X_\alpha)). $$
+
+	This means that we can extend the previous argument to pushout of this form:
+
+	\cimage[scale=0.5]{Apl_C_Quasi_Iso_Pushout2}
+
+	Finally we can write any simplicial set $X$ as a colimit of finite dimensional ones as:
+	$$ sk_0 X \cof sk_1 X \cof sk_2 \cof \dots \colim sk_n X = X, $$
+	where $sk_i X$ has no non-degenerate simplices in dimensions $n > i$. By the above $\oint$ gives a quasi isomorphism on all the terms $sk_i X$. So we are in the following situation:
+
+	\cimage[scale=0.6]{Apl_C_Quasi_Iso_Limit}
+
+	We will define long exact sequences for both sequences in the following way. Consider cochain algebras $B_i$ as follows:
+	$$ B = \lim_i B_i \dots \fib B_2 \fib^{b_1} B_1 \fib^{b_0} B_0. $$
+	Define a map $t: \prod_i B_i \to \prod_i B_i$ defined by $t(x_0, x_1, \dots) = (x_0 + b_0(x_1), x_1 + b_1(x_2), \dots)$. Note that $t$ is surjective and that $B \iso \ker(t)$. So we get the following natural short exact sequence and its associated natural long exact sequence in homology:
+	$$ 0 \to B \tot{i} \prod_i B_i \tot{t} \prod_i B_i \to 0, $$
+	$$ \dots \tot{t_\ast} H^{n-1}(\prod_i B_i) \tot{\Delta} H^n(B) \tot{i_\ast} H^n(\prod_i B_i) \tot{t_\ast} H^n(\prod_i B_i) \tot{\Delta} H^{n+1}(B) \tot{i_\ast} \dots. $$
+
+	In our case we get two such long exact sequences with $\oint$ connecting them. As cohomology commutes with products we get isomorphisms on the left and right in the following diagram.
+
+	\cimage[scale=0.5]{Apl_C_Quasi_Iso_LES}
+
+	So by the five lemma we can conclude that the middel morphism is an isomorphism as well, proving $H^n(A(X)) \tot{\iso} H^n(C^\ast(X))$ for all $n$. This proves the statement for all $X$.
+}
 
