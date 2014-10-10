@@ -29,7 +29,7 @@ $$ s_i(x_j) = \begin{cases}
 
 One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace of homogeneous elements of degree $k$ as $\Apl^k \in \simplicial{\Mod{\k}}$, this is indeed a simplicial $\k$-module as the maps $d_i$ and $s_i$ are graded maps of degree $0$.
 
-\Lemma{apl-contracible}{
+\Lemma{apl-contractible}{
 	$\Apl^k$ is contractible.
 }
 \Proof{
@@ -74,7 +74,7 @@ Besides the simplicial structure of $\Apl$, there is also the structure of a coc
 	$\Apl_n$ is acyclic, i.e. $H(\Apl_n) = \k \cdot [1]$.
 }
 \Proof{
-	This is clear foor $\Apl_0 = \k \cdot 1$. For $\Apl_1$ we see that $\Apl_1 = \Lambda(x_1, dx_1) \iso \Lambda D(0)$, which we proved to be acyclic in the previous section.
+	This is clear for $\Apl_0 = \k \cdot 1$. For $\Apl_1$ we see that $\Apl_1 = \Lambda(x_1, dx_1) \iso \Lambda D(0)$, which we proved to be acyclic in the previous section.
 
 	For general $n$ we can identify $\Apl_n \iso \bigtensor_{i=1}^n \Lambda(x_i, dx_i)$, because $\Lambda$ is left adjoint and hence preserves coproducts. By the Künneth theorem \TheoremRef{kunneth} we conclude $H(\Apl_n) \iso \bigtensor_{i=1}^n H \Lambda(x_i, dx_i) \iso \bigtensor_{i=1}^n H \Lambda D(0) \iso \k \cdot [1]$.
 

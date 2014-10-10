@@ -8,7 +8,7 @@ In the following definition \emph{space} is to be understood as a topological sp
 
 \Definition{rational-space}{
 	A space $X$ is a \emph{rational space} if
-	$$ \pi_i(X) \text{ is a $\Q$-vectorspace } \quad\forall i > 0. $$
+	$$ \pi_i(X) \text{ is a $\Q$-vector space } \quad\forall i > 0. $$
 }
 
 \Definition{rational-homotopy-groups}{
@@ -26,7 +26,7 @@ Note that for a rational space $X$, the homotopy groups are isomorphic to the ra
 	A map $f: X \to X_0$ is a \emph{rationalization} if $X_0$ is rational and $f$ is a rational homotopy equivalence.
 }
 
-Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence iff $f$ is a weak equivalence.
+Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence if and only if $f$ is a weak equivalence.
 
 We will later see that any space admits a rationalization. The theory of rational homotopy theory is then the study of the homotopy category $\Ho_\Q(\Top) \iso \Ho(\Top_\Q)$, which is on its own turn equivalent to $\Ho(\sSet_\Q) \iso \Ho_\Q(\sSet)$.
 
@@ -37,26 +37,26 @@ We will now recall known results from algebraic topology, without proof. One can
 \Theorem{relative-hurewicz}{
 	(Relative Hurewicz) For any inclusion of spaces $A \subset X$ and all $i > 0$, there is a natural map
 	$$ h_i : \pi_i(X, A) \to H_i(X, A). $$
-	If furhtermore $(X,A)$ is $n$-connected, then the map $h_i$ is an isomorphism for all $i \leq n + 1$
+	If furthermore $(X,A)$ is $n$-connected, then the map $h_i$ is an isomorphism for all $i \leq n + 1$
 }
 
 \Theorem{serre-les}{
 	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence:
 	$$ \cdots \tot{\del} \pi_i(F) \tot{i_\ast} \pi_i(X) \tot{f_\ast} \pi_i(Y) \tot{\del} \cdots \to \pi_0(Y) \to \ast, $$
-	where $F$ is the fibre of $f$.
+	where $F$ is the fiber of $f$.
 }
 
 Using an inductive argument and the previous two theorems, one can show the following theorem (as for example shown in \cite{griffiths}).
 \Theorem{whitehead-homology}{
 	(Whitehead) For any map $f: X \to Y$ we have
 	$$ \pi_i(f) \text{ is an isomorphism } \forall 0 < i < r \iff H_i(f) \text{ is an isomorphism } \forall 0 < i < r. $$
-	In particular we see that $f$ is a weak equivalence iff it induces an isomorphism on homology.
+	In particular we see that $f$ is a weak equivalence if and only if it induces an isomorphism on homology.
 }
 
-The following two theorems can be found in textbooks about homological algebra, such as [Weibel].
+The following two theorems can be found in textbooks about homological algebra, such as [\cite{weibel}].
 \Theorem{universal-coefficient}{
 	(Universal Coefficient Theorem)
-	For any space $X$ and abelian group $A$, there are natural short exact sequcenes
+	For any space $X$ and abelian group $A$, there are natural short exact sequences
 	$$ 0 \to H_n(X) \tensor A \to H_n(X; A) \to \Tor(H_{n-1}(X), A) \to 0, $$
 	$$ 0 \to \Ext(H_{n-1}(X), A) \to H^n(X; A) \to \Hom(H_n(X), A) \to 0. $$
 }
