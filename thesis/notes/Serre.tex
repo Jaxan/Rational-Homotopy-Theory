@@ -16,7 +16,6 @@ In this section we will prove the Whitehead and Hurewicz theorems in a rational 
 	\end{itemize}
 }
 
-\renewcommand{\C}{\mathcal{C}}
 \Definition{serre-class}{
 	A class $\C \subset \Ab$ is a \Def{Serre class} if
 	\begin{itemize}
@@ -73,7 +72,7 @@ In the following arguments we will consider fibrations and need to compute homol
 
 	For the induction step, consider the long exact sequence in homology for the triples $(E^{k+1}, E^k, F)$ and $(B^{k+1}, B^k, b_0)$:
 
-	\cimage[scale=0.5]{Kreck_Exact_Sequence}
+	\cdiagram{Kreck_Exact_Sequence}
 
 	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
 
@@ -108,7 +107,7 @@ In the following arguments we will consider fibrations and need to compute homol
 
 	Considering this claim for all $j < n$ gives a chain of $\C$-isos $H_i(X(n)) \to H_i(X(n-1)) \to \cdot \to H_i(X(2)) = H_i(X)$ for all $i \leq n$. Consider the following diagram:
 
-	\cimage[scale=0.5]{Serre_Hurewicz_Square}
+	\cdiagram{Serre_Hurewicz_Square}
 
 	where the map on the top is an isomorphism by the classical Hurewicz theorem (and $X(n)$ is $(n-1)$-connected), the map on the left is an isomorphism by the Whitehead tower and the map on the right is a $\C$-iso by the claim.
 
@@ -134,7 +133,7 @@ In the following arguments we will consider fibrations and need to compute homol
 \Proof{
 	Consider the mapping cylinder $B_f$ of $f$, i.e. factor the map $f$ as a cofibration followed by a trivial fibration $f: A \cof B_f \fib B$. The inclusion $A \subset B_f$ gives a long exact sequence of homotopy groups and homology groups:
 
-	\cimage[scale=0.5]{Serre_Whitehead_LES}
+	\cdiagram{Serre_Whitehead_LES}
 
 	We now have the equivalence of the following statements:
 	\begin{enumerate}

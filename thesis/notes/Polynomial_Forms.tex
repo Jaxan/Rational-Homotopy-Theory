@@ -19,11 +19,11 @@ A simplicial map $X \to Y$ induces a map of the diagrams of which we take colimi
 
 Furthermore we have $F_! \circ \Delta[-] \iso F$. In short we have the following:
 
-\cimage[scale=0.5]{Kan_Extension}
+\cdiagram{Kan_Extension}
 
 In our case where $F = \Apl$ and $\cat{C} = \CDGA_\k$ we get:
 
-\cimage[scale=0.5]{Apl_Extension}
+\cdiagram{Apl_Extension}
 
 
 \subsection{The cochain complex of polynomial forms}
@@ -49,7 +49,7 @@ Another way to model the $n$-simplex is by the singular cochain complex associat
 $$ C_n = C^\ast(\Delta^n; \k). $$
 The inclusion maps $d^i : \Delta^n \to \Delta^{n+1}$ and the maps $s^i: \Delta^n \to \Delta^{n-1}$ induce face and degeneracy maps on the dga's $C_n$, turning $C$ into a simplicial dga. Again we can extend this to functors by Kan extensions
 
-\cimage[scale=0.5]{C_Extension}
+\cdiagram{C_Extension}
 
 where the left adjoint is precisely the functor $C^\ast$ as noted in \cite{felix}. We will relate $\Apl$ and $C$ in order to obtain a natural quasi isomorphism $A(X) \we C^\ast(X)$ for every $X \in \sSet$. Furthermore this map preserves multiplication on the homology algebras.
 
@@ -95,11 +95,11 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 \Proof{
 	Assume we have a simplicial set $X$ such that $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphism. We can add a simplex by considering pushouts of the following form:
 
-	\cimage[scale=0.5]{Apl_C_Quasi_Iso_Pushout}
+	\cdiagram{Apl_C_Quasi_Iso_Pushout}
 
 	We can apply our two functors to it, and use the natural transformation $\oint$ to obtain the following cube:
 
-	\cimage[scale=0.5]{Apl_C_Quasi_Iso_Cube}
+	\cdiagram{Apl_C_Quasi_Iso_Cube}
 
 	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}, \cite[Lemma 5.2.6]{hovey}) to conclude that also $A(X') \we C^\ast(X')$.
 

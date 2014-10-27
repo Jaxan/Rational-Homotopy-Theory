@@ -82,6 +82,14 @@
 \newcommand{\artcof}{\ar@{^{(}->}|\simeq}
 \newcommand{\arfib}{\ar@{->>}}
 \newcommand{\artfib}{\ar@{->>}|\simeq}
+\newcommand{\arwe}{\ar|\simeq}
+
+% adjunction symbol for xymatrices
+\newcommand{\xyadj}{\raisebox{0.2\height}{\scalebox{0.5}{$\perp$}}}
+
+% pushout and pullback for xymatrices (makes empty arrow with text)
+\newcommand{\xypo}{\ar@{}[dr]|(.75){\scalebox{1.2}{$\ulcorner$}}}
+\newcommand{\xypb}{\ar@{}[dr]|(.25){\scalebox{1.2}{$\lrcorner$}}}
 
 %\newcommand{\leftadj}{\ooalign{\hss\rightleftarrows\hss\cr\bot}}
 \newcommand{\leftadj}{\rightleftarrows}
@@ -104,6 +112,8 @@
 \renewcommand{\deg}[1]{{|{#1}|}}
 \newcommand{\Char}[1]{char({#1})}
 \newcommand{\RH}{\widetilde{H}}			% reduced homology
+\renewcommand{\C}{\mathcal{C}}			% Serre mod C class
+\newcommand{\Apl}[0]{{A_{PL}}}			% Apl simplicial set of polynomials
 
 % restriction of a function
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
