@@ -18,9 +18,13 @@
 % for multiple cites
 \usepackage{cite}
 
+% fancy diagrams
 \usepackage{tikz}
 \usetikzlibrary{matrix, arrows, decorations}
 \tikzset{node distance=2.5em, row sep=2.2em, column sep=2.7em, auto}
+
+% simple diagrams
+\usepackage[all,cmtip]{xy}
 
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
@@ -72,6 +76,12 @@
 \newcommand{\cof}{\hookrightarrow}		% cofibration
 \newcommand{\fib}{\twoheadrightarrow}	% fibration
 \newcommand{\we}{\tot{\simeq}}			% weak equivalence
+
+% for use in xy diagrams
+\newcommand{\arcof}{\ar@{^{(}->}}
+\newcommand{\artcof}{\ar@{^{(}->}|\simeq}
+\newcommand{\arfib}{\ar@{->>}}
+\newcommand{\artfib}{\ar@{->>}|\simeq}
 
 %\newcommand{\leftadj}{\ooalign{\hss\rightleftarrows\hss\cr\bot}}
 \newcommand{\leftadj}{\rightleftarrows}
@@ -168,3 +178,14 @@
 	\includegraphics[#1]{#2}
 	\end{center}
 }
+
+% simple way to center a diagram
+\newcommand{\cdiagrambase}[1]{
+	\begin{displaymath}
+	\input{#1}
+	\end{displaymath}
+}
+\newcommand{\cdiagram}[1]{
+	\cdiagrambase{diagrams/#1}
+}
+
