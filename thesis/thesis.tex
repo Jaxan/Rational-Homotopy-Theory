@@ -9,35 +9,48 @@
 \begin{document}
 
 \maketitle
-\begin{center}
-	{\bf \today}
-\end{center}
+{\bf \today}
 
-\vspace{2cm}
+\section*{Contents}
 \tableofcontents
-\vspace{2cm}
 
-Some general notation: \todo{leave this out, or define somewhere else?}
+\section*{Preliminaries}
+We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is assumed, but the reader may review this in the appendices.
+
+Some notation:
 \begin{itemize}
-	\item $\cat{0}$ (resp. $\cat{1}$) will denote the initial (resp. final) objects in a category.
-	\item $\Hom_\cat{C}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$.
+	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section).
+	\item $\cat{C}$ will denote an arbitrary category.
+	\item $\cat{0}$ (resp. $\cat{1}$) will denote the initial (resp. final) objects in a category $\cat{C}$.
+	\item $\Hom_\cat{C}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. We may leave out the subscript $\cat{C}$.
+\end{itemize}
+
+Some categories:
+\begin{itemize}
+	\item $\Top$: category of topological spaces and continuos maps.
+	\item $\Ab$: category of abelian groups and group homomorphisms.
+	\item $\DELTA$: category of simplices (i.e. finite, non-empty ordinals) and order preserving maps.
+	\item $\sSet$: category of simplicial sets and simplicial maps (more generally we have the category of simplicial objects, $\cat{sC}$, for any category $\cat{C}$).
+	\item $\Ch{\k}, \CoCh{\k}$: category of non-negatively graded chain (resp. cochain) complexes and chain maps.
+	\item $\DGA_\k$: category of non-negatively differential graded algebras over $\k$ (these are cochain complexes with a multiplication) and graded algebra  maps. As a shorthand we will refer to such an object as \emph{dga}.
+	\item $\CDGA_\k$: the full subcategory of $\DGA_\k$ of commutative dga's (cdga's).
 \end{itemize}
 
 \newcommand{\myinput}[1]{\include{#1}}
 
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \myinput{notes/Basics}
 \myinput{notes/Serre}
-\myinput{notes/CDGA_Basic_Examples}
-\myinput{notes/Model_Of_CDGA}
-\myinput{notes/CDGA_Of_Polynomials}
-\myinput{notes/Polynomial_Forms}
-\myinput{notes/A_K_Quillen_Pair}
+\myinput{chapters/Homotopy_Theory_CDGA}
+\myinput{chapters/Polynomial_Forms}
 \myinput{notes/Minimal_Models}
+\myinput{notes/A_K_Quillen_Pair}
 
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 \begin{appendices}
-	\myinput{notes/Algebra}
-	\myinput{notes/Free_CDGA}
-	\myinput{notes/Model_Categories}
+	\input{notes/Algebra}
+	\input{notes/Free_CDGA}
+	\include{notes/Model_Categories}
 \end{appendices}
 
 % \listoftodos

@@ -26,3 +26,4 @@ dirs:
 	mkdir -p build
 	mkdir -p build/notes
 	mkdir -p build/diagrams
+	mkdir -p build/chapters
