@@ -32,3 +32,61 @@ Since $A$ is a left adjoint, it preserves all colimits and by functoriality it p
 	$A$ and $K$ induce an adjunction on the homotopy categories:
 	$$ \Ho(\sSet) \leftadj \opCat{\Ho(\CDGA)}. $$
 \end{corollary}
+
+
+\subsection{Homotopy groups of \texorpdfstring{$K(A)$}{K(A)}}
+We are after an equivalence of homotopy categories, so it is natural to ask what the homotopy groups of $K(A)$ are for a cdga $A$. In order to do so, we will define homotopy groups of cdga's directly and compare the two notions.
+
+Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit} \k$ such that $\counit \unit = \id$.
+
+\Definition{cdga-homotopy-groups}{
+	Define the \Def{augmentation ideal} of $A$ as $\overline{A} = \ker \counit$. Define the \Def{cochain complex of indecomposables} of $A$ as $QA = \overline{A} / \overline{A} \cdot \overline{A}$.
+
+	Now define the \Def{homotopy groups of a cdga} $A$ as
+	$$ \pi^i(A) = H^i(QA). $$
+}
+
+Note that for a free cdga $\Lambda C$ there is a natural augmentation and the chain complexes of indecomposables $Q \Lambda C$ is naturally isomorphic to $C$. Consider the augmented cdga $V(n) = D(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. There is a weak equivalence $A(n) \to V(n)$ (recall \DefinitionRef{minimal-model-sphere}).
+
+\Lemma{cdga-dual-homotopy-groups}{
+	Let $A$ be an augemented cdga, then
+	$$ [A, V(n)] \tot{\iso} \Hom_\k(\pi^n(A), \k). $$
+}
+
+We will denote the dual of a vector space as $V^\ast = \Hom_\k(V, \k)$.
+
+\Theorem{cdga-dual-homotopy-groups}{
+	Let $X$ be a cofibrant augmented cdga, then
+	$$ \pi_n(KX) \iso \pi^n(X)^\ast. $$
+}
+\Proof{
+	First note that $KX$ is a Kan complex (because it is a simplicial group). Using the homotopy adjunction and the lemma above we get:
+	\begin{align*}
+		\pi_n(KX) &= [S^n, KX]      \\
+		          &\iso [X, A(S^n)] \\
+		          &\iso [X, A(n)]   \\
+		          &\iso [X, V(n)]   \\
+		          &\iso \pi^n(X)^\ast
+	\end{align*}
+	\todo{Prove all iso's.}
+	\todo{Group structure?}
+}
+
+We get a particularly nice result for minimal cdga's, because the functor $Q$ is the left inverse of the functor $\Lambda$ and the differential is decomposable.
+
+\Corollary{minimal-cdga-homotopy-groups}{
+	For a minimal cdga $X = \Lambda V$ we get
+	$$ \pi_n(KX) = {V^n}^\ast. $$
+}
+
+\Corollary{minimal-cdga-EM-space}{
+	For a cdga with one generator $X = \Lambda(v)$ with $d v = 0$ and $\deg{v} = n$. We conclude that $KX$ is a $K(\k^\ast, n)$-space.
+}
+
+
+\subsection{Equivalence on rational spaces}
+For the equivalence of rational spaces and cdga's we need that the unit and counit of the adjunction are in fact weak equivalences. More formally we want the following maps to be weak equivalences:
+$$ X \to K(A(X)) \text{ for any rational space $X \in \sSet$ of finite type}, $$
+$$ A \to A(K(A)) \text{ for any $A \in \CDGA_\Q$ of finite type}. $$
+
+We need the assumption of finiteness because we are dualizing vector spaces.

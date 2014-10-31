@@ -112,3 +112,16 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 \begin{proof}
 	By the previous lemmas we have $[M', M] \iso [M', A]$. By going from right to left we get a map $\phi: M' \to M$ such that $m' \circ \phi \eq m$. On homology we get $H(m') \circ H(\phi) = H(m)$, proving that (2-out-of-3) $\phi$ is a weak equivalence. The previous lemma states that $\phi$ is then an isomorphism.
 \end{proof}
+
+
+\subsection{The minimal model of the sphere}
+We know from singular cohomology that the cohomology ring of a $n$-sphere is $\Z[X] / (X^2)$. This allows us to construct a minimal model for $S^n$.
+\Definition{minimal-model-sphere}{
+	Define $A(n)$ to be the cdga defined as
+	$$ A(n) = \begin{cases}
+		\Lambda(e) \quad \deg{e} = n \quad de = 0 \qquad &\text{ if $n$ is odd } \\
+		\Lambda(e, f) \quad \deg{e} = n, \deg{f} = 2n-1 \quad df = e^2 \qquad &\text{ if $n$ is even }
+	\end{cases}. $$
+}
+
+\todo{prove $HA(n) \tot{\iso} HA(S^n)$}
