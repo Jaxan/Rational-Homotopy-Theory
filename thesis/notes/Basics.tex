@@ -32,28 +32,28 @@ We will later see that any space admits a rationalization. The theory of rationa
 
 \subsection{Classical results from algebraic topology}
 
-We will now recall known results from algebraic topology, without proof. One can find many of these results in basic text books, such as \cite{may, dold}. Note that all spaces are assumed to be $1$-connected.
+We will now recall known results from algebraic topology, without proof. One can find many of these results in basic text books, such as \cite{may, dold}. We do not assume $1$-connectedness here.
 
 \Theorem{relative-hurewicz}{
 	(Relative Hurewicz) For any inclusion of spaces $A \subset X$ and all $i > 0$, there is a natural map
 	$$ h_i : \pi_i(X, A) \to H_i(X, A). $$
-	If furthermore $(X,A)$ is $n$-connected, then the map $h_i$ is an isomorphism for all $i \leq n + 1$
+	If furthermore $(X,A)$ is $n$-connected ($n > 0$), then the map $h_i$ is an isomorphism for all $i \leq n + 1$.
 }
 
 \Theorem{serre-les}{
-	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence:
+	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence (note that $X$ and $Y$ need not be $1$-connected):
 	$$ \cdots \tot{\del} \pi_i(F) \tot{i_\ast} \pi_i(X) \tot{f_\ast} \pi_i(Y) \tot{\del} \cdots \to \pi_0(Y) \to \ast, $$
 	where $F$ is the fiber of $f$.
 }
 
 Using an inductive argument and the previous two theorems, one can show the following theorem (as for example shown in \cite{griffiths}).
 \Theorem{whitehead-homology}{
-	(Whitehead) For any map $f: X \to Y$ we have
-	$$ \pi_i(f) \text{ is an isomorphism } \forall 0 < i < r \iff H_i(f) \text{ is an isomorphism } \forall 0 < i < r. $$
+	(Whitehead) For any map $f: X \to Y$ between $1$-connected spaces, $ \pi_i(f) $ is an isomorphism $\forall 0 < i < r$ if and only if $H_i(f)$ is an isomorphism $\forall 0 < i < r$.
 	In particular we see that $f$ is a weak equivalence if and only if it induces an isomorphism on homology.
 }
 
-The following two theorems can be found in textbooks about homological algebra, such as [\cite{weibel}].
+The following two theorems can be found in textbooks about homological algebra such as \cite{weibel, rotman}. Note that when the degrees are left out, $H(X; A)$ denotes the graded homology module with coefficients in $A$.
+
 \Theorem{universal-coefficient}{
 	(Universal Coefficient Theorem)
 	For any space $X$ and abelian group $A$, there are natural short exact sequences
@@ -65,7 +65,7 @@ The following two theorems can be found in textbooks about homological algebra, 
 	(Künneth Theorem)
 	For spaces $X$ and $Y$, there is a short exact sequence
 	$$ 0 \to H(X; A) \tensor H(Y; A) \to H(X \times Y; A) \to \Tor(H(X; A), H(Y; A)) \to 0, $$
-	where $H(X; A)$ and $H(X; A)$ are considered as graded modules and their tensor product and torsion groups are graded. \todo{Add algebraic version for (co)chain complexes}
+	where $H(X; A)$ and $H(X; A)$ are considered as graded modules and their tensor product and torsion groups are graded. \todo{Geef algebraische versie voor ketencomplexen}
 }
 
 \subsection{Immediate results for rational homotopy theory}
@@ -73,16 +73,18 @@ The following two theorems can be found in textbooks about homological algebra, 
 The latter two theorems have a direct consequence for rational homotopy theory. By taking $A = \Q$ we see that the torsion groups vanish. We have the immediate corollary.
 
 \Corollary{rational-corollaries}{
-	We have the following natural isomorphisms
+	We have the following natural isomorphisms in homology
 	$$ H(X) \tensor \Q \tot{\iso} H(X; \Q), $$
-	$$ H^n(X; \Q) \tot{\iso} \Hom(H_n(X); \Q), $$
-	$$ H(X \times Y) \tot{\iso} H(X) \tensor H(Y). $$
+	$$ H(X \times Y; \Q) \tot{\iso} H(X; \Q) \tensor H(Y; \Q). $$
+	Furthermore we can relate homology and cohomology in a natural way:
+	$$ H^n(X; \Q) \tot{\iso} \Hom(H_n(X); \Q). $$
 }
 
 The long exact sequence for a Serre fibration also has a direct consequence for rational homotopy theory.
 \Corollary{rational-les}{
-	Let $f: X \to Y$ be a Serre fibration, then there is a natural long exact sequence of rational homotopy groups:
-	$$ \cdots \tot{\del} \pi_i(F) \tensor \Q \tot{i_\ast} \pi_i(X) \tensor \Q \tot{f_\ast} \pi_i(Y) \tensor \Q \tot{\del} \cdots, $$
+	Let $f: X \to Y$ be a Serre fibration of $1$-connected spaces, then there is a natural long exact sequence of rational homotopy groups:
+	$$ \cdots \tot{\del} \pi_i(F) \tensor \Q \tot{i_\ast} \pi_i(X) \tensor \Q \tot{f_\ast} \pi_i(Y) \tensor \Q \tot{\del} \cdots. $$
+	\todo{Wat als $F$ niet $1$-connected is?}
 }
 
 In the next sections we will prove the rational Hurewicz and rational Whitehead theorems. These theorems are due to Serre \cite{serre}.

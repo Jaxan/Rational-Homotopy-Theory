@@ -4,18 +4,6 @@
 
 In this section we will prove the Whitehead and Hurewicz theorems in a rational context. Serre proved these results in \cite{serre}. In his paper he considered homology groups `modulo a class of abelian groups'. In our case of rational homotopy theory, this class will be the class of torsion groups.
 
-\Lemma{whitehead-tower}{
-	(Whitehead tower)
-	For a space X, we have a decomposition in fibrations:
-	$$ \cdots \fib X(n+1) \fib X(n) \fib X(n) \fib \cdots \fib X(1) = X, $$
-	such that:
-	\begin{itemize}
-		\item $K(\pi_n(X), n-1) \cof X(n+1) \fib X(n)$ is a fiber sequence,
-		\item  There is a space $X'_n$ weakly equivalent to $X(n)$ such that $X(n+1) \ cof X'_n \fib K(\pi_n(X), n)$ is a fiber sequence, and
-		\item  $X(n)$ is $(n-1)$-connected and $\pi_i(X(n)) \iso \pi_i(X)$ for all $i \geq n$.
-	\end{itemize}
-}
-
 \Definition{serre-class}{
 	A class $\C \subset \Ab$ is a \Def{Serre class} if
 	\begin{itemize}
@@ -24,7 +12,7 @@ In this section we will prove the Whitehead and Hurewicz theorems in a rational 
 	\end{itemize}
 }
 
-Serre gave weaker axioms for his classes and proves some of the following lemmas only using these weaker axioms. However the classes we are interested in do satisfy the above (stronger) requirements. One should think of such Serre class as a class of groups we want to \emph{invert}. We will be interested in the first two of the following examples.
+Serre gave weaker axioms for his classes and proves some of the following lemmas only using these weaker axioms. However the classes we are interested in do satisfy the above (stronger) requirements. One should think of such Serre class as a class of groups we want to \emph{ignore}. We will be interested in the first two of the following examples.
 
 \Example{serre-classes}{
 	We give three Serre classes without proof.
@@ -36,15 +24,10 @@ Serre gave weaker axioms for his classes and proves some of the following lemmas
 }
 
 \Definition{serre-class-maps}{
-	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is
-	\begin{itemize}
-		\item \Def{$\C$-injection} if $\ker(f) \in \C$,
-		\item \Def{$\C$-surjection} if $\coker(f) \in \C$, and
-		\item \Def{$\C$-iso} if it is both a $\C$-injection and $\C$-surjection.
-	\end{itemize}
+	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is a $\C$-isomorphism if both the kernel and cokernel lie in $\C$.
 }
 
-Note that the map $0 \to C$ is a $\C$-iso for any $C \in \C$. \todo{Add some stuff about tensors}\todo{Five lemma mod $\C$}
+Note that the map $0 \to C$ is a $\C$-isomorphism for any $C \in \C$. \todo{Er missen nog wat eigenschappen voor tensors}
 
 \Lemma{serre-class-rational-iso}{
 	Let $\C$ be the Serre class of all torsion groups. Then
@@ -76,20 +59,32 @@ In the following arguments we will consider fibrations and need to compute homol
 
 	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
 
-	\todo{finish proof}
+	\todo{Bewijs afmaken}
 }
 
 \Lemma{homology-em-space}{
-	Let $\C$ be a Serre class and $C \in \C$. Then for all $n > 0$ and all $i$ we have $\RH_i(K(C, n)) \in \C$.
+	Let $\C$ be a Serre class and $C \in \C$. Then for all $n > 0$ and all $i > 0$ we have $H_i(K(C, n)) \in \C$.
 }
 \Proof{
 	We prove this by induction on $n$. The base case $n = 1$ follows from group homology.
 
 	For the induction we can use the loop space and \LemmaRef{kreck}.
 
-	\todo{finish proof}
+	\todo{Bewijs afmaken}
 }
 
+For the main theorem we need the following construction. \todo{Geef de constructie}
+\Lemma{whitehead-tower}{
+	(Whitehead tower)
+	We can decompose a space $X$ into fibrations:
+	$$ \cdots \fib X(n+1) \fib X(n) \fib X(n-1) \fib \cdots \fib X(1) = X, $$
+	such that:
+	\begin{itemize}
+		\item $K(\pi_n(X), n-1) \cof X(n+1) \fib X(n)$ is a fiber sequence,
+		\item  There is a space $X'_n$ weakly equivalent to $X(n)$ such that $X(n+1) \cof X'_n \fib K(\pi_n(X), n)$ is a fiber sequence, and
+		\item  $X(n)$ is $(n-1)$-connected and $\pi_i(X(n)) \iso \pi_i(X)$ for all $i \geq n$.
+	\end{itemize}
+}
 
 \Theorem{absolute-serre-hurewicz}{
 	(Absolute Serre-Hurewicz Theorem)
@@ -122,7 +117,7 @@ In the following arguments we will consider fibrations and need to compute homol
 \Proof{
 	Note that we can assume $A \neq \emptyset$. We will prove by induction on $n$, the base case again follows by $1$-connectedness.
 
-	\todo{finish proof}
+	\todo{Bewijs afmaken}
 }
 
 \Theorem{serre-whitehead}{
@@ -145,7 +140,12 @@ In the following arguments we will consider fibrations and need to compute homol
 	Where (1) $\iff$ (2) and (3) $\iff$ (4) hold by exactness and (2) $\iff$ (3) by the Serre-Hurewicz theorem.
 }
 
+In the case of rational homotopy theory we get the following corollary.
+
 \Corollary{serre-whitehead}{
+	(Rational Whitehead Theorem)
 	Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
 	Then $f$ is a rational equivalence $\iff$ $H_i(f; \Q)$ is an isomorphism for all $i$.
 }
+
+\todo{Voeg het trucje uit Felix toe om ``$\pi_2(f)$ surjectief'' te omzeilen}

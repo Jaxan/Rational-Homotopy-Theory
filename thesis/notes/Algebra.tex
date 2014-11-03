@@ -50,7 +50,7 @@ Again these objects and maps form a category, denoted as $\grAlg{\k}$. We will d
 
 \begin{definition}
 	A graded algebra $A$ is \emph{commutative} if for all $x, y \in A$
-	$$ xy = (-1)^{\deg{x}\deg{y}} yx. $$
+	$$ x y = (-1)^{\deg{x}\deg{y}} y x. $$
 \end{definition}
 
 
@@ -70,8 +70,8 @@ A differential graded module $(M, d)$ with $M_i = 0$ for all $i < 0$ is a \emph{
 Finally we come to the definition of a differential graded algebra. This will be a graded algebra with a differential. Of course we want this to be compatible with the algebra structure, or stated differently: we want $\mu$ and $\eta$ to be chain maps.
 
 \begin{definition}
-	A \emph{differential graded algebra (DGA)} is a graded algebra $A$ together with an differential $d$ such that in addition the \emph{Leibniz rule} holds:
-	$$ d(xy) = d(x) y + (-1)^{\deg{x}} x d(y) \quad\text{ for all } x, y \in A. $$
+	A \emph{differential graded algebra (dga)} is a graded algebra $A$ together with an differential $d$ such that in addition the \emph{Leibniz rule} holds:
+	$$ d(x y) = d(x) y + (-1)^{\deg{x}} x d(y) \quad\text{ for all } x, y \in A. $$
 \end{definition}
 
 \todo{Define the notion of derivation?}

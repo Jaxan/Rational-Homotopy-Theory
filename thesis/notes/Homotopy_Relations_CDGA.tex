@@ -4,7 +4,7 @@ Although the abstract theory of model categories gives us tools to construct a h
 Consider the free cdga on one generator $\Lambda(t, dt)$, where $\deg{t} = 0$, this can be thought of as the (dual) unit interval with endpoints $1$ and $t$. We define two \emph{endpoint maps} as follows:
 $$ d_0, d_1 : \Lambda(t, dt) \to \k $$
 $$ d_0(t) = 1, \qquad d_1(t) = 0, $$
-this extends linearly and multiplicatively. Note that it follows that we have $d_0(1-t) = 0$ and $d_1(1-t) = 1$. These two functions extend to tensorproducts as $d_0, d_1: \Lambda(t, dt) \tensor X \to \k \tensor X \tot{\iso} X$.
+this extends linearly and multiplicatively. Note that it follows that we have $d_0(1-t) = 0$ and $d_1(1-t) = 1$. These two functions extend to tensor products as $d_0, d_1: \Lambda(t, dt) \tensor X \to \k \tensor X \tot{\iso} X$.
 
 \Definition{cdga_homotopy}{
 	We call $f, g: A \to X$ homotopic ($f \simeq g$) if there is a map
@@ -31,7 +31,7 @@ Clearly we have that $f \simeq g$ implies $f \simeq^r g$ (see \DefinitionRef{rig
 	$$ [A, X] = \Hom_{\CDGA_\k}(A, X) / \simeq. $$
 }
 
-The results from model categories immediately imply the following results.
+The results from model categories immediately imply the following results. \todo{Refereer expliciet}
 \Corollary{cdga_homotopy_properties}{
 	Let $A$ be cofibrant.
 	\begin{itemize}
@@ -47,5 +47,5 @@ The results from model categories immediately imply the following results.
 	Let $f, g: A \to X$ be two homotopic maps, then $H(f) = H(g): HA \to HX$.
 }
 \Proof{
-	We only need to consider $H(d_0)$ and $H(d_1)$.
+	We only need to consider $H(d_0)$ and $H(d_1)$. \todo{Bewijs afmaken}
 }

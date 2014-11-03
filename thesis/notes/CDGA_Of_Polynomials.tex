@@ -3,11 +3,11 @@ We will now give a cdga model for the $n$-simplex $\Delta^n$. This then allows f
 
 \Definition{apl}{
 	For all $n \in \N$ define the following cdga:
-	$$ (\Apl)_n = \frac{\Lambda(x_0, \ldots, x_n, dx_0, \ldots, dx_n)}{(\sum_{i=0}^n x_i - 1, \sum_{i=0}^n dx_i)} $$
-	So it is the free cdga with $n+1$ generators and their differentials such that $\sum_{i=0}^n x_i = 1$ and in order to be well behaved $\sum_{i=0}^n dx_i = 0$.
+	$$ (\Apl)_n = \frac{\Lambda(x_0, \ldots, x_n, d x_0, \ldots, d x_n)}{(\sum_{i=0}^n x_i - 1, \sum_{i=0}^n d x_i)} $$
+	So it is the free cdga with $n+1$ generators and their differentials such that $\sum_{i=0}^n x_i = 1$ and in order to be well behaved $\sum_{i=0}^n d x_i = 0$.
 }
 
-Note that the inclusion $\Lambda(x_1, \ldots, x_n, dx_1, \ldots, dx_n) \to \Apl_n$ is an isomorphism of cdga's. So $\Apl_n$ is free and (algebra) maps from it are determined by their images on $x_i$ for $i = 1, \ldots, n$ (also note that this determines the images for $dx_i$). This fact will be used throughout.
+Note that the inclusion $\Lambda(x_1, \ldots, x_n, d x_1, \ldots, d x_n) \to \Apl_n$ is an isomorphism of cdga's. So $\Apl_n$ is free and (algebra) maps from it are determined by their images on $x_i$ for $i = 1, \ldots, n$ (also note that this determines the images for $d x_i$). This fact will be used throughout.
 
 These cdga's will assemble into a simplicial cdga when we define the face and degeneracy maps as follows ($j = 1, \ldots, n$):
 
@@ -53,10 +53,10 @@ One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace
 }
 
 \Lemma{apl-kan-complex}{
-	$\Apl_n^k$ is a Kan complex.
+	$\Apl^k$ is a Kan complex.
 }
 \Proof{
-	By the simple fact that $\Apl_n^k$ is a simplicial group, it is a Kan complex \cite{goerss}.
+	By the simple fact that $\Apl^k$ is a simplicial group, it is a Kan complex \cite{goerss}.
 }
 
 Combining these two lemmas gives us the following.
@@ -69,9 +69,9 @@ Besides the simplicial structure of $\Apl$, there is also the structure of a coc
 	$\Apl_n$ is acyclic, i.e. $H(\Apl_n) = \k \cdot [1]$.
 }
 \Proof{
-	This is clear for $\Apl_0 = \k \cdot 1$. For $\Apl_1$ we see that $\Apl_1 = \Lambda(x_1, dx_1) \iso \Lambda D(0)$, which we proved to be acyclic in the previous section.
+	This is clear for $\Apl_0 = \k \cdot 1$. For $\Apl_1$ we see that $\Apl_1 = \Lambda(x_1, d x_1) \iso \Lambda D(0)$, which we proved to be acyclic in the previous section.
 
-	For general $n$ we can identify $\Apl_n \iso \bigtensor_{i=1}^n \Lambda(x_i, dx_i)$, because $\Lambda$ is left adjoint and hence preserves coproducts. By the Künneth theorem \TheoremRef{kunneth} we conclude $H(\Apl_n) \iso \bigtensor_{i=1}^n H \Lambda(x_i, dx_i) \iso \bigtensor_{i=1}^n H \Lambda D(0) \iso \k \cdot [1]$.
+	For general $n$ we can identify $\Apl_n \iso \bigtensor_{i=1}^n \Lambda(x_i, d x_i)$, because $\Lambda$ is left adjoint and hence preserves coproducts. By the Künneth theorem \TheoremRef{kunneth} we conclude $H(\Apl_n) \iso \bigtensor_{i=1}^n H \Lambda(x_i, d x_i) \iso \bigtensor_{i=1}^n H \Lambda D(0) \iso \k \cdot [1]$.
 
 	So indeed $\Apl_n$ is acyclic for all $n$.
 }
