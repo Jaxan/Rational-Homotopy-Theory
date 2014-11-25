@@ -70,8 +70,8 @@
 \newcommand{\dgAlg}[1]{\cat{dg\mbox{-}{#1}Alg}}	% differential graded algebras over a ring
 \newcommand{\Ch}[1]{\cat{Ch_{n\geq0}({#1})}}	% chain complexes
 \newcommand{\CoCh}[1]{\cat{Ch^{n\geq0}({#1})}}	% cochain complexes
-\newcommand{\DGA}{\cat{DGA}}			% cochain algebras
-\newcommand{\CDGA}{\cat{CDGA}}			% commutative cochain algebras
+\DeclareRobustCommand{\DGA}{\cat{DGA}}			% cochain algebras
+\DeclareRobustCommand{\CDGA}{\cat{CDGA}}		% commutative cochain algebras
 
 \newcommand{\cof}{\hookrightarrow}		% cofibration
 \newcommand{\fib}{\twoheadrightarrow}	% fibration
@@ -114,7 +114,7 @@
 \renewcommand{\deg}[1]{{|{#1}|}}
 \newcommand{\Char}[1]{char({#1})}
 \newcommand{\RH}{\widetilde{H}}			% reduced homology
-\renewcommand{\C}{\mathcal{C}}			% Serre mod C class
+\DeclareRobustCommand{\C}{\mathcal{C}}			% Serre mod C class
 \newcommand{\Apl}[0]{{A_{PL}}}			% Apl simplicial set of polynomials
 
 \newcommand{\titleCDGA}{\texorpdfstring{$\CDGA$}{CDGA}}
