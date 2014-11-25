@@ -58,13 +58,13 @@ In this section we will prove that the singular cochain complex is quasi isomorp
 Let $v \in \Apl_n^n$, then we can always write it as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate geometrically on the $n$-simplex:
 $$ \int_n v = \int_0^1 \int_0^{1-x_n} \dots \int_0^{1 - x_2 - \dots - x_n} p(x_1, \dots, x_n) dx_1 dx_2 \dots dx_n, $$
 which defines a well-defined linear map $\int_n : \Apl_n^n \to \k$. For general fields of characteristic zero we can define it formally on the generators of $\Apl_n^n$ (as vector space):
-$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n)!}. $$
+$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n + n)!}. $$
 
 Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then $x$ induces a linear map $x^\ast: \Apl_n \to \Apl_k$. Let $v \in \Apl_n^k$, then $x^\ast(v) \in \Apl_k^k$, which we can integrate. Now define
 $$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
 Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
 
-Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C_n$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follow:
+Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C_n$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follows:
 $$ \oint_n (\sigma^\ast v)(x)
 	= (-1)^\frac{l(l-1)}{2} \int_l x^\ast(\sigma^\ast(v))
 	= (-1)^\frac{l(l-1)}{2} \int_l (\sigma \circ x)^\ast(v)
@@ -90,6 +90,7 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 	The induced map $\oint: A(X) \to C^\ast(X)$ is a natural quasi isomorphism.
 }
 \Proof{
+	\todo{Diagrammen typesetten}
 	Assume we have a simplicial set $X$ such that $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphism. We can add a simplex by considering pushouts of the following form:
 
 	\cdiagram{Apl_C_Quasi_Iso_Pushout}

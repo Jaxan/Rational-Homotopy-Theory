@@ -4,7 +4,7 @@
 
 In this section we will state the aim of rational homotopy theory. Moreover we will recall classical theorems from algebraic topology and deduce rational versions of them.
 
-In the following definition \emph{space} is to be understood as a topological space or a simplicial set. We will restrict to simply connected spaces.
+In the following definition \emph{space} is to be understood as a topological space or a simplicial set. We will restrict ourselves to simply connected spaces. \todo{Per definitie/stelling samenhangendheid aangeven}
 
 \Definition{rational-space}{
 	A space $X$ is a \emph{rational space} if
@@ -28,7 +28,7 @@ Note that for a rational space $X$, the homotopy groups are isomorphic to the ra
 
 Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence if and only if $f$ is a weak equivalence.
 
-We will later see that any space admits a rationalization. The theory of rational homotopy theory is then the study of the homotopy category $\Ho_\Q(\Top) \iso \Ho(\Top_\Q)$, which is on its own turn equivalent to $\Ho(\sSet_\Q) \iso \Ho_\Q(\sSet)$.
+We will later see that any space admits a rationalization. The theory of rational homotopy theory is then the study of the homotopy category $\Ho_\Q(\Top) \iso \Ho(\Top_\Q)$, which is on its own turn equivalent to $\Ho(\sSet_\Q) \iso \Ho_\Q(\sSet)$. \todo{Notatie}
 
 \section{Classical results from algebraic topology}
 
@@ -36,7 +36,7 @@ We will now recall known results from algebraic topology, without proof. One can
 
 \Theorem{relative-hurewicz}{
 	(Relative Hurewicz) For any inclusion of spaces $A \subset X$ and all $i > 0$, there is a natural map
-	$$ h_i : \pi_i(X, A) \to H_i(X, A). $$
+	$$ h_i : \pi_i(X, A) \to H_i(X, A). $$ \todo{Andere letter dan $A$}
 	If furthermore $(X,A)$ is $n$-connected ($n > 0$), then the map $h_i$ is an isomorphism for all $i \leq n + 1$.
 }
 
@@ -84,7 +84,7 @@ The long exact sequence for a Serre fibration also has a direct consequence for 
 \Corollary{rational-les}{
 	Let $f: X \to Y$ be a Serre fibration of $1$-connected spaces, then there is a natural long exact sequence of rational homotopy groups:
 	$$ \cdots \tot{\del} \pi_i(F) \tensor \Q \tot{i_\ast} \pi_i(X) \tensor \Q \tot{f_\ast} \pi_i(Y) \tensor \Q \tot{\del} \cdots. $$
-	\todo{Wat als $F$ niet $1$-connected is?}
+	\todo{Wat als $F$ niet $1$-connected is? En: $\pi_1$ abels is ook goed.}
 }
 
 In the next sections we will prove the rational Hurewicz and rational Whitehead theorems. These theorems are due to Serre \cite{serre}.
