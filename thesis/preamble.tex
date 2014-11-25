@@ -1,4 +1,7 @@
 
+% normally included with amsart
+\usepackage{amsmath, amsthm}
+
 % font with unicode support
 \usepackage{fontspec}
 
@@ -13,7 +16,7 @@
 \usepackage{float}
 
 % for appendices
-\usepackage[toc,page]{appendix}
+% \usepackage[toc,page]{appendix}
 
 % for multiple cites
 \usepackage{cite}
@@ -31,14 +34,11 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-% Matrices have a upper bound for its size
-\setcounter{MaxMatrixCols}{20}
-
 % for the fib arrow
 \usepackage{amssymb}
 
 % mathbb for lowercase bbs
-\usepackage{bbm}
+\usepackage{dsfont}
 
 % Some basic objects
 \newcommand{\N}{\mathbb{N}}				% natural numbers
@@ -46,7 +46,7 @@
 \newcommand{\Z}{\mathbb{Z}}				% integers
 \newcommand{\R}{\mathbb{R}}				% reals
 \newcommand{\Q}{\mathbb{Q}}				% rationals
-\renewcommand{\k}{\mathbbm{k}}			% default ground ring
+\renewcommand{\k}{\mathds{k}}			% default ground ring
 
 % Basic category stuff
 \newcommand{\cat}[1]{\mathbf{#1}}		% the category of ...
@@ -116,6 +116,8 @@
 \newcommand{\RH}{\widetilde{H}}			% reduced homology
 \renewcommand{\C}{\mathcal{C}}			% Serre mod C class
 \newcommand{\Apl}[0]{{A_{PL}}}			% Apl simplicial set of polynomials
+
+\newcommand{\titleCDGA}{\texorpdfstring{$\CDGA$}{CDGA}}
 
 % restriction of a function
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol

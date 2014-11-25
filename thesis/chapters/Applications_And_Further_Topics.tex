@@ -1,0 +1,64 @@
+
+\chapter{Rational Homotopy Groups Of The Spheres And Other Calculations}
+
+In this chapter we will calculate the rational homotopy groups of the spheres using minimal models. The minimal model for the sphere was already given, but we will quickly redo the calculation.
+
+\Proposition{}{
+	For odd $n$ the rational homotopy groups of $S^n$ are given by
+	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
+		\Q, &\text{ if } i=n \\
+		0, &\text{ otherwise.}
+	\end{cases} $$
+}
+\Proof{
+	We know the cohomology of the sphere by classical results:
+	$$ H^i(S^n ; \Q) = \begin{cases}
+		\Q \cdot 1, &\text{ if } i = 0 \\
+		\Q \cdot x, &\text{ if } i = n \\
+		0, &\text{ otherwise,}
+	\end{cases}$$
+	where $x$ is a generator of degree $n$. Define $M_{S^n} = \Lambda(e)$ with $d(e) = 0$ and $e$ of degree $n$. Notice that since $n$ is odd, we get $e^2 = 0$. By taking a representative for $x$, we can give a map $M_{S^n} \to A(S^n)$, which is a weak equivalence.
+
+	Clearly $M_{S^n}$ is minimal, and hence it is a minimal model for $S^n$. By \CorollaryRef{minimal-cdga-homotopy-groups} and the main equivalence we have
+	$$ \pi_\ast(S^n) \tensor \Q = \pi_\ast(K(M_{S^n})) = \pi^\ast(M_{S^n})^\ast = \Q \cdot e^\ast. $$
+}
+
+\Proposition{}{
+	For even $n$ the rational homotopy groups of $S^n$ are given by
+	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
+		\Q, &\text{ if } i = 2n-1 \\
+		\Q, &\text{ if } i = n \\
+		0, &\text{ otherwise.}
+	\end{cases} $$
+}
+\Proof{
+	Again since we know the cohomology of the sphere, we can construct its minimal model. Define $M_{S^n} = \Lambda(e, f)$ with $d(e) = 0, d(f) = e^2$ and $\deg{e} = n, \deg{f} = 2n-1$. Let $x \in H^n(S^n; \Q)$ be a generator and notice that $x^2 = 0$. This means that for a representative $x' \in A(S^n)$ of $x$ there exists an element $y \in A(S^n)$ such that $dy = x'^2$. Mapping $e$ and $f$ to $x'$ and $y$ respectively defines a quasi isomorphism $M_{S^n} \to A(S^n)$.
+
+	Again we can use \CorollaryRef{minimal-cdga-homotopy-groups} to directly conclude:
+	$$ \pi_i(S^n) \tensor \Q = \pi^i(M_{S^n})^\ast = \Q \cdot e^\ast \oplus \Q \cdot f^\ast. $$
+}
+
+The generators $e$ and $f$ in the last proof are related by the so callend \Def{Whitehead product}. The whitehead product is a bilinear map $\pi_p(X) \times \pi_q(X) \to \pi_{p+q-1}(X)$ satisfying a graded commutativity relation and a graded Jacobi relation, see \cite{felix}. If we define a \Def{Whitehead algebra} to be a graded vector space with such a map satisfying these relations, we can summarize the above two propositions as follows \cite{berglund}.
+
+\Corollary{}{
+	The rational homotopy groups of $S^n$ are given by
+	$$ \pi_\ast(S^n) \tensor \Q = \text{the free whitehead algebra on 1 generator}. $$
+}
+
+Together with the fact that all groups $\pi_i(S^n)$ are finitely generated (this was proven by Serre \cite{serre}) we can conclude that $\pi_i(S^n)$ is a finite group unless $i=n$ or $i=2n-1$ when $n$ is even. The fact that $\pi_i(S^n)$ are finitely generated can be proven by the Serre-Hurewicz theorems (\TheoremRef{serre-hurewicz}) when taking the Serre class of finitely generated abelian groups.
+
+The following result is already used in proving the main theorem. But using the main theorem it is an easy and elegant consequence.
+
+\Proposition{}{
+	For an Eilenberg-MacLane space of type $K(\Z, n)$ we have:
+	$$ H^\ast(K(\Z, n); \Q) \iso \Q[x], $$
+	i.e. the free graded commutative algebra on 1 generator.
+}
+\Proof{
+	By the existence theorem for minimal models, we know there is a minimal model $(\Lambda V, d) \we A(K(\Z, n))$. By calculating the homotopy groups we see
+	$$ {V^i}^\ast = \pi^i(\Lambda V)^\ast = \pi_i(K(\Z, n)) \tensor \Q = \begin{cases}
+		\Q, &\text{ if } i = n \\
+		0, &\text{ otherwise.}
+	\end{cases} $$
+	This means that $V$ is concentrated in degree $n$ and that the differential is trivial. Take a generator $x$ of degree $n$ such that $V = \Q \cdot x$ and conclude that the cohomology of the minimal model, and hence the cohomology of $K(\Z, n)$, is $H(\Lambda V, 0) = \Q[x]$.
+}

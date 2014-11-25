@@ -1,10 +1,10 @@
 
-\section{Differential Graded Algebra}
+\chapter{Differential Graded Algebra}
 \label{sec:algebra}
 
 In this section $\k$ will be any commutative ring. We will recap some of the basic definitions of commutative algebra in a graded setting. By \emph{linear}, \emph{module}, \emph{tensor product}, etc\dots we always mean $\k$-linear, $\k$-module, tensor product over $\k$, etc\dots.
 
-\subsection{Graded algebra}
+\section{Graded algebra}
 
 \begin{definition}
 	A \emph{graded module} $M$ is a family of modules $\{M_n\}_{n\in\Z}$. An element $x \in M_n$ is called a \emph{homogeneous element} and said to be of \emph{degree $\deg{x} = n$}. We will often identify $M = \bigoplus_{n \in \Z} M_n$.
@@ -54,7 +54,7 @@ Again these objects and maps form a category, denoted as $\grAlg{\k}$. We will d
 \end{definition}
 
 
-\subsection{Differential graded algebra}
+\section{Differential graded algebra}
 
 \begin{definition}
 	A \emph{differential graded module} $(M, d)$ is a graded module $M$ together with a map $d: M \to M$ of degree $-1$, called a \emph{differential}, such that $dd = 0$. A map $f: M \to N$ is a \emph{chain map} if it is compatible with the differential, i.e. $d_N f = f d_M$.
@@ -83,7 +83,7 @@ Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i =
 \todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary cdga's.}
 
 
-\subsection{Homology}
+\section{Homology}
 
 Whenever we have a differential graded module we have $d \circ d = 0$, or put in other words: the image of $d$ is a submodule of the kernel of $d$. The quotient of the two graded modules will be of interest.
 
@@ -115,7 +115,7 @@ Note that taking homology of a differential graded module (or algebra) is functo
 \end{definition}
 
 
-\subsection{Classical results}
+\section{Classical results}
 
 We will give some classical known results of algebraic topology or homological algebra. Proofs of these theorems can be found in many places. \todo{cite at least 1 place}
 

@@ -1,60 +1,34 @@
-\documentclass[a4paper, 12pt]{amsart}
+\documentclass[a4paper,12pt,footinclude=true,headinclude=true,oneside,dottedtoc]{scrbook}
+\usepackage[parts,drafting,eulerchapternumbers,beramono,eulermath]{classicthesis}
+\setcounter{tocdepth}{0} % parts, chapters
 
-\input{style}
 \input{preamble}
 
 \title{Rational Homotopy Theory}
 \author{Joshua Moerman}
 
 \begin{document}
+\pagenumbering{roman}
 
 \maketitle
-{\bf \today}
 
-\section*{Contents}
-\tableofcontents
+\include{chapters/Introduction}
 
-\section*{Preliminaries}
-We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is assumed, but the reader may review this in the appendices.
+\pagenumbering{arabic}
+\part{Basics Of Rational Homotopy Theory}
+\include{chapters/Basics_Of_Rational_Homotopy_Theory}
 
-Some notation:
-\begin{itemize}
-	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section). Modules, tensor products, \dots are understood as $\k$-modules, tensor products over $\k$, \dots. If ambiguitity can occur notation will be explicit.
-	\item $\cat{C}$ will denote an arbitrary category.
-	\item $\cat{0}$ (resp. $\cat{1}$) will denote the initial (resp. final) objects in a category $\cat{C}$.
-	\item $\Hom_\cat{C}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. The subscript $\cat{C}$ is occasionally left out if the category is clear from the context.
-\end{itemize}
+\part{CDGAs As Algebraic Models}
+\include{chapters/CDGA_As_Algebraic_Model_For_Rational_Homotopy_Theory}
 
-Some categories:
-\begin{itemize}
-	\item $\Top$: category of topological spaces and continuous maps.
-	\item $\Ab$: category of abelian groups and group homomorphisms.
-	\item $\DELTA$: category of simplices (i.e. finite, non-empty ordinals) and order preserving maps.
-	\item $\sSet$: category of simplicial sets and simplicial maps (more generally we have the category of simplicial objects, $\cat{sC}$, for any category $\cat{C}$).
-	\item $\Ch{\k}, \CoCh{\k}$: category of non-negatively graded chain (resp. cochain) complexes and chain maps.
-	\item $\DGA_\k$: category of non-negatively differential graded algebras over $\k$ (these are cochain complexes with a multiplication) and graded algebra  maps. As a shorthand we will refer to such an object as \emph{dga}.
-	\item $\CDGA_\k$: the full subcategory of $\DGA_\k$ of commutative dga's (\emph{cdga}'s).
-\end{itemize}
+\part{Applications and Further Topics}
+\include{chapters/Applications_And_Further_Topics}
 
-\newcommand{\myinput}[1]{\include{#1}}
+\appendix
+\part{Appendices}
+\include{chapters/Appendices}
 
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
-\myinput{notes/Basics}
-\myinput{notes/Serre}
-\myinput{notes/Rationalization}
-\myinput{chapters/Homotopy_Theory_CDGA}
-\myinput{chapters/Polynomial_Forms}
-\myinput{notes/Minimal_Models}
-\myinput{notes/A_K_Quillen_Pair}
-
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-\begin{appendices}
-	\input{notes/Algebra}
-	\input{notes/Free_CDGA}
-	\include{notes/Model_Categories}
-\end{appendices}
-
-% \listoftodos
+\listoftodos
 
 \bibliographystyle{alpha}
 \bibliography{references}
