@@ -9,8 +9,12 @@ Given a category $\cat{C}$ and a functor $F: \DELTA \to \cat{C}$, then define th
 A simplicial map $X \to Y$ induces a map of the diagrams of which we take colimits. Applying $F$ on these diagrams, make it clear that $F_!$ is functorial. Secondly we see readily that $F^\ast$ is functorial. By using the definition of colimit and the Yoneda lemma (Y) we can prove that $F_!$ is left adjoint to $F^\ast$:
 
 \begin{align*}
-	\Hom_\cat{C}(F_!(X), Y) &\iso \Hom_\cat{C}(\colim_{\Delta[n] \to X} F[n], Y) \iso \lim_{\Delta[n] \to X} \Hom_\cat{C}(F[n], Y) \iso \lim_{\Delta[n] \to X} F^\ast(Y)_n \\
-	&\stackrel{\text{Y}}{\iso} \lim_{\Delta[n] \to X} \Hom_\sSet(\Delta[n], F^\ast(Y)) \iso \Hom_\sSet(\colim_{\Delta[n] \to X} \Delta[n], F^\ast(Y)) \\
+	\Hom_\cat{C}(F_!(X), Y)
+	&\iso \Hom_\cat{C}(\colim_{\Delta[n] \to X} F[n], Y) \\
+	&\iso \lim_{\Delta[n] \to X} \Hom_\cat{C}(F[n], Y) \\
+	&\iso \lim_{\Delta[n] \to X} F^\ast(Y)_n \\
+	&\stackrel{\text{Y}}{\iso} \lim_{\Delta[n] \to X} \Hom_\sSet(\Delta[n], F^\ast(Y)) \\
+	&\iso \Hom_\sSet(\colim_{\Delta[n] \to X} \Delta[n], F^\ast(Y)) \\
 	&\iso \Hom_\sSet(X, F^\ast(Y)).
 \end{align*}
 
@@ -28,8 +32,11 @@ In our case where $F = \Apl$ and $\cat{C} = \CDGA_\k$ we get:
 In our case we take the opposite category, so the definition of $A$ is in terms of a limit instead of colimit. This allows us to give a nicer description:
 
 \begin{align*}
-	A(X) &= \lim_{\Delta[n] \to X} \Apl_n \stackrel{Y}{\iso} \lim_{\Delta[n] \to X} \Hom_\sSet(\Delta[n], \Apl) \iso \Hom_\sSet(\colim_{\Delta[n] \to X}\Delta[n], \Apl) \\
-	&= \Hom_\sSet(X, \Apl),
+	A(X)
+	&= \lim_{\Delta[n] \to X} \Apl_n 
+	\stackrel{Y}{\iso} \lim_{\Delta[n] \to X} \Hom_\sSet(\Delta[n], \Apl) \\
+	&\iso \Hom_\sSet(\colim_{\Delta[n] \to X}\Delta[n], \Apl)
+	= \Hom_\sSet(X, \Apl),
 \end{align*}
 
 where the addition, multiplication and differential are defined pointwise. Conclude that we have the following contravariant functors (which form an adjoint pair):
@@ -65,15 +72,16 @@ $$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
 Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
 
 Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C_n$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follows:
-$$ \oint_n (\sigma^\ast v)(x)
-	= (-1)^\frac{l(l-1)}{2} \int_l x^\ast(\sigma^\ast(v))
-	= (-1)^\frac{l(l-1)}{2} \int_l (\sigma \circ x)^\ast(v)
-	= \oint_k (v)(\sigma \circ x)
-	= (\oint_k (v) \circ \sigma) (x)
-	= \sigma^\ast (\oint_k(v)(x)) $$
+\begin{align*}
+	\oint_n (\sigma^\ast v)(x)
+	&= (-1)^\frac{l(l-1)}{2} \int_l x^\ast(\sigma^\ast(v)) \\
+	&= (-1)^\frac{l(l-1)}{2} \int_l (\sigma \circ x)^\ast(v) \\
+	&= \oint_k (v)(\sigma \circ x) \\
+	&= (\oint_k (v) \circ \sigma) (x) = \sigma^\ast (\oint_k(v)(x))
+\end{align*}
 For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is very similar to \emph{Stokes' theorem}. \todo{proof this}
 
-We now proved that $\oint$ is indeed a simplicial chain map. Note that $\oint_n$ need not to preserve multiplication, so it fails to be a map of cochain algebras. However $\oint(1) = 1$ and so the induced map on homology sends the class of $1$ in $H(\Apl_n) = \k \dot [1]$ to the class of $1$ in $H(C_n) = \k \dot [1]$. We have proven the following lemma.
+We now proved that $\oint$ is indeed a simplicial chain map. Note that $\oint_n$ need not to preserve multiplication, so it fails to be a map of cochain algebras. However $\oint(1) = 1$ and so the induced map on homology sends the class of $1$ in $H(\Apl_n) = \k \cdot [1]$ to the class of $1$ in $H(C_n) = \k \cdot [1]$. We have proven the following lemma.
 
 \Lemma{apl-c-quasi-iso}{
 	The map $\oint_n: \Apl_n \to C_n$ is a quasi isomorphism for all $n$.
