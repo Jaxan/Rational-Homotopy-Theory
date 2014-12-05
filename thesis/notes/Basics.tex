@@ -4,19 +4,21 @@
 
 In this section we will state the aim of rational homotopy theory. Moreover we will recall classical theorems from algebraic topology and deduce rational versions of them.
 
-In the following definition \emph{space} is to be understood as a topological space or a simplicial set. We will restrict ourselves to simply connected spaces. \todo{Per definitie/stelling samenhangendheid aangeven}
+In the following definition \emph{space} is to be understood as a topological space or a simplicial set. We will call a space \Def{simple} if it is connected and its fundamental group is abelian.
 
 \Definition{rational-space}{
-	A space $X$ is a \emph{rational space} if
+	A simple space $X$ is a \emph{rational space} if
 	$$ \pi_i(X) \text{ is a $\Q$-vector space } \quad\forall i > 0. $$
 }
 
 \Definition{rational-homotopy-groups}{
-	We define the \emph{rational homotopy groups} of a space $X$ as:
+	We define the \emph{rational homotopy groups} of a simple space $X$ as:
 	$$ \pi_i(X) \tensor \Q \quad \forall i > 0.$$
 }
 
-Note that for a rational space $X$, the homotopy groups are isomorphic to the rational homotopy groups, i.e. $\pi_i(X) \tensor \Q \iso \pi_i(X)$.
+In order to define the tensor product $\pi_1(X) \tensor \Q$ we need that the fundamental group is abelian, that is the rational homotopy groups are only defined for simple spaces. There is a more general approach using \Def{nilpotent groups}, which admit $\Q$-completions \cite{bousfield}. Since this is rather technical we will often restrict ourselves to simple spaces or even simply connected spaces.
+
+Note that for a rational space $X$, the ordinary homotopy groups are isomorphic to the rational homotopy groups, i.e. $\pi_i(X) \tensor \Q \iso \pi_i(X)$.
 
 \Definition{rational-homotopy-equivalence}{
 	A map $f: X \to Y$ is a \emph{rational homotopy equivalence} if $\pi_i(f) \tensor \Q$ is a linear isomorphism for all $i > 0$.
@@ -28,16 +30,17 @@ Note that for a rational space $X$, the homotopy groups are isomorphic to the ra
 
 Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence if and only if $f$ is a weak equivalence.
 
-We will later see that any space admits a rationalization. The theory of rational homotopy theory is then the study of the homotopy category $\Ho_\Q(\Top) \iso \Ho(\Top_\Q)$, which is on its own turn equivalent to $\Ho(\sSet_\Q) \iso \Ho_\Q(\sSet)$. \todo{Notatie}
+The theory of rational homotopy theory is the study of simple spaces with rational equivalences. Quillen defines a model structure on simply connected simplicial sets with rational equivalences as weak equivalences \cite{Quillen}. This means that there is a homotopy category $\Ho^\Q(\sSet_1)$. However we will later prove that every simply connected space has a rationalization, so that $\Ho^\Q(\sSet_1) = \Ho(\sSet^\Q_1)$ are equivalent categories. This means that we do not need the model structure defined by Quillen, but we can simply restrict ourselves to rational spaces (with ordinary weak equivalences).
+
 
 \section{Classical results from algebraic topology}
 
-We will now recall known results from algebraic topology, without proof. One can find many of these results in basic text books, such as \cite{may, dold}. We do not assume $1$-connectedness here.
+We will now recall known results from algebraic topology, without proof. One can find many of these results in basic text books, such as \cite{may, dold}.
 
 \Theorem{relative-hurewicz}{
-	(Relative Hurewicz) For any inclusion of spaces $A \subset X$ and all $i > 0$, there is a natural map
-	$$ h_i : \pi_i(X, A) \to H_i(X, A). $$ \todo{Andere letter dan $A$}
-	If furthermore $(X,A)$ is $n$-connected ($n > 0$), then the map $h_i$ is an isomorphism for all $i \leq n + 1$.
+	(Relative Hurewicz) For any inclusion of spaces $Y \subset X$ and all $i > 0$, there is a natural map
+	$$ h_i : \pi_i(X, Y) \to H_i(X, Y). $$
+	If furthermore $(X, Y)$ is $n$-connected ($n > 0$), then the map $h_i$ is an isomorphism for all $i \leq n + 1$.
 }
 
 \Theorem{serre-les}{
@@ -82,9 +85,8 @@ The latter two theorems have a direct consequence for rational homotopy theory. 
 
 The long exact sequence for a Serre fibration also has a direct consequence for rational homotopy theory.
 \Corollary{rational-les}{
-	Let $f: X \to Y$ be a Serre fibration of $1$-connected spaces, then there is a natural long exact sequence of rational homotopy groups:
+	Let $f: X \to Y$ be a Serre fibration of simple spaces with a simple fiber, then there is a natural long exact sequence of rational homotopy groups:
 	$$ \cdots \tot{\del} \pi_i(F) \tensor \Q \tot{i_\ast} \pi_i(X) \tensor \Q \tot{f_\ast} \pi_i(Y) \tensor \Q \tot{\del} \cdots. $$
-	\todo{Wat als $F$ niet $1$-connected is? En: $\pi_1$ abels is ook goed.}
 }
 
 In the next sections we will prove the rational Hurewicz and rational Whitehead theorems. These theorems are due to Serre \cite{serre}.

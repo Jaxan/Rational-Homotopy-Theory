@@ -130,12 +130,30 @@ We already mentioned in the first section that for rational spaces the notions o
 }
 
 \section{Other constructions}
-There are others ways to obtain a rationalization. One of them relies on the observations that it is easy to rationalize Eilenberg-MacLane spaces.
+There are others ways to obtain a rationalization. One of them relies on the observations that it is easy to rationalize Eilenberg-MacLane spaces. Since we already have a rationalization at hand the details in this section will be skipped and the focus lies on the construction.
 
-\Lemma{rationalization-em-space}{
+\Remark{rationalization-em-space}{
 	Let $A$ be an abelian group and $n \geq 1$. Then
 	$$ K(A, n) \to K(A \tensor \Q, n) $$
 	is a rationalization
 }
 
-Postnikov
+Any simply connected space can be decomposed into a Postnikov tower $X \to \ldots \fib P_2(X) \fib P_1(X) \fib P_0(X)$ \cite[Chapter 22.4]{may}. Furthermore if $X$ is a simply connected CW complex, $P_{n}(X)$ can be constructed from $P_{n-1}(X)$ as the pushout in
+\begin{displaymath}
+	\xymatrix{
+	P_{n}(X) \ar[r] \arfib[d] \xypb & PK(\pi_n(X), n+1) \arfib[d] \\
+	P_{n-1}(X) \ar[r]^-{k_{n-1}} & K(\pi_n(X), n+1),
+	}
+\end{displaymath}
+where the map $k_{n-1}$ is called the $k$-invariant. We will only need its existence for the construction. The rationalization can now be constructed with induction on this Postnikov tower. Start the induction with $X_\Q(2) = K(\pi_2(X) \tensor \Q, 2)$. Now assume we constructed $X_\Q(r-1)$ compatible with the $k$-invariant described above. We are in the following situation:
+\begin{displaymath}
+	\xymatrix@C=0cm@R=0.5cm{
+		P_r(X) \ar[rr] \arfib[dd] & & PK(\pi_r(X), r+1) \ar[rd] \arfib[dd] & \\
+		& & & PK(\pi_r(X) \tensor \Q, r+1) \arfib[dd] \\
+		P_{r-1}(X) \ar[rr]^{k_{r-1}} \ar[rd]^{\phi_{r-1}} & & K(\pi_r(X), r+1) \ar[rd] \\
+		& X_\Q(r-1) \ar[rr] & & K(\pi_r(X) \tensor \Q, r+1)
+	}
+\end{displaymath}
+where the bottom square is our induction hypothesis, the right square is by naturality of the path space fibration and the back face is the pullback described above. We can define $X_\Q(r)$ to be the pullback of the front face, which induces a map $\phi_r : P_r(X) \to X_\Q(r)$. By inspecting the long exact sequence of the fibration $X_\Q(r) \fib X_\Q(r-1)$ we see that $\phi_r$ is indeed a rationalization.
+
+We finish the construction by defining $X_\Q = \lim_r X_\Q(r)$. For more details, one can read \cite{sullivan} or \cite{berglund}.
