@@ -39,24 +39,20 @@ The requirement that there exists a filtration can be replaced by a stronger sta
 \section{Existence}
 
 \begin{theorem}
-	Let $(A, d)$ be an $0$-connected cdga, then it has a Sullivan model $(\Lambda V, d)$. Furthermore if $(A, d)$ is $r$-connected, $V^i = 0$ for all $i \leq r$.
+	Let $(A, d)$ be an $0$-connected cdga, then it has a Sullivan model $(\Lambda V, d)$. Furthermore if $(A, d)$ is $r$-connected with $r \geq 1$ then $V^i = 0$ for all $i \leq r$ and in particular $(\Lambda V, d)$ is minimal.
 \end{theorem}
 \begin{proof}
 	Start by setting $V(0) = H^{\geq 1}(A)$ and $d = 0$. This extends to a morphism $m_0 : (\Lambda V(0), 0) \to (A, d)$.
-
-	Note that the freeness introduces products such that the map $H(m_0) : H(\Lambda V(0)) \to H(A)$ is not an isomorphism. We will ``kill'' these defects inductively.
+	Note that the freeness introduces products such that the map $H(m_0) : H(\Lambda V(0)) \to H(A)$ is \emph{not} an isomorphism. We will ``kill'' these defects inductively.
 
 	Suppose $V(k)$ and $m_k$ are constructed. Consider the defect $\ker H(m_k)$ and let $\{[z_\alpha]\}_{\alpha \in A}$ be a basis for it. Define $V_{k+1} = \bigoplus_{\alpha \in A} \k \cdot v_\alpha$ with the degrees $\deg{v_\alpha} = \deg{z_\alpha}-1$.
-
-	Now extend the differential by defining $d(v_\alpha) = z_\alpha$. This step kills the defect, but also introduces new defects which will be killed later. Notice that $z_\alpha$ is a cocycle and hence $d^2 v_\alpha = 0$.
-
-	Since $[z_\alpha]$ is in the kernel of $H(m_k)$ we see that $m_k z_\alpha = d a_\alpha$ for some $a_\alpha$. Extend $m_k$ to $m_{k+1}$ by defining $m_{k+1}(v_\alpha) = a_\alpha$. Notice that $m_{k+1} d v_\alpha = m_{k+1} z_\alpha = d a_\alpha = d m_{k+1} v_\alpha$.
-
-	Now take $V(k+1) = V(k) \oplus V_{k+1}$. We already proved that $d$ is indeed a differential, and that $m_{k+1}$ is indeed a chain map.
+	Now extend the differential by defining $d(v_\alpha) = z_\alpha$. This step kills the defect, but also introduces new defects which will be killed later. Notice that $z_\alpha$ is a cocycle and hence $d^2 v_\alpha = 0$, so $d$ is still a differential.
+	Since $[z_\alpha]$ is in the kernel of $H(m_k)$ we see that $m_k z_\alpha = d a_\alpha$ for some $a_\alpha$. Extend $m_k$ to $m_{k+1}$ by defining $m_{k+1}(v_\alpha) = a_\alpha$. Notice that $m_{k+1} d v_\alpha = m_{k+1} z_\alpha = d a_\alpha = d m_{k+1} v_\alpha$, so $m_{k+1}$ is a cochain map.
+	Now take $V(k+1) = V(k) \oplus V_{k+1}$.
 
 	Complete the construction by taking the union: $V = \bigcup_k V(k)$. Clearly $H(m)$ is surjective, this was establsihed in the first step. Now if $H(m)[z] = 0$, then we know $z \in \Lambda V(k)$ for some stage $k$ and hence by construction is was killed, i.e. $[z] = 0$. So we see that $m$ is a quasi isomorphism and by construction $(\Lambda V, d)$ is a sullivan algebra.
 
-	\todo{minimality for $1$-connected}
+	Now assume that $(A, d)$ is $r$-connected ($r \geq 1$), this means that $H^i(A) = 0$ for all $1 \leq i \leq r$, and so $V(0)^i = 0$ for all $i \leq r$. Now $H(m_0)$ is injective on $\Lambda^{\leq 1} V(0)$, and so the defects are in $\Lambda^{\geq 2} V(0)$ and have at least degree $2(r+1)$. This means two things in the first inductive step of the construction. First, the newly added elements have decomposable differential. Secondly, these elements are at least of degree $2(r+1) - 1$. After adding these elements, the new defects are in $\Lambda^{\geq 2} V(1)$ and have at least degree $2(2(r+1) - 1)$. We see that as the construction continues, the degrees of adjoined elements go up. Hence $V^i = 0$ for all $i \leq r$ and by the previous lemma $(\Lambda V, d)$ is minimal.
 \end{proof}
 
 
@@ -65,14 +61,14 @@ The requirement that there exists a filtration can be replaced by a stronger sta
 Before we state the uniqueness theorem we need some more properties of minimal models.
 
 \begin{lemma}
-	Sullivan algebras are cofibrant.
+	Sullivan algebras are cofibrant and the inclusions $(\Lambda V(k), d) \to (\Lambda V(k+1), d)$ are cofibrations.
 \end{lemma}
 \begin{proof}
 	Consider the following lifting problem, where $\Lambda V$ is a Sullivan algebra.
 
 	\cimage[scale=0.5]{Sullivan_Lifting}
 
-	By the left adjointness of $\Lambda$ we only have to specify a map $\phi: V \to X$ such that $p \circ \phi = g$. We will do this by induction.
+	By the left adjointness of $\Lambda$ we only have to specify a map $\phi: V \to X$ such that $p \circ \phi = g$. We will do this by induction. Note that the induction step proves precisely that $(\Lambda V(k), d) \to (\Lambda V(k+1), d)$ is a cofibrations.
 	\begin{itemize}
 		\item Suppose $\{v_\alpha\}$ is a basis for $V(0)$. Define $V(0) \to X$ by choosing preimages $x_\alpha$ such that $p(x_\alpha) = g(v_\alpha)$ ($p$ is surjective). Define $\phi(v_\alpha) = x_\alpha$.
 		\item Suppose $\phi$ has been defined on $V(n)$. Write $V(n+1) = V(n) \oplus V'$ and let $\{v_\alpha\}$ be a basis for $V'$. Then $dv_\alpha \in \Lambda V(n)$, hence $\phi(dv_\alpha)$ is defined and
@@ -90,16 +86,18 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 	We have $p^\ast [x] = [px] = 0$, since $p^\ast$ is injective we have $x = d \overline{x}$ for some $\overline{x} \in X$. Now $p \overline{x} = y' + db$ for some $b \in Y$. Choose $a \in X$ with $p a = b$, then define $x' = \overline{x} - da$. Now check the requirements: $p x' = p \overline{x} - p a = y'$ and $d x' = d \overline{x} - d d a = d \overline{x} = x$.
 \end{proof}
 
-\begin{lemma}
-	Let $f: X \we Y$ be a weak equivalence between cdga's and $M$ a minimal model for $X$. Then $f$ induces an bijection:
+\Lemma{minimal-model-bijection}{
+	Let $f: X \we Y$ be a weak equivalence between cdga's and $M$ a minimal algebra. Then $f$ induces an bijection:
 	$$ f_\ast: [M, X] \tot{\iso} [M, Y]. $$
-\end{lemma}
+}
 \begin{proof}
-	If $f$ is surjective this follows from the fact that $M$ is cofibrant and $f$ being a trivial fibration (see \cite[lemma 4.9]{dwyer}).
+	If $f$ is surjective this follows from the fact that $M$ is cofibrant and $f$ being a trivial fibration, see \CorollaryRef{cdga_homotopy_properties}.
 
-	In general we can construct a cdga $Z$ and trivial fibrations $X \to Z$ and $Y \to Z$ inducing bijections:
-	$$ [M, X] \tot{\iso} [M, Z] \toti{\iso} [M, Y], $$
-	compatible with $f_\ast$. \cite[Proposition 12.9]{felix}.
+	\todo{Put this surjectivity trick in a lemma} In general we will reduce to the surjective case. Let $C$ be any cochain complex and define $\delta C^k = C^{k-1}$. Now $(C \oplus \delta C, \delta)$ is again a cochain complex and there is a surjective map to $C$. Define $E(Y) = \Lambda(Y \oplus \delta Y, \delta)$ (we consider $Y$ as a cochain complex). We obtain:
+	$$ f: X \tot{x \mapsto x \tensor 1} X \tensor E(Y) \tot{x \tensor y \mapsto f(x) \cdot y} Y. $$
+	Now the first map has a left inverse. We have two trivial fibrations $E(Y) \to X$ and $E(Y) \to Y$. This induces
+	$$ [M, X] \toti{\iso} [M, E(Y)] \tot{\iso} [M, Y], $$
+	compatible with $f_\ast$.
 \end{proof}
 
 \begin{lemma}
@@ -117,6 +115,20 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 	By the previous lemmas we have $[M', M] \iso [M', A]$. By going from right to left we get a map $\phi: M' \to M$ such that $m' \circ \phi \eq m$. On homology we get $H(m') \circ H(\phi) = H(m)$, proving that (2-out-of-3) $\phi$ is a weak equivalence. The previous lemma states that $\phi$ is then an isomorphism.
 \end{proof}
 
+The assignment of $X$ to its minimal model $M_X = (\Lambda V, d)$ can be extended to morphisms. Let $X$ and $Y$ be two cdga's and $f: X \to Y$ be a map. By considering their minimal models we get the following diagram.
+\begin{displaymath}
+	\xymatrix{
+	X \ar[r]^f & Y \\
+	M_X \arwe[u]^{m_X} \ar[ur]^{f m_X} & M_Y \arwe[u]^{m_Y}
+	}
+\end{displaymath}
+Now by \LemmaRef{minimal-model-bijection} we get a bijection ${m_Y}_\ast^{-1} : [M_X, Y] \iso [M_X, M_Y]$. This gives a map $M(f) = {m_Y}_\ast^{-1} (f m_X)$ from $M_X$ to $M_Y$. Of course this does not define a functor of cdga's as it is only well defined on homotopy classes. However it is clear that it does define a functor on the homotopy category of cdga's.
+
+\Corollary{}{
+	The assignment $X \mapsto M_X$ defines a functor $M: \Ho(\CDGA^1_\Q) \to \Ho(\CDGA^1_\Q)$. Moreover, since the minimal model is weakly equivalent, $M$ gives an equivalence of categories:
+	$$ M: \Ho(\CDGA^1_\Q) \iso \Ho(\text{Minimal algebras}^1), $$
+	where weakly equivalent cdga's are sent to \emph{isomorphic} minimal models.
+}
 
 \section{The minimal model of the sphere}
 We know from singular cohomology that the cohomology ring of a $n$-sphere is $\Z[X] / (X^2)$. This allows us to construct a minimal model for $S^n$.
