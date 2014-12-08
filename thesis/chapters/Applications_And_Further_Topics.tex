@@ -3,6 +3,9 @@
 
 In this chapter we will calculate the rational homotopy groups of the spheres using minimal models. The minimal model for the sphere was already given, but we will quickly redo the calculation.
 
+
+\section{The sphere}
+
 \Proposition{}{
 	For odd $n$ the rational homotopy groups of $S^n$ are given by
 	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
@@ -47,6 +50,9 @@ The generators $e$ and $f$ in the last proof are related by the so called \Def{W
 
 Together with the fact that all groups $\pi_i(S^n)$ are finitely generated (this was proven by Serre \cite{serre}) we can conclude that $\pi_i(S^n)$ is a finite group unless $i=n$ or $i=2n-1$ when $n$ is even. The fact that $\pi_i(S^n)$ are finitely generated can be proven by the Serre-Hurewicz theorems (\TheoremRef{serre-hurewicz}) when taking the Serre class of finitely generated abelian groups.
 
+
+\section{Eilenberg-MacLane spaces}
+
 The following result is already used in proving the main theorem. But using the main theorem it is an easy and elegant consequence.
 
 \Proposition{}{
@@ -62,3 +68,36 @@ The following result is already used in proving the main theorem. But using the 
 	\end{cases} $$
 	This means that $V$ is concentrated in degree $n$ and that the differential is trivial. Take a generator $x$ of degree $n$ such that $V = \Q \cdot x$ and conclude that the cohomology of the minimal model, and hence the cohomology of $K(\Z, n)$, is $H(\Lambda V, 0) = \Q[x]$.
 }
+
+
+\section{Products}
+% page 142 and 248
+Let $X$ and $Y$ be two $1$-connected spaces, we will determine the minimal model for $X \times Y$. We have the two projections maps $X \times Y \tot{\pi_X} X$ and $X \times Y \tot{\pi_Y} Y$ which induces maps of cdga's: $A(X) \tot{{\pi_X}_\ast} A(X \times Y)$ and $A(Y) \tot{{\pi_Y}_\ast} A(X \times Y)$. Because we are working with commutative algebras, we can multiply the two maps to obtain:
+$$ \mu: A(X) \tensor A(Y) \tot{{\pi_X}_\ast \cdot {\pi_Y}_\ast} A(X \times Y). $$
+This is different from the singular cochain complex where the Eilenberg-Zilber map is needed. However by passing to cohomology the multiplication is identified with the cup product. Hence, by applying the Künneth theorem, we see that $\mu$ is a weak equivalence.
+
+Now if $M_X = (\Lambda V, d_X)$ and $M_Y = (\Lambda W, d_Y)$ are the minimal models for $A(X)$ and $A(Y)$, we see that $M_X \tensor M_Y \we A(X) \tensor A(Y)$ is a weak equivalence (again by the Künneth theorem). Furthermore $M_X \tensor M_Y = (\Lambda V \tensor \Lambda W, d_X \tensor d_Y)$ is itself minimal, with $V \oplus W$ as generating space. As a direct consequence we see that
+\begin{align*}
+	\pi_i(X \times Y) \tensor \Q &\iso \pi^i(M_X \tensor M_Y)^\ast \\
+		&\iso {V^i}^\ast \oplus {W^i}^\ast \iso \pi_i(X) \oplus \pi_i(Y),
+\end{align*}
+which of course also follows from the classical result that ordinary homotopy groups already commute with products \cite{may}.
+
+Going from cdga's to spaces is easier. Since $K$ is a right adjoint from $\opCat{\CDGA}$ to $\sSet$ it preserves products. For two cdga's $A$ and $B$, this means:
+$$ K(A \tensor B) \iso K(A) \times K(B). $$
+Since the geometric realization of simplicial sets also preserve products, we get
+$$ |K(A \tensor B)| \iso |K(A)| \times |K(B)|. $$
+
+
+\section{H-spaces}
+% page 143, Hopf
+In this section we will prove that the rational cohomology of an H-space is free as commutative graded algebra. We will also give its minimal model and relate it to the homotopy groups. In some sense H-spaces are homotopy generalizations of topological monoids. In particular topological groups (and hence Lie groups) are H-spaces.
+
+\Definition{H-space}{
+	An H-space is a pointed topological space $x_0 \in X$ with a map $\mu: X \times X \to X$, such that $\mu(x_0, -), \mu(-, x_0) : X \to X$ are homotopic to $\id_X$.
+}
+
+Let $X$ be an H-space, then we have the induced map $\mu^\ast: H^\ast(X; \Q) \to H^\ast(X; \Q) \tensor H^\ast(X; \Q)$ on cohomology. Because homotopic maps are sent to equal maps in cohomology, we get $H^\ast(\mu(x_0, -)) = \id_{H^\ast(X; \Q)}$. Now write $H^\ast(\mu(x_0, -)) = (\counit \tensor \id) \circ H^\ast(\mu)$, where $\counit$ is the augmentation induced by $x_0$, to conclude that for any $h \in H^{+}(X; \Q)$ the image is of the form
+$$ H^\ast(\mu)(h) = h \tensor 1 + 1 \tensor h + \psi, $$
+for some element $\psi \in H^{+}(X; \Q) \tensor H^{+}(X; \Q)$.
+
