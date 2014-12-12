@@ -30,8 +30,16 @@ Since $A$ is a left adjoint, it preserves all colimits and by functoriality it p
 
 \begin{corollary}
 	$A$ and $K$ induce an adjunction on the homotopy categories:
-	$$ \Ho(\sSet) \leftadj \opCat{\Ho(\CDGA)}. $$
+	$$ LA : \Ho(\sSet) \leftadj \opCat{\Ho(\CDGA)} : RK. $$
 \end{corollary}
+
+The induced adjunction in the previous corollary is given by $LA(X) = A(X)$ for $X \in \sSet$ (note that every simplicial set is already cofibrant) and $RK(Y) = K(Y^{cof})$ for $Y \in \CDGA$. By the use of minimal models, and in particular the functor $M$. We get the following adjunction between $1$-connected objects:
+
+\Corollary{minimal-model-adjunction}{
+	There is an adjunction:
+	$$ M : \Ho(\sSet_1) \leftadj \opCat{\Ho(\text{Minimal models}^1)} : RK, $$
+	where $M$ is given by $M(X) = M(A(X))$ and $RK$ is given by $RK(Y) = K(Y)$ (because minimal models are always cofibrant).
+}
 
 
 \section{Homotopy groups of \texorpdfstring{$K(A)$}{K(A)}}
@@ -85,8 +93,50 @@ We get a particularly nice result for minimal cdga's, because the functor $Q$ is
 
 
 \section{Equivalence on rational spaces}
-For the equivalence of rational spaces and cdga's we need that the unit and counit of the adjunction are in fact weak equivalences. More formally we want the following maps to be weak equivalences:
-$$ X \to K(A(X)) \text{ for any rational space $X \in \sSet$ of finite type}, $$
-$$ A \to A(K(A)) \text{ for any $A \in \CDGA_\Q$ of finite type}. $$
+For the equivalence of rational spaces and cdga's we need that the unit and counit of the adjunction in \CorollaryRef{minimal-model-adjunction} are in fact weak equivalences for rational spaces. More formally: for any (automatically cofibrant) $X \in \sSet$ and any minimal model $A \in \CDGA$, both rational, $1$-connected and of finite type, the following two natural maps are weak equivalences:
+\begin{align*}
+	X &\to K(M(X)) \\
+	A &\to M(K(A))
+\end{align*}
+where the first of the two maps is given by the composition $X \to K(A(X)) \tot{K(m_X)} K(M(X))$,
+and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \LemmaRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-ouy-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
 
-We need the assumption of finiteness because we are dualizing vector spaces.
+\Lemma{}{
+	(Base case) Let $A = (\Lambda(v), 0)$ be a minimal model with one generator of degree $\deg{v} = n \geq 1$. Then $A \we A(K(A))$.
+}
+\Proof{
+	By \CorollaryRef{minimal-cdga-EM-space} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an Eilenberg-Maclane space with coefficients in $\Q$ is known:
+	$$ H^\ast(K(\Q^\ast, n); \Q) = \Q[x], $$
+	that is, the free commutative graded algebra with one generator $x$. This can be calculated, for example, with spectral sequences \cite{griffiths}.
+
+	Now choose a cycle $z \in A(K(\Q^\ast, n))$ representing the class $x$ and define a map $A \to A(K(A))$ by sending the generator $v$ to $z$. This induces an isomorphism on cohomology. So $A$ is the minimal model for $A(K(A))$.
+}
+
+\Lemma{}{
+	(Induction step) Let $A$ be a cofibrant, connected algebra. Let $B$ be the pushout in the following square, where $m \geq 1$:
+	\begin{displaymath}
+		\xymatrix{
+		S(m+1) \arcof[d] \ar[r] \xypo & A \arcof[d] \\
+		T(m) \ar[r] & B
+		}
+	\end{displaymath}
+	Then if $A \to A(K(A))$ is a weak equivalence, so is $B \to A(K(B))$
+}
+\Proof{
+	Applying $K$ to the above diagram gives a pullback diagram of simplicial sets, where the induced vertical maps are fibrations (since $K$ is right Quillen). In other words, the induced square is a homotopy pullback.
+
+	Applying $A$ again gives the following cube of cdga's:
+	\begin{displaymath}
+		\xymatrix @=9pt{
+		S(m+1) \arcof[dd] \ar[rr] \arwe[rd] \xypo & & A \arcof'[d][dd] \arwe[rd] & \\
+		& A(K(S(m+1))) \ar[dd] \ar[rr] & & A(K(A)) \ar[dd] \\
+		T(m) \ar'[r][rr] \arwe[rd] & & B \ar[rd] & \\
+		& A(K(T(m))) \ar[rr] & & A(K(B))
+		}
+	\end{displaymath}
+	Note that we have a weak equivalence in the top left corner, by the base case ($S(m+1) = (\Lambda(v), 0)$). The weak equivalence in the top right is by assumption. Finally the bottom left map is a weak equivalence because both cdga's are acylcic.
+
+	To conclude that $B \to A(K(B))$ is a weak equivalence, we wish to prove that the front face of the cube is a homotopy pushout, as the back face clearly is one. This is a consequence of the Eilenberg-Moore spectral sequence \cite{mccleary}.
+}
+
+Now we wish to use the previous lemma as an induction step for minimal models.
