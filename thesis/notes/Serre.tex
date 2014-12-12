@@ -19,8 +19,17 @@ Serre gave weaker axioms for his classes and proves some of the following lemmas
 	\begin{itemize}
 		\item The class $\C = \{ 0 \}$. With this class the following Hurewicz and Whitehead theorem will simply be the classical statements.
 		\item The class $\C$ of all torsion groups. Using this class we can prove the rational version of the Hurewicz and Whitehead theorems.
-		\item Let $P$ be a set of primes, then define a class $\C$ of torsion groups for which all $p$-subgroups are trivial for all $p \in P$. This can be used to \emph{localize} at $P$.
+		\item The class $\C$ of all uniquely divisible groups. Note that these groups can be given a unique $\Q$-vector space structure (and conversely every $\Q$-vector space is uniquely divisible). 
 	\end{itemize}
+}
+
+The most important properties we need of a Serre class are the following:
+\Lemma{Serre-properties}{
+	Let $\C \subset \Ab$ be a Serre class. Then we have:
+	\begin{enumerate}
+		\item If $A \in \C$, then $A \tensor B \in \C$ for all $B$.
+		\item If $A \in \C$, then $H(A) \in \C$ ($H(A)$ is the group homology of $A$).
+	\end{enumerate}
 }
 
 \Definition{serre-class-maps}{
@@ -76,9 +85,10 @@ In the following arguments we will consider fibrations and need to compute homol
 		&\iso (H_\ast(B^{k+1}, B^k) \tensor H_\ast(F)) \\
 		&= \bigoplus_{j+l=i+1} H_j(B^{k+1}, B^k) \tensor H_l(F)
 	\end{align*}
-	Note that this is the graded tensor product, and that the term $H_{i+1}(B^{k+1}, B^k) \tensor H_0(F) = H_{i+1}(B^{k+1}, B^k)$ and that this identification is compatible with the induced map $p_\ast : H_{i+1}(E^{k+1}, E^k) \to H_{i+1}(B^{k+1}, B^k)$ (hence the map is surjective). To prove that the map is a $\C$-iso, we need to prove that the kernel is in $\C$. The kernel is the sum of the following terms, with $l \geq 1$:
+	Note that this is the graded tensor product, and that the term $H_{i+1}(B^{k+1}, B^k) \tensor H_0(F) = H_{i+1}(B^{k+1}, B^k)$ and that this identification is compatible with the induced map $p_\ast : H_{i+1}(E^{k+1}, E^k) \to H_{i+1}(B^{k+1}, B^k)$ (hence the map is surjective). To prove that the map is a $\C$-iso, we need to prove that the kernel is in $\C$. The kernel is the sum of the following terms, with $1 \leq l \leq i+1$:
 	$$ H_{i+1-l}(B^{k+1}, B^k) \tensor H_l(F). $$
-	Now we can use the assumption that $H_l(F) \in \C$ for $l \geq 1$.
+	Now we can use the assumption that $H_l(F) \in \C$ for $1 \leq l < n$ and that for $B \in \C$ we have $A \tensor B \in \C$ for all $A$ (by \LemmaRef{Serre-properties}). This concludes that the kernel $H_{i+1-l}(B^{k+1}, B^k) \tensor H_l(F)$ is indeed in $\C$. And hence the induced map is a $\C$-iso for all
+	$$ p_\ast : H_{i+1}(E^{k+1}, E^k) \to H_{i+1}(B^{k+1}, B^k) $$
 
 	This finished the induction on $k$.
 }
