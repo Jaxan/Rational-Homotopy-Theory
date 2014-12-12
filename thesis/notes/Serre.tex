@@ -51,7 +51,16 @@ In the following arguments we will consider fibrations and need to compute homol
 	\end{itemize}
 }
 \Proof{
-	We will assume $B$ is a CW complex and prove this by induction on its skeleton $B^k$. By connectedness we can assume $B^0 = \{ b_0 \}$. Restrict $E$ to $B^k$ and note $E^0 = F$. Now the base case is clear: $H_i(E^0, F) \to H_i(B^0, b_0)$ is a $\C$-iso.
+	We will first replace the fibration by a fiber bundle. This is done by going to simplicial sets and replace the induced map by a minimal fibration \cite{joyal}. The fibration $p$ induces a fibration $S(E) \tot{S(p)} S(B)$, which can be factored as $S(E) \we M \fib S(B)$, where the map $M \fib S(B)$ is minimal (and hence a fiber bundle). By realizing we obtain the following diagram:
+	\begin{displaymath}
+		\xymatrix {
+		{|M|} \arfib[d] & \arwe[l] {|S(E)|} \arwe[r] \arfib[d] & E \arfib[d] \\
+		{|S(B)|} & \ar[l]^{\id} {|S(B)|} \arwe[r] & B
+		}
+	\end{displaymath}
+	The fibers of all fibrations are weakly equivalent by the long exact sequence, so the assumptions of the lemma also hold for the fiber bundle. To prove the lemma, it is enough to do so for the fiber bundle $|M| \fib |S(B)|$.
+
+	So we can assume $E$ and $B$ to be a CW complexes and $E \fib B$ to be a fiber bundle. We will do induction on the skeleton $B^k$. By connectedness we can assume $B^0 = \{ b_0 \}$. Restrict $E$ to $B^k$ and note $E^0 = F$. Now the base case is clear: $H_i(E^0, F) \to H_i(B^0, b_0)$ is a $\C$-iso.
 
 	For the induction step, consider the long exact sequence in homology for the triples $(E^{k+1}, E^k, F)$ and $(B^{k+1}, B^k, b_0)$:
 
@@ -59,7 +68,19 @@ In the following arguments we will consider fibrations and need to compute homol
 
 	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
 
-	\todo{Bewijs afmaken}
+	As we are working with relative homology $H_{i+1}(E^{k+1}, E^k)$, we only have to consider the interiors of the $k+1$-cells (by excision). Each interior of a $k+1$-cell is a product, as $p$ was a fiber bundle. So we note that we have an isomorphism:
+	$$ H_{i+1}(E^{k+1}, E^k) \iso H_{i+1}(\coprod_\alpha D^{k+1}_\alpha \times F, \coprod_\alpha S^k_\alpha \times F). $$
+	Now we can apply the Künneth theorem and identify the cells of $B$:
+	\begin{align*}
+		H_{i+1}(E^{k+1}, E^k) &\iso (H_\ast(\coprod_\alpha D^{k+1}_\alpha, \coprod_\alpha S^k_\alpha) \tensor H_\ast(F))_{i+1} \\
+		&\iso (H_\ast(B^{k+1}, B^k) \tensor H_\ast(F)) \\
+		&= \bigoplus_{j+l=i+1} H_j(B^{k+1}, B^k) \tensor H_l(F)
+	\end{align*}
+	Note that this is the graded tensor product, and that the term $H_{i+1}(B^{k+1}, B^k) \tensor H_0(F) = H_{i+1}(B^{k+1}, B^k)$ and that this identification is compatible with the induced map $p_\ast : H_{i+1}(E^{k+1}, E^k) \to H_{i+1}(B^{k+1}, B^k)$ (hence the map is surjective). To prove that the map is a $\C$-iso, we need to prove that the kernel is in $\C$. The kernel is the sum of the following terms, with $l \geq 1$:
+	$$ H_{i+1-l}(B^{k+1}, B^k) \tensor H_l(F). $$
+	Now we can use the assumption that $H_l(F) \in \C$ for $l \geq 1$.
+
+	This finished the induction on $k$.
 }
 
 \Lemma{homology-em-space}{
