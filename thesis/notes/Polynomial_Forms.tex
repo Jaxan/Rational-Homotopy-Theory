@@ -98,13 +98,10 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 	The induced map $\oint: A(X) \to C^\ast(X)$ is a natural quasi isomorphism.
 }
 \Proof{
-	\todo{Diagrammen typesetten}
 	Assume we have a simplicial set $X$ such that $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphism. We can add a simplex by considering pushouts of the following form:
-
 	\cdiagram{Apl_C_Quasi_Iso_Pushout}
 
 	We can apply our two functors to it, and use the natural transformation $\oint$ to obtain the following cube:
-
 	\cdiagram{Apl_C_Quasi_Iso_Cube}
 
 	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}, \cite[Lemma 5.2.6]{hovey}) to conclude that also $A(X') \we C^\ast(X')$.
@@ -114,25 +111,41 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 	$$ H(C^\ast(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha C^\ast(X_\alpha)) \iso \prod_\alpha H(C^\ast(X_\alpha)). $$
 
 	This means that we can extend the previous argument to pushout of this form:
-
-	\cimage[scale=0.5]{Apl_C_Quasi_Iso_Pushout2}
+	\begin{displaymath}
+		\xymatrix {
+		\coprod_{\alpha \in A} \del \Delta[n] \arcof[d] \ar[r] \xypo & X \ar[d] \\
+		\coprod_{\alpha \in A} \Delta[n] \ar[r] & X'
+		}
+	\end{displaymath}
 
 	Finally we can write any simplicial set $X$ as a colimit of finite dimensional ones as:
 	$$ sk_0 X \cof sk_1 X \cof sk_2 \cof \dots \colim sk_n X = X, $$
 	where $sk_i X$ has no non-degenerate simplices in dimensions $n > i$. By the above $\oint$ gives a quasi isomorphism on all the terms $sk_i X$. So we are in the following situation:
+	\begin{displaymath}
+		\xymatrix @C=0.3cm{
+		A(X) = \lim_i A(sk_i X) \ar[d]^\oint \ar@{-->>}[rr] & & A(sk_2 X) \arfib[r] \arwe[d]^\oint & A(sk_1 X) \arfib[r] \arwe[d]^\oint & A(sk_0 X) \arwe[d]^\oint \\
+		C^\ast(X) = \lim_i C^\ast(sk_i X) \ar@{-->>}[rr] & & C^\ast(sk_2 X) \arfib[r] & C^\ast(sk_1 X) \arfib[r] & C^\ast(sk_0 X)
+		}
+	\end{displaymath}
 
-	\cimage[scale=0.6]{Apl_C_Quasi_Iso_Limit}
-
-	We will define long exact sequences for both sequences in the following way. Consider cochain algebras $B_i$ as follows:
-	$$ B = \lim_i B_i \dots \fib B_2 \fib^{b_1} B_1 \fib^{b_0} B_0. $$
+	We will define long exact sequences for both sequences in the following way. As the following construction is quite general, consider arbitrary cochain algebras $B_i$ as follows:
+	\begin{displaymath}
+		\xymatrix{
+		B = \lim_i B_i \ar@{-->>}[rr] & & B_2 \arfib[r]^-{b_1} & B_1 \arfib[r]^-{b_0} & B_0
+		}
+	\end{displaymath}
 	Define a map $t: \prod_i B_i \to \prod_i B_i$ defined by $t(x_0, x_1, \dots) = (x_0 + b_0(x_1), x_1 + b_1(x_2), \dots)$. Note that $t$ is surjective and that $B \iso \ker(t)$. So we get the following natural short exact sequence and its associated natural long exact sequence in homology:
 	$$ 0 \to B \tot{i} \prod_i B_i \tot{t} \prod_i B_i \to 0, $$
-	$$ \dots \tot{t_\ast} H^{n-1}(\prod_i B_i) \tot{\Delta} H^n(B) \tot{i_\ast} H^n(\prod_i B_i) \tot{t_\ast} H^n(\prod_i B_i) \tot{\Delta} H^{n+1}(B) \tot{i_\ast} \dots. $$
+	$$ \cdots \tot{\Delta} H^n(B) \tot{i_\ast} H^n(\prod_i B_i) \tot{t_\ast} H^n(\prod_i B_i) \tot{\Delta} \cdots $$
 
 	In our case we get two such long exact sequences with $\oint$ connecting them. As cohomology commutes with products we get isomorphisms on the left and right in the following diagram.
+	\begin{displaymath}
+		\xymatrix @C=0.3cm{
+			\cdots \ar[r] & H^{n-1}(\prod_i A(sk_i X)) \ar[r] \ariso[d]^\oint & H^n(A(X)) \ar[r] \ar[d]^\oint & H^n(\prod_i A(sk_i X)) \ar[r] \ariso[d]^\oint & \cdots \\
+			\cdots \ar[r] & H^{n-1}(\prod_i C^\ast(sk_i X)) \ar[r] & H^n(C^\ast(X)) \ar[r] & H^n(\prod_i C^\ast(sk_i X)) \ar[r] & \cdots \\
+		}
+	\end{displaymath}
 
-	\cimage[scale=0.5]{Apl_C_Quasi_Iso_LES}
-
-	So by the five lemma we can conclude that the middle morphism is an isomorphism as well, proving $H^n(A(X)) \tot{\iso} H^n(C^\ast(X))$ for all $n$. This proves the statement for all $X$.
+	So by the five lemma we can conclude that the middle morphism is an isomorphism as well, proving the isomorphism $H^n(A(X)) \tot{\iso} H^n(C^\ast(X))$ for all $n$. This proves the statement for all $X$.
 }
 

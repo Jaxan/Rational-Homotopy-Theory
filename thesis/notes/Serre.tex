@@ -85,6 +85,7 @@ In the following arguments we will consider fibrations and need to compute homol
 		&\iso (H_\ast(B^{k+1}, B^k) \tensor H_\ast(F)) \\
 		&= \bigoplus_{j+l=i+1} H_j(B^{k+1}, B^k) \tensor H_l(F)
 	\end{align*}
+	\todo{Write down actual kunneth theorem with torsion (still works though)}
 	Note that this is the graded tensor product, and that the term $H_{i+1}(B^{k+1}, B^k) \tensor H_0(F) = H_{i+1}(B^{k+1}, B^k)$ and that this identification is compatible with the induced map $p_\ast : H_{i+1}(E^{k+1}, E^k) \to H_{i+1}(B^{k+1}, B^k)$ (hence the map is surjective). To prove that the map is a $\C$-iso, we need to prove that the kernel is in $\C$. The kernel is the sum of the following terms, with $1 \leq l \leq i+1$:
 	$$ H_{i+1-l}(B^{k+1}, B^k) \tensor H_l(F). $$
 	Now we can use the assumption that $H_l(F) \in \C$ for $1 \leq l < n$ and that for $B \in \C$ we have $A \tensor B \in \C$ for all $A$ (by \LemmaRef{Serre-properties}). This concludes that the kernel $H_{i+1-l}(B^{k+1}, B^k) \tensor H_l(F)$ is indeed in $\C$. And hence the induced map is a $\C$-iso for all

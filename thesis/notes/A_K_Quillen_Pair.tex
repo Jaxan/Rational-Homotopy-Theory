@@ -1,6 +1,7 @@
 
-\chapter[A and K form a Quillen pair]{$A$ and $K$ form a Quillen pair}
-\label{sec:a-k-quillen-pair}
+\chapter{The main equivalence}
+
+In this section we aim to prove that the homotopy theory of rational spaces is the same as the homootopy theory of cdga's over $\Q$. Before we prove the equivalence, we will show that $A$ and $K$ form a Quillen pair. This already provides an adjunction between the homotopy categories. Besides the equivalence of the homotopy categories we will also investigate homotopy groups on a cdga directly. The homotopy groups of a space will be dual to the homotopy groups of the associated cdga.
 
 We will prove that $A$ preserves cofibrations and trivial cofibrations. We only have to check this fact for the generating (trivial) cofibrations in $\sSet$. Note that the contravariance of $A$ means that a (trivial) cofibrations should be sent to a (trivial) fibration.
 
@@ -9,17 +10,25 @@ We will prove that $A$ preserves cofibrations and trivial cofibrations. We only 
 \end{lemma}
 \begin{proof}
 	Let $\phi \in A(\del \Delta[n])$ be an element of degree $k$, hence it is a map $\del \Delta[n] \to \Apl^k$. We want to extend this to the whole simplex. By the fact that $\Apl^k$ is Kan and contractible we can find a lift $\overline{\phi}$ in the following diagram showing the surjectivity.
-
-	\cimage[scale=0.5]{Extend_Boundary_Form}
+	\begin{displaymath}
+		\xymatrix {
+		\del \Delta[n] \ar[r]^\phi \arcof[d]^i & \Apl^k \\
+		\Delta[n] \ar@{-->}[ru]_{\overline{\phi}}
+		}
+	\end{displaymath}
 \end{proof}
 
 \begin{lemma}
-	$A(j) : A(\Delta[n]) \to A(\Lambda^n_k)$ is surjective and a quasi isomorphism.
+	$A(j) : A(\Delta[n]) \to A(\Lambda^k_n)$ is surjective and a quasi isomorphism.
 \end{lemma}
 \begin{proof}
 	As above we get surjectivity from the Kan condition. To prove that $A(j)$ is a quasi isomorphism we pass to the singular cochain complex and use that $C^\ast(j) : C^\ast(\Delta[n]) \we C^\ast(\Lambda^n_k)$ is a quasi isomorphism. Consider the following diagram and conclude that $A(j)$ is surjective and a quasi isomorphism.
-
-	\cimage[scale=0.5]{A_Preserves_WCof}
+	\begin{displaymath}
+		\xymatrix {
+		A(\Delta[n]) \ar[r]^{A(j)} \arwe[d]^\oint & A(\Lambda^k_n) \arwe[d]^\oint \\
+		C^\ast(\Delta[n]) \ar[r]^{C^\ast(j)} & C^\ast(\Lambda^k_n)
+		}
+	\end{displaymath}
 \end{proof}
 
 Since $A$ is a left adjoint, it preserves all colimits and by functoriality it preserves retracts. From this we can conclude the following corollary.
@@ -42,7 +51,7 @@ The induced adjunction in the previous corollary is given by $LA(X) = A(X)$ for 
 }
 
 
-\section{Homotopy groups of \texorpdfstring{$K(A)$}{K(A)}}
+\section{Homotopy groups of cdga's}
 We are after an equivalence of homotopy categories, so it is natural to ask what the homotopy groups of $K(A)$ are for a cdga $A$. In order to do so, we will define homotopy groups of cdga's directly and compare the two notions.
 
 Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit} \k$ such that $\counit \unit = \id$.
@@ -60,6 +69,7 @@ Note that for a free cdga $\Lambda C$ there is a natural augmentation and the ch
 	Let $A$ be an augmented cdga, then
 	$$ [A, V(n)] \tot{\iso} \Hom_\k(\pi^n(A), \k). $$
 }
+\todo{prove}
 
 We will denote the dual of a vector space as $V^\ast = \Hom_\k(V, \k)$.
 
