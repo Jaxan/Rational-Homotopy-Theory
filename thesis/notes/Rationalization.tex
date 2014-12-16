@@ -2,7 +2,7 @@
 \chapter{Rationalizations}
 \label{sec:rationalizations}
 
-In this section we will prove the existence of rationalizations $X \to X_\Q$. We will do this in a cellular way. The $n$-spheres play an important role here, so their rationalizations will be discussed first. Again spaces (except for $S^1$) are assumed to be $1$-connected.
+In this section we will prove the existence of rationalizations $X \to X_\Q$. We will do this in a cellular way. The $n$-spheres play an important role here, so their rationalizations will be discussed first. In this section $1$-connectedness of spaces will play an important role.
 
 \section{Rationalization of \texorpdfstring{$S^n$}{Sn}}
 In this section we fix $n>0$. We will construct $S^n_\Q$ in stages $S^n(1), S^n(2), \ldots$, where at each stage we wedge a sphere and then glue a $n+1$-cell to ``invert'' some element in the $n$th homotopy group.
@@ -12,7 +12,6 @@ In this section we fix $n>0$. We will construct $S^n_\Q$ in stages $S^n(1), S^n(
 We start the construction with $S^n(1) = S^n$. Assume we constructed $S^n(r) = \bigvee_{i=1}^{r} S^{n} \cup_{h} \coprod_{i=1}^{r-1} D^{n+1}$, where $h$ is a specific attaching map. Assume furthermore the following two properties. Firstly, the inclusion $i_r : S^n \to S^n(r)$ of the terminal sphere is a weak equivalence. Secondly, the inclusion $i_1 : S^n \to S^n(r)$ of the initial sphere induces the multiplication $\pi_n(S^n) \tot{\times r!} \pi_n(S^n(r))$ under the identification of $\pi_n(S^n) = \pi_n(S^n(r)) = \Z$.
 
 We will construct $S^n(r+1)$ with similar properties as follows. Let $f: S^n \to S^n(r)$ be a representative for $1 \in \Z \iso \pi_n(S^n(r))$ and $g: S^n \to S^n$ be a representative for $r+1 \in \Z \iso \pi_n(S^n)$. These maps combine into $\phi: S^n \to S^n \vee S^n \tot{f \vee g} S^n(r) \vee S^n$. We define $S^n(r+1)$ as the pushout in the following diagram.
-
 \begin{displaymath}
 	\xymatrix{
 	S^n \ar[r]^{\phi} \arcof[d] & S^n(r) \vee S^n \ar[d] \\

@@ -1,15 +1,26 @@
 
 \chapter{Homotopy Theory For cdga's}
 
-Recall the following facts about cdga's over a ring $\k$:
+Recall that a cdga $A$ is a commutative differential graded algebra, meaning that
 \begin{itemize}
-	\item A map $f: A \to B$ in $\CDGA_\k$ is a \emph{quasi isomorphism} if it induces isomorphisms in cohomology.
+	\item it has a grading: $A = \bigoplus_{n\in\N} A^n$,
+	\item it has a differential: $d: A \to A$ with $d^2 = 0$,
+	\item it has an associative and unital multiplication: $\mu: A \tensor A \to A$ and
+	\item it is commutative: $x y = (-1)^{\deg{x}\cdot\deg{y}} y x$.
+\end{itemize}
+And all of the above structure is compatible with eachother (e.g. the differential is a derivative, the maps are graded, \dots). We have a left adjoint $\Lambda$ to the forgetful functor $U$ which assigns the free graded commutative algebras $\Lambda V$ to a graded module $V$. This extends to an adjunction (also called $\Lambda$ and $U$) between commutative differential graded algebras and differential graded modules.
+
+In homological algebra we are especially interested in \emph{quasi isomorphisms}, i.e. the maps $f: A \to B$ inducing an isomorphism on homology: $H(f): HA \iso HB$. This notions makes sense for any object with a differential.
+
+We furthermore have the following categorical properties of cdga's:
+\begin{itemize}
 	\item The finite coproduct in $\CDGA_\k$ is the (graded) tensor product.
 	\item The finite product in $\CDGA_\k$ is the cartesian product (with pointwise operations).
 	\item The equalizer (resp. coequalizer) of $f$ and $g$ is given by the kernel (resp. cokernel) of $f - g$. Together with the (co)products this defines pullbacks and pushouts.
 	\item $\k$ and $0$ are the initial and final object.
 \end{itemize}
-In this chapter the ring $\k$ is assumed to be a field of characteristic zero.
+
+In this chapter the ring $\k$ is assumed to be a field of characteristic zero. In particular the modules are vector spaces.
 
 \section{Cochain models for the $n$-disk and $n$-sphere}
 \input{notes/CDGA_Basic_Examples}
