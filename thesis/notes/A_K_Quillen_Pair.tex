@@ -1,7 +1,7 @@
 
 \chapter{The main equivalence}
 
-In this section we aim to prove that the homotopy theory of rational spaces is the same as the homootopy theory of cdga's over $\Q$. Before we prove the equivalence, we will show that $A$ and $K$ form a Quillen pair. This already provides an adjunction between the homotopy categories. Besides the equivalence of the homotopy categories we will also investigate homotopy groups on a cdga directly. The homotopy groups of a space will be dual to the homotopy groups of the associated cdga.
+In this section we aim to prove that the homotopy theory of rational spaces is the same as the homotopy theory of cdga's over $\Q$. Before we prove the equivalence, we will show that $A$ and $K$ form a Quillen pair. This already provides an adjunction between the homotopy categories. Besides the equivalence of the homotopy categories we will also investigate homotopy groups on a cdga directly. The homotopy groups of a space will be dual to the homotopy groups of the associated cdga.
 
 We will prove that $A$ preserves cofibrations and trivial cofibrations. We only have to check this fact for the generating (trivial) cofibrations in $\sSet$. Note that the contravariance of $A$ means that a (trivial) cofibrations should be sent to a (trivial) fibration.
 
@@ -109,13 +109,13 @@ For the equivalence of rational spaces and cdga's we need that the unit and coun
 	A &\to M(K(A))
 \end{align*}
 where the first of the two maps is given by the composition $X \to K(A(X)) \tot{K(m_X)} K(M(X))$,
-and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \LemmaRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-ouy-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
+and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \LemmaRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-out-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
 
 \Lemma{}{
 	(Base case) Let $A = (\Lambda(v), 0)$ be a minimal model with one generator of degree $\deg{v} = n \geq 1$. Then $A \we A(K(A))$.
 }
 \Proof{
-	By \CorollaryRef{minimal-cdga-EM-space} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an Eilenberg-Maclane space with coefficients in $\Q$ is known:
+	By \CorollaryRef{minimal-cdga-EM-space} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an Eilenberg-MacLane space with coefficients in $\Q$ is known:
 	$$ H^\ast(K(\Q^\ast, n); \Q) = \Q[x], $$
 	that is, the free commutative graded algebra with one generator $x$. This can be calculated, for example, with spectral sequences \cite{griffiths}.
 
@@ -144,7 +144,7 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 		& A(K(T(m))) \ar[rr] & & A(K(B))
 		}
 	\end{displaymath}
-	Note that we have a weak equivalence in the top left corner, by the base case ($S(m+1) = (\Lambda(v), 0)$). The weak equivalence in the top right is by assumption. Finally the bottom left map is a weak equivalence because both cdga's are acylcic.
+	Note that we have a weak equivalence in the top left corner, by the base case ($S(m+1) = (\Lambda(v), 0)$). The weak equivalence in the top right is by assumption. Finally the bottom left map is a weak equivalence because both cdga's are acyclic.
 
 	To conclude that $B \to A(K(B))$ is a weak equivalence, we wish to prove that the front face of the cube is a homotopy pushout, as the back face clearly is one. This is a consequence of the Eilenberg-Moore spectral sequence \cite{mccleary}.
 }

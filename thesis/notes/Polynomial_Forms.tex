@@ -62,7 +62,7 @@ where the left adjoint is precisely the functor $C^\ast$ as noted in \cite{felix
 
 In this section we will prove that the singular cochain complex is quasi isomorphic to the cochain complex of polynomial forms. In order to do so we will define an integration map $\int_n : \Apl_n^n \to \k$, which will induce a map $\oint_n : \Apl_n \to C_n$. For the simplices $\Delta[n]$ we already showed the cohomology agrees by the acyclicity of $\Apl_n = A(\Delta[n])$ (\LemmaRef{apl-acyclic}).
 
-Let $v \in \Apl_n^n$, then we can always write it as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate geometrically on the $n$-simplex:
+For any $v \in \Apl_n^n$, we can write $v$ as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate geometrically on the $n$-simplex:
 $$ \int_n v = \int_0^1 \int_0^{1-x_n} \dots \int_0^{1 - x_2 - \dots - x_n} p(x_1, \dots, x_n) dx_1 dx_2 \dots dx_n, $$
 which defines a well-defined linear map $\int_n : \Apl_n^n \to \k$. For general fields of characteristic zero we can define it formally on the generators of $\Apl_n^n$ (as vector space):
 $$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n + n)!}. $$
@@ -79,7 +79,7 @@ Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each
 	&= \oint_k (v)(\sigma \circ x) \\
 	&= (\oint_k (v) \circ \sigma) (x) = \sigma^\ast (\oint_k(v)(x))
 \end{align*}
-For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is very similar to \emph{Stokes' theorem}. \todo{proof this}
+For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is precisely the same calculation as \emph{Stokes' theorem}. \todo{prove this?}
 
 We now proved that $\oint$ is indeed a simplicial chain map. Note that $\oint_n$ need not to preserve multiplication, so it fails to be a map of cochain algebras. However $\oint(1) = 1$ and so the induced map on homology sends the class of $1$ in $H(\Apl_n) = \k \cdot [1]$ to the class of $1$ in $H(C_n) = \k \cdot [1]$. We have proven the following lemma.
 

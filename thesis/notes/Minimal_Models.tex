@@ -2,10 +2,10 @@
 \chapter{Minimal models}
 \label{sec:minimal-models}
 
-In this section we will discuss the so called minimal models. These are cdga's with the property that a quasi isomorphism between them is an actual isomorphism.
+In this section we will discuss the so called minimal models. These cdga's enjoy the property that we can easily prove properties inductively. Moreover it will turn out that weakly equivalent minimal models are actually isomorphic.
 
 \begin{definition}
-	A cdga $(A, d)$ is a \emph{Sullivan algebra} if
+	A cdga $(A, d)$ is a \Def{Sullivan algebra} if
 	\begin{itemize}
 		\item $A = \Lambda V$ is free as a commutative graded algebra, and
 		\item $V$ has a filtration
@@ -13,18 +13,18 @@ In this section we will discuss the so called minimal models. These are cdga's w
 		such that $d(V(k)) \subset \Lambda V(k-1)$.
 	\end{itemize}
 
-	An cdga $(A, d)$ is a \emph{minimal (Sullivan) algebra} if in addition
+	An cdga $(A, d)$ is a \Def{minimal Sullivan algebra} if in addition
 	\begin{itemize}
 		\item $d$ is decomposable, i.e. $\im(d) \subset \Lambda^{\geq 2}V$.
 	\end{itemize}
 \end{definition}
 
 \begin{definition}
-	Let $(A, d)$ be any cdga. A \emph{(minimal) Sullivan model} is a (minimal) Sullivan algebra $(M, d)$ with a weak equivalence:
+	Let $(A, d)$ be any cdga. A \Def{(minimal) Sullivan model} is a (minimal) Sullivan algebra $(M, d)$ with a weak equivalence:
 	$$ (M, d) \we (A, d). $$
 \end{definition}
 
-In the following lemma we see that the filtration is sometimes naturally there for $1$-reduced cdga's.
+We will often say \Def{minimal model} or \Def{minimal algebra} to mean minimal Sullivan model or minimal Sullivan algebra. In many cases we can take the degree of the elements in $V$ to induce the filtration, as seen in the following lemma of which the proof is left out, as we are not going to use it.
 
 \begin{lemma}
 	Let $(A, d)$ be a cdga which is $1$-reduced, such that $A$ is free as cga and $d$ is decomposable. Then $(A, d)$ is a minimal algebra.
@@ -73,7 +73,7 @@ It is clear that induction will be an important technique when proving things ab
 Before we state the uniqueness theorem we need some more properties of minimal models. In this section we will use some general facts about model categories.
 
 \begin{lemma}
-	Sullivan algebras are cofibrant and the inclusions $(\Lambda V(k), d) \to (\Lambda V(k+1), d)$ are cofibrations.
+	Sullivan algebras are cofibrant and the inclusions induced by the filtration are cofibrations.
 \end{lemma}
 \begin{proof}
 	Consider the following lifting problem, where $\Lambda V$ is a Sullivan algebra.
@@ -84,7 +84,7 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 		}
 	\end{displaymath}
 
-	By the left adjointness of $\Lambda$ we only have to specify a map $\phi: V \to X$ such that $p \circ \phi = g$. We will do this by induction. Note that the induction step proves precisely that $(\Lambda V(k), d) \to (\Lambda V(k+1), d)$ is a cofibrations.
+	By the left adjointness of $\Lambda$ we only have to specify a map $\phi: V \to X$ such that $p \circ \phi = g$. We will do this by induction. Note that the induction step proves precisely that $(\Lambda V(k), d) \to (\Lambda V(k+1), d)$ is a cofibration.
 	\begin{itemize}
 		\item Suppose $\{v_\alpha\}$ is a basis for $V(0)$. Define $V(0) \to X$ by choosing preimages $x_\alpha$ such that $p(x_\alpha) = g(v_\alpha)$ ($p$ is surjective). Define $\phi(v_\alpha) = x_\alpha$.
 		\item Suppose $\phi$ has been defined on $V(n)$. Write $V(n+1) = V(n) \oplus V'$ and let $\{v_\alpha\}$ be a basis for $V'$. Then $dv_\alpha \in \Lambda V(n)$, hence $\phi(dv_\alpha)$ is defined and
@@ -102,6 +102,16 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 	We have $p^\ast [x] = [px] = 0$, since $p^\ast$ is injective we have $x = d \overline{x}$ for some $\overline{x} \in X$. Now $p \overline{x} = y' + db$ for some $b \in Y$. Choose $a \in X$ with $p a = b$, then define $x' = \overline{x} - da$. Now check the requirements: $p x' = p \overline{x} - p a = y'$ and $d x' = d \overline{x} - d d a = d \overline{x} = x$.
 \end{proof}
 
+In the following we will need to replace a map by a fibration. But the one given abstractly from the model structure will not fit our needs. So we will first consider the following factorization.
+
+Let $A$ be any cochain complex (not an algebra) and define $C(A)^k = C^k \oplus C^{k-1}$. Then $C(A)$ is again a cochain complex when we define the differential to be $\delta(c_k, c_{k-1}) = (0, c_k)$. Note that this cochain complex is acyclic, furthermore there is an obvious surjection $C(A) \tot{\rho} A$. Now for a cochain algebra $A$, we can do the same construction (by forgetting the algebra structure) and apply $\Lambda$. This defines a cdga $\Lambda C(A)$ (which is still acyclic).
+
+Now let $f: X \to Y$ be any map, then we can tensor $X$ with $\Lambda C(Y)$ to obtain:
+$$ f: X \tot{x \mapsto x \tensor 1} X \tensor \Lambda C(Y) \tot{\psi: x \tensor y \mapsto f(x) \cdot \rho (y)} Y. $$
+Where the second map is surjective. By the 2-out-of-3 property the second map is a weak equivalence if and only if $f$ is a weak equivalence. The remarkable thing is that the left map (which is a weak equivalence by the Künneth theorem) has a left inverse, given by $\phi: x \tensor y \mapsto x \cdot \counit (y)$, where $\counit$ is the augmentation.
+
+Now if the map $f$ is a weak equivalence, both maps $\phi$ and $\psi$ are surjective and weak equivalences.
+
 \Lemma{minimal-model-bijection}{
 	Let $f: X \we Y$ be a weak equivalence between cdga's and $M$ a minimal algebra. Then $f$ induces an bijection:
 	$$ f_\ast: [M, X] \tot{\iso} [M, Y]. $$
@@ -109,10 +119,8 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 \begin{proof}
 	If $f$ is surjective this follows from the fact that $M$ is cofibrant and $f$ being a trivial fibration, see \CorollaryRef{cdga_homotopy_properties}.
 
-	\todo{Put this surjectivity trick in a lemma} In general we will reduce to the surjective case. Let $C$ be any cochain complex and define $\delta C^k = C^{k-1}$. Now $(C \oplus \delta C, \delta)$ is again a cochain complex and there is a surjective map to $C$. Define $E(Y) = \Lambda(Y \oplus \delta Y, \delta)$ (we consider $Y$ as a cochain complex). We obtain:
-	$$ f: X \tot{x \mapsto x \tensor 1} X \tensor E(Y) \tot{x \tensor y \mapsto f(x) \cdot y} Y. $$
-	Now the first map has a left inverse. We have two trivial fibrations $E(Y) \to X$ and $E(Y) \to Y$. This induces
-	$$ [M, X] \toti{\iso} [M, E(Y)] \tot{\iso} [M, Y], $$
+	By the factorization above, we can turn $f$ into two trivial fibrations (going in different directions). This induces
+	$$ [M, X] \toti{\iso} [M, \Lambda C(Y)] \tot{\iso} [M, Y], $$
 	compatible with $f_\ast$.
 \end{proof}
 
@@ -125,7 +133,7 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 \end{proof}
 
 \Theorem{unique-minimal-model}{
-	Let $m: (M, d) \we (A, d)$ and $m': (M', d') \we (A, d)$ be two minimal models. Then there is an isomorphism $\phi (M, d) \tot{\iso} (M', d')$ such that $m' \circ \phi \eq m$.
+	Let $m: (M, d) \we (A, d)$ and $m': (M', d') \we (A, d)$ be two minimal models for $A$. Then there is an isomorphism $\phi (M, d) \tot{\iso} (M', d')$ such that $m' \circ \phi \eq m$.
 }
 \begin{proof}
 	By the previous lemmas we have $[M', M] \iso [M', A]$. By going from right to left we get a map $\phi: M' \to M$ such that $m' \circ \phi \eq m$. On homology we get $H(m') \circ H(\phi) = H(m)$, proving that (2-out-of-3) $\phi$ is a weak equivalence. The previous lemma states that $\phi$ is then an isomorphism.
@@ -133,7 +141,7 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 
 The assignment of $X$ to its minimal model $M_X = (\Lambda V, d)$ can be extended to morphisms. Let $X$ and $Y$ be two cdga's and $f: X \to Y$ be a map. By considering their minimal models we get the following diagram.
 \begin{displaymath}
-	\xymatrix{
+	\xymatrix @C=1.5cm{
 	X \ar[r]^f & Y \\
 	M_X \arwe[u]^{m_X} \ar[ur]^{f m_X} & M_Y \arwe[u]^{m_Y}
 	}
