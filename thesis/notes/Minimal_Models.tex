@@ -26,14 +26,14 @@ In this section we will discuss the so called minimal models. These cdga's enjoy
 
 We will often say \Def{minimal model} or \Def{minimal algebra} to mean minimal Sullivan model or minimal Sullivan algebra. In many cases we can take the degree of the elements in $V$ to induce the filtration, as seen in the following lemma of which the proof is left out, as we are not going to use it.
 
-\begin{lemma}
+\Lemma{1-reduced-minimal-model}{
 	Let $(A, d)$ be a cdga which is $1$-reduced, such that $A$ is free as cga and $d$ is decomposable. Then $(A, d)$ is a minimal algebra.
-\end{lemma}
-\begin{proof}
+}
+\Proof{
 	Let $V$ generate $A$. Take $V(n) = \bigoplus_{k=0}^n V^k$ (note that $V^0 = V^1 = 0$). Since $d$ is decomposable we see that for $v \in V^n$: $d(v) = x \cdot y$ for some $x, y \in A$. Assuming $dv$ to be non-zero we can compute the degrees:
 	$$ \deg{x} + \deg{y} = \deg{xy} = \deg{dv} = \deg{v} + 1 = n + 1. $$
 	As $A$ is $1$-reduced we have $\deg{x}, \deg{y} \geq 2$ and so by the above $\deg{x}, \deg{y} \leq n-1$. Conclude that $d(V(k)) \subset \Lambda(V(n-1))$.
-\end{proof}
+}
 
 The above definition is the same as in \cite{felix} without assuming connectivity. We find some different definitions of (minimal) Sullivan algebras in the literature. For example we find a definition using well orderings in \cite{hess}. The decomposability of $d$ also admits a different characterization (at least in the connected case). The equivalence of the definitions is expressed in the following two lemmas.
 

@@ -149,4 +149,32 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 	To conclude that $B \to A(K(B))$ is a weak equivalence, we wish to prove that the front face of the cube is a homotopy pushout, as the back face clearly is one. This is a consequence of the Eilenberg-Moore spectral sequence \cite{mccleary}.
 }
 
-Now we wish to use the previous lemma as an induction step for minimal models.
+Now we wish to use the previous lemma as an induction step for minimal models. Let $(\Lambda V, d)$ be some minimal algebra. Write $V(n+1) = V(n) \oplus V'$ and let $v \in V'$ of degree $\deg{v} = k$, then the minimal algebra $(\Lambda (V(n) \oplus \Q \cdot v), d)$ is the pushout in the following diagram, where $f$ sends the generator $c$ to $dv$.
+\begin{displaymath}
+	\xymatrix{
+	S(k) \arcof[d] \ar[r]^f \xypo & (\Lambda V(n), d) \ar[d] \\
+	T(k-1) \ar[r] & (\Lambda (V(n) \oplus \Q \cdot v), d)
+	}
+\end{displaymath}
+In particular if the vector space $V'$ is finitely generated, we can repeat this procedure for all basis elements (it does not matter in what order we do so, as $dv \in \Lambda V(n)$). So in this case, if $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence, so is $(\Lambda V(n+1), d) \to A(K(\Lambda V(n+1), d))$
+
+\Corollary{}{
+	Let $(\Lambda V, d)$ be a $1$-connected minimal algebra with $V^i$ finite dimensional for all $i$. Then $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
+}
+\Proof{
+	Note that if we want to prove the isomorphism $H^i(\Lambda V, d) \to H^i(A(K(\Lambda V, d)))$ it is enough to prove that $H^i(\Lambda V^{\leq i}, d) \to H^i(A(K(\Lambda V^{\leq i}, d)))$ is an isomorphism (as the elements of higher degree do not change the isomorphism). By the $1$-connectedness we can choose our filtration to respect the degree by \LemmaRef{1-reduced-minimal-model}.
+
+	Now $V(n)$ is finitely generated for all $n$ by assumption. By the inductive procedure above we see that $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence for all $n$. Hence $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
+}
+
+\todo{$X \to K(A(X))$}
+
+We have proven the following theorem.
+\Theorem{main-theorem}{
+	The functors $A$ and $K$ induce an equivalence of homotopy categories, when restricted to rational, $1$-connected objects of finite type. more formally, we have:
+	$$ \Ho(\sSet_1^{\Q,f}) \iso \Ho(\CDGA_{\Q,1,f}). $$
+
+	Furthermore, for any $1$-connected space $X$ of finite type, we have the following isomorphism of groups:
+	$$ \pi_i(X) \tensor \Q \iso {V^i}^\ast, $$
+	where $(\Lambda V, d)$ is the minimal model of $A(X)$.
+}
