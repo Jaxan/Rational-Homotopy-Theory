@@ -12,7 +12,15 @@ thesis: dirs
 	cp build/thesis.pdf ./
 
 fast: dirs
+	cp references.bib build/
 	xelatex -file-line-error -output-directory=build thesis.tex
+	cd build; bibtex thesis
+	cp build/thesis.pdf ./
+
+haltfast: dirs
+	cp references.bib build/
+	xelatex -file-line-error -output-directory=build --halt-on-error thesis.tex
+	cd build; bibtex thesis
 	cp build/thesis.pdf ./
 
 images: dirs

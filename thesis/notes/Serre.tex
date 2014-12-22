@@ -1,14 +1,15 @@
 
 \chapter{Serre theorems mod \texorpdfstring{$\C$}{C}}
-\label{sec:serre}
 
 In this section we will prove the Whitehead and Hurewicz theorems in a rational context. Serre proved these results in \cite{serre}. In his paper he considered homology groups `modulo a class of abelian groups'. In our case of rational homotopy theory, this class will be the class of torsion groups.
 
 \Definition{serre-class}{
 	A class $\C \subset \Ab$ is a \Def{Serre class} if
 	\begin{itemize}
-		\item for all exact sequences $0 \to A \to B \to C \to 0$ with $A$ and $C$ in $\C$, $B$ also belongs to $\C$,
-		\item $\C$ is closed under taking direct sums (both finite and infinite).
+		\item for all exact sequences $0 \to A \to B \to C \to 0$ if two abelian groups are in $\C$, then so is the third,
+		\item for all $A \in \C$ the tensor product $A \tensor B$ is in $\C$ for any abelian group $B$,
+		\item for all $A \in \C$ the Tor group $\Tor(A, B)$ is in $\C$ for any abelian group $B$, and
+		\item for all $A \in \C$ the group-homology $H_i(A; \Z)$ is in $\C$ for all positive $i$.
 	\end{itemize}
 }
 
@@ -23,37 +24,18 @@ Serre gave weaker axioms for his classes and proves some of the following lemmas
 	\end{itemize}
 }
 
-The most important properties we need of a Serre class are the following:
-\Lemma{Serre-properties}{
-	Let $\C \subset \Ab$ be a Serre class. Then we have:
-	\begin{enumerate}
-		\item If $A \in \C$, then $A \tensor B \in \C$ for all $B$.
-		\item If $A \in \C$, then $H(A) \in \C$ ($H(A)$ is the group homology of $A$).
-	\end{enumerate}
-}
+As noted by Hilton in \cite{hilton} we think of Serre classes as a generalized 0. This means that we can also express some kind of generalized injective and surjectivity. Here we only need the notion of a $\C$-isomorphism:
 
 \Definition{serre-class-maps}{
-	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is a $\C$-isomorphism if both the kernel and cokernel lie in $\C$.
+	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is a \Def{$\C$-isomorphism} if both the kernel and cokernel lie in $\C$.
 }
 
-Note that the map $0 \to C$ is a $\C$-isomorphism for any $C \in \C$. \todo{Er missen nog wat eigenschappen voor tensors}
+Note that the maps $0 \to C$ and $C \to 0$ are $\C$-isomorphisms for any $C \in \C$. More importantly the 5-lemma also holds for $\C$-isos and whenever $f$, $g$ and $g \circ f$ are maps such that two of them are $\C$-iso, then so is the third.
 
-\Lemma{serre-class-rational-iso}{
-	Let $\C$ be the Serre class of all torsion groups. Then
-	$f$ is a $\C$-iso $\iff$ $f \tensor \Q$ is an isomorphism.
-}
-\Proof{
-	First note that if $C \in \C$ then $C \tensor \Q = 0$.
-
-	Then consider the exact sequence
-	$$ 0 \to \ker(f) \to A \tot{f} B \to \coker(f) \to 0 $$
-	and tensor this sequence with $\Q$. In this tensored sequence the kernel and cokernel vanish if and only if $f \tensor \Q$ is an isomorphism.
-}
-
-In the following arguments we will consider fibrations and need to compute homology thereof. Unfortunately there is no long exact sequence for homology of a fibration, however the following lemma expresses something similar. It is usually proven with spectral sequences,  \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more elementary proof using cellular homology.
+In the following arguments we will consider fibrations and need to compute homology thereof. Unfortunately there is no long exact sequence for homology of a fibration, however the following lemma expresses something similar. It is usually proven with spectral sequences,  \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more geometric proof.
 
 \Lemma{kreck}{
-	Let $\C$ be a Serre class. Let $p: E \fib B$ be a fibration between $1$-connected spaces and $F$ its fiber. If $\RH_i(F) \in \C$ for all $i < n$, then
+	Let $\C$ be a Serre class. Let $p: E \fib B$ be a fibration between $0$-connected spaces and $F$ its fiber. If $\RH_i(F) \in \C$ for all $i < n$, then
 	\begin{itemize}
 		\item $H_i(E, F) \to H_i(B, b_0)$ is a $\C$-iso for $i \leq n+1$ and
 		\item $H_i(E) \to H_i(B)$ is a $\C$-iso for all $i \leq n$.
@@ -95,17 +77,18 @@ In the following arguments we will consider fibrations and need to compute homol
 }
 
 \Lemma{homology-em-space}{
-	Let $\C$ be a Serre class and $C \in \C$. Then for all $n > 0$ and all $i > 0$ we have $H_i(K(C, n)) \in \C$.
+	Let $\C$ be a Serre class and $G \in \C$. Then for all $n > 0$ and all $i > 0$ we have $H_i(K(G, n)) \in \C$.
 }
 \Proof{
-	We prove this by induction on $n$. The base case $n = 1$ follows from group homology.
+	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology, we get for $i>0$ an isomorphism
+	$$ H_i(K(G, 1); \Z) \iso H_i(G; \Z) \in \C. $$
 
-	For the induction we can use the loop space and \LemmaRef{kreck}.
-
-	\todo{Bewijs afmaken}
+	Suppose we have proven the statment for $n$. If we consider the case of $n+1$ we can use the path fibration to relate it to the case of $n$:
+	$$ \Omega K(G,n+1) \to P K(G, n+1) \fib K(G, n+1) $$
+	Now $\Omega K(G, n+1) = K(G, n)$, and we can apply \LemmaRef{kreck} as the reduced homology of the fiber is in $\C$ by induction hypothesis. Conclude that the homology of $P K(G, n+1)$ is $\C$-isomorphic to the homology of $K(G, n)$. Since $\RH_\ast(P K(G, n+1)) = 0$, we get $\RH_\ast(K(G, n+1)) \in \C$.
 }
 
-For the main theorem we need the following construction. \todo{Geef de constructie}
+For the main theorem we need the following construction. \todo{Geef de constructie of referentie}
 \Lemma{whitehead-tower}{
 	(Whitehead tower)
 	We can decompose a $0$-connected space $X$ into fibrations:
@@ -124,7 +107,9 @@ For the main theorem we need the following construction. \todo{Geef de construct
 	If $\pi_i(X) \in C$ for all $i<n$, then $H_i(X) \in C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X) \to H_i(X)$ is a $\C$-isomorphism for all $i \leq n$.
 }
 \Proof{
-	We will prove the lemma by induction on $n$. Note that the base case ($n = 1$) follows from the $1$-connectedness. For the induction step assume that $H_i(X) \in \C$ for all $i<n-1$ and that $h_{n-1}: \pi_{n-1}(X) \to H_{n-1}(X)$ is a $\C$-iso. Now given is that $\pi_{n-1}(X) \in \C$ and hence $H_{n-1}(X) \in \C$. \todo{kromme zin}
+	We will prove the lemma by induction on $n$. Note that the base case ($n = 1$) follows from the $1$-connectedness.
+
+	For the induction step we may assume that $H_i(X) \in \C$ for all $i<n-1$ and that $h_{n-1}: \pi_{n-1}(X) \to H_{n-1}(X)$ is a $\C$-iso by induction hypothesis. Furthermore the theorem assumes that $\pi_{n-1}(X) \in \C$ and hence we conclude $H_{n-1}(X) \in \C$.
 
 	It remains to show that $h_n$ is a $\C$-iso. Use the Whitehead tower from \LemmaRef{whitehead-tower} to obtain $\cdots \fib X(3) \fib X(2) = X$. Note that each $X(j)$ is also $1$-connected and that $X(2) = X(1) = X$.
 
@@ -142,13 +127,31 @@ For the main theorem we need the following construction. \todo{Geef de construct
 
 \Theorem{relative-serre-hurewicz}{
 	(Relative Serre-Hurewicz Theorem)
-	Let $\C$ be a Serre class. Let $A \subset X$ be $1$-connected spaces such that $\pi_2(A) \to \pi_2(B)$ is surjective.
+	Let $\C$ be a Serre class. Let $A \subset X$ be $1$-connected spaces such that $\pi_2(A) \to \pi_2(X)$ is surjective.
 	If $\pi_i(X, A) \in \C$ for all $i<n$, then $H_i(X, A) \in \C$ for all $i<n$ and the Hurewicz map $h: \pi_i(X, A) \to H_i(X, A)$ is a $\C$-isomorphism for all $i \leq n$.
 }
 \Proof{
 	Note that we can assume $A \neq \emptyset$. We will prove by induction on $n$, the base case again follows by $1$-connectedness.
 
-	\todo{Bewijs afmaken}
+	Let $P X$ be that path space on $X$ and $Y \subset P X$ be the subspace of paths of which the endpoint lies in $A$. Now we get a fibration (of pairs) by sending the path to its endpoint:
+	$$ p: (P X, Y) \fib (X, A), $$
+	with $\Omega X$ as its fiber. We get long exact sequences of homotopy groups of the triples $\Omega X \subset Y \subset P X$ and $\ast \in A \subset X$:
+	\[\small
+	\xymatrix @C=0.2cm @R=0.4cm {
+		\pi_i(Y, P X) \ar[r] \ar[d] & \pi_i(P X, \Omega X) \ar[r] \ar[d] & \pi_i(P X, Y) \ar[r] \ar[d] & \pi_{i-1}(Y, \Omega X) \ar[r] \ar[d] & \pi_{i-1}(P X, \Omega X) \ar[d] \\
+		\pi_i(A, \ast) \ar[r] & \pi_i(X, \ast) \ar[r] & \pi_i(X, A) \ar[r] & \pi_{i-1}(A, \ast) \ar[r] & \pi_{i-1}(X, \ast) \\
+	}
+	\]
+	The outer vertical maps are isomorphisms (again by a long exact sequence argument), hence the center vertical map is an isomorphism. Furthermore $\pi_i(P X) = 0$ as it is a path space, hence $\pi_{i-1}(Y) \iso \pi_i(P X, Y) \iso \pi_i(X, A)$. By assumption we have $\pi_1(X, A) = \pi_2(X, A) = 0$. So $Y$ is $1$-connected. Furthermore $\pi_{i-1}(Y) \in \C$ for all $i < n$.
+
+	Now we can use the previous Serre-Hurewicz theorem to conclude $H_{i-1}(Y) \in \C$ for all $i < n$ and $\pi_{n-1}(Y) \tot{h} H_{n-1}(Y)$ is an $\C$-iso. We are in the following situation:
+	\[
+	\xymatrix {
+		\pi_{n-1}(Y) \ar[d]^{\C\text{-iso}} & \ar[l]_\iso  \pi_n(P X, Y) \ar[r]^\iso \ar[d] & \pi_n(X, A) \ar[d] \\
+		H_{n-1}(Y) & \ar[l]_\iso H_n(P X, Y) \ar[r]^{\C\text{-iso}} & H_n(X, A)
+	}
+	\]
+	The horizontal maps on the left are isomorphisms by long exact sequences, this gives us that the middle vertical map is a $\C$-iso. The horizontal maps on the right are $\C$-isos by the above and a relative version of \LemmaRef{kreck}. Now we conclude that $\pi_n(X, A) \to H_n(X, A)$ is alao a $\C$-iso and that $H_i(X, A) \in \C$ for all $i < n$.
 }
 
 \Theorem{serre-whitehead}{
@@ -170,7 +173,20 @@ For the main theorem we need the following construction. \todo{Geef de construct
 	Where (1) $\iff$ (2) and (3) $\iff$ (4) hold by exactness and (2) $\iff$ (3) by the Serre-Hurewicz theorem.
 }
 
-In the case of rational homotopy theory we get the following corollary.
+
+\section{For rational equivalences}
+
+\Lemma{serre-class-rational-iso}{
+	Let $\C$ be the Serre class of all torsion groups. Then
+	$f$ is a $\C$-iso $\iff$ $f \tensor \Q$ is an isomorphism.
+}
+\Proof{
+	First note that if $C \in \C$ then $C \tensor \Q = 0$.
+
+	Then consider the exact sequence
+	$$ 0 \to \ker(f) \to A \tot{f} B \to \coker(f) \to 0 $$
+	and tensor this sequence with $\Q$. In this tensored sequence the kernel and cokernel vanish if and only if $f \tensor \Q$ is an isomorphism.
+}
 
 \Corollary{serre-whitehead}{
 	(Rational Whitehead Theorem)
