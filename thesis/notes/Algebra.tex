@@ -6,11 +6,13 @@ In this section $\k$ will be any commutative ring. We will recap some of the bas
 
 \section{Graded algebra}
 
-\begin{definition}
-	A \emph{graded module} $M$ is a family of modules $\{M_n\}_{n\in\Z}$. An element $x \in M_n$ is called a \emph{homogeneous element} and said to be of \emph{degree $\deg{x} = n$}. We will often identify $M = \bigoplus_{n \in \Z} M_n$.
-\end{definition}
+\Definition{graded-module}{
+	A module $M$ is said to be \Def{graded} if it is equiped with a decomposition
+	\[ M = \bigoplus_{n\in\Z} M_n. \]
+	An element $x \in M_n$ is called a \Def{homogeneous element} and said to be of \Def{degree} $\deg{x} = n$.
+}
 
-For an ordinary module $M$ we can consider the graded module $M[0]$ \emph{concentrated in degree $0$} defined by setting $M[0]_0 = M$ and $M[0]_n = 0$ for $i \neq 0$. If clear from the context we will denote this graded module by $M$. In particular $\k$ is a graded module concentrated in degree $0$.
+If $M$ is just any module, it always has the trivial grading given by $M_0 = M$ and $M_i = 0$ for $i \neq 0$, i.e. $M$ is \Def{concentrated in degree 0}. In particular $\k$ itself is a graded module concentrated in degree $0$.
 
 \begin{definition}
 	A linear map $f: M \to N$ between graded modules is \emph{graded of degree $p$} if it respects the grading and raises the degree by $p$, i.e.
@@ -83,28 +85,32 @@ Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i =
 \todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary cdga's.}
 
 
+\Remark{orthogonal-definition}{
+	Note that all the above definitions (i.e. the definitions of graded objects, algebras, differentials) are orthogonal, meaning that any combination makes sense. However, keep in mind that we require the structures to be compatible. For example, an algebra with differential should satisfy the Leibniz rule (i.e. the differential should be a map of algebras).
+}
+
+
 \section{Homology}
 
-Whenever we have a differential graded module we have $d \circ d = 0$, or put in other words: the image of $d$ is a submodule of the kernel of $d$. The quotient of the two graded modules will be of interest.
+Whenever we have a differential module we have $d \circ d = 0$, or put in other words: the image of $d$ is a submodule of the kernel of $d$. The quotient of the two graded modules will be of interest. Note that the following definition depends on the differential $d$, however it is often left out from the notation.
 
-\begin{definition}
-	Given a differential graded modules $(M, d)$ we define the \emph{homology} of $M$ as: $H(M, d) = \ker(d) / \im(d)$.
-	It is naturally graded as follows:
-	$$ H(M, d)_i = H_i(M, d) = \ker(\restr{d}{M_i}) / d(M_{i+1}). $$
-	If $d$ has degree $+1$ we define the \emph{cohomology} as:
-	$$ H(M, d)^i = H^i(M, d) = \ker(\restr{d}{M^i}) / d(M^{i-1}). $$
-\end{definition}
+\Definition{homology}{
+	Given a differential module $(M, d)$ we define the \Def{homology} of $M$ as:
+	$$ H(M) = \ker(d) / \im(d). $$
+}
 
-For differential graded algebras we can consider the (co)homology by forgetting the multiplicative structure. However this multiplication will actually pass to (co)homology:
-
-\begin{lemma}
-	Let $(A, d)$ be a differential graded algebra. The kernel $\ker(d)$ is a subalgebra of $A$ and the image $d(A)$ is an ideal, so that the quotient
-	$$ H(A) = \ker(d) / \im(d) $$
-	is a graded algebra.
-\end{lemma}
-\begin{proof}
-	\todo{Maybe just state this?}
-\end{proof}
+If the module has more structure as discussed above, homology will preserve this.
+\Remark{homology-preserves-structure}{
+	Let $M$ be a differential module. Then homology preserves the following.
+	\begin{itemize}
+		\item If $M$ is graded, so is $H(M)$, where the grading is given by
+		\[ H(M)_i = \ker(\restr{d}{M_i}) / d(M_{i+1}) \]
+		\item If $M$ has an algebra strucutre, then so does $H(M)$, given by
+		\[ [z_1] \cdot [z_2] = [z_1 \cdot z_2] \]
+		\item If $M$ is a commutative algebra, so is $H(M)$.
+	\end{itemize}
+}
+Of course the converses need not be true. For example the singular cochain complex asociated to a space is a graded differential algebra which is \emph{not} commutative. However, by taking homology one gets a commutative algebra.
 
 Note that taking homology of a differential graded module (or algebra) is functorial. Whenever a map $f: M \to N$ of differential graded modules (or algebras) induces an isomorphism on homology, we say that $f$ is a \emph{quasi isomorphism}.
 
