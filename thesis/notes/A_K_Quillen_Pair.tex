@@ -130,6 +130,8 @@ For the equivalence of rational spaces and cdga's we need that the unit and coun
 where the first of the two maps is given by the composition $X \to K(A(X)) \tot{K(m_X)} K(M(X))$,
 and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \LemmaRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-out-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
 
+\todo{state all theorems we need but do not prove}
+
 \Lemma{}{
 	(Base case) Let $A = (\Lambda(v), 0)$ be a minimal model with one generator of degree $\deg{v} = n \geq 1$. Then $A \we A(K(A))$.
 }
@@ -177,7 +179,7 @@ Now we wish to use the previous lemma as an induction step for minimal models. L
 \end{displaymath}
 In particular if the vector space $V'$ is finitely generated, we can repeat this procedure for all basis elements (it does not matter in what order we do so, as $dv \in \Lambda V(n)$). So in this case, if $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence, so is $(\Lambda V(n+1), d) \to A(K(\Lambda V(n+1), d))$
 
-\Corollary{}{
+\Corollary{cdga-unit-we}{
 	Let $(\Lambda V, d)$ be a $1$-connected minimal algebra with $V^i$ finite dimensional for all $i$. Then $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
 }
 \Proof{
@@ -186,7 +188,19 @@ In particular if the vector space $V'$ is finitely generated, we can repeat this
 	Now $V(n)$ is finitely generated for all $n$ by assumption. By the inductive procedure above we see that $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence for all $n$. Hence $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
 }
 
-\todo{$X \to K(A(X))$}
+Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply connected rational space $X$ of finite type. For this, we will use that $A$ preserves and detects such weak equivalences by \CorollaryRef{serre-whitehead} (the Serre-Whitehead theorem). To be precise: $X \to K(M(X))$ is a weak equivalence if and only if $A(K(M(X))) \to A(X)$ is a weak equivalence.
+
+\Lemma{}{
+	The map $X \to K(M(X))$ is a weak equivalence for simply connected rational spaces $X$ of finite type.
+}
+\Proof{
+	Recall that the map $X \to K(M(X))$ was defined to be the composition of the actual unit of the adjunction and the map $K(m_X)$. When applying $A$ we get the following situation, where commutativity is ensured by the adjunction laws:
+	\[\xymatrix{
+		A(X) & \ar[l] A(K(A(X))) & \ar[l] A(K(M(X))) \\
+		& \ar[lu]^\id A(X) \ar[u] & \arwe[l] M(X) \ar[u]
+	}\]
+	The map on the right is a weak equivalence by \CorollaryRef{cdga-unit-we} \todo{details/finiteness}. Then by the 2-out-of-3 property we see that the above composition is indeed a weak equivalence. Since $A$ detects weak equivalences (Serre-Whitehead), we conclude that $X \to K(M(X))$ is a weak equivalence.
+}
 
 We have proven the following theorem.
 \Theorem{main-theorem}{
