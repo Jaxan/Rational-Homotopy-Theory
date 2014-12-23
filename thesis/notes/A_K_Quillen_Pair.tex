@@ -63,13 +63,32 @@ Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit}
 	$$ \pi^i(A) = H^i(QA). $$
 }
 
-Note that for a free cdga $\Lambda C$ there is a natural augmentation and the chain complexes of indecomposables $Q \Lambda C$ is naturally isomorphic to $C$. Consider the augmented cdga $V(n) = D(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. There is a weak equivalence $A(n) \to V(n)$ (recall \DefinitionRef{minimal-model-sphere}).
+Note that for a minimal algebra $\Lambda V$ there is a natural augmentation and the the differential is decomposable. Hence $Q \Lambda V$ is naturally isomorphic to $(V, 0)$. In particular the homotopy groups are simply given by $\pi^n(\Lambda V) = V^n$.
+
+\Lemma{cdga-homotopic-maps-equal-pin}{
+	Let $f: A \to B$ be a map of augmented cdga's. Then there is an functorial induced map on the homotopy groups. Moreover if $g: A \to B$ is homotopic to $f$, then the induced maps are equal:
+	$$ f_\ast = g_\ast : \pi_\ast(A) \to \pi_\ast(B). $$
+}
+\Proof{
+	Let $\phi: A \to B$ be a map of algebras. Then clearly we get an induced map $\overline{A} \to \overline{B}$ as $\phi$ preserves the augmentation. By composition we get a map $\phi': \overline{A} \to Q(B)$ for which we have $\phi'(xy) = \phi'(x)\phi'(y) = 0$. So it induces a map $Q(\phi): Q(A) \to Q(B)$. By functoriality of taking homology we get $f_\ast : \pi^n(A) \to \pi^n(B)$.
+
+	Now if $f$ and $g$ are homotopic, then there is a homotopy $h: A \to \Lambda(t, dt) \tensor B$. By the Künneth theorem we have:
+	$$ {d_0}_\ast = {d_1}_\ast : H(\Lambda(t, dt) \tensor Q(B)) \to H(Q(B)). $$
+	This means that $f_\ast = {d_1}_\ast h_\ast = {d_0}_\ast h_\ast = g_\ast$. \todo{detail}
+}
+
+Consider the augmented cdga $V(n) = D(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. There is a weak equivalence $A(n) \to V(n)$ (recall \DefinitionRef{minimal-model-sphere}). This augmented cdga can be thought of as a specific model of the sphere. In particular the homotopy groups can be expressed as follows.
 
 \Lemma{cdga-dual-homotopy-groups}{
-	Let $A$ be an augmented cdga, then
+	There is a natural bijection for any augmented cdga $A$
 	$$ [A, V(n)] \tot{\iso} \Hom_\k(\pi^n(A), \k). $$
 }
-\todo{prove}
+\Proof{
+	Note that $Q(V(n))$ in degree $n$ is just $\k$ and $0$ in the other degrees, so its homotopy group consists of a single $\k$ in degree $n$. This establishes the map:
+	$$ \Phi: \Hom_\CDGA(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
+
+	Now by \LemmaRef{cdga-homotopic-maps-equal-pin} we get a map from the set of homotopy classes $[A, V(n)]$ instead of just maps. \todo{injective, surjective}
+}
 
 We will denote the dual of a vector space as $V^\ast = \Hom_\k(V, \k)$.
 
@@ -171,7 +190,7 @@ In particular if the vector space $V'$ is finitely generated, we can repeat this
 
 We have proven the following theorem.
 \Theorem{main-theorem}{
-	The functors $A$ and $K$ induce an equivalence of homotopy categories, when restricted to rational, $1$-connected objects of finite type. more formally, we have:
+	The functors $A$ and $K$ induce an equivalence of homotopy categories, when restricted to rational, $1$-connected objects of finite type. More formally, we have:
 	$$ \Ho(\sSet_1^{\Q,f}) \iso \Ho(\CDGA_{\Q,1,f}). $$
 
 	Furthermore, for any $1$-connected space $X$ of finite type, we have the following isomorphism of groups:

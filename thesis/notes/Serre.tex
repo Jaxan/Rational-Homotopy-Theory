@@ -83,7 +83,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology, we get for $i>0$ an isomorphism
 	$$ H_i(K(G, 1); \Z) \iso H_i(G; \Z) \in \C. $$
 
-	Suppose we have proven the statment for $n$. If we consider the case of $n+1$ we can use the path fibration to relate it to the case of $n$:
+	Suppose we have proven the statement for $n$. If we consider the case of $n+1$ we can use the path fibration to relate it to the case of $n$:
 	$$ \Omega K(G,n+1) \to P K(G, n+1) \fib K(G, n+1) $$
 	Now $\Omega K(G, n+1) = K(G, n)$, and we can apply \LemmaRef{kreck} as the reduced homology of the fiber is in $\C$ by induction hypothesis. Conclude that the homology of $P K(G, n+1)$ is $\C$-isomorphic to the homology of $K(G, n)$. Since $\RH_\ast(P K(G, n+1)) = 0$, we get $\RH_\ast(K(G, n+1)) \in \C$.
 }
@@ -151,7 +151,7 @@ For the main theorem we need the following construction. \todo{Geef de construct
 		H_{n-1}(Y) & \ar[l]_\iso H_n(P X, Y) \ar[r]^{\C\text{-iso}} & H_n(X, A)
 	}
 	\]
-	The horizontal maps on the left are isomorphisms by long exact sequences, this gives us that the middle vertical map is a $\C$-iso. The horizontal maps on the right are $\C$-isos by the above and a relative version of \LemmaRef{kreck}. Now we conclude that $\pi_n(X, A) \to H_n(X, A)$ is alao a $\C$-iso and that $H_i(X, A) \in \C$ for all $i < n$.
+	The horizontal maps on the left are isomorphisms by long exact sequences, this gives us that the middle vertical map is a $\C$-iso. The horizontal maps on the right are $\C$-isos by the above and a relative version of \LemmaRef{kreck}. Now we conclude that $\pi_n(X, A) \to H_n(X, A)$ is also a $\C$-iso and that $H_i(X, A) \in \C$ for all $i < n$.
 }
 
 \Theorem{serre-whitehead}{
