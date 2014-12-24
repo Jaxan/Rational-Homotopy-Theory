@@ -228,9 +228,111 @@ The two notions (left resp. right homotopy) agree on nice objects. Hence in this
 
 
 \section{The Homotopy Category}
-A model category induces a homotopy category $\Ho(\cat{C})$, in which weak equivalences are isomorphisms and homotopic maps are equal. This category only depends on the category $\cat{C}$ and the class of weak equivalences.
-\todo{Definition etc}
+Given a model category, we wish to construct a category in which the weak equivalences become actual isomorphisms. From an abstract perspective, this would be a \emph{localization} of categories. To be precise, if we have a category $\cat{C}$ with weak equivalences $\W$, we want a functor $\gamma: \cat{C} \to \Ho(\cat{C})$ such that
+\begin{itemize}
+	\item for every $f \in \W$, the map $\gamma(f)$ is an isomorphism and
+	\item $\Ho(\cat{C})$ is universal with this property. This means that for every $\psi$ sending weak equivalences to isomorphisms, we get:
+	\[\xymatrix @C=1.5cm{
+		\cat{C} \ar[r]^-\gamma \ar[dr]^{\psi} & \Ho(\cat{C}) \ar@{-->}[d]^{\overline{\psi}} \\	
+		& \cat{D}
+	}\]
+\end{itemize}
+
+For arbitrary categories and classes of weak equivalences, such a localization need not exist. But when we have a model category, we can always construct $\Ho(\cat{C})$.
+
+\Definition{homotopy-category}{
+	The \Def{homotopy category $\Ho(\cat{C})$} of a model category $\cat{C}$ is defined with
+	\begin{itemize}
+		\item the objects being the objects in $\cat{C}$
+		\item the maps between $X$ and $Y$ are
+		\[ \Hom_{\Ho(\cat{C})}(X, Y) = [X^{cof,fib}, Y^{cof,fib}]. \]
+	\end{itemize}
+}
+
+In \cite{dwyer} it is proven that this indeed defines a localization of $\cat{C}$ with respect to $\W$. It is good to note that $\Ho(\Top)$ does not depend on the class of cofibrations or fibrations.
+
+\Example{ho-top}{
+	The category $\Ho(\Top)$ has as objects just topological spaces and homotopy classes between cofibrant replacements (note that every objects is already fibrant). Moreover, if we restrict to the full subcategory of CW complexes, maps are precisely homotopy classes between objects.
+
+	Homotopical invariants are often defined as functors on $\Top$. For example we have the $n$-th homotopy group functor $\pi_n: \Top \to \Grp$ and the $n$-th homology group functor $H_n: \Top \to \Ab$. But since they are homotopy invariant, they can be expressed as functors on $\Ho(\Top)$:
+	\[ \pi_n : \Ho(\Top) \to \Grp \qquad H_n : \Ho(\Top) \to \Ab. \]
+}
+
 
 \section{Quillen pairs}
 In order to relate model categories and their associated homotopy categories we need a notion of maps between them. We want the maps such that they induce maps on the homotopy categories.
-\todo{Definition etc}
+
+We first make an observation. Notice that whenever we have an adjunction $F : \cat{C} \leftadj \cat{D} : G$, finding a lift in the following diagram on the left is equivalent to finding one in the diagram on the right.
+\[\xymatrix{
+	FA \ar[r] \ar[d] & X \ar[d] \\
+	FB \ar[r] & Y
+}\qquad\xymatrix{
+	A \ar[r] \ar[d] & GX \ar[d] \\
+	B \ar[r] & GY
+}\]
+So it should not come as a surprise that adjunctions play an important role in model categories. The useful notion of maps between model categories is the following.
+
+\Definition{quillen-pair}{
+	An adjunction $F : \cat{C} \leftadj \cat{D} : G$ between model categories is a \Def{Quillen pair} if $F$ preserves cofibrations and $G$ preserves fibrations.
+
+	In this case $F$ is the \Def{left Quillen functor} and $G$ is the \Def{right Quillen functor}.
+}
+
+Notice that by the lifting properties $(F,G)$ is a Quillen pair if and only if $F$ preserves cofibrations and trivial cofibrations (or dually $G$ preserves fibrations and trivial fibrations). The Quillen pairs are important as they induce functors on the homotopy categories.
+
+\Theorem{quillen-pair-induces-hocat}{
+	If $(F, G)$ is a Quillen pair, then there an induced adjunction
+	\[ LF : \Ho(cat{C}) \leftadj \Ho(\cat{D}) : RG, \]
+	where $LF(X) = F(X^{cof})$ and $RG(Y) = G(Y^{fib})$.
+}
+
+Such an adjunction between homotopy categories is an equivalence if the unit and counit are isomorphisms in $\Ho(\cat{C})$. This means that the following two maps should be weak equivalences in $\cat{C}$ for all cofibrant $X$ and all fibrant $Y$
+\begin{align*}
+	\unit &: X \to G(F(X)^{fib}) \\
+	\counit &: F(G(Y)^{cof}) \to Y.
+\end{align*}
+In this case, such a pair of functors is called a \Def{Quillen equivalence}.
+
+\Example{sset-top-equivalence}{
+	The geometric realization and singular functor form a Quillen equivalence
+	\[ |-| : \sSet \leftadj \Top : S(-). \]
+}
+
+
+\section{Homotopy pushouts and pullbacks}
+In category theory we know that colimits (and limits) are unique up to isomorphism, and that isomorphic diagrams will have isomorphic colimits (and limits). We would like a similar theory for weak equivalences. Unfortunately the ordinary colimit (or limit) is not homotopically nice. For example consider the following two diagrams, with the obvious maps.
+\[\xymatrix{
+	S^1 \ar[r] \ar[d] & D^2 \\
+	D^2 &
+} \qquad \xymatrix{
+	S^1 \ar[r] \ar[d] & \ast \\
+	\ast &
+} \]
+The diagrams are pointwise weakly equivalent. But the induced map $S^n \to \ast$ on the pushout is clearly not. In this section we will briefly indicate what homotopy pushouts are (and dually we get homotopy pullbacks).
+
+One direct way to obtain a homotopy pushout is by the use of \emph{Reedy categories} \cite{hovey}. In this case the diagram category is endowed with a model structure, which gives a notion of cofibrant diagram. In such diagrams the ordinary pushout is the homotopy pushout. The key result is the following.
+
+\Lemma{htpy-pushout-reedy}{
+	Consider the following pushout diagram. The if all objects are cofibrant and the map $f$ is a cofibration, then the homotopy pushout is given by the ordinary pushout.
+	\[ \xymatrix{
+		A \ar[r] \arcof[d] \xypo & C \ar[d] \\
+		B \ar[r] & P
+	} \]
+}
+
+There are other ways to obtain homotopy pushouts. A very general way is given by the \emph{bar construction} \cite{riehl}. \todo{do we need this?}
+
+The important property of homotopy pushout we use in this thesis is the uniqueness (up to homotopy). In particular we need the following fact.
+
+\Lemma{cube-lemma}{
+	(The cube lemma) Consider the following commuting diagram, where $P$ and $Q$ are the homotopy pushouts of the back and front face respectively.
+	\[ \xymatrix @=0.3cm{
+		A \ar[rr] \ar[dd] \ar[dr] && A' \ar'[d][dd] \ar[dr] & \\
+		& B \ar[rr] \ar[dd] && B' \ar[dd] \\
+		A'' \ar'[r][rr] \ar[dr] && P \ar[dr] & \\
+		& B'' \ar[rr] && Q
+	} \]
+	If the three maps $A^\ast \to B^\ast$ are weak equivalences, then so is the map $P \to Q$.
+}
+
+We get similar theorems for the dual case of homotopy pullbacks.
