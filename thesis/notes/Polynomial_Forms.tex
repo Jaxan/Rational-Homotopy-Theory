@@ -7,7 +7,6 @@ Given a category $\cat{C}$ and a functor $F: \DELTA \to \cat{C}$, then define th
 	F^\ast(C)_n &= \Hom_{\cat{C}}(F[n], Y)       & C \in \cat{C}
 \end{align*}
 A simplicial map $X \to Y$ induces a map of the diagrams of which we take colimits. Applying $F$ on these diagrams, make it clear that $F_!$ is functorial. Secondly we see readily that $F^\ast$ is functorial. By using the definition of colimit and the Yoneda lemma (Y) we can prove that $F_!$ is left adjoint to $F^\ast$:
-
 \begin{align*}
 	\Hom_\cat{C}(F_!(X), Y)
 	&\iso \Hom_\cat{C}(\colim_{\Delta[n] \to X} F[n], Y) \\
@@ -19,18 +18,14 @@ A simplicial map $X \to Y$ induces a map of the diagrams of which we take colimi
 \end{align*}
 
 Furthermore we have $F_! \circ \Delta[-] \iso F$. In short we have the following:
-
 \cdiagram{Kan_Extension}
-
 In our case where $F = \Apl$ and $\cat{C} = \CDGA_\k$ we get:
-
 \cdiagram{Apl_Extension}
 
 
 \subsection{The cochain complex of polynomial forms}
 
 In our case we take the opposite category, so the definition of $A$ is in terms of a limit instead of colimit. This allows us to give a nicer description:
-
 \begin{align*}
 	A(X)
 	&= \lim_{\Delta[n] \to X} \Apl_n 
@@ -38,9 +33,7 @@ In our case we take the opposite category, so the definition of $A$ is in terms 
 	&\iso \Hom_\sSet(\colim_{\Delta[n] \to X}\Delta[n], \Apl)
 	= \Hom_\sSet(X, \Apl),
 \end{align*}
-
 where the addition, multiplication and differential are defined pointwise. Conclude that we have the following contravariant functors (which form an adjoint pair):
-
 \begin{align*}
 	A(X) &= \Hom_\sSet(X, \Apl) & X \in \sSet \\
 	K(C)_n &= \Hom_{\CDGA_\k}(C, \Apl_n) & C \in \CDGA_\k.
@@ -52,7 +45,6 @@ where the addition, multiplication and differential are defined pointwise. Concl
 Another way to model the $n$-simplex is by the singular cochain complex associated to the topological $n$-simplices. Define the following (non-commutative) dga's \todo{Choose: normalized or not?}:
 $$ C_n = C^\ast(\Delta^n; \k). $$
 The inclusion maps $d^i : \Delta^n \to \Delta^{n+1}$ and the maps $s^i: \Delta^n \to \Delta^{n-1}$ induce face and degeneracy maps on the dga's $C_n$, turning $C$ into a simplicial dga. Again we can extend this to functors by Kan extensions
-
 \cdiagram{C_Extension}
 
 where the left adjoint is precisely the functor $C^\ast$ as noted in \cite{felix}. We will relate $\Apl$ and $C$ in order to obtain a natural quasi isomorphism $A(X) \we C^\ast(X)$ for every $X \in \sSet$. Furthermore this map preserves multiplication on the homology algebras.
@@ -148,4 +140,3 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 
 	So by the five lemma we can conclude that the middle morphism is an isomorphism as well, proving the isomorphism $H^n(A(X)) \tot{\iso} H^n(C^\ast(X))$ for all $n$. This proves the statement for all $X$.
 }
-
