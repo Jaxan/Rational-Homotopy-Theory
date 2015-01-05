@@ -14,7 +14,7 @@ As we do not directly need this claim, we omit the proof. However, in the next s
 
 $S(n)$ plays a another special role: maps from $S(n)$ to some cochain complex $X$ correspond directly to elements in the kernel of $\restr{d}{X^n}$. Any such map is null-homotopic precisely when the corresponding elements in the kernel is a coboundary. So there is a natural isomorphism: $\Hom(S(n), X) / {\simeq} \iso H^n(X)$.
 
-By using the free cdga functor we can turn these cochain complexes into cdga's $\Lambda(D(n))$ and $\Lambda(S(n))$. So $\Lambda(D(n))$ consists of linear combinations of $b^k$ and $c b^k$ when $n$ is even, and it consists of linear combinations of $c^k b$ and $c^k$ when $n$ is odd. In both cases we can compute the differentials using the Leibniz rule:
+By using the free cdga functor we can turn these cochain complexes into cdga's $\Lambda D(n)$ and $\Lambda S(n) $. So $\Lambda D(n)$ consists of linear combinations of $b^k$ and $c b^k$ when $n$ is even, and it consists of linear combinations of $c^k b$ and $c^k$ when $n$ is odd. In both cases we can compute the differentials using the Leibniz rule:
 $$ d(b^k) = k \cdot c b^{k-1} $$
 $$ d(c b^k) = 0 $$
 
@@ -25,7 +25,7 @@ Those cocycles are in fact coboundaries (using that $\k$ is a field of character
 $$ c b^k = \frac{1}{k} d(b^{k+1}) $$
 $$ c^k = d(b c^{k-1}) $$
 
-There are no additional cocycles in $\Lambda(D(n))$ besides the constants and $c$. So we conclude that $\Lambda(D(n))$ is acyclic as an algebra. In other words $\Lambda(j_n): \k \to \Lambda D(n)$ is a quasi isomorphism.
+There are no additional cocycles in $\Lambda D(n)$ besides the constants and $c$. So we conclude that $\Lambda D(n)$ is acyclic as an algebra. In other words $\Lambda(j_n): \k \to \Lambda D(n)$ is a quasi isomorphism.
 
 The situation for $\Lambda S(n)$ is easier as it has only one generator (as algebra). For even $n$ this means it is given by polynomials in $a$. For odd $n$ it is an exterior algebra, meaning $a^2 = 0$. Again the sets $\Lambda(I) = \{ \Lambda(i_n) : \Lambda S(n+1) \to \Lambda D(n) \I n \in \N\}$ and $\Lambda(J) = \{ \Lambda(j_n) : \k \to \Lambda D(n) \I n \in \N\}$ play an important role.
 
@@ -41,6 +41,6 @@ The situation for $\Lambda S(n)$ is easier as it has only one generator (as alge
 We will prove this theorem in the next section. Note that the functors $\Lambda$ and $U$ thus form a Quillen pair with this model structure.
 
 \subsection{Why we need $\Char{\k} = 0$ for algebras}
-The above Quillen pair $(\Lambda, U)$ fails to be a Quillen pair if $\Char{\k} = p \neq 0$. We will show this by proving that the maps $\Lambda(j_n)$ are not weak equivalences for even $n$. Consider $b^p \in D(n)$, then by the Leibniz rule:
+The above Quillen pair $(\Lambda, U)$ fails to be a Quillen pair if $\Char{\k} = p \neq 0$. We will show this by proving that the maps $\Lambda(j_n)$ are not weak equivalences for even $n$. Consider $b^p \in \Lambda D(n)$, then by the Leibniz rule:
 $$ d(b^p) = p \cdot c b^{p-1} = 0. $$
 So $b^p$ is a cocycle. Now assume $b^p = d x$ for some $x$ of degree $p n - 1$, then $x$ contains a factor $c$ for degree reasons. By the calculations above we see that any element containing $c$ has a trivial differential or has a factor $c$ in its differential, contradicting $b^p =  d x$. So this cocycle is not a coboundary and $\Lambda D(n)$ is not acyclic.
