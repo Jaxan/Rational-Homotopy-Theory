@@ -67,20 +67,24 @@ The following two theorems can be found in textbooks about homological algebra s
 \Theorem{kunneth}{
 	(Künneth Theorem)
 	For spaces $X$ and $Y$, there is a short exact sequence
-	$$ 0 \to H(X; A) \tensor H(Y; A) \to H(X \times Y; A) \to \Tor(H(X; A), H(Y; A)) \to 0, $$
-	where $H(X; A)$ and $H(X; A)$ are considered as graded modules and their tensor product and torsion groups are graded. \todo{Geef algebraische versie voor ketencomplexen}
+	\[ \footnotesize \xymatrix @C=0.3cm{
+		0 \ar[r] & H(X; A) \tensor H(Y; A) \ar[r] & H(X \times Y; A) \ar[r] & \Tor_{\ast-1}(H(X; A), H(Y; A)) \ar[r] & 0
+	},\]
+	where $H(X; A)$ and $H(X; A)$ are considered as graded modules and their tensor product and torsion groups are graded. \todo{Geef algebraische versie voor ketencomplexen? en cohomology?}
 }
 
-\section{Immediate results for rational homotopy theory}
+\section{Consequences for rational homotopy theory}
 
 The latter two theorems have a direct consequence for rational homotopy theory. By taking $A = \Q$ we see that the torsion groups vanish. We have the immediate corollary.
 
 \Corollary{rational-corollaries}{
-	We have the following natural isomorphisms in homology
-	$$ H(X) \tensor \Q \tot{\iso} H(X; \Q), $$
-	$$ H(X \times Y; \Q) \tot{\iso} H(X; \Q) \tensor H(Y; \Q). $$
-	Furthermore we can relate homology and cohomology in a natural way:
-	$$ H^n(X; \Q) \tot{\iso} \Hom(H_n(X); \Q). $$
+	We have the following natural isomorphisms in rational homology, and we can relate rational cohomolgy naturally to rational homology
+	\begin{align*}
+		H_\ast(X) \tensor \Q &\tot{\iso} H_\ast(X; \Q), \\
+		H_\ast(X; \Q) \tensor H_\ast(Y; \Q) &\tot{\iso} H_\ast(X \times Y; \Q), \\
+		H^\ast(X; \Q) &\tot{\iso} \Hom(H_\ast(X); \Q). 
+	\end{align*}
+
 }
 
 The long exact sequence for a Serre fibration also has a direct consequence for rational homotopy theory.
