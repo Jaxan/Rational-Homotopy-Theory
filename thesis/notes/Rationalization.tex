@@ -5,9 +5,9 @@
 In this section we will prove the existence of rationalizations $X \to X_\Q$. We will do this in a cellular way. The $n$-spheres play an important role here, so their rationalizations will be discussed first. In this section $1$-connectedness of spaces will play an important role.
 
 \section{Rationalization of \texorpdfstring{$S^n$}{Sn}}
-In this section we fix $n>0$. We will construct $S^n_\Q$ in stages $S^n(1), S^n(2), \ldots$, where at each stage we wedge a sphere and then glue a $n+1$-cell to ``invert'' some element in the $n$th homotopy group.
+In this section we fix $n>0$. We will construct $S^n_\Q$ in stages $S^n(1), S^n(2), \ldots$, where at each stage we wedge a sphere and then glue an $n+1$-cell to ``invert'' some element in the $n$th homotopy group.
 
-\todo{plaatje}
+\todo{plaatje en tekst leesbaarder maken}
 
 We start the construction with $S^n(1) = S^n$. Assume we constructed $S^n(r) = \bigvee_{i=1}^{r} S^{n} \cup_{h} \coprod_{i=1}^{r-1} D^{n+1}$, where $h$ is a specific attaching map. Assume furthermore the following two properties. Firstly, the inclusion $i_r : S^n \to S^n(r)$ of the terminal sphere is a weak equivalence. Secondly, the inclusion $i_1 : S^n \to S^n(r)$ of the initial sphere induces the multiplication $\pi_n(S^n) \tot{\times r!} \pi_n(S^n(r))$ under the identification of $\pi_n(S^n) = \pi_n(S^n(r)) = \Z$.
 
@@ -25,7 +25,7 @@ Now to finish the construction we define the \Def{rational sphere} as $S^n_\Q = 
 
 $$ \Z \tot{\times 2} \Z \tot{\times 3} \Z \tot{\times 4} \Z \tot{\times 5} \cdots \Q. $$
 
-Moreover we note that the generator $1 \in \pi_n(S^n)$ is sent to $1 \in \pi_n(S^n_\Q)$ via the inclusion $S^n \to S^n_\Q$ of the initial sphere. However the other homotopy groups are harder to calculate as we have generally no idea how the induced maps will look like. But in the case of $n=1$, the other trivial homotopy groups of $S^1$ are trivial.
+Moreover we note that the generator $1 \in \pi_n(S^n)$ is sent to $1 \in \pi_n(S^n_\Q)$ via the inclusion $S^n \to S^n_\Q$ of the initial sphere. However the other homotopy groups are harder to calculate as we have generally no idea what the induced maps are. But in the case of $n=1$, the other homotopy groups of $S^1$ are trivial.
 
 \Corollary{rationalization-S1}{
 	The inclusion $S^1 \to S^1_\Q$ is a rationalization.
@@ -81,7 +81,7 @@ Having rational cells we wish to replace the cells in a CW complex $X$ by the ra
 	Any simply connected CW complex admits a rationalization.
 }
 \Proof{
-	Let $X$ be a CW complex. We will define $X_\Q$ with induction on the dimension of the cells. Since $X$ is simply connected we can start with $X^0_\Q = X^1_\Q = \ast$. Now assume that the rationalization $X^k \tot{\phi^k} X^k_\Q$ is already defined. Let $A$ be the set of $k+1$-cells and $f_\alpha : S^k \to X^{k+1}$ be the attaching maps. Then by \LemmaRef{SnQ-extension} these extend to $g_\alpha = (\phi^k \circ f_\alpha)' : S^k_\Q \to X^k_\Q$. This defines $X^{k+1}_\Q$ as the pullback in the following diagram.
+	Let $X$ be a CW complex. We will define $X_\Q$ with induction on the dimension of the cells. Since $X$ is simply connected we can start with $X^0_\Q = X^1_\Q = \ast$. Now assume that the rationalization $X^k \tot{\phi^k} X^k_\Q$ is already defined. Let $A$ be the set of $k+1$-cells and $f_\alpha : S^k \to X^{k+1}$ be the attaching maps. Then by \LemmaRef{SnQ-extension} these extend to $g_\alpha = (\phi^k \circ f_\alpha)' : S^k_\Q \to X^k_\Q$. This defines $X^{k+1}_\Q$ as the pushout in the following diagram.
 
 	\begin{displaymath}
 		\xymatrix{
@@ -137,7 +137,7 @@ There are others ways to obtain a rationalization. One of them relies on the obs
 	is a rationalization
 }
 
-Any simply connected space can be decomposed into a Postnikov tower $X \to \ldots \fib P_2(X) \fib P_1(X) \fib P_0(X)$ \cite[Chapter 22.4]{may}. Furthermore if $X$ is a simply connected CW complex, $P_{n}(X)$ can be constructed from $P_{n-1}(X)$ as the pushout in
+Any simply connected space can be decomposed into a Postnikov tower $X \to \ldots \fib P_2(X) \fib P_1(X) \fib P_0(X)$ \cite[Chapter 22.4]{may}. Furthermore if $X$ is a simply connected CW complex, $P_{n}(X)$ can be constructed from $P_{n-1}(X)$ as the pullback in
 \begin{displaymath}
 	\xymatrix{
 	P_{n}(X) \ar[r] \arfib[d] \xypb & PK(\pi_n(X), n+1) \arfib[d] \\
