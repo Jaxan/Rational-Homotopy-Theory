@@ -51,46 +51,8 @@ The induced adjunction in the previous corollary is given by $LA(X) = A(X)$ for 
 }
 
 
-\section{Homotopy groups of cdga's}
-We are after an equivalence of homotopy categories, so it is natural to ask what the homotopy groups of $K(A)$ are for a cdga $A$. In order to do so, we will define homotopy groups of cdga's directly and compare the two notions.
-
-Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit} \k$ such that $\counit \unit = \id$.
-
-\Definition{cdga-homotopy-groups}{
-	Define the \Def{augmentation ideal} of $A$ as $\overline{A} = \ker \counit$. Define the \Def{cochain complex of indecomposables} of $A$ as $QA = \overline{A} / \overline{A} \cdot \overline{A}$.
-
-	Now define the \Def{homotopy groups of a cdga} $A$ as
-	$$ \pi^i(A) = H^i(QA). $$
-}
-
-Note that for a minimal algebra $\Lambda V$ there is a natural augmentation and the the differential is decomposable. Hence $Q \Lambda V$ is naturally isomorphic to $(V, 0)$. In particular the homotopy groups are simply given by $\pi^n(\Lambda V) = V^n$.
-
-\Lemma{cdga-homotopic-maps-equal-pin}{
-	Let $f: A \to B$ be a map of augmented cdga's. Then there is an functorial induced map on the homotopy groups. Moreover if $g: A \to B$ is homotopic to $f$, then the induced maps are equal:
-	$$ f_\ast = g_\ast : \pi_\ast(A) \to \pi_\ast(B). $$
-}
-\Proof{
-	Let $\phi: A \to B$ be a map of algebras. Then clearly we get an induced map $\overline{A} \to \overline{B}$ as $\phi$ preserves the augmentation. By composition we get a map $\phi': \overline{A} \to Q(B)$ for which we have $\phi'(xy) = \phi'(x)\phi'(y) = 0$. So it induces a map $Q(\phi): Q(A) \to Q(B)$. By functoriality of taking homology we get $f_\ast : \pi^n(A) \to \pi^n(B)$.
-
-	Now if $f$ and $g$ are homotopic, then there is a homotopy $h: A \to \Lambda(t, dt) \tensor B$. By the Künneth theorem we have:
-	$$ {d_0}_\ast = {d_1}_\ast : H(\Lambda(t, dt) \tensor Q(B)) \to H(Q(B)). $$
-	This means that $f_\ast = {d_1}_\ast h_\ast = {d_0}_\ast h_\ast = g_\ast$. \todo{detail}
-}
-
-Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. There is a weak equivalence $A(n) \to V(n)$ (recall \DefinitionRef{minimal-model-sphere}). This augmented cdga can be thought of as a specific model of the sphere. In particular the homotopy groups can be expressed as follows.
-
-\Lemma{cdga-dual-homotopy-groups}{
-	There is a natural bijection for any augmented cdga $A$
-	$$ [A, V(n)] \tot{\iso} \Hom_\k(\pi^n(A), \k). $$
-}
-\Proof{
-	Note that $Q(V(n))$ in degree $n$ is just $\k$ and $0$ in the other degrees, so its homotopy group consists of a single $\k$ in degree $n$. This establishes the map:
-	$$ \Phi: \Hom_\CDGA(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
-
-	Now by \LemmaRef{cdga-homotopic-maps-equal-pin} we get a map from the set of homotopy classes $[A, V(n)]$ instead of just maps. \todo{injective, surjective}
-}
-
-We will denote the dual of a vector space as $V^\ast = \Hom_\k(V, \k)$.
+\section{Homotopy groups}
+The homotopy groups of cdga's are precisely the dual of the homotopy groups of their associated spaces.
 
 \Theorem{cdga-dual-homotopy-groups}{
 	Let $X$ be a cofibrant augmented cdga, then
@@ -119,6 +81,7 @@ We get a particularly nice result for minimal cdga's, because the functor $Q$ is
 \Corollary{minimal-cdga-EM-space}{
 	For a cdga with one generator $X = \Lambda(v)$ with $d v = 0$ and $\deg{v} = n$. We conclude that $KX$ is a $K(\k^\ast, n)$-space.
 }
+
 
 \section{The Eilenberg-Moore theorem}
 Before we prove the actual equivalence, we will discuss a theorem of Eilenberg and Moore. The theorem tells us that the singular cochain complex of a pullback along a fibration is nice in a particular way. The theorem and its proof (using spectral sequences) can be found in \cite[Theorem 7.14]{mccleary}.

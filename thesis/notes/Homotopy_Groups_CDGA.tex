@@ -1,0 +1,38 @@
+
+As the eventual goal is to compare the homotopy theory of spaces with the homotopy theory of cdga's, it is natural to investigate an analogue of homotopy groups in the category of cdga's. In topology we can only define homotopy groups on pointed spaces, dually we will consider augmented cdga's in this section. Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit} \k$ such that $\counit \unit = \id$.
+
+\Definition{cdga-homotopy-groups}{
+	Define the \Def{augmentation ideal} of $A$ as $\overline{A} = \ker \counit$. Define the \Def{cochain complex of indecomposables} of $A$ as $QA = \overline{A} / \overline{A} \cdot \overline{A}$.
+
+	Now define the \Def{homotopy groups of a cdga} $A$ as
+	$$ \pi^i(A) = H^i(QA). $$
+}
+
+This construction is functorial and, as the following lemma shows, homotopy invariant.
+
+\Lemma{cdga-homotopic-maps-equal-pin}{
+	Let $f: A \to B$ be a map of augmented cdga's. Then there is an functorial induced map on the homotopy groups. Moreover if $g: A \to B$ is homotopic to $f$, then the induced maps are equal:
+	$$ f_\ast = g_\ast : \pi_\ast(A) \to \pi_\ast(B). $$
+}
+\Proof{
+	Let $\phi: A \to B$ be a map of algebras. Then clearly we get an induced map $\overline{A} \to \overline{B}$ as $\phi$ preserves the augmentation. By composition we get a map $\phi': \overline{A} \to Q(B)$ for which we have $\phi'(xy) = \phi'(x)\phi'(y) = 0$. So it induces a map $Q(\phi): Q(A) \to Q(B)$. By functoriality of taking homology we get $f_\ast : \pi^n(A) \to \pi^n(B)$.
+
+	Now if $f$ and $g$ are homotopic, then there is a homotopy $h: A \to \Lambda(t, dt) \tensor B$. By the Künneth theorem we have:
+	$$ {d_0}_\ast = {d_1}_\ast : H(\Lambda(t, dt) \tensor Q(B)) \to H(Q(B)). $$
+	This means that $f_\ast = {d_1}_\ast h_\ast = {d_0}_\ast h_\ast = g_\ast$. \todo{detail}
+}
+
+Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. This augmented cdga can be thought of as a specific model of the sphere. In particular the homotopy groups can be expressed as follows.
+
+\Lemma{cdga-dual-homotopy-groups}{
+	There is a natural bijection for any augmented cdga $A$
+	$$ [A, V(n)] \tot{\iso} \Hom_\k(\pi^n(A), \k). $$
+}
+\Proof{
+	Note that $Q(V(n))$ in degree $n$ is just $\k$ and $0$ in the other degrees, so its homotopy groups consists of a single $\k$ in degree $n$. This establishes the map:
+	$$ \Phi: \Hom_\CDGA(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
+
+	Now by \LemmaRef{cdga-homotopic-maps-equal-pin} we get a map from the set of homotopy classes $[A, V(n)]$ instead of just maps. \todo{injective, surjective}
+}
+
+From now on the dual of a vector space will be denoted as $V^\ast = \Hom_\k(V, \k)$. So the above lemma states that there is a bijection $[A, V(n)] \iso \pi^n(A)^\ast$.
