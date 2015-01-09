@@ -120,6 +120,35 @@ We get a particularly nice result for minimal cdga's, because the functor $Q$ is
 	For a cdga with one generator $X = \Lambda(v)$ with $d v = 0$ and $\deg{v} = n$. We conclude that $KX$ is a $K(\k^\ast, n)$-space.
 }
 
+\section{The Eilenberg-Moore theorem}
+Before we prove the actual equivalence, we will discuss a theorem of Eilenberg and Moore. The theorem tells us that the singular cochain complex of a pullback along a fibration is nice in a particular way. The theorem and its proof (using spectral sequences) can be found in \cite[Theorem 7.14]{mccleary}.
+
+\Theorem{eilenberg-moore}{
+	Given the following pullback diagram of spaces
+	\[ \xymatrix{
+		E_f \ar[r] \xypb \ar[d] & E \arfib[d]^-{p} \\
+		X \ar[r]^-{f} & B
+	} \]
+	where $p$ is a fibration, all spaces are $0$-connected and $B$ is $1$-connected. The cohomology with coefficients in a field $\k$ can be computed by an isomorphism
+	\[ \Tor_{C^\ast(B; \k)}(C^\ast(X; \k), C^\ast(E; \k)) \tot{\iso} H(C^\ast(E_f; \k)). \]
+}
+
+Now the Tor group appearing in the theorem can be computed via a \emph{bar construction}. The explicit construction for cdga's can be found in \cite{bousfield}, but also in \cite{olsson} where it is related to the homotopy colimit of cdga's. We will not discuss the details of the bar construction. However it is important to know that the Tor group only depends on the cohomology of the dga's in use (see \cite[Corollary 7.7]{mccleary}), in other words: quasi isomorphic dga's (in a compatible way) will have isomorphic Tor groups. Since $C^\ast(-;\k)$ is isomorphic to $A(-)$, the above theorem also holds for our functor $A$. We can restate the theorem as follows.
+
+\Corollary{A-preserves-htpy-pullbacks}{
+	Given the following pullback diagram of spaces
+	\[ \xymatrix{
+		E_f \ar[r] \xypb \ar[d] & E \arfib[d]^-{p} \\
+		X \ar[r]^-{f} & B
+	} \]
+	where $p$ is a fibration. Assume that all spaces are $0$-connected and $B$ is $1$-connected. Then the induced diagram
+	\[ \xymatrix{
+		A(B) \ar[r] \ar[d] & A(E) \ar[d] \\
+		A(X) \ar[r] & A(E_f)
+	} \]
+	is a homotopy pushout.
+}
+Another exposition of this corollary can be found in \cite[Section 8.4]{berglund}. A very brief summary of the above statement is that $A$ sends homotopy pullbacks to homotopy pushout (assuming some connectedness).
 
 \section{Equivalence on rational spaces}
 For the equivalence of rational spaces and cdga's we need that the unit and counit of the adjunction in \CorollaryRef{minimal-model-adjunction} are in fact weak equivalences for rational spaces. More formally: for any (automatically cofibrant) $X \in \sSet$ and any minimal model $A \in \CDGA$, both rational, $1$-connected and of finite type, the following two natural maps are weak equivalences:
@@ -167,7 +196,7 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 	\end{displaymath}
 	Note that we have a weak equivalence in the top left corner, by the base case ($S(m+1) = (\Lambda(v), 0)$). The weak equivalence in the top right is by assumption. Finally the bottom left map is a weak equivalence because both cdga's are acyclic.
 
-	To conclude that $B \to A(K(B))$ is a weak equivalence, we wish to prove that the front face of the cube is a homotopy pushout, as the back face clearly is one. This is a consequence of the Eilenberg-Moore spectral sequence \cite{mccleary}.
+	By \CorollaryRef{A-preserves-htpy-pullbacks} we know that the front face is a homotopy pushout. The back face is a homotopy pushout by \LemmaRef{htpy-pushout-reedy} and to conclude that $B \to A(K(B))$ is a weak equivalence, we use the cube lemma (\LemmaRef{cube-lemma}).
 }
 
 Now we wish to use the previous lemma as an induction step for minimal models. Let $(\Lambda V, d)$ be some minimal algebra. Write $V(n+1) = V(n) \oplus V'$ and let $v \in V'$ of degree $\deg{v} = k$, then the minimal algebra $(\Lambda (V(n) \oplus \Q \cdot v), d)$ is the pushout in the following diagram, where $f$ sends the generator $c$ to $dv$.
