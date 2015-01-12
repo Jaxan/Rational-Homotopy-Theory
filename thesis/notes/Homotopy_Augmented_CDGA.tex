@@ -1,0 +1,23 @@
+
+Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit} \k$ (this implies that $\counit \unit = \id$). This is precisely the dual notion of a pointed space. We will use the general fact that if $\cat{C}$ is a model category, then the over (resp. under) category $\cat{C} / A$ (resp. $A / \cat{C}$) for any object $A$ admit an induced model structure. In particular, the category of augmented cdga's (with augmentation preserving maps) has a model structure with the fibrations, cofibrations and weak equilavences as above.
+
+Although the model structure is completely induced, it might still be fruitful to discuss the right notion of a homotopy for augmented cdga's. Consider the following pullback of cdga's:
+\[ \xymatrix{
+	\Lambda(t, dt) \overline{\tensor} A \ar[r] \xypb \ar[d] & \Lambda(t, dt) \tensor A \ar[d] \\
+	\k \ar[r] & \k \tensor \Lambda(t, dt)
+}\]
+The pullback is the subspace of elements $x \tensor a$ in $\Lambda(t, dt) \tensor A$ such that $\counit(a) \cdot x \in \k$. Note that this construction is dual to a construction on topological spaces: in order to define a homotopy which is constant on the point $x_0$, we define the homotopy to be a map from a quotient ${X \times I} / {x_0 \times I}$.
+\Definition{homotopy-augmented}{
+	Two maps $f, g: A \to X$ between augmented cdga's are said to be \emph{homotopic} if there is a map
+	$$h : A \to \Lambda(t, dt) \overline{\tensor} X$$
+	such that $d_0 h = g$ and $d_1 h = f$.
+}
+
+In the next section homotopy groups of augmented cdga's will be defined. In order to define this we first need another tool.
+\Definition{indecomposables}{
+		Define the \Def{augmentation ideal} of $A$ as $\overline{A} = \ker \counit$. Define the \Def{cochain complex of indecomposables} of $A$ as $QA = \overline{A} / \overline{A} \cdot \overline{A}$.
+} 
+
+The first observation one should make is that $Q$ is a functor from algebras to modules (or differential algebras to differential modules) which is particularly nice for free algebras, as we have that $Q \Lambda V = V$ for any (differential) module $V$.
+
+\todo{tensor}

@@ -38,8 +38,10 @@ The results from model categories immediately imply the following results. \todo
 		\item Let $i: A \to B$ be a trivial cofibration, then the induced map $i^\ast: [B, X] \to [A, X]$ is a bijection.
 		\item Let $p: X \to Y$ be a trivial fibration, then the induced map $p_\ast: [A, X] \to [A, Y]$ is a bijection.
 		\item Let $A$ and $X$ both be cofibrant, then $f: A \we X$ is a weak equivalence if and only if $f$ is a strong homotopy equivalence. Moreover, the two induced maps are bijections:
-		$$ f_\ast: [Z, A] \tot{\iso} [Z, X], $$
-		$$ f^\ast: [X, Z] \tot{\iso} [A, X]. $$
+		\begin{align*}
+			f_\ast: [Z, A] &\tot{\iso} [Z, X], \\
+			f^\ast: [X, Z] &\tot{\iso} [A, X].
+		\end{align*}
 		\todo{De eerste werkt ook als $i$ gewoon een w.e. is. (Gebruik factorizatie.)}
 	\end{itemize}
 }
@@ -48,5 +50,10 @@ The results from model categories immediately imply the following results. \todo
 	Let $f, g: A \to X$ be two homotopic maps, then $H(f) = H(g): HA \to HX$.
 }
 \Proof{
-	We only need to consider $H(d_0)$ and $H(d_1)$. \todo{Bewijs afmaken}
+	Let $h$ be the homotopy such that $f = d_1 h$ and $g = d_0 h$. By the Künneth theorem we get the following commuting square for $i = 0, 1$:
+	\[ \xymatrix{
+		H(\Lambda(t, dt)) \tensor H(A) \ar[r]^-{d_i \tensor \id} \ar[d]^-{\iso} & \k \tensor H(A) \ar[d]^-{\iso} \\
+		H(\Lambda(t, dt) \tensor A) \ar[r]^-{d_i} & H(\k \tensor A)
+	} \]
+	Now we know that $H(d_0) = H(d_1) : H(\Lambda(t, dt)) \to \k$ as $\Lambda(t, dt)$ is acyclic and the induced map send $1$ to $1$. So the two bottom maps in the diagram are equal as well. Now we conclude $H(f) = H(d_1)H(h) = H(d_0)H(h) = H(g)$.
 }

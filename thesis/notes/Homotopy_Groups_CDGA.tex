@@ -1,10 +1,8 @@
 
-As the eventual goal is to compare the homotopy theory of spaces with the homotopy theory of cdga's, it is natural to investigate an analogue of homotopy groups in the category of cdga's. In topology we can only define homotopy groups on pointed spaces, dually we will consider augmented cdga's in this section. Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit} \k$ such that $\counit \unit = \id$.
+As the eventual goal is to compare the homotopy theory of spaces with the homotopy theory of cdga's, it is natural to investigate an analogue of homotopy groups in the category of cdga's. In topology we can only define homotopy groups on pointed spaces, dually we will consider augmented cdga's in this section.
 
 \Definition{cdga-homotopy-groups}{
-	Define the \Def{augmentation ideal} of $A$ as $\overline{A} = \ker \counit$. Define the \Def{cochain complex of indecomposables} of $A$ as $QA = \overline{A} / \overline{A} \cdot \overline{A}$.
-
-	Now define the \Def{homotopy groups of a cdga} $A$ as
+	The \Def{homotopy groups of an augmented cdga} $A$ are
 	$$ \pi^i(A) = H^i(QA). $$
 }
 
@@ -15,7 +13,7 @@ This construction is functorial and, as the following lemma shows, homotopy inva
 	$$ f_\ast = g_\ast : \pi_\ast(A) \to \pi_\ast(B). $$
 }
 \Proof{
-	Let $\phi: A \to B$ be a map of algebras. Then clearly we get an induced map $\overline{A} \to \overline{B}$ as $\phi$ preserves the augmentation. By composition we get a map $\phi': \overline{A} \to Q(B)$ for which we have $\phi'(xy) = \phi'(x)\phi'(y) = 0$. So it induces a map $Q(\phi): Q(A) \to Q(B)$. By functoriality of taking homology we get $f_\ast : \pi^n(A) \to \pi^n(B)$.
+	Let $\phi: A \to B$ be a map of algebras. Then clearly we get an induced map $\overline{A} \to \overline{B}$ as $\phi$ preserves the augmentation. By composition we get a map $\phi': \overline{A} \to Q(B)$ for which we have $\phi'(xy) = \phi'(x)\phi'(y) = 0$. So it induces a map $Q(\phi): Q(A) \to Q(B)$. By functoriality of taking homology we get $f_\ast : \pi^n(A) \to \pi^n(B)$. \todo{functoriality is redundant with previous section}
 
 	Now if $f$ and $g$ are homotopic, then there is a homotopy $h: A \to \Lambda(t, dt) \tensor B$. By the Künneth theorem we have:
 	$$ {d_0}_\ast = {d_1}_\ast : H(\Lambda(t, dt) \tensor Q(B)) \to H(Q(B)). $$
