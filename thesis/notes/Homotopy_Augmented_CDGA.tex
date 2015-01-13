@@ -18,6 +18,58 @@ In the next section homotopy groups of augmented cdga's will be defined. In orde
 		Define the \Def{augmentation ideal} of $A$ as $\overline{A} = \ker \counit$. Define the \Def{cochain complex of indecomposables} of $A$ as $QA = \overline{A} / \overline{A} \cdot \overline{A}$.
 } 
 
-The first observation one should make is that $Q$ is a functor from algebras to modules (or differential algebras to differential modules) which is particularly nice for free algebras, as we have that $Q \Lambda V = V$ for any (differential) module $V$.
+The first observation one should make is that $Q$ is a functor from algebras to modules (or differential algebras to differential modules) which is particularly nice for free (differential) algebras, as we have that $Q \Lambda V = V$ for any (differential) module $V$.
 
-\todo{tensor}
+The second observation is that $Q$ is nicely behaved on tensor products and cokernels.
+\Lemma{Q-preserves-copord}{
+	Let $A$ and $B$ be two augmented cdga's, then there is a natural isomorphism
+	\[ Q(A \tensor B) \iso Q(A) \oplus Q(B). \]
+}
+\Proof{
+	First note that the augmentation ideal is expressed as
+	$\overline{A \tensor B} = \overline{A} \tensor B \>+\> A \tensor \overline{B}$
+	and the product is
+	$\overline{A \tensor B} \cdot \overline{A \tensor B} = \overline{A} \tensor \overline{B} \>+\> \overline{A}\cdot\overline{A} \tensor \k \>+\> \k \tensor \overline{B}$.
+	With this we can prove the statement
+	\begin{align*}
+		Q(A \tensor B)
+		&= \frac{\overline{A} \tensor B \>+\> A \tensor \overline{B}}
+			{\overline{A} \tensor \overline{B} \>+\> \overline{A}\cdot\overline{A} \tensor \k \>+\> \k \tensor \overline{B}} \\
+		&\iso \frac{\overline{A} \tensor \k \>\oplus\> \k \tensor \overline{B}}
+			{\overline{A}\cdot\overline{A} \tensor \k \>\oplus\> \k \tensor \overline{B}\cdot\overline{B}}
+		= Q(A) \,\oplus\, Q(B).
+	\end{align*}
+}
+
+\Lemma{Q-preserves-coeq}{
+	Let $f : A \to B$ be a map of augmented cdga's, then there is a natural isomorphism
+	\[ Q(\coker(f)) \iso \coker(Qf). \]
+}
+\Proof{
+	First note that the cokernel of $f$ in the category of augmented cdga's is $\coker(f) = B / f(\overline{A})$ and that its augmentation ideal is $\overline{B} / f(\overline{A})$. Just as above we make a simple calculation, where $p: \overline{B} \to Q(B)$ is the projection map:
+	\begin{align*}
+		Q(\coker(f))
+		&= \frac{\overline{B} / f(\overline{A})}
+			{\overline{B} / f(\overline{A}) \cdot \overline{B} / f(\overline{A})} \\
+		&\iso \frac{\overline{B} / \overline{B}\cdot\overline{B}}
+			{pf(\overline{A})}
+		= \frac{Q(B)}{Qf(Q(A))}.
+	\end{align*}
+}
+
+\Corollary{Q-preserves-pushouts}{
+	Combining the two lemmas above, we see that $Q$ (as functor from augmented cdga's to cochain complexes) preserves pushouts.
+}
+
+Furthermore we have the following lemma which is of homotopical interest.
+
+\Lemma{Q-preserves-cofibs}{
+	If $f: A \to B$ is a cofibration of augmented cdga's, then $Qf$ is injective in positive degrees.
+}
+\Proof{
+	First we define an augmented cdga $U(n)$ for each positive $n$ as $U(n) = D(n) \oplus \k$ with trivial multiplication and where the term $\k$ is used for the unit and augmentation. Notice that the map $U(n) \to \k$ is a trivial fibration. By the lifting property we see that the induced map
+	\[ \Hom_\AugCDGA(Y, U(n)) \tot{f^\ast} \Hom_\AugCDGA(X, U(n)) \]
+	is surjective for each positive $n$. Note that maps from $X$ to $U(n)$ will send products to zero and that it is fixed on the augmentation. So there is a natural isomorphism $\Hom_\AugCDGA(X, U(n)) \iso \Hom_\k(Q(X)^n, \k)$. Hence
+	\[ \Hom_\k(Q(Y)^n, \k) \tot{(Qf)^\ast} \Hom_\k(Q(X)^n, \k) \]
+	is surjective, and so $Qf$ itself is injective in positive $n$.
+}

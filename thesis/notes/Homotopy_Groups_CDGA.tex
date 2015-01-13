@@ -6,18 +6,18 @@ As the eventual goal is to compare the homotopy theory of spaces with the homoto
 	$$ \pi^i(A) = H^i(QA). $$
 }
 
-This construction is functorial and, as the following lemma shows, homotopy invariant.
+This construction is functorial (since both $Q$ and $H$ are) and, as the following lemma shows, homotopy invariant.
 
 \Lemma{cdga-homotopic-maps-equal-pin}{
-	Let $f: A \to B$ be a map of augmented cdga's. Then there is an functorial induced map on the homotopy groups. Moreover if $g: A \to B$ is homotopic to $f$, then the induced maps are equal:
-	$$ f_\ast = g_\ast : \pi_\ast(A) \to \pi_\ast(B). $$
+	Let $f: A \to X$ and $g: A \to X$ be a maps of augmented cdga's. If $f$ and $g$ are homotopic, then the induced maps are equal:
+	$$ f_\ast = g_\ast : \pi_\ast(A) \to \pi_\ast(X). $$
 }
 \Proof{
-	Let $\phi: A \to B$ be a map of algebras. Then clearly we get an induced map $\overline{A} \to \overline{B}$ as $\phi$ preserves the augmentation. By composition we get a map $\phi': \overline{A} \to Q(B)$ for which we have $\phi'(xy) = \phi'(x)\phi'(y) = 0$. So it induces a map $Q(\phi): Q(A) \to Q(B)$. By functoriality of taking homology we get $f_\ast : \pi^n(A) \to \pi^n(B)$. \todo{functoriality is redundant with previous section}
+	Let $h: A \to \Lambda(t, dt) \tensor X$ be a homotopy. We will, just as in \LemmaRef{cdga-homotopy-homology}, prove that the maps $HQ(d_0)$ and $HQ(d_1)$ are equal, then it follows that $HQ(f) = HQ(d_1 h) = HQ(d_0 h) = HQ(g)$.
 
-	Now if $f$ and $g$ are homotopic, then there is a homotopy $h: A \to \Lambda(t, dt) \tensor B$. By the Künneth theorem we have:
-	$$ {d_0}_\ast = {d_1}_\ast : H(\Lambda(t, dt) \tensor Q(B)) \to H(Q(B)). $$
-	This means that $f_\ast = {d_1}_\ast h_\ast = {d_0}_\ast h_\ast = g_\ast$. \todo{detail}
+	Using \LemmaRef{Q-preserves-copord} we can identify the induced maps $Q(d_i) : Q(\Lambda(t, dt) \tensor X) \to Q(X)$ with maps
+	\[ Q(d_i) : Q(\Lambda(t, dt)) \oplus Q(A) \to Q(A). \]
+	Now $Q(\Lambda(t, dt)) = D(0)$ and hence it is acyclic, so when passing to homology, this term vanishes. In other words both maps ${d_i}_\ast : H(D(0)) \oplus H(Q(A)) \to H(Q(A))$ are the identity maps on $H(Q(A))$.
 }
 
 Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. This augmented cdga can be thought of as a specific model of the sphere. In particular the homotopy groups can be expressed as follows.
@@ -35,4 +35,27 @@ Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication
 
 From now on the dual of a vector space will be denoted as $V^\ast = \Hom_\k(V, \k)$. So the above lemma states that there is a bijection $[A, V(n)] \iso \pi^n(A)^\ast$.
 
-\todo{long exact sequence}
+In topology we know that a fibration induces a long exact sequence of homotopy groups. In the case of cdga's a similar long exact sequence for a cofibration will exist.
+
+\Lemma{long-exact-cdga-homotopy}{
+	Given a pushout square of augmented cdga's
+	\[ \xymatrix{
+		A \ar[d]^-f \arcof[r]^-g \xypo & C \ar[d]^-i \\
+		B \ar[r]^-j & P
+	} \]
+	where $g$ is a cofibration. There is a natural long exact sequence
+	\[ \pi^o(V) \tot{(f_\ast, g_\ast)} \pi^0(B) \oplus \pi^0(C) \tot{j_\ast - i_\ast} \pi^0(P) \tot{\del} \pi^1(A) \to \cdots \]
+}
+\Proof{
+	First note that $j$ is also a cofibration. By \LemmaRef{Q-preserves-cofibs} the maps $Qg$ and $Qj$ are injective in positive degrees. By applying $Q$ we get two exact sequence (in positive degrees) as shown in the following diagram. By the fact that $Q$ preserves pushouts (\LemmaRef{Q-preserves-pushouts}) the cokernels coincide.
+	\[ \xymatrix {
+		0 \ar[r] & Q(A) \ar[r] \ar[d] \xypo & Q(C) \ar[r] \ar[d] & \coker(f_\ast) \ar[r] \ar[d] & 0 \\
+		0 \ar[r] & Q(B) \ar[r] & Q(P) \ar[r] & \coker(f_\ast) \ar[r] & 0
+	} \]
+	Now the well known Mayer-Vietoris exact sequence can be constructed. This proves the statement.
+}
+
+\Corollary{long-exact-cdga-homotopy}{
+	When we take $B = \k$ in the above situation, we get a long exact sequence
+	\[ \pi^0(A) \tot{g_\ast} \pi^0(C) \to \pi^0(\coker(g)) \to \pi^1(A) \to \cdots \]
+}

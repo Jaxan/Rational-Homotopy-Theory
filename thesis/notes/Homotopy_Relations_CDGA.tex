@@ -1,7 +1,7 @@
 
 Although the abstract theory of model categories gives us tools to construct a homotopy relation (\DefinitionRef{homotopy}), it is useful to have a concrete notion of homotopic maps.
 
-Consider the free cdga on one generator $\Lambda(t, dt)$\todo{same as $\Lambda D(0)$}, where $\deg{t} = 0$, this can be thought of as the (dual) unit interval with endpoints $1$ and $t$. We define two \emph{endpoint maps} as follows:
+Consider the free cdga on one generator $\Lambda(t, dt)$, where $\deg{t} = 0$, this can be thought of as the (dual) unit interval with endpoints $1$ and $t$. Notice that this cdga is isomorphic to $\Lambda(D(0))$ as defined in the previous section. We define two \emph{endpoint maps} as follows:
 $$ d_0, d_1 : \Lambda(t, dt) \to \k $$
 $$ d_0(t) = 1, \qquad d_1(t) = 0, $$
 this extends linearly and multiplicatively. Note that it follows that we have $d_0(1-t) = 0$ and $d_1(1-t) = 1$. These two functions extend to tensor products as $d_0, d_1: \Lambda(t, dt) \tensor X \to \k \tensor X \tot{\iso} X$.
@@ -46,7 +46,7 @@ The results from model categories immediately imply the following results. \todo
 	\end{itemize}
 }
 
-\Lemma{cdga_homotopy_homology}{
+\Lemma{cdga-homotopy-homology}{
 	Let $f, g: A \to X$ be two homotopic maps, then $H(f) = H(g): HA \to HX$.
 }
 \Proof{
