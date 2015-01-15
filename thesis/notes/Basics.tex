@@ -4,19 +4,19 @@
 
 In this section we will state the aim of rational homotopy theory. Moreover we will recall classical theorems from algebraic topology and deduce rational versions of them.
 
-In the following definition \emph{space} is to be understood as a topological space or a simplicial set. We will call a space \Def{simple} if it is connected and its fundamental group is abelian.\todo{non-standard}
+In the following definition \emph{space} is to be understood as a topological space or a simplicial set.
 
 \Definition{rational-space}{
-	A simple space $X$ is a \emph{rational space} if
-	$$ \pi_i(X) \text{ is a $\Q$-vector space } \quad\forall i > 0. $$
+	A $0$-connected space $X$ with abelian fundamental group is a \emph{rational space} if
+	$$ \pi_i(X) \text{ is a $\Q$-vector space } \quad \forall i > 0. $$
 }
 
 \Definition{rational-homotopy-groups}{
-	We define the \emph{rational homotopy groups} of a simple space $X$ as:
+	We define the \emph{rational homotopy groups} of a $0$-connected space $X$ with abelian fundamental group as:
 	$$ \pi_i(X) \tensor \Q \quad \forall i > 0.$$
 }
 
-In order to define the tensor product $\pi_1(X) \tensor \Q$ we need that the fundamental group is abelian, that is why the definition requires simple spaces. There is a more general approach using \Def{nilpotent groups}, which admit $\Q$-completions \cite{bousfield}. Since this is rather technical we will often restrict ourselves to simple spaces or even simply connected spaces.
+In order to define the tensor product $\pi_1(X) \tensor \Q$ we need that the fundamental group is abelian, the higher homotopy groups are always abelian. There is a more general approach using \Def{nilpotent groups}, which admit $\Q$-completions \cite{bousfield}. Since this is rather technical we will often restrict ourselves to such spaces or even simply connected spaces.
 
 Note that for a rational space $X$, the ordinary homotopy groups are isomorphic to the rational homotopy groups, i.e. $\pi_i(X) \tensor \Q \iso \pi_i(X)$.
 
@@ -30,7 +30,7 @@ Note that for a rational space $X$, the ordinary homotopy groups are isomorphic 
 
 Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence if and only if $f$ is a weak equivalence.
 
-The theory of rational homotopy is the study of simple spaces with rational equivalences. Quillen defines a model structure on simply connected simplicial sets with rational equivalences as weak equivalences \cite{quillen}. This means that there is a homotopy category $\Ho^\Q(\sSet_1)$. However we will later prove that every simply connected space has a rationalization, so that $\Ho^\Q(\sSet_1) = \Ho(\sSet^\Q_1)$ are equivalent categories. This means that we do not need the model structure defined by Quillen, but we can simply restrict ourselves to rational spaces (with ordinary weak equivalences).
+The theory of rational homotopy is the study of spaces with rational equivalences. Quillen defines a model structure on simply connected simplicial sets with rational equivalences as weak equivalences \cite{quillen}. This means that there is a homotopy category $\Ho^\Q(\sSet_1)$. However we will later prove that every simply connected space has a rationalization, so that $\Ho^\Q(\sSet_1) = \Ho(\sSet^\Q_1)$ are equivalent categories. This means that we do not need the model structure defined by Quillen, but we can simply restrict ourselves to rational spaces (with ordinary weak equivalences).
 
 
 \section{Classical results from algebraic topology}
@@ -44,7 +44,7 @@ We will now recall known results from algebraic topology, without proof. One can
 }
 
 \Theorem{serre-les}{
-	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence (note that $X$ and $Y$ need not be $1$-connected):
+	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence:
 	$$ \cdots \tot{\del} \pi_i(F) \tot{i_\ast} \pi_i(X) \tot{f_\ast} \pi_i(Y) \tot{\del} \cdots \to \pi_0(Y) \to \ast, $$
 	where $F$ is the fiber of $f$.
 }
@@ -89,7 +89,7 @@ The latter two theorems have a direct consequence for rational homotopy theory. 
 
 The long exact sequence for a Serre fibration also has a direct consequence for rational homotopy theory.
 \Corollary{rational-les}{
-	Let $f: X \to Y$ be a Serre fibration of simple spaces with a simple fiber, then there is a natural long exact sequence of rational homotopy groups:
+	Let $f: X \to Y$ be a Serre fibration with fiber $F$, all $0$-connected with abelian fundamental group, then there is a natural long exact sequence of rational homotopy groups:
 	$$ \cdots \tot{\del} \pi_i(F) \tensor \Q \tot{i_\ast} \pi_i(X) \tensor \Q \tot{f_\ast} \pi_i(Y) \tensor \Q \tot{\del} \cdots. $$
 }
 

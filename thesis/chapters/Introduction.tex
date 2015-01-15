@@ -5,24 +5,16 @@ Schrijf hier wat
 
 \section{Preliminaries and Notation}
 
-We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is assumed, but the reader may review this in the appendices.
+We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is assumed, but the reader may review some facts on this in the appendices.
 
+We will fix the following notations and categories.
 \begin{itemize}
-	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section). Modules, tensor products, \dots are understood as $\k$-modules, tensor products over $\k$, \dots. If ambiguity can occur notation will be explicit.
-	\item $\cat{C}$ will denote an arbitrary category.
-	\item $\cat{0}$ (resp. $\cat{1}$) will denote the initial (resp. final) objects in a category $\cat{C}$.
-	\item $\Hom_{\cat{C}}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. The subscript $\cat{C}$ is occasionally left out if the category is clear from the context.
-\end{itemize}
-
-Some categories:
-\begin{itemize}
-	\item $\Top$: category of topological spaces and continuous maps.
+	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section). Modules, tensor products, \dots are understood as $\k$-modules, tensor products over $\k$, \dots.
+	\item $\Hom_{\cat{C}}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. The subscript $\cat{C}$ may occasionally be left out.
+	\item $\Top$: category of topological spaces and continuous maps. We denote the full subcategory of $r$-connected spaces by $\Top_r$, this convention is also used for other categories.
 	\item $\Ab$: category of abelian groups and group homomorphisms.
-	\item $\DELTA$: category of simplices (i.e. finite, non-empty ordinals) and order preserving maps.
-	\item $\sSet$: category of simplicial sets and simplicial maps (more generally we have the category of simplicial objects, $\cat{sC}$, for any category $\cat{C}$).
-	\item $\Ch{\k}, \CoCh{\k}$: category of non-negatively graded chain (resp. cochain) complexes and chain maps.
-	\item $\DGA_\k$: category of non-negatively differential graded algebras over $\k$ (these are cochain complexes with a multiplication) and graded algebra  maps. As a shorthand we will refer to such an object as \emph{dga}.
-	\item $\CDGA_\k$: the full subcategory of $\DGA_\k$ of commutative dga's (\emph{cdga}'s).
+	\item $\sSet$: category of simplicial sets and simplicial maps (more generally we have the category of simplicial objects, $\cat{sC}$, for any category $\cat{C}$). We have the homotopy equivalence $|-| : \sSet \leftadj \Top : S$.
+	\item $\DGA_\k$: category of non-negatively differential graded algebras over $\k$ (as defined in the appendix) and graded algebra  maps. As a shorthand we will refer to such an object as \emph{dga}. Furthermore $\CDGA_\k$ is the full subcategory of $\DGA_\k$ of commutative dga's (\emph{cdga}'s).
 \end{itemize}
 
 \tableofcontents

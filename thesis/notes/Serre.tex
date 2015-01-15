@@ -13,7 +13,7 @@ In this section we will prove the Whitehead and Hurewicz theorems in a rational 
 	\end{itemize}
 }
 
-Serre gave weaker axioms for his classes and proves some of the following lemmas only using these weaker axioms. However the classes we are interested in do satisfy the above (stronger) requirements. One should think of a Serre class as a class of groups we want to \emph{ignore}. We will be interested in the first two of the following examples.
+Serre gave weaker axioms for his classes and proves some of the following lemmas only using these weaker axioms. However the classes we are interested in do satisfy the above (stronger) requirements. One should think of a Serre class as a class of groups we want to \emph{ignore}.
 
 \Example{serre-classes}{
 	We give three Serre classes without proof.
@@ -30,7 +30,7 @@ As noted by Hilton in \cite{hilton} we think of Serre classes as a generalized 0
 	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is a \Def{$\C$-isomorphism} if both the kernel and cokernel lie in $\C$.
 }
 
-Note that the maps $0 \to C$ and $C \to 0$ are $\C$-isomorphisms for any $C \in \C$. More importantly the 5-lemma also holds for $\C$-isos and whenever $f$, $g$ and $g \circ f$ are maps such that two of them are $\C$-iso, then so is the third.
+Note that the maps $0 \to C$ and $C \to 0$ are $\C$-isomorphisms for any $C \in \C$. More importantly the 5-lemma also holds for $\C$-isos and we have the 2-out-of-3 property: whenever $f$, $g$ and $g \circ f$ are maps such that two of them are $\C$-iso, then so is the third.
 
 In the following arguments we will consider fibrations and need to compute homology thereof. Unfortunately there is no long exact sequence for homology of a fibration, however the following lemma expresses something similar. It is usually proven with spectral sequences,  \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more geometric proof.
 
@@ -42,7 +42,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	\end{itemize}
 }
 \Proof{
-	We will first replace the fibration by a fiber bundle. This is done by going to simplicial sets and replace the induced map by a minimal fibration \cite{joyal}. The fibration $p$ induces a fibration $S(E) \tot{S(p)} S(B)$, which can be factored as $S(E) \we M \fib S(B)$, where the map $M \fib S(B)$ is minimal (and hence a fiber bundle). By realizing we obtain the following diagram:
+	We will first replace the fibration by a fiber bundle. This is done by going to simplicial sets and replace the induced map by a minimal fibration as follows. The fibration $p$ induces a fibration $S(E) \tot{S(p)} S(B)$, which can be factored as $S(E) \we M \fib S(B)$, where the map $M \fib S(B)$ is minimal and hence a fiber bundle \cite{joyal}. By realizing we obtain the following diagram:
 	\begin{displaymath}
 		\xymatrix {
 		{|M|} \arfib[d] & \arwe[l] {|S(E)|} \arwe[r] \arfib[d] & E \arfib[d] \\
@@ -54,7 +54,6 @@ In the following arguments we will consider fibrations and need to compute homol
 	So we can assume $E$ and $B$ to be a CW complexes and $E \fib B$ to be a fiber bundle. We will do induction on the skeleton $B^k$. By connectedness we can assume $B^0 = \{ b_0 \}$. Restrict $E$ to $B^k$ and note $E^0 = F$. Now the base case is clear: $H_i(E^0, F) \to H_i(B^0, b_0)$ is a $\C$-iso.
 
 	For the induction step, consider the long exact sequence in homology for the triples $(E^{k+1}, E^k, F)$ and $(B^{k+1}, B^k, b_0)$:
-
 	\cdiagram{Kreck_Exact_Sequence}
 
 	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
@@ -72,7 +71,7 @@ In the following arguments we will consider fibrations and need to compute homol
 
 	For $p''$ a similar reasoning holds, it is clearly surjective and we only need to prove that the kernel of $p''$ (which is the Tor group itself) is in $\C$. First notice that $\Tor(H_i(B^{k+1}, B^k), H_0(F)) = 0$ as $H_0(F) \iso \Z$. Then consider the other terms of the graded Tor group. Again we use the assumed bounds to conclude that the Tor group is in $\C$ for $i \leq n+m$. So indeed $p''$ is a $\C$-iso for all $i \leq n+m$.
 
-	Now we conclude that $p_\ast : H_{i+1}(B^{k+1}, B^k) \to H_{i+1}(E^{k+1}, E^k)$ is indeed a $\C$-iso for all $i < n+m$. And by the long exact sequence of triples shown above we get a $\C$-iso $p_\ast : H_i(E^{k}, F) \to H_i(B^{k}, b_0)$ for all $i \leq n+m$. This finished the induction on $k$.
+	Now we conclude that $p_\ast : H_{i+1}(B^{k+1}, B^k) \to H_{i+1}(E^{k+1}, E^k)$ is indeed a $\C$-iso for all $i < n+m$. And by the long exact sequence of triples shown above we get a $\C$-iso $p_\ast : H_i(E^{k+1}, F) \to H_i(B^{k+1}, b_0)$ for all $i \leq n+m$. This finished the induction on $k$.
 
 	This concludes that $H_i(E, F) \to H_i(B, b_0)$ is a $\C$-iso and by another application of the long exact sequence (of the pair $(E,F)$) and the five lemma we get the $\C$-iso $H_i(E) \to H_i(B)$.
 }
@@ -81,7 +80,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	Let $\C$ be a Serre class and $G \in \C$. Then for all $n > 0$ and all $i > 0$ we have $H_i(K(G, n)) \in \C$.
 }
 \Proof{
-	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology, we get for $i>0$ an isomorphism
+	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology which is in $\C$ by the axioms:
 	$$ H_i(K(G, 1); \Z) \iso H_i(G; \Z) \in \C. $$
 
 	Suppose we have proven the statement for $n$. If we consider the case of $n+1$ we can use the path fibration to relate it to the case of $n$:
@@ -89,7 +88,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	Now $\Omega K(G, n+1) = K(G, n)$, and we can apply \LemmaRef{kreck} as the reduced homology of the fiber is in $\C$ by induction hypothesis. Conclude that the homology of $P K(G, n+1)$ is $\C$-isomorphic to the homology of $K(G, n)$. Since $\RH_\ast(P K(G, n+1)) = 0$, we get $\RH_\ast(K(G, n+1)) \in \C$.
 }
 
-For the main theorem we need the following construction. \todo{Geef de constructie of referentie}
+For the main theorem we need the following construction. \todo{referentie}
 \Lemma{whitehead-tower}{
 	(Whitehead tower)
 	We can decompose a $0$-connected space $X$ into fibrations:
@@ -168,8 +167,8 @@ For the main theorem we need the following construction. \todo{Geef de construct
 	\begin{enumerate}
 		\item $\pi_i(f)$ is a $\C$-iso for all $i < n$
 		\item $\pi_i(B_f, A) \in \C$ for all $i < n$
-		\item $\RH_i(B_f, A) \in \C$ for all $i < n$
-		\item $\RH_i(f)$ is a $\C$-iso for all $i < n$.
+		\item $H_i(B_f, A) \in \C$ for all $i < n$
+		\item $H_i(f)$ is a $\C$-iso for all $i < n$.
 	\end{enumerate}
 	Where (1) $\iff$ (2) and (3) $\iff$ (4) hold by exactness and (2) $\iff$ (3) by the Serre-Hurewicz theorem.
 }
