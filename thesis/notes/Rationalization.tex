@@ -71,7 +71,9 @@ The \Def{rational disk} is now defined as cone of the rational sphere: $D^{n+1}_
 
 	Since $[\frac{1}{(k-1)!}f] = k[\frac{1}{k}f] \in \pi_n(X)$ we can define $f'$ accordingly on the $n+1$-cells. Since our inclusion $i: S^n \cof S^n_\Q$ is in the first sphere, we get $f = f' \circ i$.
 
-	Let $f''$ be any map such that $f''i = f$. Then \todo{finish proof}
+	Let $f''$ be any map such that $f''i = f$. Then $f''$ also represents $\alpha$ and all the functions $\frac{1}{2}f''$, $\frac{1}{6}f''$,\dots are hence homotopic to $\frac{1}{2}f$, $\frac{1}{6}f$,\dots. So indeed $f$ is homotopic to $f''$.
+
+	Now if $g$ is homotopic to $f$. We can extend the homotopy $h$ in a similar way to the rational sphere. Hence the extensions are homotopic.
 }
 
 \section{Rationalizations of arbitrary spaces}
@@ -99,8 +101,7 @@ Having rational cells we wish to replace the cells in a CW complex $X$ by the ra
 \Proof{
 	Let $Y \tot{f} X$ be a CW approximation and let $Y \tot{\phi} Y_\Q$ be the rationalization of $Y$. Now we define $X_\Q$ as the double mapping cylinder (or homotopy pushout):
 	$$ X_\Q = X \cup_f (Y \times I) \cup_{\phi} Y_\Q. $$
-
-	\todo{bewijs afmaken met excision?}
+	with the obvious inclusion $\psi: X \to X_\Q$. By excision we see that $H_\ast(X_\Q, Y_\Q) \iso H_\ast(X \cup_f (Y \times I), Y \times {1}) = 0$. So by the long exact sequence of the inclusion we get $H_\ast(X_\Q) \iso H_\ast(Y_\Q)$, which proves by the rational Hurewicz theorem that $X_\Q$ is a rational space. At last we note that $H_\ast(X_\Q, X; \Q) \iso H_\ast(Y_\Q, Y; \Q) = 0$, since $\phi$ was a rationalization. This proves that $H_\ast(\psi; \Q)$ is an isomorphism, so by the rational Whitehead theorem, $\psi$ is a rationalization.
 }
 
 \Theorem{}{
@@ -116,7 +117,7 @@ Having rational cells we wish to replace the cells in a CW complex $X$ by the ra
 	Moreover, $f'$ is determined up to homotopy and homotopic maps have homotopic extensions.
 }
 
-The extension property allows us to define a rationalization of maps. Given $f : X \to Y$, we can consider the composite $if : X \to Y \to Y_\Q$. Now this extends to $(if)' : X_\Q \to Y_\Q$. Note that this construction is not functorial, since there are choices of homotopies involved. When passing to the homotopy category, however, this construction \emph{is} functorial and has an universal property.
+We will note prove that above theorem (it is analogue to \LemmaRef{SnQ-extension}), but refer to \cite{felix}. The extension property allows us to define a rationalization of maps. Given $f : X \to Y$, we can consider the composite $if : X \to Y \to Y_\Q$. Now this extends to $(if)' : X_\Q \to Y_\Q$. Note that this construction is not functorial, since there are choices of homotopies involved. When passing to the homotopy category, however, this construction \emph{is} functorial and has an universal property.
 
 We already mentioned in the first section that for rational spaces the notions of weak equivalence and rational equivalence coincide. Now that we always have a rationalization we have:
 

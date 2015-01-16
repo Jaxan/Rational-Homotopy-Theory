@@ -76,9 +76,9 @@ Finally we come to the definition of a differential graded algebra. This will be
 	$$ d(x y) = d(x) y + (-1)^{\deg{x}} x d(y) \quad\text{ for all } x, y \in A. $$
 \end{definition}
 
-\todo{Define the notion of derivation?}
+In general, a map which satisfies the above Leibniz rule is called a \Def{derivation}.
 
-It is not hard to see that this definition precisely defines the monoidal objects in the category of differential graded modules. The category of dga's will be denoted by $\DGA_\k$, the category of commutative dga's (cdga's) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
+It is not hard to see that the definition of a dga precisely defines the monoidal objects in the category of differential graded modules. The category of dga's will be denoted by $\DGA_\k$, the category of commutative dga's (cdga's) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
 
 Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i = 0$ for $i < 0$. Similarly if $M^i = 0$ for all $i < 0$, then $M$ is a \emph{cochain algebra}.
 
@@ -123,7 +123,7 @@ Note that taking homology of a differential graded module (or algebra) is functo
 
 \section{Classical results}
 
-We will give some classical known results of algebraic topology or homological algebra. Proofs of these theorems can be found in many places. \todo{cite at least 1 place}
+We will give some classical known results of algebraic topology or homological algebra. Proofs of these theorems can be found in many places such as \cite{rotman, weibel}.
 
 \begin{theorem}
 	(Universal coefficient theorem) Let $C$ be a chain complex and $A$ an abelian group, then there are natural short exact sequences for each $n$:
@@ -136,10 +136,5 @@ The first statement generalizes to a theorem where $A$ is a chain complex itself
 \begin{theorem}
 	(Künneth) Assume that $\k$ is a field and let $C$ and $D$ be (co)chain complexes, then there is a natural isomorphism (a linear graded map of degree $0$):
 	$$ H(C) \tensor H(D) \tot{\iso} H(C \tensor D), $$
-	where we understand both tensors as graded.
+	where we understand both tensors as graded. If $C$ and $D$ are algebras, this isomorphism is an isomorphism of algebras.
 \end{theorem}
-
-\TODO{Discuss:
-\titem Coalgebras and Hopf algebras?
-\titem Singular (co)homology as a quick example?
-}

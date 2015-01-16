@@ -22,7 +22,7 @@ $$ s_i(x_j) = \begin{cases}
 	x_j,           &\text{ if } i > j	
 \end{cases} \qquad s_i : \Apl_n \to \Apl_{n+1} $$
 
-One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace of homogeneous elements of degree $k$ as $\Apl^k \in \simplicial{\Mod{\k}}$, this is indeed a simplicial $\k$-module as the maps $d_i$ and $s_i$ are graded maps of degree $0$.
+One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace of homogeneous elements of degree $k$ as $\Apl^k$, this is a simplicial $\k$-module as the maps $d_i$ and $s_i$ are graded maps of degree $0$.
 
 \Lemma{apl-contractible}{
 	$\Apl^k$ is contractible.
@@ -49,7 +49,7 @@ One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace
 	\end{align*}
 	So $d_{i+1} s = s d_i$. Similarly $s_{i+1} s = s s_i$. And finally for $n=0$ we have $d_1 s = 0$.
 
-	So we have an extra degeneracy $s: \Apl^k \to \Apl^k$, and hence (see for example \cite{goerss}) we have that $\Apl^k$ is contractible. As a consequence $\Apl \to \ast$ is a weak equivalence.
+	So we have an extra degeneracy $s: \Apl^k \to \Apl^k$, and hence (see for example \cite{goerss}) we have that $\Apl^k$ is contractible. As a consequence $\Apl^k \to \ast$ is a weak equivalence.
 }
 
 \Lemma{apl-kan-complex}{

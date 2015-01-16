@@ -17,7 +17,7 @@ This construction is functorial (since both $Q$ and $H$ are) and, as the followi
 
 	Using \LemmaRef{Q-preserves-copord} we can identify the induced maps $Q(d_i) : Q(\Lambda(t, dt) \tensor X) \to Q(X)$ with maps
 	\[ Q(d_i) : Q(\Lambda(t, dt)) \oplus Q(A) \to Q(A). \]
-	Now $Q(\Lambda(t, dt)) = D(0)$ and hence it is acyclic, so when passing to homology, this term vanishes. In other words both maps ${d_i}_\ast : H(D(0)) \oplus H(Q(A)) \to H(Q(A))$ are the identity maps on $H(Q(A))$.
+	Now $Q(\Lambda(t, dt)) = D(0)$ and hence it is acyclic, so when we pass to homology, this term vanishes. In other words both maps ${d_i}_\ast : H(D(0)) \oplus H(Q(A)) \to H(Q(A))$ are the identity maps on $H(Q(A))$.
 }
 
 Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication and where the term $\k$ is used for the unit and augmentation. This augmented cdga can be thought of as a specific model of the sphere. In particular the homotopy groups can be expressed as follows.
@@ -28,7 +28,7 @@ Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication
 }
 \Proof{
 	Note that $Q(V(n))$ in degree $n$ is just $\k$ and $0$ in the other degrees, so its homotopy groups consists of a single $\k$ in degree $n$. This establishes the map:
-	$$ \Phi: \Hom_\CDGA(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
+	$$ \pi^n: \Hom_\CDGA(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
 
 	Now by \LemmaRef{cdga-homotopic-maps-equal-pin} we get a map from the set of homotopy classes $[A, V(n)]$ instead of just maps. \todo{injective, surjective}
 }
@@ -47,7 +47,7 @@ In topology we know that a fibration induces a long exact sequence of homotopy g
 	\[ \pi^o(V) \tot{(f_\ast, g_\ast)} \pi^0(B) \oplus \pi^0(C) \tot{j_\ast - i_\ast} \pi^0(P) \tot{\del} \pi^1(A) \to \cdots \]
 }
 \Proof{
-	First note that $j$ is also a cofibration. By \LemmaRef{Q-preserves-cofibs} the maps $Qg$ and $Qj$ are injective in positive degrees. By applying $Q$ we get two exact sequence (in positive degrees) as shown in the following diagram. By the fact that $Q$ preserves pushouts (\LemmaRef{Q-preserves-pushouts}) the cokernels coincide.
+	First note that $j$ is also a cofibration. By \LemmaRef{Q-preserves-cofibs} the maps $Qg$ and $Qj$ are injective in positive degrees. By applying $Q$ we get two exact sequence (in positive degrees) as shown in the following diagram. By the fact that $Q$ preserves pushouts (\CorollaryRef{Q-preserves-pushouts}) the cokernels coincide.
 	\[ \xymatrix {
 		0 \ar[r] & Q(A) \ar[r] \ar[d] \xypo & Q(C) \ar[r] \ar[d] & \coker(f_\ast) \ar[r] \ar[d] & 0 \\
 		0 \ar[r] & Q(B) \ar[r] & Q(P) \ar[r] & \coker(f_\ast) \ar[r] & 0

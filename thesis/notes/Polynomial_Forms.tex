@@ -14,7 +14,7 @@ A simplicial map $X \to Y$ induces a map of the diagrams of which we take colimi
 	&\iso \lim_{\Delta[n] \to X} F^\ast(Y)_n \\
 	&\stackrel{\text{Y}}{\iso} \lim_{\Delta[n] \to X} \Hom_\sSet(\Delta[n], F^\ast(Y)) \\
 	&\iso \Hom_\sSet(\colim_{\Delta[n] \to X} \Delta[n], F^\ast(Y)) \\
-	&\iso \Hom_\sSet(X, F^\ast(Y)).
+	&\iso \Hom_\sSet(X, F^\ast(Y))
 \end{align*}
 
 Furthermore we have $F_! \circ \Delta[-] \iso F$. In short we have the following:
@@ -36,7 +36,7 @@ In our case we take the opposite category, so the definition of $A$ is in terms 
 where the addition, multiplication and differential are defined pointwise. Conclude that we have the following contravariant functors (which form an adjoint pair):
 \begin{align*}
 	A(X) &= \Hom_\sSet(X, \Apl) & X \in \sSet \\
-	K(C)_n &= \Hom_{\CDGA_\k}(C, \Apl_n) & C \in \CDGA_\k.
+	K(C)_n &= \Hom_{\CDGA_\k}(C, \Apl_n) & C \in \CDGA_\k
 \end{align*}
 
 
@@ -62,7 +62,7 @@ Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then
 $$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
 Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
 
-Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C_n$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follows:
+Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follows:
 \begin{align*}
 	\oint_n (\sigma^\ast v)(x)
 	&= (-1)^\frac{l(l-1)}{2} \int_l x^\ast(\sigma^\ast(v)) \\
@@ -70,7 +70,7 @@ Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each
 	&= \oint_k (v)(\sigma \circ x) \\
 	&= (\oint_k (v) \circ \sigma) (x) = \sigma^\ast (\oint_k(v)(x))
 \end{align*}
-For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is precisely the same calculation as \emph{Stokes' theorem}. \todo{prove this?}
+For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is precisely the same calculation as \emph{Stokes' theorem}. \todo{Reference}
 
 We now proved that $\oint$ is indeed a simplicial chain map. Note that $\oint_n$ need not to preserve multiplication, so it fails to be a map of cochain algebras. However $\oint(1) = 1$ and so the induced map on homology sends the class of $1$ in $H(\Apl_n) = \k \cdot [1]$ to the class of $1$ in $H(C_n) = \k \cdot [1]$. We have proven the following lemma.
 
@@ -95,9 +95,9 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 	We can apply our two functors to it, and use the natural transformation $\oint$ to obtain the following cube:
 	\cdiagram{Apl_C_Quasi_Iso_Cube}
 
-	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}, \cite[Lemma 5.2.6]{hovey}) to conclude that also $A(X') \we C^\ast(X')$.
+	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}) to conclude that also $A(X') \we C^\ast(X')$.
 
-	This proves $A(X) \we C^\ast(X)$ for any simplicial set with finitely many non-degenerate simplices. We can extend this to simplicial sets of finite dimension by attaching many simplices at once. For this observe that both $A$ and $C^\ast$ send coproducts to products and that cohomology commutes with products:
+	This proves $A(X) \we C^\ast(X)$ for any simplicial set with finitely many non-degenerate simplices. We can extend this to simplicial sets of finite dimension by attaching many simplices at once. For this we observe that both $A$ and $C^\ast$ send coproducts to products and that cohomology commutes with products:
 	$$ H(A(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha A(X_\alpha)) \iso \prod_\alpha H(A(X_\alpha)), $$
 	$$ H(C^\ast(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha C^\ast(X_\alpha)) \iso \prod_\alpha H(C^\ast(X_\alpha)). $$
 

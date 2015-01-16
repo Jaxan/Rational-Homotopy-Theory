@@ -11,9 +11,9 @@ As this thesis considers different categories, each with its own homotopy theory
 \begin{definition}
 	A \Def{model category} is a category $\cat{C}$ together with three subcategories:
 	\begin{itemize}
-		\item the class of \Def{weak equivalences} $\W$,
-		\item the class of \Def{fibrations} $\Fib$ and
-		\item the class of \Def{cofibrations} $\Cof$,
+		\item a class of \Def{weak equivalences} $\W$,
+		\item a class of \Def{fibrations} $\Fib$ and
+		\item a class of \Def{cofibrations} $\Cof$,
 	\end{itemize}
 	such that the following five axioms hold:
 	\begin{itemize}
@@ -23,11 +23,7 @@ As this thesis considers different categories, each with its own homotopy theory
 		\item[MC4] In any commuting square as follows where $i \in \Cof$ and $p \in \Fib$,
 			\cdiagram{Model_Liftproblem}
 
-			there exist a lift $h: B \to Y$ if either 
-			\begin{itemize}
-				\item[a)] $i \in \W$ or
-				\item[b)] $p \in \W$.
-			\end{itemize}
+			there exist a lift $h: B \to Y$ if either (a) $i \in \W$ or (b) $p \in \W$.
 		\item[MC5] Any map $f : A \to B$ can be factored in two ways:
 			\begin{itemize}
 				\item[a)] as $f = pi$, where $i \in \Cof \cap \W$ and $p \in \Fib$ and
@@ -59,14 +55,14 @@ The fourth axiom actually characterizes the classes of (trivial) fibrations and 
 \Lemma{model-cats-characterization}{
 	Let $\cat{C}$ be a model category.
 	\begin{itemize}
-		\item The cofibrations in $\cat{C}$ are the maps with a LLP w.r.t. trivial fibrations.
-		\item The fibrations in $\cat{C}$ are the maps with a RLP w.r.t. trivial cofibrations.
-		\item The trivial cofibrations in $\cat{C}$ are the maps with a LLP w.r.t. fibrations.
-		\item The trivial fibrations in $\cat{C}$ are the maps with a RLP w.r.t. cofibrations.
+		\item \small The cofibrations in $\cat{C}$ are the maps with a LLP w.r.t. trivial fibrations.
+		\item \small The fibrations in $\cat{C}$ are the maps with a RLP w.r.t. trivial cofibrations.
+		\item \small The trivial cofibrations in $\cat{C}$ are the maps with a LLP w.r.t. fibrations.
+		\item \small The trivial fibrations in $\cat{C}$ are the maps with a RLP w.r.t. cofibrations.
 	\end{itemize}
 }
 
-This means that once we choose weak equivalences and fibrations for a category $\cat{C}$, the third class is determined, and vice versa. The classes of fibrations behave nice with respect to pullbacks and dually cofibrations behave nice with pushouts:
+This means that once we choose the weak equivalences and the fibrations for a category $\cat{C}$, the cofibrations are determined, and vice versa. The classes of fibrations behave nice with respect to pullbacks and dually cofibrations behave nice with pushouts:
 
 \Lemma{model-cats-pushouts}{
 	Let $\cat{C}$ be a model category. Consider the following two diagrams where $P$ is the pushout and pullback respectively.
@@ -81,12 +77,6 @@ This means that once we choose weak equivalences and fibrations for a category $
 	Let $\cat{C}$ be a model category. Let $f: A \cof B$ and $g:A' \cof B'$ be two (trivial) cofibrations, then the induced map of the coproducts $f+g: A+A' \to B+B'$ is also a (trivial) cofibration. Dually: the product of two (trivial) fibrations is a (trivial) fibration.
 }
 
-\TODO{Maybe some basic propositions (refer to Dwyer \& Spalinski):
-\titem Over/under category (or simply pointed objects)
-\titem Cofibrantly generated mod. cats.
-\titem Small object argument
-}
-
 Of course the most important model category is the one of topological spaces. We will be interested in the standard model structure on topological spaces, which has weak homotopy equivalences as weak equivalences. Equally important is the model category of simplicial sets.
 
 \Example{top-model-structure}{
@@ -94,14 +84,14 @@ Of course the most important model category is the one of topological spaces. We
 	\begin{itemize}
 		\item Weak equivalences: maps inducing isomorphisms on all homotopy groups.
 		\item Fibrations: Serre fibrations, i.e. maps with the right lifting property with respect to the inclusions $D^n \cof D^n \times I$.
-		\item Cofibrations: maps $S^{n-1} \cof D^n$ and transfinite compositions of pushouts and coproducts thereof.
+		\item Cofibrations: the smallest class of maps containing $S^{n-1} \cof D^n$ which is closed under transfinite compositions, pushouts, coproducts and retracts.
 	\end{itemize}
 }
 
 \Example{sset-model-structure}{
 	The category $\sSet$ of simplicial sets has the following model structure.
 	\begin{itemize}
-		\item Weak equivalences: 
+		\item Weak equivalences: maps inducing isomorphisms on all homotopy groups.
 		\item Fibrations: Kan fibrations, i.e. maps with the right lifting property with respect to the inclusions $\Lambda_n^k \cof \Delta[n]$.
 		\item Cofibrations: all monomorphisms.
 	\end{itemize}
@@ -251,6 +241,8 @@ For arbitrary categories and classes of weak equivalences, such a localization n
 
 In \cite{dwyer} it is proven that this indeed defines a localization of $\cat{C}$ with respect to $\W$. It is good to note that $\Ho(\Top)$ does not depend on the class of cofibrations or fibrations.
 
+Note that whenever we have a full subcategory $\cat{C'} \subset \cat{C}$, where $\cat{C}$ is a model category, there is a subcategory of the homotopy category: $\Ho(\cat{C'}) \subset \Ho(\cat{C})$. There is no need for a model structure on the subcategory.
+
 \Example{ho-top}{
 	The category $\Ho(\Top)$ has as objects just topological spaces and homotopy classes between cofibrant replacements (note that every objects is already fibrant). Moreover, if we restrict to the full subcategory of CW complexes, maps are precisely homotopy classes between objects.
 
@@ -310,7 +302,7 @@ In category theory we know that colimits (and limits) are unique up to isomorphi
 } \]
 The diagrams are pointwise weakly equivalent. But the induced map $S^n \to \ast$ on the pushout is clearly not. In this section we will briefly indicate what homotopy pushouts are (and dually we get homotopy pullbacks).
 
-One direct way to obtain a homotopy pushout is by the use of \emph{Reedy categories} \cite{hovey}. In this case the diagram category is endowed with a model structure, which gives a notion of cofibrant diagram. In such diagrams the ordinary pushout is the homotopy pushout. The key result is the following.
+One direct way to obtain a homotopy pushout is by the use of \emph{Reedy categories} \cite{hovey}. In this case the diagram category is endowed with a model structure, which gives a notion of cofibrant diagram. In such diagrams the ordinary pushout is the homotopy pushout.
 
 \Lemma{htpy-pushout-reedy}{
 	Consider the following pushout diagram. The if all objects are cofibrant and the map $f$ is a cofibration, then the homotopy pushout is given by the ordinary pushout.
@@ -320,7 +312,7 @@ One direct way to obtain a homotopy pushout is by the use of \emph{Reedy categor
 	} \]
 }
 
-There are other ways to obtain homotopy pushouts. A very general way is given by the \emph{bar construction} \cite{riehl}. \todo{do we need this?}
+There are other ways to obtain homotopy pushouts. A very general way is given by the \emph{bar construction} \cite{riehl}.
 
 The important property of homotopy pushout we use in this thesis is the uniqueness (up to homotopy). In particular we need the following fact.
 
@@ -335,4 +327,4 @@ The important property of homotopy pushout we use in this thesis is the uniquene
 	If the three maps $A^\ast \to B^\ast$ are weak equivalences, then so is the map $P \to Q$.
 }
 
-We get similar theorems for the dual case of homotopy pullbacks.
+If we combine this lemma with \LemmaRef{htpy-pushout-reedy} we obtain precisely Lemma 5.2.6 in \cite{hovey}. We get similar theorems for the dual case of homotopy pullbacks.

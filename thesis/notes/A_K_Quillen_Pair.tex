@@ -1,7 +1,7 @@
 
 \chapter{The main equivalence}
 
-In this section we aim to prove that the homotopy theory of rational spaces is the same as the homotopy theory of cdga's over $\Q$. Before we prove the equivalence, we will show that $A$ and $K$ form a Quillen pair. This already provides an adjunction between the homotopy categories. Besides the equivalence of the homotopy categories we will also investigate homotopy groups on a cdga directly. The homotopy groups of a space will be dual to the homotopy groups of the associated cdga.
+In this section we aim to prove that the homotopy theory of rational spaces is the same as the homotopy theory of cdga's over $\Q$. Before we prove the equivalence, we will show that $A$ and $K$ form a Quillen pair. This already provides an adjunction between the homotopy categories. Besides the equivalence of the homotopy categories we will also prove that the homotopy groups of a space will be dual to the homotopy groups of the associated cdga.
 
 We will prove that $A$ preserves cofibrations and trivial cofibrations. We only have to check this fact for the generating (trivial) cofibrations in $\sSet$. Note that the contravariance of $A$ means that a (trivial) cofibrations should be sent to a (trivial) fibration.
 
@@ -116,7 +116,7 @@ Before we prove the actual equivalence, we will discuss a theorem of Eilenberg a
 	\[ \Tor_{C^\ast(B; \k)}(C^\ast(X; \k), C^\ast(E; \k)) \tot{\iso} H(C^\ast(E_f; \k)). \]
 }
 
-Now the Tor group appearing in the theorem can be computed via a \emph{bar construction}. The explicit construction for cdga's can be found in \cite{bousfield}, but also in \cite{olsson} where it is related to the homotopy colimit of cdga's. We will not discuss the details of the bar construction. However it is important to know that the Tor group only depends on the cohomology of the dga's in use (see \cite[Corollary 7.7]{mccleary}), in other words: quasi isomorphic dga's (in a compatible way) will have isomorphic Tor groups. Since $C^\ast(-;\k)$ is isomorphic to $A(-)$, the above theorem also holds for our functor $A$. We can restate the theorem as follows.
+Now the Tor group appearing in the theorem can be computed via a \emph{bar construction}. The explicit construction for cdga's can be found in \cite{bousfield}, but also in \cite{olsson} where it is related to the homotopy pushout of cdga's. We will not discuss the details of the bar construction. However it is important to know that the Tor group only depends on the cohomology of the dga's in use (see \cite[Corollary 7.7]{mccleary}), in other words: quasi isomorphic dga's (in a compatible way) will have isomorphic Tor groups. Since $C^\ast(-;\k)$ is isomorphic to $A(-)$, the above theorem also holds for our functor $A$. We can restate the theorem as follows.
 
 \Corollary{A-preserves-htpy-pullbacks}{
 	Given the following pullback diagram of spaces
@@ -146,7 +146,7 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 	(Base case) Let $A = (\Lambda(v), 0)$ be a minimal model with one generator of degree $\deg{v} = n \geq 1$. Then $A \we A(K(A))$.
 }
 \Proof{
-	By \CorollaryRef{minimal-cdga-homotopy-groups} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an Eilenberg-MacLane space with coefficients in $\Q$ is known:
+	By \CorollaryRef{minimal-cdga-homotopy-groups} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an Eilenberg-MacLane space with coefficients in $\Q$ is known (note that this is specific for $\Q$):
 	$$ H^\ast(K(\Q^\ast, n); \Q) = \Q[x], $$
 	that is, the free commutative graded algebra with one generator $x$. This can be calculated, for example, with spectral sequences \cite{griffiths}.
 
@@ -157,8 +157,8 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 	(Induction step) Let $A$ be a cofibrant, connected algebra. Let $B$ be the pushout in the following square, where $m \geq 1$:
 	\begin{displaymath}
 		\xymatrix{
-		S(m+1) \arcof[d] \ar[r] \xypo & A \arcof[d] \\
-		T(m) \ar[r] & B
+		\Lambda S(m+1) \arcof[d] \ar[r] \xypo & A \arcof[d] \\
+		\Lambda D(m) \ar[r] & B
 		}
 	\end{displaymath}
 	Then if $A \to A(K(A))$ is a weak equivalence, so is $B \to A(K(B))$
@@ -169,13 +169,13 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 	Applying $A$ again gives the following cube of cdga's:
 	\begin{displaymath}
 		\xymatrix @=9pt{
-		S(m+1) \arcof[dd] \ar[rr] \arwe[rd] \xypo & & A \arcof'[d][dd] \arwe[rd] & \\
-		& A(K(S(m+1))) \ar[dd] \ar[rr] & & A(K(A)) \ar[dd] \\
-		T(m) \ar'[r][rr] \arwe[rd] & & B \ar[rd] & \\
-		& A(K(T(m))) \ar[rr] & & A(K(B))
+		\Lambda S(m+1) \arcof[dd] \ar[rr] \arwe[rd] \xypo & & A \arcof'[d][dd] \arwe[rd] & \\
+		& A(K(\Lambda S(m+1))) \ar[dd] \ar[rr] & & A(K(A)) \ar[dd] \\
+		\Lambda D(m) \ar'[r][rr] \arwe[rd] & & B \ar[rd] & \\
+		& A(K(\Lambda D(m))) \ar[rr] & & A(K(B))
 		}
 	\end{displaymath}
-	Note that we have a weak equivalence in the top left corner, by the base case ($S(m+1) = (\Lambda(v), 0)$). The weak equivalence in the top right is by assumption. Finally the bottom left map is a weak equivalence because both cdga's are acyclic.
+	Note that we have a weak equivalence in the top left corner, by the base case ($\Lambda S(m+1) = (\Lambda(v), 0)$). The weak equivalence in the top right is by assumption. Finally the bottom left map is a weak equivalence because both cdga's are acyclic.
 
 	By \CorollaryRef{A-preserves-htpy-pullbacks} we know that the front face is a homotopy pushout. The back face is a homotopy pushout by \LemmaRef{htpy-pushout-reedy} and to conclude that $B \to A(K(B))$ is a weak equivalence, we use the cube lemma (\LemmaRef{cube-lemma}).
 }

@@ -3,10 +3,10 @@ Recall that an augmented cdga is a cdga $A$ with an algebra map $A \tot{\counit}
 
 Although the model structure is completely induced, it might still be fruitful to discuss the right notion of a homotopy for augmented cdga's. Consider the following pullback of cdga's:
 \[ \xymatrix{
-	\Lambda(t, dt) \overline{\tensor} A \ar[r] \xypb \ar[d] & \Lambda(t, dt) \tensor A \ar[d] \\
-	\k \ar[r] & \k \tensor \Lambda(t, dt)
+	\Lambda(t, dt) \overline{\tensor} A \ar[r] \xypb \ar[d] & \Lambda(t, dt) \tensor A \ar[d]^{\id \tensor \counit} \\
+	\k \ar[r] & \Lambda(t, dt) \tensor \k
 }\]
-The pullback is the subspace of elements $x \tensor a$ in $\Lambda(t, dt) \tensor A$ such that $\counit(a) \cdot x \in \k$. Note that this construction is dual to a construction on topological spaces: in order to define a homotopy which is constant on the point $x_0$, we define the homotopy to be a map from a quotient ${X \times I} / {x_0 \times I}$.
+The pullback is the subspace of elements $x \tensor a$ in $\Lambda(t, dt) \tensor A$ such that $x \cdot \counit(a) \in \k$. Note that this construction is dual to a construction on topological spaces: in order to define a homotopy which is constant on the point $x_0$, we define the homotopy to be a map from a quotient ${X \times I} / {x_0 \times I}$.
 \Definition{homotopy-augmented}{
 	Two maps $f, g: A \to X$ between augmented cdga's are said to be \emph{homotopic} if there is a map
 	$$h : A \to \Lambda(t, dt) \overline{\tensor} X$$
@@ -37,7 +37,7 @@ The second observation is that $Q$ is nicely behaved on tensor products and coke
 			{\overline{A} \tensor \overline{B} \>+\> \overline{A}\cdot\overline{A} \tensor \k \>+\> \k \tensor \overline{B}} \\
 		&\iso \frac{\overline{A} \tensor \k \>\oplus\> \k \tensor \overline{B}}
 			{\overline{A}\cdot\overline{A} \tensor \k \>\oplus\> \k \tensor \overline{B}\cdot\overline{B}}
-		= Q(A) \,\oplus\, Q(B).
+		\iso Q(A) \,\oplus\, Q(B).
 	\end{align*}
 }
 
@@ -68,8 +68,8 @@ Furthermore we have the following lemma which is of homotopical interest.
 }
 \Proof{
 	First we define an augmented cdga $U(n)$ for each positive $n$ as $U(n) = D(n) \oplus \k$ with trivial multiplication and where the term $\k$ is used for the unit and augmentation. Notice that the map $U(n) \to \k$ is a trivial fibration. By the lifting property we see that the induced map
-	\[ \Hom_\AugCDGA(Y, U(n)) \tot{f^\ast} \Hom_\AugCDGA(X, U(n)) \]
-	is surjective for each positive $n$. Note that maps from $X$ to $U(n)$ will send products to zero and that it is fixed on the augmentation. So there is a natural isomorphism $\Hom_\AugCDGA(X, U(n)) \iso \Hom_\k(Q(X)^n, \k)$. Hence
-	\[ \Hom_\k(Q(Y)^n, \k) \tot{(Qf)^\ast} \Hom_\k(Q(X)^n, \k) \]
+	\[ \Hom_\AugCDGA(B, U(n)) \tot{f^\ast} \Hom_\AugCDGA(A, U(n)) \]
+	is surjective for each positive $n$. Note that maps from $A$ to $U(n)$ will send products to zero and that it is fixed on the augmentation. So there is a natural isomorphism $\Hom_\AugCDGA(A, U(n)) \iso \Hom_\k(Q(A)^n, \k)$. Hence
+	\[ \Hom_\k(Q(B)^n, \k) \tot{(Qf)^\ast} \Hom_\k(Q(A)^n, \k) \]
 	is surjective, and so $Qf$ itself is injective in positive $n$.
 }
