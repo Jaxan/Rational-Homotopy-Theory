@@ -188,10 +188,35 @@ For the main theorem we need the following construction. \todo{referentie}
 	and tensor this sequence with $\Q$. In this tensored sequence the kernel and cokernel vanish if and only if $f \tensor \Q$ is an isomorphism.
 }
 
-\Corollary{serre-whitehead}{
-	(Rational Whitehead Theorem)
-	Let $f: X \to Y$ be a map between $1$-connected spaces such that $\pi_2(f)$ is surjective.
-	Then $f$ is a rational equivalence $\iff$ $H_i(f; \Q)$ is an isomorphism for all $i$.
+Combining this lemma and \TheoremRef{serre-hurewicz} we get the following corollary for rational homotopy theory:
+
+\Corollary{rational-hurewicz}{
+	(Rational Hurewicz Theorem)
+	Let $X$ be a $1$-connected space. If $\pi_i(X) \tensor \Q = 0$ for all $i < n$, then $H_i(X; \Q) = 0$ for all $i < n$. Furthermore we have an isomorphism for all $i \leq n$:
+	$$ \pi_i(X) \tensor \Q \tot{\iso} H_i(X; \Q) $$
 }
 
-\todo{Voeg het trucje uit Felix toe om ``$\pi_2(f)$ surjectief'' te omzeilen}
+\TheoremRef{serre-whitehead} also applies verbatim to rational homotopy theory. However we would like to avoid the assumption that $\pi_2(f)$ is surjective. In \cite{felix} we find a way to work around this.
+
+\Corollary{rational-whitehead}{
+	(Rational Whitehead Theorem)
+	Let $f: X \to Y$ be a map between $1$-connected spaces.
+	Then $f$ is a rational equivalence $\iff$ $H_\ast(f; \Q)$ is an isomorphism.
+}
+\Proof{
+	We will replace $f$ by some $f_1$ which is surjective on $\pi_2$. First consider $\Gamma = \pi_2(Y) / \im(\pi_2(f))$ and its Eilenberg-MacLane space $K = K(\Gamma, 2)$. There is a map $q : Y \to K$ inducing the projection map $\pi_2(q) : \pi_2(Y) \to \Gamma$.
+	
+	We can factor $q$ as
+	\[\xymatrix @=0.4cm{
+		Y \arwe[rr]^-\lambda \ar[dr]_-q & & Y \times_K MK \arfib[dl]^-{\overline{q}} \\
+		& K &
+	} \]
+	Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
+
+	We get a commuting square when applying $\pi_2$:
+	\[ \xymatrix{
+		\pi_2(X) \ar[r]^-{\pi_2(f_1)} \ar[d]^{\pi_2(f)} & \pi_2(Y \times_K PK) \ar[d]^{\pi_2(i)} \\
+		\pi_2(Y) \ar[r]^-{\iso} & \pi_2(Y \times_K MK)
+	} \]
+	The important observation is that by the long exact sequence $\pi_\ast(i) \tensor \Q$ and $H_\ast(i; \Q)$ are isomorphisms (here we use that $\Gamma \tensor \Q = 0$ and that tensoring with $\Q$ is exact). So by the above square $\pi_\ast(f_1) \tensor \Q$ is an isomorphism if and only if $\pi_\ast(f) \tensor \Q$ is (and similarly for homology). Finally we note that $\pi_2(f_1)$ is surjective, so \TheoremRef{serre-whitehead} applies and the result also holds for $f$.
+}
