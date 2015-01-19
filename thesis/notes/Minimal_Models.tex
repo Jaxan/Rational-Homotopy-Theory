@@ -103,16 +103,6 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 	We have $p^\ast [x] = [px] = 0$, since $p^\ast$ is injective we have $x = d \overline{x}$ for some $\overline{x} \in X$. Now $p \overline{x} = y' + db$ for some $b \in Y$. Choose $a \in X$ with $p a = b$, then define $x' = \overline{x} - da$. Now check the requirements: $p x' = p \overline{x} - p a = y'$ and $d x' = d \overline{x} - d d a = d \overline{x} = x$.
 \end{proof}
 
-In the following we will need to replace a map by a fibration. But the one given abstractly from the model structure will not fit our needs. So we will first consider the following factorization.\todo{This actually is the same as in chapter 4}
-
-Let $A$ be any cochain complex (not an algebra) and define $C(A)^k = C^k \oplus C^{k-1}$. Then $C(A)$ is again a cochain complex when we define the differential to be $\delta(c_k, c_{k-1}) = (0, c_k)$. Note that this cochain complex is acyclic, furthermore there is an obvious surjection $C(A) \tot{\rho} A$. Now for a cochain algebra $A$, we can do the same construction (by forgetting the algebra structure) and apply $\Lambda$. This defines a cdga $\Lambda C(A)$ (which is still acyclic).
-
-Now let $f: X \to Y$ be any map, then we can tensor $X$ with $\Lambda C(Y)$ to obtain:
-$$ f: X \tot{x \mapsto x \tensor 1} X \tensor \Lambda C(Y) \tot{\psi: x \tensor y \mapsto f(x) \cdot \rho (y)} Y. $$
-Where the second map is surjective. By the 2-out-of-3 property the second map is a weak equivalence if and only if $f$ is a weak equivalence. The remarkable thing is that the left map (which is a weak equivalence by the Künneth theorem) has a left inverse, given by $\phi: x \tensor y \mapsto x \cdot \counit (y)$, where $\counit$ is the augmentation.
-
-Now if the map $f$ is a weak equivalence, both maps $\phi$ and $\psi$ are surjective and weak equivalences.
-
 \Lemma{minimal-model-bijection}{
 	Let $f: X \we Y$ be a weak equivalence between cdga's and $M$ a minimal algebra. Then $f$ induces an bijection:
 	$$ f_\ast: [M, X] \tot{\iso} [M, Y]. $$
@@ -120,7 +110,7 @@ Now if the map $f$ is a weak equivalence, both maps $\phi$ and $\psi$ are surjec
 \begin{proof}
 	If $f$ is surjective this follows from the fact that $M$ is cofibrant and $f$ being a trivial fibration, see \CorollaryRef{cdga_homotopy_properties}.
 
-	By the factorization above, we can turn $f$ into two trivial fibrations (going in different directions). This induces
+	By \RemarkRef{cdga-mc5a-left-inverse}, we can turn $f$ into two trivial fibrations (going in different directions). Hence we are in the above situation and we find bijections
 	$$ [M, X] \toti{\iso} [M, \Lambda C(Y)] \tot{\iso} [M, Y], $$
 	compatible with $f_\ast$.
 \end{proof}
