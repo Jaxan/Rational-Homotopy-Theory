@@ -31,7 +31,7 @@ Clearly we have that $f \simeq g$ implies $f \simeq^r g$ (see \DefinitionRef{rig
 	$$ [A, X] = \Hom_{\CDGA_\k}(A, X) / \simeq. $$
 }
 
-The results from model categories immediately imply the following results. \todo{Refereer expliciet}
+The results from model categories immediately imply the following results. Here we use Lemma \ref{lem:left_homotopy_properties}, \ref{lem:right_homotopy_properties} and \ref{lem:weak_strong_homotopy}.
 \Corollary{cdga_homotopy_properties}{
 	Let $A$ be cofibrant.
 	\begin{itemize}
@@ -42,8 +42,14 @@ The results from model categories immediately imply the following results. \todo
 			f_\ast: [Z, A] &\tot{\iso} [Z, X], \\
 			f^\ast: [X, Z] &\tot{\iso} [A, X].
 		\end{align*}
-		\todo{De eerste werkt ook als $i$ gewoon een w.e. is. (Gebruik factorizatie.)}
 	\end{itemize}
+}
+\Remark{cdga-weak-eq-bijection}{
+	By \RemarkRef{cdga-mc5a-left-inverse} we can generalize the second item to arbitrary weak equivalences: If $A$ is cofibrant and $f : X \to Y$ a weak equivalence, then the induced map $f_\ast : [A, X] \to [A, Y]$ is a bijection, as seen from the following diagram:
+	\[ \xymatrix{
+		& [A, X \tensor C] \ar[dl]_{\overline{\phi}_\ast}^\iso \ar[dr]^{\psi_\ast}_\iso & \\
+		[A, X] \ar[rr]^{f_\ast} & & [A, Y]
+	}\]
 }
 
 \Lemma{cdga-homotopy-homology}{

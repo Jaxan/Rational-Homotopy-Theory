@@ -56,11 +56,11 @@ In this section we will prove that the singular cochain complex is quasi isomorp
 For any $v \in \Apl_n^n$, we can write $v$ as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate geometrically on the $n$-simplex:
 $$ \int_n v = \int_0^1 \int_0^{1-x_n} \dots \int_0^{1 - x_2 - \dots - x_n} p(x_1, \dots, x_n) dx_1 dx_2 \dots dx_n, $$
 which defines a well-defined linear map $\int_n : \Apl_n^n \to \k$. For general fields of characteristic zero we can define it formally on the generators of $\Apl_n^n$ (as vector space):
-$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n + n)!}. $$
+$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n + n)!}. $$\todo{same as above}
 
-Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then $x$ induces a linear map $x^\ast: \Apl_n \to \Apl_k$. Let $v \in \Apl_n^k$, then $x^\ast(v) \in \Apl_k^k$, which we can integrate. Now define
+\todo{rewrite?}Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then $x$ induces a linear map $x^\ast: \Apl_n \to \Apl_k$. Let $v \in \Apl_n^k$, then $x^\ast(v) \in \Apl_k^k$, which we can integrate. Now define
 $$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
-Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
+Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$\todo{normalised}. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
 
 Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follows:
 \begin{align*}
@@ -95,7 +95,7 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 	We can apply our two functors to it, and use the natural transformation $\oint$ to obtain the following cube:
 	\cdiagram{Apl_C_Quasi_Iso_Cube}
 
-	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}) to conclude that also $A(X') \we C^\ast(X')$.
+	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps\todo{see 7.0.2, what about $C$?}, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}) to conclude that also $A(X') \we C^\ast(X')$.
 
 	This proves $A(X) \we C^\ast(X)$ for any simplicial set with finitely many non-degenerate simplices. We can extend this to simplicial sets of finite dimension by attaching many simplices at once. For this we observe that both $A$ and $C^\ast$ send coproducts to products and that cohomology commutes with products:
 	$$ H(A(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha A(X_\alpha)) \iso \prod_\alpha H(A(X_\alpha)), $$
@@ -139,3 +139,5 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 
 	So by the five lemma we can conclude that the middle morphism is an isomorphism as well, proving the isomorphism $H^n(A(X)) \tot{\iso} H^n(C^\ast(X))$ for all $n$. This proves the statement for all $X$.
 }
+
+\todo{algebra structure}

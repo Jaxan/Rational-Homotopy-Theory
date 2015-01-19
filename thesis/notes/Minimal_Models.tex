@@ -65,7 +65,7 @@ It is clear that induction will be an important technique when proving things ab
 
 	Complete the construction by taking the union: $V = \bigcup_k V(k)$. Clearly $H(m)$ is surjective, this was established in the first step. Now if $H(m)[z] = 0$, then we know $z \in \Lambda V(k)$ for some stage $k$ and hence by construction is was killed, i.e. $[z] = 0$. So we see that $m$ is a quasi isomorphism and by construction $(\Lambda V, d)$ is a Sullivan algebra.
 
-	\todo{Rewrite this section} Now assume that $(A, d)$ is $r$-connected ($r \geq 1$), this means that $H^i(A) = 0$ for all $1 \leq i \leq r$, and so $V(0)^i = 0$ for all $i \leq r$. Now $H(m_0)$ is injective on $\Lambda^{\leq 1} V(0)$, and so the defects are in $\Lambda^{\geq 2} V(0)$ and have at least degree $2(r+1)$. This means two things in the first inductive step of the construction. First, the newly added elements have decomposable differential. Secondly, these elements are at least of degree $2(r+1) - 1$. After adding these elements, the new defects are in $\Lambda^{\geq 2} V(1)$ and have at least degree $2(2(r+1) - 1)$. We see that as the construction continues, the degrees of adjoined elements go up. Hence $V^i = 0$ for all $i \leq r$ and by \LemmaRef{1-reduced-minimal-model} $(\Lambda V, d)$ is minimal.
+	\todo{Rewrite this section} Now assume that $(A, d)$ is $r$-connected ($r \geq 1$), this means that $H^i(A) = 0$ for all $1 \leq i \leq r$, and so $V(0)^i = 0$ for all $i \leq r$. Now $H(m_0)$ is injective on $\Lambda^{\leq 1} V(0)$, and so the defects are in $\Lambda^{\geq 2} V(0)$ and have at least degree $2(r+1)$. This means two things in the first inductive step of the construction. First, the newly added elements have decomposable differential. Secondly, these elements are at least of degree $2(r+1) - 1$. After adding these elements, the new defects are in $\Lambda^{\geq 2} V(1)$ and have at least degree $2(2(r+1) - 1)$. We see that as the construction continues, the degrees of adjoined elements go up. Hence $V^i = 0$ for all $i \leq r$ and by \LemmaRef{1-reduced-minimal-model} \todo{does not apply} $(\Lambda V, d)$ is minimal.
 \end{proof}
 
 
@@ -103,17 +103,12 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 	We have $p^\ast [x] = [px] = 0$, since $p^\ast$ is injective we have $x = d \overline{x}$ for some $\overline{x} \in X$. Now $p \overline{x} = y' + db$ for some $b \in Y$. Choose $a \in X$ with $p a = b$, then define $x' = \overline{x} - da$. Now check the requirements: $p x' = p \overline{x} - p a = y'$ and $d x' = d \overline{x} - d d a = d \overline{x} = x$.
 \end{proof}
 
-\Lemma{minimal-model-bijection}{
+As minimal models are cofibrant \RemarkRef{cdga-weak-eq-bijection} immediately implies the following.
+
+\Corollary{minimal-model-bijection}{
 	Let $f: X \we Y$ be a weak equivalence between cdga's and $M$ a minimal algebra. Then $f$ induces an bijection:
 	$$ f_\ast: [M, X] \tot{\iso} [M, Y]. $$
 }
-\begin{proof}
-	If $f$ is surjective this follows from the fact that $M$ is cofibrant and $f$ being a trivial fibration, see \CorollaryRef{cdga_homotopy_properties}.
-
-	By \RemarkRef{cdga-mc5a-left-inverse}, we can turn $f$ into two trivial fibrations (going in different directions). Hence we are in the above situation and we find bijections
-	$$ [M, X] \toti{\iso} [M, \Lambda C(Y)] \tot{\iso} [M, Y], $$
-	compatible with $f_\ast$.
-\end{proof}
 
 \begin{lemma}
 	Let $\phi: (M, d) \we (M', d')$ be a weak equivalence between minimal algebras. Then $\phi$ is an isomorphism.
@@ -131,7 +126,7 @@ Before we state the uniqueness theorem we need some more properties of minimal m
 	Let $m: (M, d) \we (A, d)$ and $m': (M', d') \we (A, d)$ be two minimal models for $A$. Then there is an isomorphism $\phi (M, d) \tot{\iso} (M', d')$ such that $m' \circ \phi \eq m$.
 }
 \begin{proof}
-	By \LemmaRef{minimal-model-bijection} we have $[M', M] \iso [M', A]$. By going from right to left we get a map $\phi: M' \to M$ such that $m' \circ \phi \eq m$. On homology we get $H(m') \circ H(\phi) = H(m)$, proving that (2-out-of-3) $\phi$ is a weak equivalence. The previous lemma states that $\phi$ is then an isomorphism.
+	By \CorollaryRef{minimal-model-bijection} we have $[M', M] \iso [M', A]$. By going from right to left we get a map $\phi: M' \to M$ such that $m' \circ \phi \eq m$. On homology we get $H(m') \circ H(\phi) = H(m)$, proving that (2-out-of-3) $\phi$ is a weak equivalence. The previous lemma states that $\phi$ is then an isomorphism.
 \end{proof}
 
 The assignment to $X$ of its minimal model $M_X = (\Lambda V, d)$ can be extended to morphisms. Let $X$ and $Y$ be two cdga's and $f: X \to Y$ be a map. By considering their minimal models we get the following diagram.
