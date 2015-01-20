@@ -1,7 +1,28 @@
 
 \chapter*{Introduction}
 
-Schrijf hier wat
+In this thesis we will study rational homotopy theory. The subject was first considered by Serre in the 1950s, he was able to calculate the torsion free part of the homotopy of the spheres \cite{serre}. Despite the complicated structure of these homotopy groups, their torsion free parts have a nice and simple description.
+
+In order to investigate the torsion free part of any (abelian) group, one can tensor with the rationals to kill all torsion. This observation allows to define rational homotopy groups for any space.
+
+The fact that the rationals homotopy groups of the spheres are so simple led other mathematician believe that there could be a simple description for all of rational homotopy theory. The first to succesfully give an algebraic model for rational homotopy theory was Quillen in the 1960s \cite{quillen}. His approach, however, is quite complicated. The equivalence he proves passes through four different cagtegories. Not much later Sullivan gave an approach which resembles some ideas from de Rahm cohomology \cite{sullivan}.
+
+The most influencial paper is from Bousfield and Gugenheim which combines Quillen's abstract machinery of model categories with the approach of Sullivan \cite{bousfield}.
+
+\todo{some further glue}
+In this thesis we will start with the work from Serre in \ChapterRef{Serre}. We will avoid the use of spectral sequences. The theorems stated in this chapter are not necessarily needed for the main theorems in this thesis. Nowadays there are more abstract tools to prove the needed results, but as Serre's theorems are nice in their own rights, they are included in this thesis.
+
+The next chapter (\ChapterRef{Rationalization}) describes a way to localize a space, in the same way we can localize a ring. This technique allows us to consider ordinary homotopy equivalences between the localized spaces, instead of (the less topological) rational equivalences.
+
+The biggest chapter is \ChapterRef{HomotopyTheoryCDGA}. In this chapter we will describe commutative differential graded algebras (on can think of these as rings which are also cochain complexes) and their homotopy theory. Not only will we describe a model structure on this category, we will also explicitly describe homotopy relations and homotopy groups.
+
+In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and commutative differential graded algebras. It is here that we see a construction similar to the de Rahm complex of a manifold.
+
+\ChapterRef{MinimalModels} brings us back to the study of commutative differential graded algebras. In this chapter we study to so called minimal models. These models enjoy the property that homotopically equivalent minimal models are actually isomorphic. Furthermore their homotopy groups are easily calculated.
+
+The main theorem is proven in \ChapterRef{Equivalence}. The adjunction from \ChapterRef{Adjunction} turns out to induce an equivalence on (subcategories of) the homotopy categories. This unifies rational homotopy theory of spaces with the homotopy theory of commutative differential graded algebras.
+
+Finally we will see some explicit calculations in \ChapterRef{Applications}. These calculations are remarkable easy, once we have the main equivalence. To prove, for example, Serre's result on the rational homotopy groups of spheres, we construct a minimal model and read off their homotopy groups. We will also discuss related topics in this chapter.
 
 \section{Preliminaries and Notation}
 
