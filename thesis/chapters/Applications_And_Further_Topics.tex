@@ -97,7 +97,19 @@ In this section we will prove that the rational cohomology of an H-space is free
 	An \Def{H-space} is a pointed topological space $x_0 \in X$ with a map $\mu: X \times X \to X$, such that $\mu(x_0, -), \mu(-, x_0) : X \to X$ are homotopic to $\id_X$.
 }
 
-Let $X$ be an H-space, then we have the induced map $\mu^\ast: H^\ast(X; \Q) \to H^\ast(X; \Q) \tensor H^\ast(X; \Q)$ on cohomology. Because homotopic maps are sent to equal maps in cohomology, we get $H^\ast(\mu(x_0, -)) = \id_{H^\ast(X; \Q)}$. Now write $H^\ast(\mu(x_0, -)) = (\counit \tensor \id) \circ H^\ast(\mu)$, where $\counit$ is the augmentation induced by $x_0$, to conclude that for any $h \in H^{+}(X; \Q)$ the image is of the form
+Let $X$ be an $0$-connected H-space of finite type, then we have the induced comultiplication map $\mu^\ast: H^\ast(X; \Q) \to H^\ast(X; \Q) \tensor H^\ast(X; \Q)$.
+
+Homotopic maps are sent to equal maps in cohomology, so we get $H^\ast(\mu(x_0, -)) = \id_{H^\ast(X; \Q)}$. Now write $H^\ast(\mu(x_0, -)) = (\counit \tensor \id) \circ H^\ast(\mu)$, where $\counit$ is the augmentation induced by $x_0$, to conclude that for any $h \in H^{+}(X; \Q)$ the image is of the form
 $$ H^\ast(\mu)(h) = h \tensor 1 + 1 \tensor h + \psi, $$
-for some element $\psi \in H^{+}(X; \Q) \tensor H^{+}(X; \Q)$.
-\todo{continue here}
+for some element $\psi \in H^{+}(X; \Q) \tensor H^{+}(X; \Q)$. This means that the comultiplication is counital.
+
+Choose a subspace $V$ of $H^+(X; \Q)$ such that $H^+(X; \Q) = V \oplus H^+(X; \Q) \cdot H^+(X; \Q)$. In particular we get $V^1 = H^1(X; \Q)$ and $H^2(X; \Q) = V^2 \oplus H^1(X; \Q) \cdot H^1(X; \Q)$. Continuing with induction we see that the induced map $\phi : \Lambda V \to H^\ast(X; \Q)$ is surjective. One can prove (by induction on the degree and using the counitality) that the elements in $V$ are primitive, i.e. $\mu^\ast(v) = 1 \tensor v + v \tensor 1$ for all $v \in V$. Since the free algebra is also a coalgebra (with the generators being the primitive elements), it follows that $\phi$ is a map of coalgebras:
+\[ \xymatrix{
+	\Lambda V \ar[r]^\phi \ar[d]^\Delta & H^\ast(X; \Q) \ar[d]^{\mu^\ast} \\
+	\Lambda V \tensor \Lambda V \ar[r]^{\phi\tensor\phi} & H^\ast(X; \Q) \tensor H^\ast(X; \Q) \\
+} \]
+
+We will now prove that $\phi$ is in fact injective. Suppose by induction that $\phi$ is injective on $\Lambda V^{<n}$. An element $w \in \Lambda V^{\leq n}$ can be written as $\Sum_{k_1, \ldots, k_r} v_1^{k_1} \cdots v_r^{k_r} a_{k_1 \cdots k_r}$, where $\{v_1, \ldots, v_r\}$ is a basis for $V^n$ and $a_{k_1 \cdots k_r} \in \Lambda V^{<n}$. Let $\pi : H^\ast(X; \Q) \to H^\ast(X; \Q) / \phi(\Lambda V^{<n})$ is the (linear) projection map. Now consider the image of $(\pi \tensor \id) \mu^\ast (\phi(w))$ in the component $\im(\pi) \tensor H^\ast(X; \Q)$, it can be written as (here we use the above commuting square):
+\[ \Sum_i ( \pi(v_i) \tensor \phi(\Sum_{k_1, \ldots, k_r} v_1^{k_1} \cdots v_i^{k_i - 1} \cdots v_r^{k_r}a_{k_1 \cdots k_r}) \]
+
+
