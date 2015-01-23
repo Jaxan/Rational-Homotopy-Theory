@@ -24,13 +24,15 @@ In this section we will discuss the so called minimal models. These cdga's enjoy
 	$$ (M, d) \we (A, d). $$
 \end{definition}
 
-We will often say \Def{minimal model} or \Def{minimal algebra} to mean minimal Sullivan model or minimal Sullivan algebra. In many cases we can take the degree of the elements in $V$ to induce the filtration, as seen in the following lemma.
+We will often say \Def{minimal model} or \Def{minimal algebra} to mean minimal Sullivan model or minimal Sullivan algebra. Note that a minimal algebra is naturally augmented by the freeness. This will be used implicitly. In many cases we can take the degree of the elements in $V$ to induce the filtration, as seen in the following lemma.
 
 \Lemma{1-reduced-minimal-model}{
-	Let $(A, d)$ be a cdga which is $1$-reduced, such that $A$ is free as cga and $d$ is decomposable. Then $(A, d)$ is a minimal algebra.
+	Let $(A, d)$ be a cdga which is $1$-reduced, such that $A = \Lambda V$ is free as cga. Then the differential $d$ is decomposable if and only if $(A, d)$ is a Sullivan algebra filtered by degree.
 }
 \Proof{
-	Let $V$ generate $A$. Take $V(n) = \bigoplus_{k=0}^n V^k$ (note that $V^0 = V^1 = 0$). Since $d$ is decomposable we see that for $v \in V^n$: $d(v) = x \cdot y$ for some $x, y \in A$. Assuming $dv$ to be non-zero we can compute the degrees:
+	Let $V$ be filtered by degree: $V(k) = V^{\leq k}$. Now $d(v) \in \Lambda V^{< k}$ for any $v \in V^k$. For degree reasons $d(v)$ is a product, so $d$ is decomposable.
+
+	For the converse take $V(n) = \bigoplus_{k=0}^n V^k$ (note that $V^0 = V^1 = 0$). Since $d$ is decomposable we see that for $v \in V^n$: $d(v) = x \cdot y$ for some $x, y \in A$. Assuming $dv$ to be non-zero we can compute the degrees:
 	$$ \deg{x} + \deg{y} = \deg{xy} = \deg{dv} = \deg{v} + 1 = n + 1. $$
 	As $A$ is $1$-reduced we have $\deg{x}, \deg{y} \geq 2$ and so by the above $\deg{x}, \deg{y} \leq n-1$. Conclude that $d(V(k)) \subset \Lambda(V(n-1))$.
 }
@@ -52,22 +54,32 @@ It is clear that induction will be an important technique when proving things ab
 \section{Existence}
 
 \begin{theorem}
-	Let $(A, d)$ be a $0$-connected cdga, then it has a Sullivan model $(\Lambda V, d)$. Furthermore if $(A, d)$ is $r$-connected with $r \geq 1$ then $V^i = 0$ for all $i \leq r$ and in particular $(\Lambda V, d)$ is minimal.
+	Let $(A, d)$ be a $1$-connected cdga, then it has a minimal model $(\Lambda V, d)$.
 \end{theorem}
 \begin{proof}
-	Start by setting $V(0) = H^{\geq 1}(A)$ and $d = 0$. This extends to a morphism $m_0 : (\Lambda V(0), 0) \to (A, d)$.
-	Note that the freeness introduces products such that the map $H(m_0) : H(\Lambda V(0)) \to H(A)$ is \emph{not} an isomorphism. We will ``kill'' these defects inductively.
+	We construct the model and by induction on the degree. The resulting filtration will be on degree, so that the minimality follows from \LemmaRef{1-reduced-minimal-model}. We start with $V^0 = V^1 = 0$ and $V^2 = H^2(A)$ and $d(V^2) = 0$, this extends to a map of cdga's $m_2 : \Lambda V^{\leq 2} \to A$.
 
-	Suppose $V(k)$ and $m_k$ have been constructed. Consider the defect $\ker H(m_k)$ and let $\{[z_\alpha]\}_{\alpha \in A}$ be a basis for it. Define $V_{k+1} = \bigoplus_{\alpha \in A} \k \cdot v_\alpha$ with the degrees $\deg{v_\alpha} = \deg{z_\alpha}-1$.
-	Now extend the differential by defining $d(v_\alpha) = z_\alpha$. This step kills the defect, but also introduces new defects which will be killed later. Notice that $z_\alpha$ is a cocycle and hence $d^2 v_\alpha = 0$, so $d$ is still a differential.
-	Since $[z_\alpha]$ is in the kernel of $H(m_k)$ we see that $m_k z_\alpha = d a_\alpha$ for some $a_\alpha$. Extend $m_k$ to $m_{k+1}$ by defining $m_{k+1}(v_\alpha) = a_\alpha$. Notice that $m_{k+1} d v_\alpha = m_{k+1} z_\alpha = d a_\alpha = d m_{k+1} v_\alpha$, so $m_{k+1}$ is a cochain map.
-	Now take $V(k+1) = V(k) \oplus V_{k+1}$.
+	Suppose $m_k : \Lambda V^{\leq k} \to A$ is constructed. We will add elements in degree $k+1$ and extend $m_k$ to $m_{k+1}$ to assert surjectivity and injectivity of $H(m_{k+1})$. Let $\{ [a_\alpha] \}_{\alpha \in I}$ be a basis for the cokernel of $H(m_k) : H^{k+1}(\Lambda V^{\leq k}) \to H^{k+1}(A)$ and $b_\alpha \in A^{k+1}$ be a representing cycle for $a_\alpha$. Let $\{ [z_\beta] \}_{\beta \in J}$ be a basis for the kernel of $H(m_k) : H^{k+2}(\Lambda V^{\leq k}) \to H^{k+2}(A)$, note that $m_k(b_\beta)$ is a boundary, so that there are elements $c_\beta$ such that $m_k(b_\beta) = d c_\beta$.
 
-	Complete the construction by taking the union: $V = \bigcup_k V(k)$. Clearly $H(m)$ is surjective, this was established in the first step. Now if $H(m)[z] = 0$, then we know $z \in \Lambda V(k)$ for some stage $k$ and hence by construction is was killed, i.e. $[z] = 0$. So we see that $m$ is a quasi isomorphism and by construction $(\Lambda V, d)$ is a Sullivan algebra.
+	Define $V^{k+1} = \bigoplus_{\alpha \in I} \k \cdot v_\alpha \oplus \bigoplus_{\beta \in J} \k \cdot v'_\beta$ and extend $d$ and $m_{k+1}$ by defining
+	\[ d(v_\alpha) = 0 \qquad d(v'_\beta) = z_\beta \]
+	\[ m_{k+1}(v_\alpha) = b_\alpha \qquad m_{k+1}(v'_\beta) = c_\beta \]
+	Now clearly $d^2=0$ on the generators, so this extends to a derivation on $\Lambda V^{k+1}$, similarly $m_{k+1}$ commutes with $d$ on the generators and hence extends to a chain map.
 
-	\todo{Rewrite this section} Now assume that $(A, d)$ is $r$-connected ($r \geq 1$), this means that $H^i(A) = 0$ for all $1 \leq i \leq r$, and so $V(0)^i = 0$ for all $i \leq r$. Now $H(m_0)$ is injective on $\Lambda^{\leq 1} V(0)$, and so the defects are in $\Lambda^{\geq 2} V(0)$ and have at least degree $2(r+1)$. This means two things in the first inductive step of the construction. First, the newly added elements have decomposable differential. Secondly, these elements are at least of degree $2(r+1) - 1$. After adding these elements, the new defects are in $\Lambda^{\geq 2} V(1)$ and have at least degree $2(2(r+1) - 1)$. We see that as the construction continues, the degrees of adjoined elements go up. Hence $V^i = 0$ for all $i \leq r$ and by \LemmaRef{1-reduced-minimal-model} \todo{does not apply} $(\Lambda V, d)$ is minimal.
+	This finished the construction of $V$ and $m : \Lambda V \to A$. Now we will prove that $H(m)$ is an isomorphism. We will do so by proving surjectivity and injectivity by induction on $k$.
+
+	Start by noting that $H^i(m_2)$ is jurjective for $i \leq 2$. now assume $H^i(m_k)$ is surjective for $i \leq k$. Since $\im H(m_k) \subset \im H(m_{k+1})$ we see that $H^i(m_{k+1})$ is surjective for $i < k+1$. By construction it is also surjective in degree $k+1$. So $H^i(m_k)$ is surjective for all $i \leq k$ for all $k$.
+
+	For injectivity we note that $H^i(m_2)$ is injective for $i \leq 3$, since $\Lambda V^{\leq 2}$ has no elements of degree $3$. Assume $H^i(m_k)$ is injective for $i \leq k+1$ and let $[z] \in \ker H^i(m_{k+1})$. Now if $\deg{z} \leq k$ we get $[z] = 0$ by induction and if $\deg{z} = k+2$ we get $[z] = 0$ by construction. Finally if $\deg{z} = k+1$, then we write $z = \sum \lambda_\alpha v_\alpha + \sum \lambda'_\beta v'_\beta + w$ where $v_\alpha, v'_\beta$ are the generators as above and $w \in \Lambda V^{\leq k}$. Now $d z = 0$ and so $\sum \lambda'_\beta v'_\beta + dw = 0$, so that $\sum \lambda'_\beta [z_\beta] = 0$. Since $\{ [z_\beta] \}$ was a basis, we see that $\lambda'_\beta = 0$ for all $\beta$. Now by applying $m_k$ we get $\sum \lambda_\alpha [b_\alpha] = H(m_k)[w]$, so that $\sum \lambda_\alpha [a_\alpha] = 0$ in the cokernel, recall that $\{ [a_\alpha] \}$ formed a basis and hence $\lambda_\alpha = 0$ for all $\alpha$. Now $z = w$ and the statement follows by induction. Conclude that $H^i(m_{k+1})$ is injective for $i \leq k+2$.
+
+	This concludes that $H(m)$ is indeed an isomorphism. So we constructed a weak equivalence $m: \Lambda V \to A$, where $\Lambda V$ is minimal by \LemmaRef{1-reduced-minimal-model}.
 \end{proof}
 
+\Remark{finited-dim-minimal-model}{
+	The above construction will construct a $r$-reduced minimal model for an $r$-connected cdga $A$.
+
+	Moreover if $H(A)$ is finite dimensional in each dimension, then so is the minimal model $\Lambda V$. This follows inductively. First notive that $V^2$ is clearly finite dimensional. Now assume that $\Lambda V^{<k}$ is finite dimension in each degree, then both the cokernel and kernel are, so we adjoin only finitely many elements in $V^k$.
+}
 
 \section{Uniqueness}
 

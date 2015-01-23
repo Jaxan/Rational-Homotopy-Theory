@@ -133,8 +133,17 @@ Now the Tor group appearing in the theorem can be computed via a \emph{bar const
 }
 Another exposition of this corollary can be found in \cite[Section 8.4]{berglund}. A very brief summary of the above statement is that $A$ sends homotopy pullbacks to homotopy pushout (assuming some connectedness).
 
+
 \section{Equivalence on rational spaces}
-For the equivalence of rational spaces and cdga's we need that the unit and counit of the adjunction in \CorollaryRef{minimal-model-adjunction} are in fact weak equivalences for rational spaces. More formally: for any (automatically cofibrant) $X \in \sSet$ and any minimal model $A \in \CDGA$, both rational, $1$-connected and of finite type \todo{undefined!}, the following two natural maps are weak equivalences:
+In this section we will prove that the adjunction in \CorollaryRef{minimal-model-adjucntion} is in fact an equivalence when restricted to certain subcategories. One of the restriction is the following.
+
+\Definition{finite-type}{
+	A cdga $A$ is said to be of \Def{finite type} if $H(A)$ is finite dimensional in each degree. Similarly $X$ is of \Def{finite type} if $H^i(X; \Q)$ is finite dimensional for each $i$.
+}
+
+Note that $X$ is of finite type if and only if $A(X)$ is of finite type.
+
+For the equivalence of rational spaces and cdga's we need that the unit and counit of the adjunction in \CorollaryRef{minimal-model-adjunction} are in fact weak equivalences for rational spaces. More formally: for any (automatically cofibrant) $X \in \sSet$ and any minimal model $A \in \CDGA$, both rational, $1$-connected and of finite type, the following two natural maps are weak equivalences:
 \begin{align*}
 	X &\to K(M(X)) \\
 	A &\to M(K(A))
@@ -189,6 +198,8 @@ Now we wish to use the previous lemma as an induction step for minimal models. L
 \end{displaymath}
 In particular if the vector space $V'$ is finitely generated, we can repeat this procedure for all basis elements (it does not matter in what order we do so, as $dv \in \Lambda V(n)$). So in this case, if $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence, so is $(\Lambda V(n+1), d) \to A(K(\Lambda V(n+1), d))$
 
+Note that by \RemarkRef{finited-dim-minimal-model} every cdga of finite type has a minimal model in which the generating set is finite dimensional in each degree.
+
 \Corollary{cdga-unit-we}{
 	Let $(\Lambda V, d)$ be a $1$-connected minimal algebra with $V^i$ finite dimensional for all $i$. Then $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
 }
@@ -198,7 +209,7 @@ In particular if the vector space $V'$ is finitely generated, we can repeat this
 	Now $V(n)$ is finitely generated for all $n$ by assumption. By the inductive procedure above we see that $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence for all $n$. Hence $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
 }
 
-\todo{finite type!}Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply connected rational space $X$ of finite type. For this, we will use that $A$ preserves and detects such weak equivalences by \CorollaryRef{serre-whitehead} (the Serre-Whitehead theorem). To be precise: for a simply connected rational space $X$ the map $X \to K(M(X))$ is a weak equivalence if and only if $A(K(M(X))) \to A(X)$ is a weak equivalence.
+Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply connected rational space $X$ of finite type. For this, we will use that $A$ preserves and detects such weak equivalences by \CorollaryRef{serre-whitehead} (the Serre-Whitehead theorem). To be precise: for a simply connected rational space $X$ the map $X \to K(M(X))$ is a weak equivalence if and only if $A(K(M(X))) \to A(X)$ is a weak equivalence.
 
 \Lemma{}{
 	The map $X \to K(M(X))$ is a weak equivalence for simply connected rational spaces $X$ of finite type.
@@ -209,7 +220,7 @@ In particular if the vector space $V'$ is finitely generated, we can repeat this
 		A(X) & \ar[l] A(K(A(X))) & \ar[l] A(K(M(X))) \\
 		& \ar[lu]^\id A(X) \ar[u] & \arwe[l] M(X) \ar[u]
 	}\]
-	The map on the right is a weak equivalence by \CorollaryRef{cdga-unit-we} \todo{details/finiteness}. Then by the 2-out-of-3 property we see that the above composition is indeed a weak equivalence. Since $A$ detects weak equivalences (Serre-Whitehead), we conclude that $X \to K(M(X))$ is a weak equivalence.
+	The map on the right is a weak equivalence by \CorollaryRef{cdga-unit-we}. Then by the 2-out-of-3 property we see that the above composition is indeed a weak equivalence. Since $A$ detects weak equivalences (Serre-Whitehead), we conclude that $X \to K(M(X))$ is a weak equivalence.
 }
 
 We have proven the following theorem.
@@ -220,4 +231,7 @@ We have proven the following theorem.
 	Furthermore, for any $1$-connected space $X$ of finite type, we have the following isomorphism of groups:
 	$$ \pi_i(X) \tensor \Q \iso {V^i}^\ast, $$
 	where $(\Lambda V, d)$ is the minimal model of $A(X)$.
+
+	Finally we see that for a $1$-connected space $X$ of finite type, we have a natural rationalization:
+	$$ X \to K(A(X)) $$
 }
