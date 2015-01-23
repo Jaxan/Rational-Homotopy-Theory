@@ -1,5 +1,5 @@
 
-\chapter{Minimal models}
+\Chapter{Minimal models}{MinimalModels}
 \label{sec:minimal-models}
 
 In this section we will discuss the so called minimal models. These cdga's enjoy the property that we can easily prove properties inductively. Moreover it will turn out that weakly equivalent minimal models are actually isomorphic.
@@ -68,7 +68,7 @@ It is clear that induction will be an important technique when proving things ab
 
 	This finished the construction of $V$ and $m : \Lambda V \to A$. Now we will prove that $H(m)$ is an isomorphism. We will do so by proving surjectivity and injectivity by induction on $k$.
 
-	Start by noting that $H^i(m_2)$ is jurjective for $i \leq 2$. now assume $H^i(m_k)$ is surjective for $i \leq k$. Since $\im H(m_k) \subset \im H(m_{k+1})$ we see that $H^i(m_{k+1})$ is surjective for $i < k+1$. By construction it is also surjective in degree $k+1$. So $H^i(m_k)$ is surjective for all $i \leq k$ for all $k$.
+	Start by noting that $H^i(m_2)$ is corrective for $i \leq 2$. now assume $H^i(m_k)$ is surjective for $i \leq k$. Since $\im H(m_k) \subset \im H(m_{k+1})$ we see that $H^i(m_{k+1})$ is surjective for $i < k+1$. By construction it is also surjective in degree $k+1$. So $H^i(m_k)$ is surjective for all $i \leq k$ for all $k$.
 
 	For injectivity we note that $H^i(m_2)$ is injective for $i \leq 3$, since $\Lambda V^{\leq 2}$ has no elements of degree $3$. Assume $H^i(m_k)$ is injective for $i \leq k+1$ and let $[z] \in \ker H^i(m_{k+1})$. Now if $\deg{z} \leq k$ we get $[z] = 0$ by induction and if $\deg{z} = k+2$ we get $[z] = 0$ by construction. Finally if $\deg{z} = k+1$, then we write $z = \sum \lambda_\alpha v_\alpha + \sum \lambda'_\beta v'_\beta + w$ where $v_\alpha, v'_\beta$ are the generators as above and $w \in \Lambda V^{\leq k}$. Now $d z = 0$ and so $\sum \lambda'_\beta v'_\beta + dw = 0$, so that $\sum \lambda'_\beta [z_\beta] = 0$. Since $\{ [z_\beta] \}$ was a basis, we see that $\lambda'_\beta = 0$ for all $\beta$. Now by applying $m_k$ we get $\sum \lambda_\alpha [b_\alpha] = H(m_k)[w]$, so that $\sum \lambda_\alpha [a_\alpha] = 0$ in the cokernel, recall that $\{ [a_\alpha] \}$ formed a basis and hence $\lambda_\alpha = 0$ for all $\alpha$. Now $z = w$ and the statement follows by induction. Conclude that $H^i(m_{k+1})$ is injective for $i \leq k+2$.
 
@@ -78,7 +78,7 @@ It is clear that induction will be an important technique when proving things ab
 \Remark{finited-dim-minimal-model}{
 	The above construction will construct a $r$-reduced minimal model for an $r$-connected cdga $A$.
 
-	Moreover if $H(A)$ is finite dimensional in each dimension, then so is the minimal model $\Lambda V$. This follows inductively. First notive that $V^2$ is clearly finite dimensional. Now assume that $\Lambda V^{<k}$ is finite dimension in each degree, then both the cokernel and kernel are, so we adjoin only finitely many elements in $V^k$.
+	Moreover if $H(A)$ is finite dimensional in each dimension, then so is the minimal model $\Lambda V$. This follows inductively. First notice that $V^2$ is clearly finite dimensional. Now assume that $\Lambda V^{<k}$ is finite dimension in each degree, then both the cokernel and kernel are, so we adjoin only finitely many elements in $V^k$.
 }
 
 \section{Uniqueness}

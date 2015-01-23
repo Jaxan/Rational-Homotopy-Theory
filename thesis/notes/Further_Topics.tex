@@ -1,0 +1,41 @@
+
+\Chapter{Further topics}{Topics}
+
+\section{Localizations at primes and the arithmetic square}
+In \ChapterRef{Serre} we proved some results by Serre to relate homotopy groups and homology groups modulo a class of abelian groups. Now the class of $p$-torsion groups and the class of $p$-divisible groups are also Serre classes. This suggests that we can also ``localize homotopy theory at primes''. Indeed the construction in section \ChapterRef{Rationalization} can be altered to give a $p$-localization $X_p$ of a space $X$. Recall that for the rationalization we constructed a telescope with a sphere for each $k > 0$. For the $p$-localization we only add a copy of the sphere for $k > 0$ relative prime to $p$.
+
+Now that we have a bunch of localizations $X_\Q, X_2, X_3, X_5, \ldots$ we might wonder what homotopical information of $X$ we can recover from these localizations. In other words: can we go from local to global? The answer is yes in the following sense. Details can be found in \cite{may2} and \cite{sullivan}.
+
+\Theorem{arithmetic-square}{
+	Let $X$ be a space, then $X$ is the homotopy pullback in
+	\[ \xymatrix{
+		X \ar[r] \ar[d] & \prod_{p\text{ prime}} X_p \ar[d] \\
+		X_\Q \ar[r] & (\prod_{p\text{ prime}} X_p)_\Q
+	}\]
+}
+This theorem is known as \emph{the arithmetic square}, \emph{fracture theorem} or \emph{local-to-global theorem}.
+
+As an example we find that if $X$ is an H-space, then so are its localizations. The converse also holds when certain compatibility requirements are satisfied \cite{sullivan}. In the previous section we were able to prove that $S^n_\Q$ is an H-space if and only if $n$ is odd. It turns out that the prime $p=2$ brings the key to Adams' theorem: for odd $n$ we have that $S^n_2$ is an H-space if and only if $n=1, 3$ or $7$. For the other primes $S^n_p$ is always an H-space for odd $n$. This observation leads to one approach to prove Adams' theorem.
+
+
+\section{Quillen's approach to rational homotopy theory}
+In this thesis we used Sullivan's approach to give algebraic models for rational spaces. However, Sullivan was not the first to give algebraic models. Quillen gave a dual approach in \cite{quillen}. By a long chain of homotopy equivalences his main result is
+\begin{align*}
+	\Ho(\Top_{1, \Q}) &\iso \Ho(\text{dg \emph{Lie} algebras}_{0, \Q}) \\
+		&\iso \Ho(\text{cdg \emph{co}algebras}_{1, \Q})
+\end{align*}
+The first category is the one of differential graded Lie algebras over $\Q$ and the second is cocommutative (coassociative) differential graded coalgebras. Quillen's approach does not need the finite dimensionality assumptions and is hence more general.
+
+Minimal models in these categories also exist, as shown in \cite{neisendorfer}. They are defined analogously, we require the object to be cofibrant (or fibrant in the coalgebra case) and that the differential is zero in the chain complex of indecomposables. Of course the meaning of indecomposable depends on the category.
+
+Despite the generality of Quillen's approach, the author of this thesis \todo{ok?} prefers the approach by Sullivan as it provides a single, elegant functor $A: \sSet \to \CDGA$. Moreover cdga's are easier to manipulate, as commutative ring theory is a more basic subject than Lie algebras or coalgebras.
+
+
+\section{Nilpotency}
+In many locations in this thesis we assumed simply connectedness of objects (both spaces an cdga's). The assumption was often use to prove the base case of some inductive argument. In \cite{bousfield} the main equivalence is proven for so called nilpotent spaces (which is more general than $1$-connected spaces).
+
+In short, a nilpotent group is a group which is constructed by finitely many extensions of abelian groups. A space is called nilpotent if its fundamental group is nilpotent and the action of $\pi_1$ on $\pi_n$ satisfies a related requirement.
+
+Now the base cases in our proofs become more complicated, as we need another inductive argument (on these extensions of abelian groups) in the base case.
+
+\todo{note $\Q$-completion?}

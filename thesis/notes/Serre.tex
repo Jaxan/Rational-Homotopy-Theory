@@ -18,12 +18,12 @@ Serre gave weaker axioms for his classes and proves some of the following lemmas
 \Example{serre-classes}{
 	We give three Serre classes without proof.
 	\begin{itemize}
-		\item The class $\C = \{ 0 \}$. With this class the following Hurewicz and Whitehead theorem will simply be the classical statements.
+		\item The class $\C = \{ 0 \}$. With this class the following Hurewicz and Whitehead theorem will just restate be the classical theorems.
 		\item The class $\C$ of all torsion groups. Using this class we can prove the rational version of the Hurewicz and Whitehead theorems.
 		\item The class $\C$ of all uniquely divisible groups. Note that these groups can be given a unique $\Q$-vector space structure (and conversely every $\Q$-vector space is uniquely divisible). 
 	\end{itemize}
 }
-
+\todo{refer to Moerdijk? for $H(\Z_p) =$ torsion.}
 As noted by Hilton in \cite{hilton} we think of Serre classes as a generalized 0. This means that we can also express some kind of generalized injective and surjectivity. Here we only need the notion of a $\C$-isomorphism:
 
 \Definition{serre-class-maps}{
@@ -32,7 +32,7 @@ As noted by Hilton in \cite{hilton} we think of Serre classes as a generalized 0
 
 Note that the maps $0 \to C$ and $C \to 0$ are $\C$-isomorphisms for any $C \in \C$. More importantly the 5-lemma also holds for $\C$-isos and we have the 2-out-of-3 property: whenever $f$, $g$ and $g \circ f$ are maps such that two of them are $\C$-iso, then so is the third.
 
-In the following arguments we will consider fibrations and need to compute homology thereof. Unfortunately there is no long exact sequence for homology of a fibration, however the following lemma expresses something similar. It is usually proven with spectral sequences,  \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more geometric proof.
+In the following arguments we will consider fibrations and need to compute homology thereof. Unfortunately there is no long exact sequence for homology of a fibration, however the following lemma expresses something similar. It is usually proven with spectral sequences,  \cite[Ch. 2 Thm 1]{serre}. However in \cite{kreck} we find a more geometric proof for rational coefficients, which we generalize here to Serre classes.
 
 \Lemma{kreck}{
 	Let $\C$ be a Serre class and $p: E \fib B$ be a fibration between $0$-connected spaces with a $0$-connected fiber $F$. If $\RH_i(F) \in \C$ for all $i < n$ and $B$ is $m$-connected, then
@@ -58,7 +58,7 @@ In the following arguments we will consider fibrations and need to compute homol
 
 	The morphism in the middle is a $\C$-iso by induction. We will prove that the left morphism is a $\C$-iso which implies by the five lemma that the right morphism is one as well.
 
-	As we are working with relative homology $H_{i+1}(E^{k+1}, E^k)$, we only have to consider the interiors of the $k+1$-cells (by excision). Each interior of a $k+1$-cell is a product, as $p$ was a fiber bundle. So we note that we have an isomorphism:
+	As we are working with relative homology $H_{i+1}(E^{k+1}, E^k)$, we only have to consider the interiors of the $k+1$-cells (by excision). Each interior of a $k+1$-cell is a product, as $p$ is a fiber bundle. So we note that we have an isomorphism:
 	$$ H_{i+1}(E^{k+1}, E^k) \iso H_{i+1}(\coprod_\alpha D^{k+1}_\alpha \times F, \coprod_\alpha S^k_\alpha \times F). $$
 	Now we can apply the Künneth theorem for this product to obtain a natural short exact sequence, furthermore we apply the Künneth theorem for $(B^{k+1}, B^k) \times \ast$ to obtain a second short exact sequence as follows.
 	\[ \scriptsize \xymatrix @C=0.4cm {
@@ -67,7 +67,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	}\]
 	Now it remains to show that $p'$ and $p''$ are $\C$-iso, as it will then follow from the five lemma that $p_\ast$ is a $\C$-iso.
 
-	First note that $p'$ is surjective as it is an isomorphism on the subspace $H_{i+1}(B^{k+1}, B^k) \tensor H_0(F)$. Its kernel on the other hand is precisely given by the terms $H_{i+1-q}(B^{k+1}, B^k) \tensor H_q(F)$ for $q>0$. By assumption we have $H_q(F) \in \C$ for all $0 < q < n$ and $H_{i+1}(B^{k+1}, B^k) = 0$ for all $i+1 \leq m$. By the tensor property of a Serre class the kernel is in $\C$ for all $i < n+m$. So indeed $p'$ is a $\C$-iso for all $i < n+m$.
+	First note that $p'$ is surjective as it is an isomorphism on the subspace $H_{i+1}(B^{k+1}, B^k) \tensor H_0(F)$. Its kernel on the other hand is precisely given by the terms $H_{i+1-q}(B^{k+1}, B^k) \tensor H_q(F)$ for $q>0$. By assumption we have $H_q(F) \in \C$ for all $0 < q < n$ and $H_{i+1}(B^{k+1}, B^k) = 0$ for all $i+1 \leq m$. By the tensor axiom of a Serre class the kernel is in $\C$ for all $i < n+m$. So indeed $p'$ is a $\C$-iso for all $i < n+m$.
 
 	For $p''$ a similar reasoning holds, it is clearly surjective and we only need to prove that the kernel of $p''$ (which is the Tor group itself) is in $\C$. First notice that $\Tor(H_i(B^{k+1}, B^k), H_0(F)) = 0$ as $H_0(F) \iso \Z$. Then consider the other terms of the graded Tor group. Again we use the assumed bounds to conclude that the Tor group is in $\C$ for $i \leq n+m$. So indeed $p''$ is a $\C$-iso for all $i \leq n+m$.
 
@@ -80,7 +80,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	Let $\C$ be a Serre class and $G \in \C$. Then for all $n > 0$ and all $i > 0$ we have $H_i(K(G, n)) \in \C$.
 }
 \Proof{
-	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology which is in $\C$ by the axioms:
+	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction \todo{which?} of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology which is in $\C$ by the axioms:
 	$$ H_i(K(G, 1); \Z) \iso H_i(G; \Z) \in \C. $$
 
 	Suppose we have proven the statement for $n$. If we consider the case of $n+1$ we can use the path fibration to relate it to the case of $n$:
@@ -196,6 +196,8 @@ Combining this lemma and \TheoremRef{serre-hurewicz} we get the following coroll
 	$$ \pi_i(X) \tensor \Q \tot{\iso} H_i(X; \Q) $$
 }
 
+\todo{$\pi$ is $\Q$ local iff $H$ is}
+
 \TheoremRef{serre-whitehead} also applies verbatim to rational homotopy theory. However we would like to avoid the assumption that $\pi_2(f)$ is surjective. In \cite{felix} we find a way to work around this.
 
 \Corollary{rational-whitehead}{
@@ -204,19 +206,19 @@ Combining this lemma and \TheoremRef{serre-hurewicz} we get the following coroll
 	Then $f$ is a rational equivalence $\iff$ $H_\ast(f; \Q)$ is an isomorphism.
 }
 \Proof{
-	We will replace $f$ by some $f_1$ which is surjective on $\pi_2$. First consider $\Gamma = \pi_2(Y) / \im(\pi_2(f))$ and its Eilenberg-MacLane space $K = K(\Gamma, 2)$. There is a map $q : Y \to K$ inducing the projection map $\pi_2(q) : \pi_2(Y) \to \Gamma$.
+	We will replace $f$ by some map $f_1$ which is surjective on $\pi_2$. First consider $\Gamma = \pi_2(Y) / \im(\pi_2(f))$ and its Eilenberg-MacLane space $K = K(\Gamma, 2)$. There is a map $q : Y \to K$ inducing the projection map $\pi_2(q) : \pi_2(Y) \to \Gamma$.
 	
 	We can factor $q$ as
 	\[\xymatrix @=0.4cm{
 		Y \arwe[rr]^-\lambda \ar[dr]_-q & & Y \times_K MK \arfib[dl]^-{\overline{q}} \\
 		& K &
-	} \]
-	Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
+	} \]\todo{$MK =$?}
+	Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to a homotopy $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
 
 	We get a commuting square when applying $\pi_2$:
 	\[ \xymatrix{
 		\pi_2(X) \ar[r]^-{\pi_2(f_1)} \ar[d]^{\pi_2(f)} & \pi_2(Y \times_K PK) \ar[d]^{\pi_2(i)} \\
 		\pi_2(Y) \ar[r]^-{\iso} & \pi_2(Y \times_K MK)
 	} \]
-	The important observation is that by the long exact sequence $\pi_\ast(i) \tensor \Q$ and $H_\ast(i; \Q)$ are isomorphisms (here we use that $\Gamma \tensor \Q = 0$ and that tensoring with $\Q$ is exact). So by the above square $\pi_\ast(f_1) \tensor \Q$ is an isomorphism if and only if $\pi_\ast(f) \tensor \Q$ is (and similarly for homology). Finally we note that $\pi_2(f_1)$ is surjective, so \TheoremRef{serre-whitehead} applies and the result also holds for $f$.
+	The important observation is that by the long exact sequence $\pi_\ast(i) \tensor \Q$ and $H_\ast(i; \Q)$ are isomorphisms (here we use that $\Gamma \tensor \Q = 0$ and that tensoring with $\Q$ is exact). So by the above square $\pi_\ast(f_1) \tensor \Q$ is an isomorphism if and only if $\pi_\ast(f) \tensor \Q$ is (and similarly for homology). Finally we note that $\pi_2(f_1)$ is surjective\todo{?}, so \TheoremRef{serre-whitehead} applies and the result also holds for $f$.
 }

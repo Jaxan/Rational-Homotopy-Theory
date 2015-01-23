@@ -5,16 +5,17 @@ In this thesis we will study rational homotopy theory. The subject was first con
 
 In order to investigate the torsion free part of any (abelian) group, one can tensor with the rationals to kill all torsion. This observation allows to define rational homotopy groups for any space.
 
-The fact that the rationals homotopy groups of the spheres are so simple led other mathematician believe that there could be a simple description for all of rational homotopy theory. The first to succesfully give an algebraic model for rational homotopy theory was Quillen in the 1960s \cite{quillen}. His approach, however, is quite complicated. The equivalence he proves passes through four different cagtegories. Not much later Sullivan gave an approach which resembles some ideas from de Rahm cohomology \cite{sullivan}.
+The fact that the rationals homotopy groups of the spheres are so simple led other mathematician believe that there could be a simple description for all of rational homotopy theory. The first to successfully give an algebraic model for rational homotopy theory was Quillen in the 1960s \cite{quillen}. His approach, however, is quite complicated. The equivalence he proves passes through four different categories. Not much later Sullivan gave an approach which resembles some ideas from de Rahm cohomology \cite{sullivan}.
 
-The most influencial paper is from Bousfield and Gugenheim which combines Quillen's abstract machinery of model categories with the approach of Sullivan \cite{bousfield}.
+The most influential paper is from Bousfield and Gugenheim which combines Quillen's abstract machinery of model categories with the approach of Sullivan \cite{bousfield}. Being only a paper, it does not contain a lot of details, which might scare the reader at first.
 
-\todo{some further glue}
-In this thesis we will start with the work from Serre in \ChapterRef{Serre}. We will avoid the use of spectral sequences. The theorems stated in this chapter are not necessarily needed for the main theorems in this thesis. Nowadays there are more abstract tools to prove the needed results, but as Serre's theorems are nice in their own rights, they are included in this thesis.
+There is a much newer book by Félix, Halperin and Thomas \cite{felix}. This book covers much more than the paper from Bousfield and Gugenheim but does not use the theory of model categories. On one hand, this makes the proofs more elementary, on the other hand it may obscure some abstract constructions. This thesis will provide a middle ground. We will use model categories, but still provide a lot of detail.
 
-The next chapter (\ChapterRef{Rationalization}) describes a way to localize a space, in the same way we can localize a ring. This technique allows us to consider ordinary homotopy equivalences between the localized spaces, instead of (the less topological) rational equivalences.
+After some preliminaries this thesis will start with the work from Serre in \ChapterRef{Serre}. We will avoid the use of spectral sequences. The theorems stated in this chapter are not necessarily needed for the main theorems in this thesis. Nowadays there are more abstract tools to prove the needed results, but as Serre's theorems are nice in their own rights, they are included in this thesis.
 
-The biggest chapter is \ChapterRef{HomotopyTheoryCDGA}. In this chapter we will describe commutative differential graded algebras (on can think of these as rings which are also cochain complexes) and their homotopy theory. Not only will we describe a model structure on this category, we will also explicitly describe homotopy relations and homotopy groups.
+The next chapter (\ChapterRef{Rationalization}) describes a way to localize a space, in the same way we can localize a ring. This technique allows us to consider ordinary homotopy equivalences between the localized spaces, instead of rational equivalences, which are harder to visualize.
+
+The longest chapter is \ChapterRef{HomotopyTheoryCDGA}. In this chapter we will describe commutative differential graded algebras and their homotopy theory. One can think of these objects as rings which are at the same time cochain complexes. Not only will we describe a model structure on this category, we will also explicitly describe homotopy relations and homotopy groups.
 
 In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and commutative differential graded algebras. It is here that we see a construction similar to the de Rahm complex of a manifold.
 
@@ -22,19 +23,20 @@ In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and c
 
 The main theorem is proven in \ChapterRef{Equivalence}. The adjunction from \ChapterRef{Adjunction} turns out to induce an equivalence on (subcategories of) the homotopy categories. This unifies rational homotopy theory of spaces with the homotopy theory of commutative differential graded algebras.
 
-Finally we will see some explicit calculations in \ChapterRef{Applications}. These calculations are remarkable easy, once we have the main equivalence. To prove, for example, Serre's result on the rational homotopy groups of spheres, we construct a minimal model and read off their homotopy groups. We will also discuss related topics in this chapter.
+Finally we will see some explicit calculations in \ChapterRef{Calculations}. These calculations are remarkable easy, once we have the main equivalence. To prove, for example, Serre's result on the rational homotopy groups of spheres, we construct a minimal model and read off their homotopy groups. We will also discuss related topics in \ChapterRef{Topics} which will conclude this thesis.
+
 
 \section{Preliminaries and Notation}
 
-We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is assumed, but the reader may review some facts on this in the appendices.
+We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is also assumed, but the reader may review some facts on homological algebra in Appendix \ref{sec:algebra} and facts on model categories in Appendix \ref{sec:model_categories}.
 
 We will fix the following notations and categories.
 \begin{itemize}
-	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section). Modules, tensor products, \dots are understood as $\k$-modules, tensor products over $\k$, \dots.
+	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section). Modules, tensor products, \dots are understood as $\k$-modules, tensor products over $\k$, \dots.\todo{$\k$ doesn't always seem to work...}
 	\item $\Hom_{\cat{C}}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. The subscript $\cat{C}$ may occasionally be left out.
 	\item $\Top$: category of topological spaces and continuous maps. We denote the full subcategory of $r$-connected spaces by $\Top_r$, this convention is also used for other categories.
 	\item $\Ab$: category of abelian groups and group homomorphisms.
-	\item $\sSet$: category of simplicial sets and simplicial maps (more generally we have the category of simplicial objects, $\cat{sC}$, for any category $\cat{C}$). We have the homotopy equivalence $|-| : \sSet \leftadj \Top : S$.
+	\item $\sSet$: category of simplicial sets and simplicial maps. More generally we have the category of simplicial objects, $\cat{sC}$, for any category $\cat{C}$. We have the homotopy equivalence $|-| : \sSet \leftadj \Top : S$ to switch between topological spaces and simplicial sets.
 	\item $\DGA_\k$: category of non-negatively differential graded algebras over $\k$ (as defined in the appendix) and graded algebra  maps. As a shorthand we will refer to such an object as \emph{dga}. Furthermore $\CDGA_\k$ is the full subcategory of $\DGA_\k$ of commutative dga's (\emph{cdga}'s).
 \end{itemize}
 

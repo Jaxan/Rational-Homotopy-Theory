@@ -9,6 +9,7 @@ In the following definition \emph{space} is to be understood as a topological sp
 \Definition{rational-space}{
 	A $0$-connected space $X$ with abelian fundamental group is a \emph{rational space} if
 	$$ \pi_i(X) \text{ is a $\Q$-vector space } \quad \forall i > 0. $$
+	The full subcategory of rational spaces is denoted by $\Top_\Q$ (or $\sSet_\Q$ when working with simplicial sets).
 }
 
 \Definition{rational-homotopy-groups}{
@@ -16,7 +17,7 @@ In the following definition \emph{space} is to be understood as a topological sp
 	$$ \pi_i(X) \tensor \Q \quad \forall i > 0.$$
 }
 
-In order to define the tensor product $\pi_1(X) \tensor \Q$ we need that the fundamental group is abelian, the higher homotopy groups are always abelian. There is a more general approach using \Def{nilpotent groups}, which admit $\Q$-completions \cite{bousfield}. Since this is rather technical we will often restrict ourselves to such spaces or even simply connected spaces.
+In order to define the tensor product $\pi_1(X) \tensor \Q$ we need that the fundamental group is abelian, the higher homotopy groups are always abelian. There is a more general approach using \Def{nilpotent groups}, which admit $\Q$-completions \cite{bousfield}. Since this is rather technical we will often restrict ourselves to spaces as above or even simply connected spaces.
 
 Note that for a rational space $X$, the ordinary homotopy groups are isomorphic to the rational homotopy groups, i.e. $\pi_i(X) \tensor \Q \iso \pi_i(X)$.
 
@@ -28,9 +29,9 @@ Note that for a rational space $X$, the ordinary homotopy groups are isomorphic 
 	A map $f: X \to X_0$ is a \emph{rationalization} if $X_0$ is rational and $f$ is a rational homotopy equivalence.
 }
 
-Note that a weak equivalence (and hence also a homotopy equivalence) is always a rational homotopy theory. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence if and only if $f$ is a weak equivalence.
+Note that a weak equivalence is always a rational equivalence. Furthermore if $f: X \to Y$ is a map between rational spaces, then $f$ is a rational homotopy equivalence if and only if $f$ is a weak equivalence.
 
-The theory of rational homotopy is the study of spaces with rational equivalences. Quillen defines a model structure on simply connected simplicial sets with rational equivalences as weak equivalences \cite{quillen}. This means that there is a homotopy category $\Ho^\Q(\sSet_1)$. However we will later prove that every simply connected space has a rationalization, so that $\Ho^\Q(\sSet_1) = \Ho(\sSet^\Q_1)$ are equivalent categories. This means that we do not need the model structure defined by Quillen, but we can simply restrict ourselves to rational spaces (with ordinary weak equivalences).
+The theory of rational homotopy is the study of spaces with rational equivalences. Quillen defines a model structure on simply connected simplicial sets with rational equivalences as weak equivalences \cite{quillen}. This means that there is a homotopy category $\Ho^\Q(\sSet_1)$. However we will later prove that every simply connected space has a rationalization, so that $\Ho_\Q(\sSet_1) = \Ho(\sSet_{1,\Q})$ are equivalent categories. This means that we do not need the model structure defined by Quillen, but we can just restrict ourselves to rational spaces with ordinary weak equivalences.
 
 
 \section{Classical results from algebraic topology}
@@ -38,20 +39,20 @@ The theory of rational homotopy is the study of spaces with rational equivalence
 We will now recall known results from algebraic topology, without proof. One can find many of these results in basic text books, such as \cite{may, dold}.
 
 \Theorem{relative-hurewicz}{
-	(Relative Hurewicz) For any inclusion of spaces $Y \subset X$ and all $i > 0$, there is a natural map
+	(Relative Hurewicz Theorem) For any inclusion of spaces $Y \subset X$ and all $i > 0$, there is a natural map
 	$$ h_i : \pi_i(X, Y) \to H_i(X, Y). $$
 	If furthermore $(X, Y)$ is $n$-connected ($n > 0$), then the map $h_i$ is an isomorphism for all $i \leq n + 1$.
 }
 
 \Theorem{serre-les}{
-	(Long exact sequence) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence:
+	(Long Exact Sequence of Homotopy Groups) Let $f: X \to Y$ be a Serre fibration, then there is a long exact sequence:
 	$$ \cdots \tot{\del} \pi_i(F) \tot{i_\ast} \pi_i(X) \tot{f_\ast} \pi_i(Y) \tot{\del} \cdots \to \pi_0(Y) \to \ast, $$
 	where $F$ is the fiber of $f$.
 }
 
 Using an inductive argument and the previous two theorems, one can show the following theorem (as for example shown in \cite{griffiths}).
 \Theorem{whitehead-homology}{
-	(Whitehead) For any map $f: X \to Y$ between $1$-connected spaces, $ \pi_i(f) $ is an isomorphism $\forall 0 < i < r$ if and only if $H_i(f)$ is an isomorphism $\forall 0 < i < r$.
+	(Whitehead Theorem) For any map $f: X \to Y$ between $1$-connected spaces, $ \pi_i(f) $ is an isomorphism $\forall 0 < i < r$ if and only if $H_i(f)$ is an isomorphism $\forall 0 < i < r$.
 	In particular we see that $f$ is a weak equivalence if and only if it induces an isomorphism on homology.
 }
 

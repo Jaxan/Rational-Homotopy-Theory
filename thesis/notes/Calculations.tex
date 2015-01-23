@@ -1,0 +1,136 @@
+
+\Chapter{Rational Homotopy Groups Of The Spheres And Other Calculations}{Calculations}
+
+In this chapter we will calculate the rational homotopy groups of the spheres using minimal models. The minimal model for the sphere was already given, but we will quickly redo the calculation.
+
+
+\section{The sphere}
+
+\Proposition{}{
+	For odd $n$ the rational homotopy groups of $S^n$ are given by
+	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
+		\Q, &\text{ if } i=n \\
+		0, &\text{ otherwise.}
+	\end{cases} $$
+}
+\Proof{
+	We know the cohomology of the sphere by classical results:
+	$$ H^i(S^n ; \Q) = \begin{cases}
+		\Q \cdot 1, &\text{ if } i = 0 \\
+		\Q \cdot x, &\text{ if } i = n \\
+		0, &\text{ otherwise,}
+	\end{cases}$$
+	where $x$ is a generator of degree $n$. Define $M_{S^n} = \Lambda(e)$ with $d(e) = 0$ and $e$ of degree $n$. Notice that since $n$ is odd, we get $e^2 = 0$. By taking a representative for $x$, we can give a map $M_{S^n} \to A(S^n)$, which is a weak equivalence.
+
+	Clearly $M_{S^n}$ is minimal, and hence it is a minimal model for $S^n$. By \TheoremRef{main-theorem} we have
+	$$ \pi_\ast(S^n) \tensor \Q = \pi_\ast(K(M_{S^n})) = \pi^\ast(M_{S^n})^\ast = \Q \cdot e^\ast. $$
+}
+
+\Proposition{}{
+	For even $n$ the rational homotopy groups of $S^n$ are given by
+	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
+		\Q, &\text{ if } i = 2n-1 \\
+		\Q, &\text{ if } i = n \\
+		0, &\text{ otherwise.}
+	\end{cases} $$
+}
+\Proof{
+	Again since we know the cohomology of the sphere, we can construct its minimal model. Define $M_{S^n} = \Lambda(e, f)$ with $d(e) = 0, d(f) = e^2$ and $\deg{e} = n, \deg{f} = 2n-1$. Let $[x] \in H^n(S^n; \Q)$ be a generator and $x \in A(S^n)$ its representative, then notice that $[x]^2 = 0$. This means that there exists an element $y \in A(S^n)$ such that $dy = x^2$. Mapping $e$ to $x$ and $f$ to $y$ defines a quasi isomorphism $M_{S^n} \to A(S^n)$.
+
+	Again we can use \CorollaryRef{minimal-cdga-homotopy-groups} to directly conclude:
+	$$ \pi_\ast(S^n) \tensor \Q = \pi^\ast(M_{S^n})^\ast = \Q \cdot e^\ast \oplus \Q \cdot f^\ast. $$
+}
+
+The generators $e$ and $f$ in the last proof are related by the so called \Def{Whitehead product}. The whitehead product is a bilinear map $\pi_p(X) \times \pi_q(X) \to \pi_{p+q-1}(X)$ satisfying a graded commutativity relation and a graded Jacobi relation, see \cite{felix}. If we define a \Def{Whitehead algebra} to be a graded vector space with such a map satisfying these relations, we can summarize the above two propositions as follows \cite{berglund}.
+
+\Corollary{}{
+	The rational homotopy groups of $S^n$ are given by
+	$$ \pi_\ast(S^n) \tensor \Q = \text{the free whitehead algebra on 1 generator}. $$
+}
+
+Together with the fact that all groups $\pi_i(S^n)$ are finitely generated (this was proven by Serre in \cite{serre}) we can conclude that $\pi_i(S^n)$ is a finite group unless $i=n$ and unless $i=2n-1$ for even $n$. The fact that $\pi_i(S^n)$ are finitely generated can be proven by the Serre-Hurewicz theorems (\TheoremRef{serre-hurewicz}) when taking the Serre class of finitely generated abelian groups (but this requires a weaker notion of a Serre class, and stronger theorems, than the one given in this thesis).
+
+
+\section{Eilenberg-MacLane spaces}
+
+The following result is already used in proving the main theorem. But using the main theorem it is an easy and elegant consequence.
+
+\Proposition{}{
+	For an Eilenberg-MacLane space of type $K(\Z, n)$ we have:
+	$$ H^\ast(K(\Z, n); \Q) \iso \Q[x], $$
+	i.e. the free graded commutative algebra on 1 generator.
+}
+\Proof{
+	By the existence theorem for minimal models, we know there is a minimal model $(\Lambda V, d) \we A(K(\Z, n))$. By calculating the homotopy groups we see
+	$$ {V^i}^\ast = \pi^i(\Lambda V)^\ast = \pi_i(K(\Z, n)) \tensor \Q = \begin{cases}
+		\Q, &\text{ if } i = n \\
+		0, &\text{ otherwise.}
+	\end{cases} $$
+	This means that $V$ is concentrated in degree $n$ and that the differential is trivial. Take a generator $x$ of degree $n$ such that $V = \Q \cdot x$ and conclude that the cohomology of the minimal model, and hence the rational cohomology of $K(\Z, n)$, is $H(\Lambda V, 0) = \Q[x]$.
+}
+
+
+\section{Products}
+% page 142 and 248
+Let $X$ and $Y$ be two $1$-connected spaces, we will determine the minimal model for $X \times Y$. We have the two projections maps $X \times Y \tot{\pi_X} X$ and $X \times Y \tot{\pi_Y} Y$ which induces maps of cdga's: $A(X) \tot{{\pi_X}_\ast} A(X \times Y)$ and $A(Y) \tot{{\pi_Y}_\ast} A(X \times Y)$. Because we are working with commutative algebras, we can multiply the two maps to obtain:
+$$ \mu: A(X) \tensor A(Y) \tot{{\pi_X}_\ast \cdot {\pi_Y}_\ast} A(X \times Y). $$
+This is different from the singular cochain complex where the Eilenberg-Zilber map is needed. However by passing to cohomology the multiplication is identified with the cup product. Hence, by applying the Künneth theorem, we see that $\mu$ is a weak equivalence.
+
+Now if $M_X = (\Lambda V, d_X)$ and $M_Y = (\Lambda W, d_Y)$ are the minimal models for $A(X)$ and $A(Y)$, we see that $M_X \tensor M_Y \we A(X) \tensor A(Y)$ is a weak equivalence (again by the Künneth theorem). Furthermore $M_X \tensor M_Y = (\Lambda V \tensor \Lambda W, d_X \tensor d_Y)$ is itself minimal, with $V \oplus W$ as generating space. As a direct consequence we see that
+\begin{align*}
+	\pi_i(X \times Y) \tensor \Q &\iso \pi^i(M_X \tensor M_Y)^\ast \\
+		&\iso {V^i}^\ast \oplus {W^i}^\ast \iso \pi_i(X) \oplus \pi_i(Y),
+\end{align*}
+which of course also follows from the classical result that ordinary homotopy groups already commute with products \cite{may}.
+
+Going from cdga's to spaces is easier. Since $K$ is a right adjoint from $\opCat{\CDGA}$ to $\sSet$ it preserves products. For two (possibly minimal) cdga's $A$ and $B$, this means:
+$$ K(A \tensor B) \iso K(A) \times K(B). $$
+Since the geometric realization of simplicial sets also preserve products, we get
+$$ |K(A \tensor B)| \iso |K(A)| \times |K(B)|. $$
+
+
+\section{H-spaces}
+% page 143, Hopf
+In this section we will prove that the rational cohomology of an H-space is free as commutative graded algebra. We will also give its minimal model and relate it to the homotopy groups. In some sense H-spaces are homotopy generalizations of topological monoids. In particular topological groups (and hence Lie groups) are H-spaces.
+
+\Definition{H-space}{
+	An \Def{H-space} is a pointed topological space $x_0 \in X$ with a map $\mu: X \times X \to X$, such that $\mu(x_0, -), \mu(-, x_0) : X \to X$ are homotopic to $\id_X$.
+}
+
+Let $X$ be an $0$-connected H-space of finite type, then we have the induced comultiplication map $\mu^\ast: H^\ast(X; \Q) \to H^\ast(X; \Q) \tensor H^\ast(X; \Q)$.
+
+Homotopic maps are sent to equal maps in cohomology, so we get $H^\ast(\mu(x_0, -)) = \id_{H^\ast(X; \Q)}$. Now write $H^\ast(\mu(x_0, -)) = (\counit \tensor \id) \circ H^\ast(\mu)$, where $\counit$ is the augmentation induced by $x_0$, to conclude that for any $h \in H^{+}(X; \Q)$ the image is of the form
+$$ H^\ast(\mu)(h) = h \tensor 1 + 1 \tensor h + \psi, $$
+for some element $\psi \in H^{+}(X; \Q) \tensor H^{+}(X; \Q)$. This means that the comultiplication is counital.
+
+Choose a subspace $V$ of $H^+(X; \Q)$ such that $H^+(X; \Q) = V \oplus H^+(X; \Q) \cdot H^+(X; \Q)$. In particular we get $V^1 = H^1(X; \Q)$ and $H^2(X; \Q) = V^2 \oplus H^1(X; \Q) \cdot H^1(X; \Q)$. Continuing with induction we see that the induced map $\phi : \Lambda V \to H^\ast(X; \Q)$ is surjective. One can prove (by induction on the degree and using the counitality) that the elements in $V$ are primitive, i.e. $\mu^\ast(v) = 1 \tensor v + v \tensor 1$ for all $v \in V$. The free algebra also admits a comultiplication, by requiring that the generators are the primitive elements. It follows that the following diagram commutes:
+\[ \xymatrix{
+	\Lambda V \ar[r]^\phi \ar[d]^\Delta & H^\ast(X; \Q) \ar[d]^{\mu^\ast} \\
+	\Lambda V \tensor \Lambda V \ar[r]^{\phi\tensor\phi} & H^\ast(X; \Q) \tensor H^\ast(X; \Q) \\
+} \]
+
+We will now prove that $\phi$ is also injective. Suppose by induction that $\phi$ is injective on $\Lambda V^{<n}$. An element $w \in \Lambda V^{\leq n}$ can be written as $\sum_{k_1, \ldots, k_r} v_1^{k_1} \cdots v_r^{k_r} a_{k_1 \cdots k_r}$, where $\{v_1, \ldots, v_r\}$ is a basis for $V^n$ and $a_{k_1 \cdots k_r} \in \Lambda V^{<n}$. Assume $\phi(w) = 0$. Let $\pi : H^\ast(X; \Q) \to H^\ast(X; \Q) / \phi(\Lambda V^{<n})$ is the (linear) projection map. Now consider the image of $(\pi \tensor \id) \mu^\ast (\phi(w)$ in the component $\im(\pi)^n \tensor H^\ast(X; \Q)$, it can be written as (here we use the above commuting square):
+\[ \sum_i ( \pm \pi(v_i) \tensor \phi(\sum_{k_1, \ldots, k_r} k_i v_1^{k_1} \cdots v_i^{k_i - 1} \cdots v_r^{k_r}a_{k_1 \cdots k_r}) \]
+
+As $\phi(w) = 0$ and the elements $\pi(v_i)$ are linearly independent, we see that $\phi(\sum_{k_1, \ldots, k_r} k_i v_1^{k_1} \cdots v_i^{k_i - 1} \cdots v_r^{k_r}a_{k_1 \cdots k_r}) = 0$ for all $i$. By induction on the degree of $w$ (the base case being $\deg{w} = n$ is trivial), we conclude that
+\[ \sum_{k_1, \ldots, k_r} k_i v_1^{k_1} \cdots v_i^{k_i - 1} \cdots v_r^{k_r}a_{k_1 \cdots k_r} = 0 \text{ for all } i\]
+This means that either all $k_i = 0$, in which case $w \in \Lambda V^{<n}$ and so $w = 0$ by induction, or all $a_{k_1, \ldots, k_r} = 0$, in which case we have $w = 0$. This proves that $\phi$ is injective.
+
+We have proven that $\phi : \Lambda V \to H^\ast(H; \Q)$ is an isomorphism. So the cohomology of an H-space is free as cga. Now we can choose cocycles in $A(X)$ which represent the cohomology classes. More precisely for $v_i^{(n)} \in V^n$ we choose $w_i^{(n)} \in A(X)^n$ representing it. This defines a map, which sends $v_i^{(n)}$ to $w_i^{(n)}$. Since $w_i^{(n)}$ are cocycles, this is a map of cdga's:
+\[ m : (\Lambda V, 0) \to A(X) \]
+Now by the calculation above, this is a weak equivalence. Furthermore $(\Lambda V, 0)$ is minimal. We have proven the following lemma:
+
+\Lemma{H-spaces-minimal-models}{
+	Let $X$ be a $0$-connected H-space of finite type. Then its minimal model is of the form $(\Lambda V, 0)$. In particular we see:
+	\[ H(X; \Q) = \Lambda V \qquad \pi_\ast(X) \tensor \Q = V^\ast \]
+}
+
+This allows us to directly relate the rational homotopy groups to the cohomology groups. Since the rational cohomology of the sphere $S^n$ is not free (as algebra) when $n$ is even we get the following.
+
+\Corollary{spheres-not-H-spaces}{
+	The spheres $S^n$ are not H-spaces if $n$ is even.
+}
+
+In fact we have that $S^n_\Q$ is an H-space if and only if $n$ is odd. The only if part is precisely the corollary above, the if part follows from the fact that $S^n_\Q$ is the loop space $K(\Q^\ast, n)$ for odd $n$.
+\todo{$SO(n)$?}
+
