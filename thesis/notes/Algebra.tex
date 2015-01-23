@@ -77,18 +77,19 @@ Finally we come to the definition of a differential graded algebra. This will be
 	$$ d(x y) = d(x) y + (-1)^{\deg{x}} x d(y) \quad\text{ for all } x, y \in A. $$
 \end{definition}
 
-In general, a map which satisfies the above Leibniz rule is called a \Def{derivation}.
+In general, a map which satisfies the above Leibniz rule is called a \Def{derivation}. It is not hard to see that the definition of a dga precisely defines the monoidal objects in the category of differential graded modules.
 
-It is not hard to see that the definition of a dga precisely defines the monoidal objects in the category of differential graded modules. The category of dga's will be denoted by $\DGA_\k$, the category of commutative dga's (cdga's) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation.
+In this thesis we will restrict our atention to dga's $M$ with $M^i = 0 $ for all $i < 0$, i.e. non-negatively (cohomologically) graded dga's. We denote the category of these dga's by $\DGA_\k$, the category of commutative dga's (cdga's) will be denoted by $\CDGA_\k$. If no confusion can arise, the ground ring $\k$ will be suppressed in this notation. These objects are also refered to as \emph{(co)chain algebras}.
 
-Let $M$ be a DGA, just as before $M$ is called a \emph{chain algebras} if $M_i = 0$ for $i < 0$. Similarly if $M^i = 0$ for all $i < 0$, then $M$ is a \emph{cochain algebra}.
+\Definition{augmented-cdga}{
+	An \Def{augmented dga} is a dga $A$ with an map $\counit : A \to \k$. Note that this necessarily means that $\counit \unit = \id$.
+}
 
-\todo{The notation $\CDGA$ seem to refer to cochain algebras in literature and not arbitrary cdga's.}
-\todo{Augmentations}
+The above notion is dual to the notion of a pointed objects.
 
 
 \Remark{orthogonal-definition}{
-	Note that all the above definitions (i.e. the definitions of graded objects, algebras, differentials) are orthogonal, meaning that any combination makes sense. However, keep in mind that we require the structures to be compatible. For example, an algebra with differential should satisfy the Leibniz rule (i.e. the differential should be a map of algebras).
+	Note that all the above definitions (i.e. the definitions of graded objects, algebras, differentials, augmentations) are orthogonal, meaning that any combination makes sense. However, keep in mind that we require the structures to be compatible. For example, an algebra with differential should satisfy the Leibniz rule (i.e. the differential should be a map of algebras).
 }
 
 
@@ -110,7 +111,7 @@ If the module has more structure as discussed above, homology will preserve this
 		\item If $M$ has an algebra structure, then so does $H(M)$, given by
 		\[ [z_1] \cdot [z_2] = [z_1 \cdot z_2] \]
 		\item If $M$ is a commutative algebra, so is $H(M)$.
-		\todo{augmented}
+		\item If $M$ is augmented, so is $H(M)$.
 	\end{itemize}
 }
 Of course the converses need not be true. For example the singular cochain complex associated to a space is a graded differential algebra which is \emph{not} commutative. However, by taking homology one gets a commutative algebra.
@@ -118,9 +119,9 @@ Of course the converses need not be true. For example the singular cochain compl
 Note that taking homology of a differential graded module (or algebra) is functorial. Whenever a map $f: M \to N$ of differential graded modules (or algebras) induces an isomorphism on homology, we say that $f$ is a \emph{quasi isomorphism}.
 
 \begin{definition}
-	Let $M$ be a graded module. We say that $M$ is $n$-reduced if $M_i = 0$ for all $i \leq n$. Similarly we say that a graded \todo{augmented} algebra $A$ is $n$-reduced if $A_i = 0$ for all $1 \leq i \leq n$ and $\eta: \k \tot{\iso} A_0$.
+	Let $M$ be a graded module. We say that $M$ is $n$-reduced if $M_i = 0$ for all $i \leq n$. Similarly we say that a graded augmented algebra $A$ is $n$-reduced if $A_i = 0$ for all $1 \leq i \leq n$ and $\eta: \k \tot{\iso} A_0$.
 
-	Let $(M, d)$ be a chain complex (or algebra). We say that $M$ is $n$-connected if $H(M)$ is $n$-reduced as graded module (resp. \todo{augmented} algebra). Similarly for cochain complexes.
+	Let $(M, d)$ be a chain complex (or algebra). We say that $M$ is $n$-connected if $H(M)$ is $n$-reduced as graded module (resp. augmented algebra). Similarly for cochain complexes (or algebras).
 \end{definition}
 
 

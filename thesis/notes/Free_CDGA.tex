@@ -32,7 +32,7 @@ As with the symmetric algebra and exterior algebra of a vector space, we can tur
 
 \begin{definition}
 	Let $A$ be a graded algebra and define
-	$$ I = < ab - (-1)^{\deg{a}\deg{b}}b a \I a,b \in A >. $$
+	$$ I = \langle ab - (-1)^{\deg{a}\deg{b}}b a \I a,b \in A \rangle $$
 	Then $A / I$ is a commutative graded algebra.
 
 	For a graded module $M$ we define the \emph{free commutative graded algebra} as
@@ -48,5 +48,4 @@ Again this extends to differential graded modules (i.e. the ideal is preserved b
 	$$ \Lambda: \CoCh{\k} \leftadj \CDGA_\k :U $$
 \end{lemma}
 
-We can now easily construct cdga's by specifying generators and their differentials.
-\todo{augmented}
+We can now easily construct cdga's by specifying generators and their differentials. Note that a free algebra has a natural augmentation, defined as $\counit(v) = 0$ for every generator $v$ and $\counit(1) = 1$.
