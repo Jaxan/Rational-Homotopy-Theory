@@ -1,29 +1,33 @@
 
 \chapter*{Introduction}
 
-In this thesis we will study rational homotopy theory. The subject was first considered by Serre in the 1950s, he was able to calculate the torsion free part of the homotopy of the spheres \cite{serre}. Despite the complicated structure of these homotopy groups, their torsion free parts have a nice and simple description.
+Homotopy theory is the study of topological spaces and homotopy equivalences. These equivalences are weaker than isomorphism. An isomorphism is given by two maps $f : X \leftadj Y : g$, such that the both compositions are equal to identities. A homotopy equivalence weakens this by requiring the compositions to be homotopic to identities. Some properties of spaces, such as some kinds of connectedness, only depend on the homotopy type. Such properties are homotopy invariants. \todo{not happy with this yet...}
 
-In order to investigate the torsion free part of any (abelian) group, one can tensor with the rationals to kill all torsion. This observation allows to define rational homotopy groups for any space.
+Examples of homotopy invariants are homology groups $H_n(X)$ and homotopy groups $\pi_n(X)$. The latter is defined as the set of continuous maps $S^n \to X$ up to homotopy. Despite the easy definition, the groups $\pi_n(S^k)$ are very hard to calculate and much of it is even unknown as of today.
 
-The fact that the rationals homotopy groups of the spheres are so simple led other mathematician believe that there could be a simple description for all of rational homotopy theory. The first to successfully give an algebraic model for rational homotopy theory was Quillen in the 1960s \cite{quillen}. His approach, however, is quite complicated. The equivalence he proves passes through four different categories. Not much later Sullivan gave an approach which resembles some ideas from de Rahm cohomology \cite{sullivan}.
+In rational homotopy theory one ``localizes'' these invariants. Instead of considering $H_n(X)$ and $\pi_n(X)$, we consider the rational homology groups $H_n(X) \tensor \Q$ and the rational homotopy groups $\pi_n(X) \tensor \Q$. In fact, these groups are really $\Q$-vector spaces, and hence contain no torsion information. So rational homotopy theory is not able to see this information. This disadvantage is compensated by the fact that it is easier to calculate these invariants.
+
+The first steps towards this theory were taken by Serre in the 1950s. In \cite{serre} he successfully calculated the torsion-free part of $\pi_n(S^k)$ for all $n$ and $k$. The outcome was remarkably easy and structured.
+
+The fact that the rational homotopy groups of the spheres are so simple led other mathematician believe that there could be a simple description for all of rational homotopy theory. The first to successfully give an algebraic model for rational homotopy theory was Quillen in the 1960s \cite{quillen}. His approach, however, is quite complicated. The equivalence he proves passes through four different model categories. Not much later Sullivan gave an approach which resembles some ideas from de Rahm cohomology \cite{sullivan}, which is of a more geometric nature. The theory of Sullivan is the main subject of this thesis.
 
 The most influential paper is from Bousfield and Gugenheim which combines Quillen's abstract machinery of model categories with the approach of Sullivan \cite{bousfield}. Being only a paper, it does not contain a lot of details, which might scare the reader at first.
 
 There is a much newer book by Félix, Halperin and Thomas \cite{felix}. This book covers much more than the paper from Bousfield and Gugenheim but does not use the theory of model categories. On one hand, this makes the proofs more elementary, on the other hand it may obscure some abstract constructions. This thesis will provide a middle ground. We will use model categories, but still provide a lot of detail.
 
-After some preliminaries this thesis will start with the work from Serre in \ChapterRef{Serre}. We will avoid the use of spectral sequences. The theorems stated in this chapter are not necessarily needed for the main theorems in this thesis. Nowadays there are more abstract tools to prove the needed results, but as Serre's theorems are nice in their own rights, they are included in this thesis.
+After some preliminaries, this thesis will start with some of the work from Serre in \ChapterRef{Serre}. We will avoid the use of spectral sequences. The theorems are more specific than we actually need and there are easier, more abstract ways to prove what we need. But these theorems in their current form are nice on their own rights, and so they are included in this thesis.
 
-The next chapter (\ChapterRef{Rationalization}) describes a way to localize a space, in the same way we can localize a ring. This technique allows us to consider ordinary homotopy equivalences between the localized spaces, instead of rational equivalences, which are harder to visualize.
+The next chapter (\ChapterRef{Rationalization}) describes a way to localize a space directly, in the same way we can localize an abelian group. This technique allows us to consider ordinary homotopy equivalences between the localized spaces, instead of rational equivalences, which are harder to grasp.
 
 The longest chapter is \ChapterRef{HomotopyTheoryCDGA}. In this chapter we will describe commutative differential graded algebras and their homotopy theory. One can think of these objects as rings which are at the same time cochain complexes. Not only will we describe a model structure on this category, we will also explicitly describe homotopy relations and homotopy groups.
 
-In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and commutative differential graded algebras. It is here that we see a construction similar to the de Rahm complex of a manifold.
+In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and commutative differential graded algebras. It is here that we see a construction similar to the construction of the de Rahm complex of a manifold.
 
 \ChapterRef{MinimalModels} brings us back to the study of commutative differential graded algebras. In this chapter we study to so called minimal models. These models enjoy the property that homotopically equivalent minimal models are actually isomorphic. Furthermore their homotopy groups are easily calculated.
 
 The main theorem is proven in \ChapterRef{Equivalence}. The adjunction from \ChapterRef{Adjunction} turns out to induce an equivalence on (subcategories of) the homotopy categories. This unifies rational homotopy theory of spaces with the homotopy theory of commutative differential graded algebras.
 
-Finally we will see some explicit calculations in \ChapterRef{Calculations}. These calculations are remarkable easy, once we have the main equivalence. To prove, for example, Serre's result on the rational homotopy groups of spheres, we construct a minimal model and read off their homotopy groups. We will also discuss related topics in \ChapterRef{Topics} which will conclude this thesis.
+Finally we will see some explicit calculations in \ChapterRef{Calculations}. These calculations are remarkable easy. To prove for instance Serre's result on the rational homotopy groups of spheres, we construct a minimal model and read off their homotopy groups. We will also discuss related topics in \ChapterRef{Topics} which will conclude this thesis.
 
 
 \section{Preliminaries and Notation}
@@ -32,7 +36,7 @@ We assume the reader is familiar with category theory, basics from algebraic top
 
 We will fix the following notations and categories.
 \begin{itemize}
-	\item $\k$ will denote an arbitrary commutative ring (or field, if indicated at the start of a section). Modules, tensor products, \dots are understood as $\k$-modules, tensor products over $\k$, \dots.\todo{$\k$ doesn't always seem to work...}
+	\item $\k$ will denote a field of characteristic zero. Modules, tensor products,\dots are understood as $\k$-modules, tensor products over $\k$,\dots. \todo{$\k$ doesn't always seem to work...}
 	\item $\Hom_{\cat{C}}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. The subscript $\cat{C}$ may occasionally be left out.
 	\item $\Top$: category of topological spaces and continuous maps. We denote the full subcategory of $r$-connected spaces by $\Top_r$, this convention is also used for other categories.
 	\item $\Ab$: category of abelian groups and group homomorphisms.

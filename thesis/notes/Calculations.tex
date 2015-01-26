@@ -48,7 +48,7 @@ The generators $e$ and $f$ in the last proof are related by the so called \Def{W
 	$$ \pi_\ast(S^n) \tensor \Q = \text{the free whitehead algebra on 1 generator}. $$
 }
 
-Together with the fact that all groups $\pi_i(S^n)$ are finitely generated (this was proven by Serre in \cite{serre}) we can conclude that $\pi_i(S^n)$ is a finite group unless $i=n$ and unless $i=2n-1$ for even $n$. The fact that $\pi_i(S^n)$ are finitely generated can be proven by the Serre-Hurewicz theorems (\TheoremRef{serre-hurewicz}) when taking the Serre class of finitely generated abelian groups (but this requires a weaker notion of a Serre class, and stronger theorems, than the one given in this thesis).
+Together with the fact that all groups $\pi_i(S^n)$ are finitely generated (this is proven by Serre in \cite{serre}) we can conclude that $\pi_i(S^n)$ is a finite group unless $i=n$ and unless $i=2n-1$ for even $n$. The fact that $\pi_i(S^n)$ are finitely generated can be proven by the Serre-Hurewicz theorems (\TheoremRef{serre-hurewicz}) when taking the Serre class of finitely generated abelian groups (but this requires a weaker notion of a Serre class, and stronger theorems, than the one given in this thesis).
 
 
 \section{Eilenberg-MacLane spaces}
@@ -69,12 +69,16 @@ The following result is already used in proving the main theorem. But using the 
 	This means that $V$ is concentrated in degree $n$ and that the differential is trivial. Take a generator $x$ of degree $n$ such that $V = \Q \cdot x$ and conclude that the cohomology of the minimal model, and hence the rational cohomology of $K(\Z, n)$, is $H(\Lambda V, 0) = \Q[x]$.
 }
 
+Note that both the result on the spheres and this result are very different in ordinary homotopy theory. The ordinary homotopy groups of the spheres are very hard to calculate and in many cases even unknown. Similarly the (co)homology of Eilenberg-MacLane spaces is complicated (but known). In rational homotopy theory, both are easy to calculate.
+
+Another remarkable thing happens here, the odd spheres are rationally equivalent to Eilenberg-MacLane spaces. In a further section we will briefly see that this allows us to prove that $S^n_\Q$ is an H-space if and only if $n$ is odd.
+
 
 \section{Products}
 % page 142 and 248
 Let $X$ and $Y$ be two $1$-connected spaces, we will determine the minimal model for $X \times Y$. We have the two projections maps $X \times Y \tot{\pi_X} X$ and $X \times Y \tot{\pi_Y} Y$ which induces maps of cdga's: $A(X) \tot{{\pi_X}_\ast} A(X \times Y)$ and $A(Y) \tot{{\pi_Y}_\ast} A(X \times Y)$. Because we are working with commutative algebras, we can multiply the two maps to obtain:
 $$ \mu: A(X) \tensor A(Y) \tot{{\pi_X}_\ast \cdot {\pi_Y}_\ast} A(X \times Y). $$
-This is different from the singular cochain complex where the Eilenberg-Zilber map is needed. However by passing to cohomology the multiplication is identified with the cup product. Hence, by applying the Künneth theorem, we see that $\mu$ is a weak equivalence.
+This is different from the singular cochain complex where the Eilenberg-Zilber map is needed. By passing to cohomology the multiplication is identified with the cup product. Hence, by applying the Künneth theorem, we see that $\mu$ is a weak equivalence.
 
 Now if $M_X = (\Lambda V, d_X)$ and $M_Y = (\Lambda W, d_Y)$ are the minimal models for $A(X)$ and $A(Y)$, we see that $M_X \tensor M_Y \we A(X) \tensor A(Y)$ is a weak equivalence (again by the Künneth theorem). Furthermore $M_X \tensor M_Y = (\Lambda V \tensor \Lambda W, d_X \tensor d_Y)$ is itself minimal, with $V \oplus W$ as generating space. As a direct consequence we see that
 \begin{align*}
@@ -105,11 +109,11 @@ for some element $\psi \in H^{+}(X; \Q) \tensor H^{+}(X; \Q)$. This means that t
 
 Choose a subspace $V$ of $H^+(X; \Q)$ such that $H^+(X; \Q) = V \oplus H^+(X; \Q) \cdot H^+(X; \Q)$. In particular we get $V^1 = H^1(X; \Q)$ and $H^2(X; \Q) = V^2 \oplus H^1(X; \Q) \cdot H^1(X; \Q)$. Continuing with induction we see that the induced map $\phi : \Lambda V \to H^\ast(X; \Q)$ is surjective. One can prove (by induction on the degree and using the counitality) that the elements in $V$ are primitive, i.e. $\mu^\ast(v) = 1 \tensor v + v \tensor 1$ for all $v \in V$. The free algebra also admits a comultiplication, by requiring that the generators are the primitive elements. It follows that the following diagram commutes:
 \[ \xymatrix{
-	\Lambda V \ar[r]^\phi \ar[d]^\Delta & H^\ast(X; \Q) \ar[d]^{\mu^\ast} \\
-	\Lambda V \tensor \Lambda V \ar[r]^{\phi\tensor\phi} & H^\ast(X; \Q) \tensor H^\ast(X; \Q) \\
+	\Lambda V \ar[r]^-\phi \ar[d]^\Delta & H^\ast(X; \Q) \ar[d]^{\mu^\ast} \\
+	\Lambda V \tensor \Lambda V \ar[r]^-{\phi\tensor\phi} & H^\ast(X; \Q) \tensor H^\ast(X; \Q) \\
 } \]
 
-We will now prove that $\phi$ is also injective. Suppose by induction that $\phi$ is injective on $\Lambda V^{<n}$. An element $w \in \Lambda V^{\leq n}$ can be written as $\sum_{k_1, \ldots, k_r} v_1^{k_1} \cdots v_r^{k_r} a_{k_1 \cdots k_r}$, where $\{v_1, \ldots, v_r\}$ is a basis for $V^n$ and $a_{k_1 \cdots k_r} \in \Lambda V^{<n}$. Assume $\phi(w) = 0$. Let $\pi : H^\ast(X; \Q) \to H^\ast(X; \Q) / \phi(\Lambda V^{<n})$ is the (linear) projection map. Now consider the image of $(\pi \tensor \id) \mu^\ast (\phi(w)$ in the component $\im(\pi)^n \tensor H^\ast(X; \Q)$, it can be written as (here we use the above commuting square):
+We will now prove that $\phi$ is also injective. Suppose by induction that $\phi$ is injective on $\Lambda V^{<n}$. An element $w \in \Lambda V^{\leq n}$ can be written as $\sum_{k_1, \ldots, k_r} v_1^{k_1} \cdots v_r^{k_r} a_{k_1 \cdots k_r}$, where $\{v_1, \ldots, v_r\}$ is a basis for $V^n$ and $a_{k_1 \cdots k_r} \in \Lambda V^{<n}$. Assume $\phi(w) = 0$. Let $\pi : H^\ast(X; \Q) \to H^\ast(X; \Q) / \phi(\Lambda V^{<n})$ be the (linear) projection map. Now consider the image of $(\pi \tensor \id) \mu^\ast (\phi(w)$ in the component $\im(\pi)^n \tensor H^\ast(X; \Q)$, it can be written as (here we use the above commuting square):
 \[ \sum_i ( \pm \pi(v_i) \tensor \phi(\sum_{k_1, \ldots, k_r} k_i v_1^{k_1} \cdots v_i^{k_i - 1} \cdots v_r^{k_r}a_{k_1 \cdots k_r}) \]
 
 As $\phi(w) = 0$ and the elements $\pi(v_i)$ are linearly independent, we see that $\phi(\sum_{k_1, \ldots, k_r} k_i v_1^{k_1} \cdots v_i^{k_i - 1} \cdots v_r^{k_r}a_{k_1 \cdots k_r}) = 0$ for all $i$. By induction on the degree of $w$ (the base case being $\deg{w} = n$ is trivial), we conclude that
