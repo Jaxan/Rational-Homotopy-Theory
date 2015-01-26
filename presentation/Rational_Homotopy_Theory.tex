@@ -1,0 +1,185 @@
+\documentclass[14pt]{beamer}
+
+\definecolor{todocolor}{rgb}{1, 0.3, 0.2}
+\newcommand{\td}[1]{\colorbox{todocolor}{*\footnote{TODO: #1}}}
+
+\input{preamble}
+\usepackage{tabularx}
+\renewcommand{\tabularxcolumn}[1]{p{#1}}
+
+\newcommand{\Frame}[2]{
+	\begin{frame}{#1}#2\end{frame}
+}
+
+\title{Rational Homotopy Theory}
+\author{Joshua Moerman}
+\institute[Radboud Universiteit Nijmegen]{Supervisor: Ieke Moerdijk}
+\date{}
+
+\begin{document}
+
+\AtBeginSection[]{
+	\begin{frame}<beamer>
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\Frame{}{
+	\titlepage
+}
+
+
+\section{Introduction to homotopy theory}
+\Frame{Homotopy theory}{
+	\begin{center}
+	Study of space or shapes \\
+	with ``weak equivalences''
+
+	\bigskip
+	\td{plaatje}
+	\end{center}
+}
+
+\Frame{Important spaces}{
+\td{plaatjes}
+\begin{align*}
+	S^1 &= ... \\[1em]
+	S^2 &= ... \\[1em]
+	S^3 &= \cdots \\[1em]
+	    &\cdots
+\end{align*}
+}
+
+\Frame{Important tool}{
+	Fundamental group:
+
+	\[ \pi_1(X) = \text{maps } S^1 \to X \text{ up to homotopy} \]
+
+	\bigskip
+	\td{plaatje}
+}
+
+\Frame{Important tools}{
+	Homotopy groups:
+
+	\begin{align*}
+	\pi_1(X) &= \text{maps } S^1 \to X \text{ up to homotopy} \\[1em]
+	\pi_2(X) &= \text{maps } S^2 \to X \text{ up to homotopy} \\[1em]
+	\pi_3(X) &= \text{maps } S^3 \to X \text{ up to homotopy} \\[1em]
+	&\cdots
+	\end{align*}
+}
+
+\Frame{Torsion-free}{
+	Serre proved in 1950s:
+	\begin{align*}
+		\text{odd } k: \quad \pi_n(S^k) \tensor \Q &=
+		\begin{cases}
+			\Q &\text{ if } n = k \\
+			0 &\text{ otherwise }
+		\end{cases} \\[1em]
+		\text{even } k: \quad \pi_n(S^k) \tensor \Q &=
+		\begin{cases}
+			\Q &\text{ if } n = k, 2k-1 \\
+			0 &\text{ otherwise }
+		\end{cases} \\
+	\end{align*}
+}
+
+
+\section{Rational homotopy theory}
+\Frame{Rational homotopy theory}{
+	\begin{center}
+	Study of spaces\\
+	with ``rational equivalences'' \\
+	and ``rational homotopy groups''
+
+	\pause
+	\bigskip
+	or
+	\bigskip
+
+	Study of \emph{rational} spaces \\
+	with weak equivalences \\
+	and ordinary homotopy groups
+	\end{center}
+}
+
+\Frame{Rational spaces}{
+	$X$ is \emph{rational} if $\pi_n(X)$ is a $\Q$-vector space
+
+	\bigskip
+	\td{plaatje telescoop}
+}
+
+
+\section{The main equivalence}
+\Frame{Main equivalence}{
+	\begin{theorem}
+	\begin{center}
+		Homotopy theory of rational spaces \\
+		= \\
+		Homotopy theory of commutative differential graded algebras
+	\end{center}
+	\end{theorem}
+}
+
+\Frame{Main equivalence (precise version)}{
+	\begin{theorem}
+		\[ \Ho(\Top_{\Q, 1, f}) \simeq \opCat{\Ho(\CDGA_{\Q, 1, f})} \]
+	\end{theorem}
+}
+
+\Frame{What is a cdga?}{
+	\begin{definition}
+		a cdga $A$ is
+		\begin{itemize}
+			\item a $\Q$-vector space
+			\item with a multiplication $A \tensor A \tot{\mu} A$
+			\item with a differential $A \tot{d} A$ such that $d^2 = 0$
+			\item with a grading $A = \bigoplus_{n \in \N} A^n$
+			\item it is commutative: $ x y = (-1)^{\deg{x}\cdot\deg{y}} y x $
+		\end{itemize}
+	\end{definition}
+}
+
+\Frame{Free cdga's}{
+	As always: there is a free guy: $\Lambda(...)$
+
+	For example
+	\[ \Lambda(t, dt) \text{ with } \deg{t} = 0 \]
+	is just polynomials in $t$, with its differential $dt$
+}
+
+\newcommand{\Dict}[1]{
+	\noindent
+	\begin{tabularx}{\textwidth}{ X X }
+		{\bf rational spaces} & {\bf cdga's} \\[1em]
+		#1
+	\end{tabularx}
+}
+
+\Frame{Dictionary}{
+	\Dict{
+		$S^n$ with $n$ odd
+				& $\Lambda(e)$ with $\deg{e} = n$ \\[1em]
+
+		$S^n$ with $n$ even
+				& $\Lambda(e, f)$ with $\deg{e} = n$, $\deg{f} = 2n-1$ and $d f = e^2$ \\[1em]
+
+		Eilenberg-MacLane space $K(\Q, n)$
+				& $\Lambda(e)$ with $\deg{e} = n$
+	}
+}
+
+\Frame{Dictionary}{
+	\Dict{
+		homotopy $$h: X \times I \to Y$$
+				& homotopy $$h: A \to B \tensor \Lambda(t, dt)$$ \\[1em]
+
+		$f: X \to Y$ weak equivalence if $\pi_n(f): \pi_n(X) \iso \pi_n(Y)$
+				& $f: A \to B$ weak equivalence if $H(f): H(X) \iso H(Y)$
+	}
+}
+
+\end{document}

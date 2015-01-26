@@ -1,0 +1,160 @@
+
+% normally included with amsart
+% \usepackage{amsmath, amsthm}
+
+% font with unicode support, does not work with classicthesis
+% \usepackage{fontspec}
+
+% clickable tocs
+\usepackage{hyperref}
+
+% floating figures
+\usepackage{float}
+
+% for multiple cites
+\usepackage{cite}
+
+% fancy diagrams
+\usepackage{tikz}
+\usetikzlibrary{matrix, arrows, decorations}
+\tikzset{node distance=2.5em, row sep=2.2em, column sep=2.7em, auto}
+
+% simple diagrams
+% \usepackage[all,cmtip]{xy}
+
+\usepackage{graphicx}
+% \graphicspath{ {./images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+
+% for the fib arrow
+\usepackage{amssymb}
+
+% Some basic objects
+\newcommand{\N}{\mathbb{N}}				% natural numbers
+\newcommand{\Np}{{\mathbb{N}^{>0}}}		% positive numbers
+\newcommand{\Z}{\mathbb{Z}}				% integers
+\newcommand{\R}{\mathbb{R}}				% reals
+\DeclareRobustCommand{\Q}{\mathbb{Q}}				% rationals
+\renewcommand{\k}{\mathrm{I\!k}}		% default ground ring
+
+% Basic category stuff
+\newcommand{\cat}[1]{\mathbf{#1}}		% the category of ...
+\newcommand{\opCat}[1]{{#1}^{\text{op}}}% opposite category
+\newcommand{\Hom}{\mathbf{Hom}}
+\newcommand{\id}{\mathbf{id}}
+\newcommand{\Ho}{\cat{Ho}}
+
+% Categories
+\newcommand{\Set}{\cat{Set}}			% sets
+\newcommand{\Top}{\cat{Top}}			% topological spaces
+\newcommand{\Grp}{\cat{Grp}}			% groups
+\newcommand{\Ab}{\cat{Ab}}				% abelian groups
+\newcommand{\DELTA}{\boldsymbol{\Delta}}% the simplicial cat
+\newcommand{\simplicial}[1]{\cat{s{#1}}}% simplicial objects
+\newcommand{\sSet}{\simplicial{\Set}}	% simplicial sets
+\newcommand{\Mod}[1]{\cat{{#1}Mod}}		% modules over a ring
+\newcommand{\Alg}[1]{\cat{{#1}Alg}}		% algebras over a ring
+\newcommand{\grMod}[1]{\cat{gr\mbox{-}{#1}Mod}}	% graded modules over a ring
+\newcommand{\grAlg}[1]{\cat{gr\mbox{-}{#1}Alg}}	% graded algebras over a ring
+\newcommand{\dgMod}[1]{\cat{dg\mbox{-}{#1}Mod}}	% differential graded modules over a ring
+\newcommand{\dgAlg}[1]{\cat{dg\mbox{-}{#1}Alg}}	% differential graded algebras over a ring
+\newcommand{\Ch}[1]{\cat{Ch_{n\geq0}({#1})}}	% chain complexes
+\newcommand{\CoCh}[1]{\cat{Ch^{n\geq0}({#1})}}	% cochain complexes
+\DeclareRobustCommand{\DGA}{\cat{DGA}}			% cochain algebras
+\DeclareRobustCommand{\CDGA}{\cat{CDGA}}		% commutative cochain algebras
+\DeclareRobustCommand{\AugCDGA}{\cat{CDGA^\ast}}% augmentedcommutative cochain algebras
+
+\newcommand{\cof}{\hookrightarrow}		% cofibration
+\newcommand{\fib}{\twoheadrightarrow}	% fibration
+\newcommand{\we}{\tot{\simeq}}			% weak equivalence
+
+% for use in xy diagrams
+\newcommand{\arcof}{\ar@{^{(}->}}
+\newcommand{\artcof}{\ar@{^{(}->}|\simeq}
+\newcommand{\arfib}{\ar@{->>}}
+\newcommand{\artfib}{\ar@{->>}|\simeq}
+\newcommand{\arwe}{\ar|-\simeq}
+\newcommand{\ariso}{\ar|-\iso}
+
+% adjunction symbol for xymatrices
+\newcommand{\xyadj}{\raisebox{0.2\height}{\scalebox{0.5}{$\perp$}}}
+
+% pushout and pullback for xymatrices (makes empty arrow with text)
+\newcommand{\xypo}{\ar@{}[dr]|(.75){\scalebox{1.2}{$\ulcorner$}}}
+\newcommand{\xypb}{\ar@{}[dr]|(.25){\scalebox{1.2}{$\lrcorner$}}}
+
+%\newcommand{\leftadj}{\ooalign{\hss\rightleftarrows\hss\cr\bot}}
+\newcommand{\leftadj}{\rightleftarrows}
+
+% Notation and operators
+\newcommand{\I}{\,\mid\,}				% seperator in set notation
+\newcommand{\del}{\partial}				% boundary
+\newcommand{\iso}{\cong}				% isomorphic
+\newcommand{\eq}{\sim}					% homotopic
+\newcommand{\ison}[1]{\stackrel{(#1)}{\iso}} % isos to refer to
+\newcommand{\refison}[1]{{\small $(#1)$}}    % ref
+\newcommand{\tot}[1]{\xrightarrow{\,\,{#1}\,\,}}	% arrow with name
+\newcommand{\toti}[1]{\xleftarrow{\,\,{#1}\,\,}}	% left arrow with name
+\newcommand{\mapstot}[1]{\xmapsto{\,\,{#1}\,\,}}	% mapsto with name
+\newcommand{\unit}{\eta}
+\newcommand{\counit}{\epsilon}
+\DeclareMathOperator*{\im}{im}
+\DeclareMathOperator*{\coker}{coker}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tor}{Tor}
+\DeclareMathOperator*{\Ext}{Ext}
+\DeclareMathOperator*{\tensor}{\otimes}
+\DeclareMathOperator*{\bigtensor}{\bigotimes}
+\renewcommand{\deg}[1]{{|{#1}|}}
+\newcommand{\Char}[1]{char({#1})}
+\newcommand{\RH}{\widetilde{H}}			% reduced homology
+\DeclareRobustCommand{\C}{\mathcal{C}}			% Serre mod C class
+\newcommand{\Apl}[0]{{A_{PL}}}			% Apl simplicial set of polynomials
+
+\newcommand{\titleCDGA}{\texorpdfstring{$\CDGA$}{CDGA}}
+
+% restriction of a function
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% Todos in the margin
+\newcommand{\todo}[1]{
+	\addcontentsline{tdo}{todo}{\protect{#1}}
+	$\ast$ \marginpar{\tiny $\ast$ #1}
+}
+% Big todos in text
+\newcommand{\TODO}[1]{
+	\addcontentsline{tdo}{todo}{\protect{#1}}
+	{\tiny $\ast$ #1}
+}
+% TODO item, as itemize does not work
+\newcommand{\titem}[0]{\\-\qquad}
+% List of todos
+\makeatletter
+	\newcommand \listoftodos{\section*{Todo list} \@starttoc{tdo}}
+	\newcommand\l@todo[2]{
+		\par\noindent \textit{#2}, \parbox{10cm}{#1}\par
+	}
+\makeatother
+
+% simple way to center an image
+\newcommand{\cimage}[2][]{
+	\begin{center}
+	\includegraphics[#1]{#2}
+	\end{center}
+}
+
+% simple way to center a diagram
+\newcommand{\cdiagrambase}[1]{
+	\begin{displaymath}
+	\input{#1}
+	\end{displaymath}
+}
+\newcommand{\cdiagram}[1]{
+	\cdiagrambase{diagrams/#1}
+}
