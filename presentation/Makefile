@@ -16,5 +16,12 @@ haltfast: dirs
 	xelatex -file-line-error -output-directory=build --halt-on-error Rational_Homotopy_Theory.tex
 	cp build/Rational_Homotopy_Theory.pdf ./
 
+symbols: dirs
+	xelatex -file-line-error -output-directory=build symbols.tex
+	xelatex -file-line-error -output-directory=build symbols.tex
+	scp build/symbols.pdf moerman@stitch.science.ru.nl:~/rathtpy_images.pdf
+	ssh moerman@stitch.science.ru.nl 'pdf2svg rathtpy_images.pdf rathtpy_images.svg'
+	scp moerman@stitch.science.ru.nl:~/rathtpy_images.svg ./symbols.svg
+
 dirs:
 	mkdir -p build

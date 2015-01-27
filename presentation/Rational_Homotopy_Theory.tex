@@ -7,6 +7,8 @@
 \usepackage{tabularx}
 \renewcommand{\tabularxcolumn}[1]{p{#1}}
 
+\graphicspath{ {../presentation/images/} }
+
 \newcommand{\Frame}[2]{
 	\begin{frame}{#1}#2\end{frame}
 }
@@ -32,21 +34,20 @@
 \section{Introduction to homotopy theory}
 \Frame{Homotopy theory}{
 	\begin{center}
-	Study of space or shapes \\
+	Study of spaces or shapes \\
 	with ``weak equivalences''
 
 	\bigskip
-	\td{plaatje}
+	\includegraphics{weak_eqs2}
 	\end{center}
 }
 
 \Frame{Important spaces}{
-\td{plaatjes}
 \begin{align*}
-	S^1 &= ... \\[1em]
-	S^2 &= ... \\[1em]
-	S^3 &= \cdots \\[1em]
-	    &\cdots
+	S^1 &= \raisebox{-0.4\height}{\includegraphics{spheres1}} \\[1em]
+	S^2 &= \raisebox{-0.4\height}{\includegraphics{spheres2}} \\[1em]
+	S^3 &= \>\> \cdots \\[1em]
+	    &\>\> \vdots
 \end{align*}
 }
 
@@ -56,7 +57,7 @@
 	\[ \pi_1(X) = \text{maps } S^1 \to X \text{ up to homotopy} \]
 
 	\bigskip
-	\td{plaatje}
+	\includegraphics{fundamental_group}
 }
 
 \Frame{Important tools}{
@@ -66,7 +67,7 @@
 	\pi_1(X) &= \text{maps } S^1 \to X \text{ up to homotopy} \\[1em]
 	\pi_2(X) &= \text{maps } S^2 \to X \text{ up to homotopy} \\[1em]
 	\pi_3(X) &= \text{maps } S^3 \to X \text{ up to homotopy} \\[1em]
-	&\cdots
+	&\>\>\vdots
 	\end{align*}
 }
 
@@ -109,7 +110,7 @@
 	$X$ is \emph{rational} if $\pi_n(X)$ is a $\Q$-vector space
 
 	\bigskip
-	\td{plaatje telescoop}
+	\[ S^1_\Q = \raisebox{-0.55\height}{\includegraphics{infinite_telescope}} \]
 }
 
 
@@ -177,8 +178,8 @@
 		homotopy $$h: X \times I \to Y$$
 				& homotopy $$h: A \to B \tensor \Lambda(t, dt)$$ \\[1em]
 
-		$f: X \to Y$ weak equivalence if $\pi_n(f): \pi_n(X) \iso \pi_n(Y)$
-				& $f: A \to B$ weak equivalence if $H(f): H(X) \iso H(Y)$
+		weak equivalence $$\pi_n(f): \pi_n(X) \iso \pi_n(Y)$$
+				& weak equivalence if $$H(f): H(X) \iso H(Y)$$
 	}
 }
 
