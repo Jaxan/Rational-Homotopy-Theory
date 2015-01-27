@@ -162,10 +162,10 @@
 
 \Frame{Dictionary}{
 	\Dict{
-		$S^n$ with $n$ odd
+		$S^n_\Q$ with $n$ odd
 				& $\Lambda(e)$ with $\deg{e} = n$ \\[1em]
 
-		$S^n$ with $n$ even
+		$S^n_\Q$ with $n$ even
 				& $\Lambda(e, f)$ with $\deg{e} = n$, $\deg{f} = 2n-1$ and $d f = e^2$ \\[1em]
 
 		Eilenberg-MacLane space $K(\Q, n)$
@@ -175,12 +175,49 @@
 
 \Frame{Dictionary}{
 	\Dict{
-		homotopy $$h: X \times I \to Y$$
-				& homotopy $$h: A \to B \tensor \Lambda(t, dt)$$ \\[1em]
-
 		weak equivalence $$\pi_n(f): \pi_n(X) \iso \pi_n(Y)$$
-				& weak equivalence if $$H(f): H(X) \iso H(Y)$$
+				& weak equivalence $$H(f): H(X) \iso H(Y)$$ \\[1em]
+
+		homotopy $$h: X \times I \to Y$$
+				& homotopy $$h: A \to B \tensor \Lambda(t, dt)$$
 	}
 }
+
+\Frame{Dictionary}{
+	\Dict{
+		$$ \pi_n(X) = [S^n, X] $$
+				& {\begin{align*}
+					\pi^n(A) &= H(Q(A)) \\
+					\pi^n(A)^\ast &\iso [A, \Lambda(e)] \\
+					              &\text{or } [A, \Lambda(e, f)]
+				\end{align*}} \\[1em]
+
+		Long exact sequence of a fibration
+				& Long exact sequence of a cofibration \\[1em]
+	}
+}
+
+\Frame{Dictionary}{
+	\bf topological $n$-simplex
+	\[ \Delta^n = \left\{ (x_0, \ldots, x_n) \in \R^{n+1} \,|\, \sum x_i = 1, x_i \geq 0 \right\} \]
+
+	\bigskip
+	\bf cdga $n$-simplex
+	\[ \Delta_n = \frac{\Lambda(x_0, \ldots x_n, dx_0, \ldots, dx_n)}{\langle \sum x_i - 1, \sum dx_i \rangle} \]
+}
+
+\Frame{Construction}{
+	\begin{center}
+	\begin{tikzcd}[column sep=huge, row sep=huge, ampersand replacement=\&]
+		\DELTA \arrow[d, "y"] \arrow[rd, "\Delta_{(-)}"] \& \\
+		\sSet \arrow[r, dashed, shift left = 1ex, "A"] \& \opCat{\CDGA_\Q} \arrow[l, dashed, shift left = 1ex]
+	\end{tikzcd}
+	\end{center}
+
+	\bigskip
+	\pause
+	\[ A(X) = \Hom_\sSet(X, \Delta_{(-)}) \]
+}
+
 
 \end{document}
