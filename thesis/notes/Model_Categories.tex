@@ -169,26 +169,13 @@ Of course there is a completely dual definition of right homotopy, in terms of p
 		\item \emph{very good} if in addition $i$ is a cofibration.
 	\end{itemize}
 }
-<<<<<<< HEAD
+
 \Notation{cylinder_maps}{
 	The map $p$ consists of two factors, which we will denote $p_0$ and $p_1$.
 }
 
 \Definition{right_homotopy}{
 	Two maps $f, g: A \to X$ are \Def{right homotopic} if there exists a path object $\pathobj{X}$ and a map $H: A \to \pathobj{X}$ such that $p_0 \circ H = f$ and $p_1 \circ H = g$.
-=======
-\Proof{
-	For the first diagram, assume it has a coequalizer $S$ in $\Top_r$. Consider $S^{r+1} \in \Top_r$ and its northern and southern hemisphere $D^{r+1}_+, D^{r+1}_- \subset S^{r+1}$. We have a map $I \to S^{r+1}$ sending the interval to the equator, hence sending the interval to both hemispheres. This map induces maps from $S$ as follows
-
-	\cimage[scale=0.5]{Topr_No_Coequalizer_1}
-
-	The pullback in $\Top$ (not in $\Top_r$!) of this diagram is the circle $S^1$ and we have a map $S \to S^1$. We can also consider the coqualizer of the original diagram in $\Top$, which is also $S^1$ to obtain a map $S^1 \to S$. Checking all the diagrams one concludes that $S \iso S^1 \not\in \Top_r$.
-
-	For the second diagram, assume it has an equalizer $E$ in $\Top_r$ with its map $e: E \to I$. Define two maps $i_0, i_1: \ast \to I$ sending the unique element to $0$ and $1$ respectively. Clearly we get induced maps $j_0, j_1: \ast \to E$ such that $j_0(\ast) \neq j_1(\ast)$. By connectedness, there is a path $p: I \to E$ from $j_0(\ast)$ to $j_1(\ast)$. We then have the following properties $e(p(x)) \in \{0, 1\}$, $e(p(0)) = 0$ and $e(p(1)) = 1$. These properties contradict continuity of $e \circ p: I \to I$. We conclude that no such $E$ exists in $\Top_r$.
-}
-
-Despite the absence of these (co)limits, the category $\Top_1$ still has products (namely cartesian products), sums (wedge products) and a terminal object.
->>>>>>> Adds proof on no (co)equalizer
 
 	We will call $H$ a \Def{right homotopy} for $f$ to $g$ and write $f \rhtpy r$. Moreover, the homotopy is called good (resp. very good) is the path object is good (resp. very good).
 }
