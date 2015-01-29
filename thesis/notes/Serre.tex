@@ -23,8 +23,8 @@ Serre gave weaker axioms for his classes and proves some of the following lemmas
 		\item The class $\C$ of all uniquely divisible groups. Note that these groups can be given a unique $\Q$-vector space structure (and conversely every $\Q$-vector space is uniquely divisible). 
 	\end{itemize}
 }
-\todo{refer to Moerdijk? for $H(\Z_p) =$ torsion.}
-As noted by Hilton in \cite{hilton} we think of Serre classes as a generalized 0. This means that we can also express some kind of generalized injective and surjectivity. Here we only need the notion of a $\C$-isomorphism:
+
+The first three axioms of Serre classes are easily checked. For the group homology we find a calculation of the group homology of cyclic groups in \cite{moerdijk}. The group homology itself is also a torsion group, this result extends to all torsion groups. As noted by Hilton in \cite{hilton} we think of Serre classes as a generalized 0. This means that we can also express some kind of generalized injective and surjectivity. Here we only need the notion of a $\C$-isomorphism:
 
 \Definition{serre-class-maps}{
 	Let $\C$ be a Serre class and let $f: A \to B$ be a map of abelian groups. Then $f$ is a \Def{$\C$-isomorphism} if both the kernel and cokernel lie in $\C$.
@@ -80,7 +80,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	Let $\C$ be a Serre class and $G \in \C$. Then for all $n > 0$ and all $i > 0$ we have $H_i(K(G, n)) \in \C$.
 }
 \Proof{
-	We prove this by induction on $n$. The base case $n = 1$ follows from group homology as the construction \todo{which?} of $K(G, 1)$ can be used to obtain a projective resolution of $\Z$ as $\Z[G]$-module \todo{reference}. This then identifies the homology of the Eilenberg-MacLane space with the group homology which is in $\C$ by the axioms:
+	We prove this by induction on $n$. The base case $n = 1$ follows from group homology. By considering the nerve of $G$ we can construct $K(G,1)$. This construction can be related to the bar construction as found in \cite{moerdijk}. This then identifies the homology of the Eilenberg-MacLane space with the group homology which is in $\C$ by the axioms:
 	$$ H_i(K(G, 1); \Z) \iso H_i(G; \Z) \in \C. $$
 
 	Suppose we have proven the statement for $n$. If we consider the case of $n+1$ we can use the path fibration to relate it to the case of $n$:
@@ -189,11 +189,16 @@ For the main theorem we need the following construction. \todo{referentie}
 }
 
 Combining this lemma and \TheoremRef{serre-hurewicz} we get the following corollary for rational homotopy theory:
-
 \Corollary{rational-hurewicz}{
 	(Rational Hurewicz Theorem)
 	Let $X$ be a $1$-connected space. If $\pi_i(X) \tensor \Q = 0$ for all $i < n$, then $H_i(X; \Q) = 0$ for all $i < n$. Furthermore we have an isomorphism for all $i \leq n$:
 	$$ \pi_i(X) \tensor \Q \tot{\iso} H_i(X; \Q) $$
+}
+
+By using the class of $\Q$-vector spaces we get a dual theorem.
+\Corollary{rational-hurewicz-2}{
+	(Rational Hurewicz Theorem 2)
+	Let $X$ be a $1$-connected space. The homotopy groups $\pi_i(X)$ are $\Q$-vector spaces for all $i > 0$ if and only if $H_i(X)$ are $\Q$-vector spaces for all $i > 0$.
 }
 
 \todo{$\pi$ is $\Q$ local iff $H$ is}
