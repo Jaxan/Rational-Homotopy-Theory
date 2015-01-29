@@ -4,7 +4,6 @@
 # We don want to pollute the root dir, so we use a build dir
 # http://tex.stackexchange.com/questions/12686/how-do-i-run-bibtex-after-using-the-output-directory-flag-with-pdflatex-when-f
 thesis: dirs
-	cp references.bib build/
 	xelatex -file-line-error -output-directory=build thesis.tex
 	cd build; bibtex thesis
 	xelatex -file-line-error -output-directory=build thesis.tex
@@ -12,13 +11,11 @@ thesis: dirs
 	cp build/thesis.pdf ./
 
 fast: dirs
-	cp references.bib build/
 	xelatex -file-line-error -output-directory=build thesis.tex
 	cd build; bibtex thesis
 	cp build/thesis.pdf ./
 
 haltfast: dirs
-	cp references.bib build/
 	xelatex -file-line-error -output-directory=build --halt-on-error thesis.tex
 	cd build; bibtex thesis
 	cp build/thesis.pdf ./
@@ -35,3 +32,4 @@ dirs:
 	mkdir -p build/notes
 	mkdir -p build/diagrams
 	mkdir -p build/chapters
+	cp references.bib build/

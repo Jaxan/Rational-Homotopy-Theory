@@ -28,9 +28,16 @@ Consider the augmented cdga $V(n) = S(n) \oplus \k$, with trivial multiplication
 }
 \Proof{
 	Note that $Q(V(n))$ in degree $n$ is just $\k$ and $0$ in the other degrees, so its homotopy groups consists of a single $\k$ in degree $n$. This establishes the map:
-	$$ \pi^n: \Hom_\CDGA(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
+	$$ \pi^n: \Hom(A, V(n)) \to \Hom_\k(\pi^n(A), \k). $$
 
-	Now by \LemmaRef{cdga-homotopic-maps-equal-pin} we get a map from the set of homotopy classes $[A, V(n)]$ instead of just maps. \todo{injective, surjective}
+	Now by \LemmaRef{cdga-homotopic-maps-equal-pin} we get a map from the set of homotopy classes $[A, V(n)]$ instead of the $\Hom$-set. It remains to prove that the map is an isomorphism. Surjectivity follows easily. Given a map $f: \pi^n(A) \to \k$, we can extend this to $A \to V(n)$ because the multiplication on $V(n)$ is trivial.
+
+	For injectivity suppose $\phi, \psi: A \to V(n)$ be two maps such that $\pi^n(\phi) = \pi^n(\psi)$. We will first define a chain homotopy $D: A^\ast \to V(n)^{\ast - 1}$, for this we only need to specify the map $D^n: A^{n+1} \to V(n)^n = \Q$. Decompose the vector space $A^{n+1}$ as $A^{n+1} = \im d \oplus V$ for some $V$. Now set $D^n(v) = 0$ for all $v \in V$ and $D^n(db) = \phi(b) - \psi(b)$. We should check that $D$ is well defined. Note that for cycles we get $\phi(c) = \psi(c)$, as $H(Q(\phi)) = H(Q(\psi))$. So if $db = dc$, then we get $D(db) = \phi(b) - \psi(b) = \phi(c) - \psi(c) = D(dc)$, i.e. $D$ is well defined. We can now define a map of augmented cdga's:
+	\begin{align*}
+		h : X &\to \Lambda(t, dt) \overline{\tensor} V(n) \\
+		    x &\mapsto dt \tensor D(x) + 1 \tensor \phi(x) - t \tensor \phi(x) + t \tensor \psi(x)
+	\end{align*}
+	This map commutes with the differential by the definition of $D$. Now we see that $d_0 h = \psi$ and $d_1 h = \phi$. Hence the two maps represent the same class, and we have proven the injectivity.
 }
 
 From now on the dual of a vector space will be denoted as $V^\ast = \Hom_\k(V, \k)$. So the above lemma states that there is a bijection $[A, V(n)] \iso \pi^n(A)^\ast$.

@@ -201,8 +201,6 @@ By using the class of $\Q$-vector spaces we get a dual theorem.
 	Let $X$ be a $1$-connected space. The homotopy groups $\pi_i(X)$ are $\Q$-vector spaces for all $i > 0$ if and only if $H_i(X)$ are $\Q$-vector spaces for all $i > 0$.
 }
 
-\todo{$\pi$ is $\Q$ local iff $H$ is}
-
 \TheoremRef{serre-whitehead} also applies verbatim to rational homotopy theory. However we would like to avoid the assumption that $\pi_2(f)$ is surjective. In \cite{felix} we find a way to work around this.
 
 \Corollary{rational-whitehead}{
@@ -217,13 +215,13 @@ By using the class of $\Q$-vector spaces we get a dual theorem.
 	\[\xymatrix @=0.4cm{
 		Y \arwe[rr]^-\lambda \ar[dr]_-q & & Y \times_K MK \arfib[dl]^-{\overline{q}} \\
 		& K &
-	} \]\todo{$MK =$?}
-	Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to a homotopy $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
+	} \]
+	Where $MK$ is the Moore path space and $\overline{q}$ is induced by the map sending a path to its endpoint.\todo{read} Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to a homotopy $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
 
 	We get a commuting square when applying $\pi_2$:
 	\[ \xymatrix{
 		\pi_2(X) \ar[r]^-{\pi_2(f_1)} \ar[d]^{\pi_2(f)} & \pi_2(Y \times_K PK) \ar[d]^{\pi_2(i)} \\
 		\pi_2(Y) \ar[r]^-{\iso} & \pi_2(Y \times_K MK)
 	} \]
-	The important observation is that by the long exact sequence $\pi_\ast(i) \tensor \Q$ and $H_\ast(i; \Q)$ are isomorphisms (here we use that $\Gamma \tensor \Q = 0$ and that tensoring with $\Q$ is exact). So by the above square $\pi_\ast(f_1) \tensor \Q$ is an isomorphism if and only if $\pi_\ast(f) \tensor \Q$ is (and similarly for homology). Finally we note that $\pi_2(f_1)$ is surjective\todo{?}, so \TheoremRef{serre-whitehead} applies and the result also holds for $f$.
+	The important observation is that by the long exact sequence $\pi_\ast(i) \tensor \Q$ and $H_\ast(i; \Q)$ are isomorphisms (here we use that $\Gamma \tensor \Q = 0$ and that tensoring with $\Q$ is exact). So by the above square $\pi_\ast(f_1) \tensor \Q$ is an isomorphism if and only if $\pi_\ast(f) \tensor \Q$ is (and similarly for homology). Finally we note that $\pi_2(f_1)$ is surjective, so \TheoremRef{serre-whitehead} applies and the result also holds for $f$.
 }

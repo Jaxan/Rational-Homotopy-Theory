@@ -8,7 +8,9 @@ Recall that a cdga $A$ is a commutative differential graded algebra, meaning tha
 	\item it has an associative and unital multiplication: $\mu: A \tensor A \to A$ and
 	\item it is commutative: $x y = (-1)^{\deg{x}\cdot\deg{y}} y x$.
 \end{itemize}
-And all of the above structure is compatible with each other (e.g. the differential is a derivation of degree $1$, the maps are graded, \dots). We have a left adjoint $\Lambda$ to the forgetful functor $U$ which assigns the free graded commutative algebras $\Lambda V$ to a graded module $V$. This extends to an adjunction (also called $\Lambda$ and $U$) between commutative differential graded algebras and differential graded modules.
+And all of the above structure is compatible with each other (e.g. the differential is a derivation of degree $1$, the maps are graded, \dots). The exact requirements are stated in the appendix on algebra. An algebra $A$ is augmented if it has a specified map (of algebras) $A \tot{\counit} \k$. Furthermore we adopt the notation $A^{\leq n} = \bigoplus_{k \leq n} A^k$ and similarly for $\geq n$.
+
+There is a left adjoint $\Lambda$ to the forgetful functor $U$ which assigns the free graded commutative algebras $\Lambda V$ to a graded module $V$. This extends to an adjunction (also called $\Lambda$ and $U$) between commutative differential graded algebras and differential graded modules. We denote the subspace of elements of wordlength $n$ by $\Lambda^n V$ (note that this has nothing to do with the grading on $V$).
 
 In homological algebra we are especially interested in \emph{quasi isomorphisms}, i.e. maps $f: A \to B$ inducing an isomorphism on cohomology: $H(f): HA \iso HB$. This notions makes sense for any object with a differential.
 
@@ -19,10 +21,6 @@ We furthermore have the following categorical properties of cdga's:
 	\item The equalizer (resp. coequalizer) of $f$ and $g$ is given by the kernel (resp. cokernel) of $f - g$. Together with the (co)products this defines pullbacks and pushouts.
 	\item $\k$ and $0$ are the initial and final object.
 \end{itemize}
-
-In this chapter the ring $\k$ is assumed to be a field of characteristic zero. In particular the modules are vector spaces.
-
-\todo{augmentations?}\todo{Kunneth from appendix}
 
 \section{Cochain models for the $n$-disk and $n$-sphere}
 \input{notes/CDGA_Basic_Examples}
