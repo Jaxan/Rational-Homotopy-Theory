@@ -20,12 +20,12 @@ haltfast: dirs
 	cd build; bibtex thesis
 	cp build/thesis.pdf ./
 
-images: dirs
-	xelatex -file-line-error -output-directory=build images.tex
-	xelatex -file-line-error -output-directory=build images.tex
-	scp build/images.pdf moerman@stitch.science.ru.nl:~/wvlt_images.pdf
-	ssh moerman@stitch.science.ru.nl 'pdf2svg wvlt_images.pdf wvlt_images.svg'
-	scp moerman@stitch.science.ru.nl:~/wvlt_images.svg ./images.svg
+symbols: dirs
+	xelatex -file-line-error -output-directory=build symbols.tex
+	xelatex -file-line-error -output-directory=build symbols.tex
+	scp build/symbols.pdf moerman@stitch.science.ru.nl:~/rathtpy_images.pdf
+	ssh moerman@stitch.science.ru.nl 'pdf2svg rathtpy_images.pdf rathtpy_images.svg'
+	scp moerman@stitch.science.ru.nl:~/rathtpy_images.svg ./symbols.svg
 
 dirs:
 	mkdir -p build
