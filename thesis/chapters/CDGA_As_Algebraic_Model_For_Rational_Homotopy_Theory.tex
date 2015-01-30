@@ -2,10 +2,10 @@
 \Chapter{Homotopy Theory For cdga's}{HomotopyTheoryCDGA}
 
 Recall that a cdga $A$ is a commutative differential graded algebra, meaning that
-\begin{itemize}
+\begin{itemize}\itemsep0em
 	\item it has a grading: $A = \bigoplus_{n\in\N} A^n$,
 	\item it has a differential: $d: A \to A$ with $d^2 = 0$,
-	\item it has an associative and unital multiplication: $\mu: A \tensor A \to A$ and
+	\item it has a multiplication: $\mu: A \tensor A \to A$ which is associative and unital and
 	\item it is commutative: $x y = (-1)^{\deg{x}\cdot\deg{y}} y x$.
 \end{itemize}
 And all of the above structure is compatible with each other (e.g. the differential is a derivation of degree $1$, the maps are graded, \dots). The exact requirements are stated in the appendix on algebra. An algebra $A$ is augmented if it has a specified map (of algebras) $A \tot{\counit} \k$. Furthermore we adopt the notation $A^{\leq n} = \bigoplus_{k \leq n} A^k$ and similarly for $\geq n$.
@@ -15,7 +15,7 @@ There is a left adjoint $\Lambda$ to the forgetful functor $U$ which assigns the
 In homological algebra we are especially interested in \emph{quasi isomorphisms}, i.e. maps $f: A \to B$ inducing an isomorphism on cohomology: $H(f): HA \iso HB$. This notions makes sense for any object with a differential.
 
 We furthermore have the following categorical properties of cdga's:
-\begin{itemize}
+\begin{itemize}\itemsep0em
 	\item The finite coproduct in $\CDGA_\k$ is the (graded) tensor product.
 	\item The finite product in $\CDGA_\k$ is the cartesian product (with pointwise operations).
 	\item The equalizer (resp. coequalizer) of $f$ and $g$ is given by the kernel (resp. cokernel) of $f - g$. Together with the (co)products this defines pullbacks and pushouts.
