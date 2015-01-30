@@ -5,7 +5,7 @@ In this section we will prove the existence of rationalizations $X \to X_\Q$. We
 
 \section{Rationalization of \texorpdfstring{$S^n$}{Sn}}
 We will construct $S^n_\Q$ as an infinite telescope, as depicted for $n=1$ in the following picture.
-\todo{plaatje}
+\cimage{telescope}
 The space will consist of multiple copies of $S^n$, one for each $k \in \N^{>0}$, glued together by $(n+1)$-cells. The role of the $k$th copy (together with the gluing) is to be able to ``divide by $k$''.
 
 So $S^n_\Q$ will be of the form $S^n_\Q = \bigvee_{k>0} S^n \cup_{h} \coprod_{k>0} D^{n+1}$. We will define the attaching map $h$ by doing the construction in stages.
@@ -63,7 +63,7 @@ The \Def{rational disk} is now defined as cone of the rational sphere: $D^{n+1}_
 }
 \Proof{
 	Note that $f$ represents a class $\alpha \in \pi_n(X)$. Since $\pi_n(X)$ is a $\Q$-vector space there exists elements $\frac{1}{2}\alpha, \frac{1}{3}\alpha, \ldots$ with representatives $\frac{1}{2}f, \frac{1}{3}f, \ldots$. Recall that $S^n_\Q$ consists of many copies of $S^n$, we can define $f'$ on the $k$th copy to be $\frac{1}{k!}f$, as depicted in the following diagram.
-	\cimage[scale=0.6]{SnQ_Extension}
+	\cimage{telescope_maps}
 
 	Since $[\frac{1}{(k-1)!}f] = k[\frac{1}{k!}f] \in \pi_n(X)$ we can define $f'$ accordingly on the $n+1$-cells. Since our inclusion $i: S^n \cof S^n_\Q$ is in the first sphere, we get $f = f' \circ i$.
 
