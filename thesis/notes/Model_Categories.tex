@@ -10,19 +10,26 @@ As this thesis considers different categories, each with its own homotopy theory
 
 \begin{definition}
 	A \Def{model category} is a category $\cat{C}$ together with three subcategories:
-	\begin{itemize}
+	\begin{itemize}\itemsep0em
 		\item a class of \Def{weak equivalences} $\W$,
 		\item a class of \Def{fibrations} $\Fib$ and
 		\item a class of \Def{cofibrations} $\Cof$,
 	\end{itemize}
 	such that the following five axioms hold:
-	\begin{itemize}
+	\begin{itemize}\itemsep0em
 		\item[MC1] All finite limits and colimits exist in $\cat{C}$.
-		\item[MC2] If $f$, $g$ and $fg$ are maps such that two of them are weak equivalences, then so it the third. This is called the \emph{2-out-of-3} property.
-		\item[MC3] All three classes of maps are closed under retracts\todo{Either draw the diagram or define a retract earlier}.
-		\item[MC4] In any commuting square as follows where $i \in \Cof$ and $p \in \Fib$,
-			\cdiagram{Model_Liftproblem}
-
+		\item[MC2] The \emph{2-out-of-3} property: if $f$, $g$ and $fg$ are maps such that two of them are weak equivalences, then so it the third.
+		\item[MC3] All three classes of maps are closed under retracts. A class $\mathfrak{K}$ is closed under retracts if, when given a diagram
+		\[\xymatrix {
+			A' \ar[r]^-i \ar[d]^-g & A \ar[r]^-r \ar[d]^-f & A' \ar[d]^-g \\
+			X' \ar[r]^-j & X \ar[r]^-s & X'
+		} \]
+		with $r \circ i = \id$ and $s \circ j = \id$, then $f \in \mathfrak{K}$ implies $g \in \mathfrak{K}$.
+		\item[MC4] In any commuting square with $i \in \Cof$ and $p \in \Fib$
+			\[\xymatrix {
+				A \ar[d]^i \ar[r] & X \ar[d]^p \\
+				B \ar[r] & Y
+			}\]
 			there exist a lift $h: B \to Y$ if either (a) $i \in \W$ or (b) $p \in \W$.
 		\item[MC5] Any map $f : A \to B$ can be factored in two ways:
 			\begin{itemize}
@@ -96,7 +103,8 @@ Of course the most important model category is the one of topological spaces. We
 		\item Cofibrations: all monomorphisms.
 	\end{itemize}
 }
-\todo{small object arg?}
+
+Both of these examples are often proven to be model categories by using \emph{Quillen's small object arguments}. This technique can be found in \cite{goerss2, dwyer, may2}.
 
 In this thesis we often restrict to $1$-connected spaces. The full subcategory $\Top_1$ of $1$-connected spaces satisfies MC2-MC5: the 2-out-of-3 property, retract property and lifting properties hold as we take the \emph{full} subcategory, factorizations exist as the middle space is $1$-connected as well. Both products and coporducts exist. However $\Top_1$ does not have all limits and colimits.
 

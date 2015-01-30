@@ -28,7 +28,7 @@ One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace
 	$\Apl^k$ is contractible.
 }
 \Proof{
-	\todo{Note geometric interpretation} We will prove this by defining an extra degeneracy $s: \Apl_n \to \Apl_{n+1}$. Define for $i = 1, \ldots, n$:
+	We will prove this by defining an extra degeneracy $s: \Apl_n \to \Apl_{n+1}$. In the more geometric context of topological $n$-simplices we would achieve this by dividing by $1-x_0$. However, since this algebra consists of polynomials only, this cannot be done. Instead, we will multiply everything by $(1-x_0)^2$, so that we can divide by $1-x_0$. Define for $i = 1, \ldots, n$:
 	\begin{align*}
 		s(1) &= (1-x_0)^2 \\
 		s(x_i) &= (1-x_0) \cdot x_{i+1}
@@ -53,7 +53,7 @@ One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace
 }
 
 \Lemma{apl-kan-complex}{
-	$\Apl^k$ is a Kan complex. \todo{also without $k$?}
+	$\Apl^k$ is a Kan complex.
 }
 \Proof{
 	By the simple fact that $\Apl^k$ is a simplicial group, it is a Kan complex \cite{goerss}.

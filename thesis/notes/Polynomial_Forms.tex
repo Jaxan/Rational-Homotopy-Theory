@@ -46,7 +46,17 @@ Another way to model the $n$-simplex is by the singular cochain complex associat
 $$ C_n = C^\ast(\Delta^n; \k), $$
 where $C^\ast(\Delta^n; \k)$ is the (normalized) singular cochain complex of $\Delta^n$ with coefficients in $\k$. The inclusion maps $d^i : \Delta^n \to \Delta^{n+1}$ and the maps $s^i: \Delta^n \to \Delta^{n-1}$ induce face and degeneracy maps on the dga's $C_n$, turning $C$ into a simplicial dga. Again we can extend this to functors by Kan extensions
 \cdiagram{C_Extension}
-\todo{show that $C^\ast$ really is sing cohom} where the left adjoint is precisely the functor $C^\ast$ as noted in \cite{felix}. We will relate $\Apl$ and $C$ in order to obtain a natural quasi isomorphism $A(X) \we C^\ast(X)$ for every $X \in \sSet$. Furthermore this map preserves multiplication on the homology algebras.
+
+This left adjoint functor $C^\ast : \sSet \to \opCat{\DGA_\k}$ is (just as above) defined as $C^\ast(X) = \Hom_\sSet(X, C^\ast(\Delta[-]; \k))$. To see that this is precisely the classical definition of the singular cochain complex, we make the following calculation.
+\begin{align*}
+	C^\ast(X) &= \Hom(X, C^\ast(\Delta[n])) \\
+	          &= \Hom(X, \Hom(N \Z \Delta[n], \k)) \\
+	          &\ison{1} \Hom(X, \Gamma(\k)) \\
+	          &\iso \Hom(N \Z (X), \k)
+\end{align*}
+where $\Z$ is the free simplicial abelian group, $N$ is the normalized chain complex (this is the Dold-Kan equivalence) and $\Gamma$ its right adjoint. At \refison{1} we used the definition $\Gamma(C) = \Hom(N \Z \Delta[n], C)$. Now the conclusion of this calculation is that $C^\ast(X)$ is precisely the dual complex of $N \Z (X)$, which is the singular (normalized) chain complex.
+
+We will relate $\Apl$ and $C$ in order to obtain a natural quasi isomorphism $A(X) \we C^\ast(X)$ for every $X \in \sSet$. Furthermore this map preserves multiplication on the homology algebras.
 
 
 \subsection{Integration and Stokes' theorem for polynomial forms}
@@ -56,11 +66,12 @@ In this section we will prove that the singular cochain complex is quasi isomorp
 For any $v \in \Apl_n^n$, we can write $v$ as $v = p(x_1, \dots, x_n)dx_1 \dots dx_n$ where $p$ is a polynomial in $n$ variables. If $\Q \subset \k \subset \mathbb{C}$ we can integrate geometrically on the $n$-simplex:
 $$ \int_n v = \int_0^1 \int_0^{1-x_n} \dots \int_0^{1 - x_2 - \dots - x_n} p(x_1, \dots, x_n) dx_1 dx_2 \dots dx_n, $$
 which defines a well-defined linear map $\int_n : \Apl_n^n \to \k$. For general fields of characteristic zero we can define it formally on the generators of $\Apl_n^n$ (as vector space):
-$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n + n)!}. $$\todo{same as above}
+$$ \int_n x_1^{k_1} \dots x_n^{k_n} dx_1 \dots dx_n = \frac{k_1! \dots k_n!}{(k_1 + \dots + k_n + n)!}. $$
 
-\todo{rewrite?}Let $x$ be a $k$-simplex of $\Delta[n]$, i.e. $x: \Delta[k] \to \Delta[n]$. Then $x$ induces a linear map $x^\ast: \Apl_n \to \Apl_k$. Let $v \in \Apl_n^k$, then $x^\ast(v) \in \Apl_k^k$, which we can integrate. Now define
+Let $x$ be a $k$-simplex of $\Delta[n]$. Then $x$ induces a linear map $x^\ast: \Apl_n \to \Apl_k$. Now if we have an element $v \in \Apl_n^k$, then observe that $x^\ast(v) \in \Apl_k^k$ is an element we can integrate. Now define
 $$ \oint_n(v)(x) = (-1)^\frac{k(k-1)}{2} \int_n x^\ast(v). $$
-Note that $\oint_n(v): \Delta[n] \to \k$ is just a map, we can extend this linearly to chains on $\Delta[n]$ to obtain $\oint_n(v): \Z\Delta[n] \to \k$, in other words $\oint_n(v) \in C_n$\todo{normalised}. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
+Note that $\oint_n(v): \Delta[n] \to \k$ is just a map of sets, so we can extend this linearly to chains on $\Delta[n]$ to obtain a linear map $\oint_n(v): \Z\Delta[n] \to \k$. 
+If $x$ is a degenerate simplex $x = s_j x'$, then $x^\ast(v) = s_j^\ast (x'^\ast (v))$. Now $x'^\ast (v) \in \Apl_{k-1}^k = 0$ and so the integral vanishes on degenerate simplices. In other words we get $\oint_n(v) \in C_n$. By linearity of $\int_n$ and $x^\ast$, we have a linear map $\oint_n: \Apl_n \to C_n$.
 
 Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each $\oint_n$ is a chain map, in other words $\oint : \Apl \to C$ is a simplicial chain map (of complexes). Let $\sigma: \Delta[n] \to \Delta[k]$, and $\sigma^\ast: \Apl_k \to \Apl_n$ its induced map. We need to prove $\oint_n \circ \sigma^\ast = \sigma^\ast \circ \oint_k$. We show this as follows:
 \begin{align*}
@@ -70,7 +81,8 @@ Next we will show that $\oint = \{\oint_n\}_n$ is a simplicial map and that each
 	&= \oint_k (v)(\sigma \circ x) \\
 	&= (\oint_k (v) \circ \sigma) (x) = \sigma^\ast (\oint_k(v)(x))
 \end{align*}
-For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is precisely the same calculation as \emph{Stokes' theorem}. \todo{Reference}
+
+For it to be a chain map, we need to prove $d \circ \oint_n = \oint_n \circ d$. This is precisely \emph{Stokes' theorem} and any prove will apply here as well \cite{bousfield}.
 
 We now proved that $\oint$ is indeed a simplicial chain map. Note that $\oint_n$ need not to preserve multiplication, so it fails to be a map of cochain algebras. However $\oint(1) = 1$ and so the induced map on homology sends the class of $1$ in $H(\Apl_n) = \k \cdot [1]$ to the class of $1$ in $H(C_n) = \k \cdot [1]$. We have proven the following lemma.
 
@@ -95,7 +107,7 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 	We can apply our two functors to it, and use the natural transformation $\oint$ to obtain the following cube:
 	\cdiagram{Apl_C_Quasi_Iso_Cube}
 
-	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps\todo{see 7.0.2, what about $C$?}, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}) to conclude that also $A(X') \we C^\ast(X')$.
+	Note that $A(\Delta[n]) \we C^\ast(\Delta[n])$ by \CorollaryRef{apl-c-quasi-iso}, $A(X) \we C^\ast(X)$ by assumption and $A(\del \Delta[n]) \we C^\ast(\del \Delta[n])$ by induction. Secondly note that both $A$ and $C^\ast$ send injective maps to surjective maps, so we get fibrations on the right side of the diagram. Finally note that the front square and back square are pullbacks, by adjointness of $A$ and $C^\ast$. Apply the cube lemma (\LemmaRef{cube-lemma}) to conclude that also $A(X') \we C^\ast(X')$.
 
 	This proves $A(X) \we C^\ast(X)$ for any simplicial set with finitely many non-degenerate simplices. We can extend this to simplicial sets of finite dimension by attaching many simplices at once. For this we observe that both $A$ and $C^\ast$ send coproducts to products and that cohomology commutes with products:
 	$$ H(A(\coprod_\alpha X_\alpha)) \iso H(\prod_\alpha A(X_\alpha)) \iso \prod_\alpha H(A(X_\alpha)), $$
@@ -139,5 +151,3 @@ We will now prove that the map $\oint: A(X) \to C^\ast(X)$ is a quasi isomorphis
 
 	So by the five lemma we can conclude that the middle morphism is an isomorphism as well, proving the isomorphism $H^n(A(X)) \tot{\iso} H^n(C^\ast(X))$ for all $n$. This proves the statement for all $X$.
 }
-
-\todo{algebra structure}

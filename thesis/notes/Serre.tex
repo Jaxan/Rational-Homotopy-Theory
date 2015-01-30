@@ -88,7 +88,7 @@ In the following arguments we will consider fibrations and need to compute homol
 	Now $\Omega K(G, n+1) = K(G, n)$, and we can apply \LemmaRef{kreck} as the reduced homology of the fiber is in $\C$ by induction hypothesis. Conclude that the homology of $P K(G, n+1)$ is $\C$-isomorphic to the homology of $K(G, n)$. Since $\RH_\ast(P K(G, n+1)) = 0$, we get $\RH_\ast(K(G, n+1)) \in \C$.
 }
 
-For the main theorem we need the following construction. \todo{referentie}
+For the main theorem we need the following decomposition of spaces. The construction can be found in \cite{serre} or \cite{kreck}.
 \Lemma{whitehead-tower}{
 	(Whitehead tower)
 	We can decompose a $0$-connected space $X$ into fibrations:
@@ -216,7 +216,7 @@ By using the class of $\Q$-vector spaces we get a dual theorem.
 		Y \arwe[rr]^-\lambda \ar[dr]_-q & & Y \times_K MK \arfib[dl]^-{\overline{q}} \\
 		& K &
 	} \]
-	Where $MK$ is the Moore path space and $\overline{q}$ is induced by the map sending a path to its endpoint.\todo{read} Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to a homotopy $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
+	Where $MK$ is the Moore path space and $\overline{q}$ is induced by the map sending a path to its endpoint. Now $\overline{q} \lambda f$ is homotopic to the constant map, so there is a homotopy $h: \overline{q} \lambda f \eq \ast$ which we can lift against the fibration $\overline{q}$ to a homotopy $h' : \lambda f \eq f_1$ with $\overline{q} f_1 = \ast$. In other words $f_1$ lands in the fiber of $\overline{q}$.
 
 	We get a commuting square when applying $\pi_2$:
 	\[ \xymatrix{
