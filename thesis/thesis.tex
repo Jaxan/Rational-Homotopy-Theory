@@ -6,10 +6,11 @@
 % \usepackage{polyglossia}
 % \setmainlanguage[variant=british]{english}
 
-\usepackage[parts,drafting,eulerchapternumbers]{classicthesis}
+\usepackage[parts,eulerchapternumbers]{classicthesis}
 \setcounter{tocdepth}{0} % parts, chapters
 
 \input{preamble}
+\newcommand{\blankpage}{\newpage\thispagestyle{empty}\mbox{}}
 
 \title{Rational Homotopy Theory}
 \author{Joshua Moerman}
@@ -37,9 +38,10 @@
 \end{center}
 
 \end{titlepage}
-
+\blankpage
 
 \include{chapters/Introduction}
+\blankpage
 
 \pagenumbering{arabic}
 \part{Basics Of Rational Homotopy Theory}

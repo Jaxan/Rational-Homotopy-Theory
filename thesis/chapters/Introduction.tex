@@ -1,11 +1,11 @@
 
 \chapter*{Introduction}
 
-Homotopy theory is the study of topological spaces and homotopy equivalences. These equivalences are weaker than isomorphism. An isomorphism is given by two maps $f : X \leftadj Y : g$, such that the both compositions are equal to identities. A homotopy equivalence weakens this by requiring the compositions to be homotopic to identities. Some properties of spaces, such as some kinds of connectedness, only depend on the homotopy type. Such properties are homotopy invariants.
+Homotopy theory is the study of topological spaces with homotopy equivalences. Recall that a homeomorphism is given by two maps $f : X \leftadj Y : g$ such that the both compositions are equal to identities. A homotopy equivalence weakens this by requiring that the compositions are only homotopic to the identities. Equivalent spaces will often have equal invariants.
 
-Examples of homotopy invariants are homology groups $H_n(X)$ and homotopy groups $\pi_n(X)$. The latter is defined as the set of continuous maps $S^n \to X$ up to homotopy. Despite the easy definition, the groups $\pi_n(S^k)$ are very hard to calculate and much of it is even unknown as of today.
+Typical examples of such homotopy invariants are the homology groups $H_n(X)$ and the homotopy groups $\pi_n(X)$. The latter is defined as the set of continuous maps $S^n \to X$ up to homotopy. Despite the easy definition, the groups $\pi_n(S^k)$ are very hard to calculate and much of it is even unknown as of today.
 
-In rational homotopy theory one ``localizes'' these invariants. Instead of considering $H_n(X)$ and $\pi_n(X)$, we consider the rational homology groups $H_n(X) \tensor \Q$ and the rational homotopy groups $\pi_n(X) \tensor \Q$. In fact, these groups are really $\Q$-vector spaces, and hence contain no torsion information. So rational homotopy theory is not able to see this information. This disadvantage is compensated by the fact that it is easier to calculate these invariants.
+In rational homotopy theory one simplifies these invariants. Instead of considering $H_n(X)$ and $\pi_n(X)$, we consider the rational homology groups $H_n(X; \Q)$ and the rational homotopy groups $\pi_n(X) \tensor \Q$. In fact, these groups are $\Q$-vector spaces, and hence contain no torsion information. This disadvantage of losing some information is compensated by the fact that it is easier to calculate these invariants.
 
 The first steps towards this theory were taken by Serre in the 1950s. In \cite{serre} he successfully calculated the torsion-free part of $\pi_n(S^k)$ for all $n$ and $k$. The outcome was remarkably easy and structured.
 
@@ -21,7 +21,7 @@ The next chapter (\ChapterRef{Rationalization}) describes a way to localize a sp
 
 The longest chapter is \ChapterRef{HomotopyTheoryCDGA}. In this chapter we will describe commutative differential graded algebras and their homotopy theory. One can think of these objects as rings which are at the same time cochain complexes. Not only will we describe a model structure on this category, we will also explicitly describe homotopy relations and homotopy groups.
 
-In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and commutative differential graded algebras. It is here that we see a construction similar to the construction of the de Rahm complex of a manifold.
+In \ChapterRef{Adjunction} we define an adjunction between simplicial sets and commutative differential graded algebras. It is here that we see a result similar to the de Rahm complex of a manifold.
 
 \ChapterRef{MinimalModels} brings us back to the study of commutative differential graded algebras. In this chapter we study to so called minimal models. These models enjoy the property that homotopically equivalent minimal models are actually isomorphic. Furthermore their homotopy groups are easily calculated.
 
@@ -30,13 +30,13 @@ The main theorem is proven in \ChapterRef{Equivalence}. The adjunction from \Cha
 Finally we will see some explicit calculations in \ChapterRef{Calculations}. These calculations are remarkable easy. To prove for instance Serre's result on the rational homotopy groups of spheres, we construct a minimal model and read off their homotopy groups. We will also discuss related topics in \ChapterRef{Topics} which will conclude this thesis.
 
 
-\section{Preliminaries and Notation}
+\paragraph{Preliminaries and Notation}
 
 We assume the reader is familiar with category theory, basics from algebraic topology and the basics of simplicial sets. Some knowledge about differential graded algebra (or homological algebra) and model categories is also assumed, but the reader may review some facts on homological algebra in Appendix \ref{sec:algebra} and facts on model categories in Appendix \ref{sec:model_categories}.
 
 We will fix the following notations and categories.
 \begin{itemize}
-	\item $\k$ will denote a field of characteristic zero. Modules, tensor products,\dots are understood as $\k$-vector spaces, tensor products over $\k$,\dots.
+	\item $\k$ will denote a field of characteristic zero. Modules, tensor products, \dots\, are understood as $\k$-vector spaces, tensor products over $\k$, \dots.
 	\item $\Hom_{\cat{C}}(A, B)$ will denote the set of maps from $A$ to $B$ in the category $\cat{C}$. The subscript $\cat{C}$ may occasionally be left out.
 	\item $\Top$: category of topological spaces and continuous maps. We denote the full subcategory of $r$-connected spaces by $\Top_r$, this convention is also used for other categories.
 	\item $\Ab$: category of abelian groups and group homomorphisms.
@@ -44,5 +44,6 @@ We will fix the following notations and categories.
 	\item $\DGA_\k$: category of non-negatively differential graded algebras over $\k$ (as defined in the appendix) and graded algebra  maps. As a shorthand we will refer to such an object as \emph{dga}. Furthermore $\CDGA_\k$ is the full subcategory of $\DGA_\k$ of commutative dga's (\emph{cdga}'s).
 \end{itemize}
 
+\blankpage
 \tableofcontents
 \addcontentsline{toc}{section}{Contents}
