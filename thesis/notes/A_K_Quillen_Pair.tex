@@ -135,7 +135,7 @@ Another exposition of this corollary can be found in \cite[Section 8.4]{berglund
 
 
 \section{Equivalence on rational spaces}
-In this section we will prove that the adjunction in \CorollaryRef{minimal-model-adjucntion} is in fact an equivalence when restricted to certain subcategories. One of the restrictions is the following.
+In this section we will prove that the adjunction in \CorollaryRef{minimal-model-adjunction} is in fact an equivalence when restricted to certain subcategories. One of the restrictions is the following.
 
 \Definition{finite-type}{
 	A cdga $A$ is said to be of \Def{finite type} if $H(A)$ is finite dimensional in each degree. Similarly $X$ is of \Def{finite type} if $H^i(X; \Q)$ is finite dimensional for each $i$.
@@ -149,13 +149,13 @@ For the equivalence of rational spaces and cdga's we need that the unit and coun
 	A &\to M(K(A))
 \end{align*}
 where the first of the two maps is given by the composition $X \to K(A(X)) \tot{K(m_X)} K(M(X))$,
-and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \LemmaRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-out-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
+and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \CorollaryRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-out-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
 
 \Lemma{}{
 	(Base case) Let $A = (\Lambda(v), 0)$ be a minimal model with one generator of degree $\deg{v} = n \geq 1$. Then $A \we A(K(A))$.
 }
 \Proof{
-	By \CorollaryRef{minimal-cdga-homotopy-groups} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an Eilenberg-MacLane space with coefficients in $\Q$ is known (note that this is specific for $\Q$):
+	By \CorollaryRef{minimal-cdga-homotopy-groups} we know that $K(A)$ is an Eilenberg-MacLane space of type $K(\Q^\ast, n)$. The cohomology of an \linebreak Eilenberg-MacLane space with coefficients in $\Q$ is known (note that this is specific for $\Q$):
 	$$ H^\ast(K(\Q^\ast, n); \Q) = \Q[x], $$
 	that is, the free commutative graded algebra with one generator $x$. This can be calculated, for example, with spectral sequences \cite{griffiths}.
 
@@ -170,7 +170,7 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 		\Lambda D(m) \ar[r] & B
 		}
 	\end{displaymath}
-	Then if $A \to A(K(A))$ is a weak equivalence, so is $B \to A(K(B))$
+	Then if $A \to A(K(A))$ is a weak equivalence, so is $B \to A(K(B))$.
 }
 \Proof{
 	Applying $K$ to the above diagram gives a pullback diagram of simplicial sets, where the induced vertical maps are fibrations (since $K$ is right Quillen). In other words, the induced square is a homotopy pullback.
@@ -204,12 +204,12 @@ Note that by \RemarkRef{finited-dim-minimal-model} every cdga of finite type has
 	Let $(\Lambda V, d)$ be a $1$-connected minimal algebra with $V^i$ finite dimensional for all $i$. Then $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
 }
 \Proof{
-	Note that if we want to prove the isomorphism $H^i(\Lambda V, d) \to H^i(A(K(\Lambda V, d)))$ it is enough to prove that $H^i(\Lambda V^{\leq i}, d) \to H^i(A(K(\Lambda V^{\leq i}, d)))$ is an isomorphism (as the elements of higher degree do not change the isomorphism). By the $1$-connectedness we can choose our filtration to respect the degree by \LemmaRef{1-reduced-minimal-model}.
+	Note that if we want to prove the isomorphism \linebreak $H^i(\Lambda V, d) \to H^i(A(K(\Lambda V, d)))$ it is enough to prove that \linebreak $H^i(\Lambda V^{\leq i}, d) \to H^i(A(K(\Lambda V^{\leq i}, d)))$ is an isomorphism (as the elements of higher degree do not change the isomorphism). By the $1$-connectedness we can choose our filtration to respect the degree by \LemmaRef{1-reduced-minimal-model}.
 
-	Now $V(n)$ is finitely generated for all $n$ by assumption. By the inductive procedure above we see that $(\Lambda V(n), d) \to A(K(\Lambda V(n), d))$ is a weak equivalence for all $n$. Hence $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
+	Now $V(n)$ is finitely generated for all $n$ by assumption. By the inductive procedure above we see that $(\Lambda V(n), d) \to \linebreak A(K(\Lambda V(n), d))$ is a weak equivalence for all $n$. Hence \linebreak $(\Lambda V, d) \to A(K(\Lambda V, d))$ is a weak equivalence.
 }
 
-Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply connected rational space $X$ of finite type. For this, we will use that $A$ preserves and detects such weak equivalences by the Serre-Whitehead theorem (\CorollaryRef{serre-whitehead}). To be precise: for a simply connected rational space $X$ the map $X \to K(M(X))$ is a weak equivalence if and only if $A(K(M(X))) \to A(X)$ is a weak equivalence.
+Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply connected rational space $X$ of finite type. For this, we will use that $A$ preserves and detects such weak equivalences by the Serre-Whitehead theorem (\CorollaryRef{rational-whitehead}). To be precise: for a simply connected rational space $X$ the map $X \to K(M(X))$ is a weak equivalence if and only if $A(K(M(X))) \to A(X)$ is a weak equivalence.
 
 \Lemma{}{
 	The map $X \to K(M(X))$ is a weak equivalence for $1$-connected, rational spaces $X$ of finite type.
@@ -223,7 +223,7 @@ Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply con
 	The map on the right is a weak equivalence by \CorollaryRef{cdga-unit-we}. Then by the 2-out-of-3 property we see that the above composition is indeed a weak equivalence. Since $A$ detects weak equivalences, we conclude that $X \to K(M(X))$ is a weak equivalence.
 }
 
-We have proven the following theorem.
+We have proven the following theorem.\newpage
 \Theorem{main-theorem}{
 	The functors $A$ and $K$ induce an equivalence of homotopy categories, when restricted to rational, $1$-connected objects of finite type. More formally, we have:
 	$$ \Ho(\sSet_{\Q,1,f}) \iso \Ho(\CDGA_{\Q,1,f}). $$

@@ -101,7 +101,8 @@ In this section we will prove that the rational cohomology of an H-space is free
 	An \Def{H-space} is a pointed topological space $x_0 \in X$ with a map $\mu: X \times X \to X$, such that $\mu(x_0, -), \mu(-, x_0) : X \to X$ are homotopic to $\id_X$.
 }
 
-Let $X$ be an $0$-connected H-space of finite type, then we have the induced comultiplication map $\mu^\ast: H^\ast(X; \Q) \to H^\ast(X; \Q) \tensor H^\ast(X; \Q)$.
+Let $X$ be an $0$-connected H-space of finite type, then we have the induced comultiplication map 
+$$\mu^\ast: H^\ast(X; \Q) \to H^\ast(X; \Q) \tensor H^\ast(X; \Q).$$
 
 Homotopic maps are sent to equal maps in cohomology, so we get $H^\ast(\mu(x_0, -)) = \id_{H^\ast(X; \Q)}$. Now write $H^\ast(\mu(x_0, -)) = (\counit \tensor \id) \circ H^\ast(\mu)$, where $\counit$ is the augmentation induced by $x_0$, to conclude that for any $h \in H^{+}(X; \Q)$ the image is of the form
 $$ H^\ast(\mu)(h) = h \tensor 1 + 1 \tensor h + \psi, $$
@@ -135,4 +136,4 @@ This allows us to directly relate the rational homotopy groups to the cohomology
 	The spheres $S^n$ are not H-spaces if $n$ is even.
 }
 
-In fact we have that $S^n_\Q$ is an H-space if and only if $n$ is odd. The only if part is precisely the corollary above, the if part follows from the fact that $S^n_\Q$ is the loop space $K(\Q^\ast, n)$ for odd $n$.
+In fact we have that $S^n_\Q$ is an H-space if and only if $n$ is odd. The only if part is precisely the above corollary. The if part follows from the fact that $S^n_\Q$ is the Eilenberg-MacLane space $K(\Q^\ast, n)$ for odd $n$.
