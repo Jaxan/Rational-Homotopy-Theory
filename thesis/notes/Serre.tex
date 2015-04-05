@@ -113,7 +113,7 @@ For the main theorem we need the following decomposition of spaces. The construc
 
 	It remains to show that $h_n$ is a $\C$-iso. Use the Whitehead tower from \LemmaRef{whitehead-tower} to obtain $\cdots \fib X(3) \fib X(2) = X$. Note that each $X(j)$ is $1$-connected and that $X(2) = X(1) = X$.
 
-	\Claim{}{For all $j < n$ and $i \leq n$ the induced map \linebreak $H_i(X(j+1)) \to H_i(X(j))$ is a $\C$-iso.}
+	\Claim{serre-step}{For all $j < n$ and $i \leq n$ the induced map \linebreak $H_i(X(j+1)) \to H_i(X(j))$ is a $\C$-iso.}
 	Note that $X(j+1) \fib X(j)$ is a fibration with $F = K(\pi_j(X), j-1)$ as its fiber. So by \LemmaRef{homology-em-space} we know $H_i(F) \in \C$ for all $i$. Apply \LemmaRef{kreck} to obtain a $\C$-iso $H_i(X(j+1)) \to H_i(X(j))$ for all $j < n$ and all $i > 0$. This proves the claim.
 
 	Considering this claim for all $j < n$ gives a chain of $\C$-isos $H_i(X(n)) \to H_i(X(n-1)) \to \cdot \to H_i(X(2)) = H_i(X)$ for all $i \leq n$. Consider the following diagram:

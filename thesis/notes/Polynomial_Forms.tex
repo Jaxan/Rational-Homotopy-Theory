@@ -1,4 +1,91 @@
 
+\Chapter{Polynomial Forms}{Adjunction}
+\label{sec:cdga-of-polynomials}
+
+\section{CDGA of Polynomials}
+
+We will now give a cdga model for the $n$-simplex $\Delta^n$. This then allows for simplicial methods. In the following definition one should remember the topological $n$-simplex defined as convex span.
+
+\Definition{apl}{
+	For all $n \in \N$ define the following cdga:
+	$$ (\Apl)_n = \frac{\Lambda(x_0, \ldots, x_n, d x_0, \ldots, d x_n)}{(\sum_{i=0}^n x_i - 1, \sum_{i=0}^n d x_i)}, $$
+	where $\deg{x_i} = 0$. So it is the free cdga with $n+1$ generators and their differentials such that $\sum_{i=0}^n x_i = 1$ and in order to be well behaved $\sum_{i=0}^n d x_i = 0$.
+}
+
+Note that the inclusion $\Lambda(x_1, \ldots, x_n, d x_1, \ldots, d x_n) \to \Apl_n$ is an isomorphism of cdga's. So $\Apl_n$ is free and (algebra) maps from it are determined by their images on $x_i$ for $i = 1, \ldots, n$ (also note that this determines the images for $d x_i$). This fact will be used throughout. Also note that we have already seen the dual unit interval $\Lambda(t, dt)$ which is isomorphic to $\Apl_1$.
+
+These cdga's will assemble into a simplicial cdga when we define the face and degeneracy maps as follows ($j = 1, \ldots, n$):
+
+$$ d_i(x_j) = \begin{cases}
+	x_{j-1}, &\text{ if } i < j \\
+	0,       &\text{ if } i = j \\
+	x_j,     &\text{ if } i > j
+\end{cases} \qquad d_i : \Apl_n \to \Apl_{n-1} $$
+$$ s_i(x_j) = \begin{cases}
+	x_{j+1},       &\text{ if } i < j \\
+	x_j + x_{j+1}, &\text{ if } i = j \\
+	x_j,           &\text{ if } i > j	
+\end{cases} \qquad s_i : \Apl_n \to \Apl_{n+1} $$
+
+One can check that $\Apl \in \simplicial{\CDGA_\k}$. We will denote the subspace of homogeneous elements of degree $k$ as $\Apl^k$, this is a simplicial $\k$-module as the maps $d_i$ and $s_i$ are graded maps of degree $0$.
+
+\pagebreak
+\Lemma{apl-contractible}{
+	$\Apl^k$ is contractible.
+}
+\Proof{
+	We will prove this by defining an extra degeneracy $s: \Apl_n \to \Apl_{n+1}$. In the more geometric context of topological $n$-simplices we would achieve this by dividing by $1-x_0$. However, since this algebra consists of polynomials only, this cannot be done. Instead, we will multiply everything by $(1-x_0)^2$, so that we can divide by $1-x_0$. Define for $i = 1, \ldots, n$:
+	\begin{align*}
+		s(1) &= (1-x_0)^2 \\
+		s(x_i) &= (1-x_0) \cdot x_{i+1}
+	\end{align*}
+	Extend on the differentials and multiplicatively on $\Apl_n$. As $s(1) \neq 1$ this map is not an algebra map, however it well-defined as a map of cochain complexes. In particular when restricted to degree $k$ we get a linear map:
+	$$ s: \Apl^k_n \to \Apl^k_{n+1}. $$
+	Proving the necessary properties of an extra degeneracy is fairly easy. For $n \geq 1$ we get (on generators):
+	\begin{align*}
+		d_0 s(1)   &= d_0 (1 - x_0)^2 = (1 - 0) \cdot (1 - 0) = 1 \\
+		d_0 s(x_i) &= d_0((1-x_0)x_{i+1}) = d_0(1-x_0) \cdot x_i  \\
+		           &= (1-0) \cdot x_i = x_i
+	\end{align*}
+	So $d_0 s = \id$.
+	\begin{align*}
+		d_{i+1} s(1) &= d_{i+1} (1 - x_0)^2 = d_{i+1} (\sum_{j=1}^n x_j)^2 \\
+		             &= (\sum_{j=1}^{n-1} x_j)^2 = (1-x_0)^2 = s d_i(1)    \\
+		d_{i+1} s(x_j) &= d_{i+1}(1-x_0) d_{i+1}(x_j) = (1-x_0) d_i(x_{j+1}) = s d_i (x_j)
+	\end{align*}
+	So $d_{i+1} s = s d_i$. Similarly $s_{i+1} s = s s_i$. And finally for $n=0$ we have $d_1 s = 0$.
+
+	So we have an extra degeneracy $s: \Apl^k \to \Apl^k$, and hence (see for example \cite{goerss}) we have that $\Apl^k$ is contractible. As a consequence $\Apl^k \to \ast$ is a weak equivalence.
+}
+
+\Lemma{apl-kan-complex}{
+	$\Apl^k$ is a Kan complex.
+}
+\Proof{
+	By the simple fact that $\Apl^k$ is a simplicial group, it is a Kan complex \cite{goerss}.
+}
+
+Combining these two lemmas gives us the following.
+\Corollary{apl-extendable}{
+	$\Apl^k \to \ast$ is a trivial fibration in the standard model structure on $\sSet$.
+}
+
+Besides the simplicial structure of $\Apl$, there is also the structure of a cochain complex.
+\Lemma{apl-acyclic}{
+	$\Apl_n$ is acyclic, i.e. $H(\Apl_n) = \k \cdot [1]$.
+}
+\Proof{
+	This is clear for $\Apl_0 = \k \cdot 1$. For $\Apl_1$ we see that $\Apl_1 = \Lambda(x_1, d x_1) \iso \Lambda D(0)$, which we proved to be acyclic in the previous section.
+
+	For general $n$ we can identify $\Apl_n \iso \bigtensor_{i=1}^n \Lambda(x_i, d x_i)$, because $\Lambda$ is left adjoint and hence preserves coproducts. By the Künneth theorem \TheoremRef{kunneth} we conclude $H(\Apl_n) \iso \bigtensor_{i=1}^n H \Lambda(x_i, d x_i) \iso \bigtensor_{i=1}^n H \Lambda D(0) \iso \k \cdot [1]$.
+
+	So indeed $\Apl_n$ is acyclic for all $n$.
+}
+
+
+\section{Polynomial Forms on a Space}
+\label{sec:polynomial-forms}
+
 There is a general way to construct contravariant functors from $\sSet$ whenever we have some simplicial object. In our case we have the simplicial cdga $\Apl$ (which is nothing more than a functor $\opCat{\DELTA} \to \CDGA$) and we want to extend to a contravariant functor $\sSet \to \CDGA_\k$. This will be done via \Def{Kan extensions}.
 
 Given a category $\cat{C}$ and a functor $F: \DELTA \to \cat{C}$, then define the following on objects:

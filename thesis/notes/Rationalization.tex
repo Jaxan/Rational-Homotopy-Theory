@@ -100,7 +100,7 @@ Having rational cells we wish to replace the cells in a CW complex $X$ by the ra
 	with the obvious inclusion $\psi: X \to X_\Q$. By excision we see that $H_\ast(X_\Q, Y_\Q) \iso H_\ast(X \cup_f (Y \times I), Y \times {1}) = 0$. So by the long exact sequence of the inclusion we get $H_\ast(X_\Q) \iso H_\ast(Y_\Q)$, which proves by the rational Hurewicz theorem that $X_\Q$ is a rational space. At last we note that $H_\ast(X_\Q, X; \Q) \iso H_\ast(Y_\Q, Y; \Q) = 0$, since $\phi$ was a rationalization. This proves that $H_\ast(\psi; \Q)$ is an isomorphism, so by the rational Whitehead theorem, $\psi$ is a rationalization.
 }
 
-\Theorem{}{
+\Theorem{localization}{
 	The above construction is in fact a \Def{localization}, i.e. for any map $f : X \to Z$ to a rational space $Z$, there is an extension $f' : X_\Q \to Z$ making the following diagram commute.
 
 	\begin{displaymath}
@@ -117,11 +117,11 @@ We will note prove that above theorem (it is analogue to \LemmaRef{SnQ-extension
 
 We already mentioned in the first section that for rational spaces the notions of weak equivalence and rational equivalence coincide. Now that we always have a rationalization we have:
 
-\Corollary{}{
+\Corollary{weak-eq-rationalization}{
 	Let $f: X \to Y$ be a map, then $f$ is a rational equivalence if and only if $f_\Q : X_\Q \to Y_\Q$ is a weak equivalence.
 }
 
-\Corollary{}{
+\Corollary{rat-htpy-is-htpy-rat}{
 	The homotopy category of $1$-connected rational spaces is equivalent to the rational homotopy category of $1$-connected spaces.
 }
 

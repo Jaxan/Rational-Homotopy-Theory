@@ -6,7 +6,7 @@ In this chapter we will calculate the rational homotopy groups of the spheres us
 
 \section{The sphere}
 
-\Proposition{}{
+\Proposition{odd-spheres-homotopy-groups}{
 	For odd $n$ the rational homotopy groups of $S^n$ are given by
 	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
 		\Q, &\text{ if } i=n \\
@@ -26,7 +26,7 @@ In this chapter we will calculate the rational homotopy groups of the spheres us
 	$$ \pi_\ast(S^n) \tensor \Q = \pi_\ast(K(M_{S^n})) = \pi^\ast(M_{S^n})^\ast = \Q \cdot e^\ast. $$
 }
 
-\Proposition{}{
+\Proposition{even-spheres-homotopy-groups}{
 	For even $n$ the rational homotopy groups of $S^n$ are given by
 	$$ \pi_i(S^n) \tensor \Q \iso \begin{cases}
 		\Q, &\text{ if } i = 2n-1 \\
@@ -43,7 +43,7 @@ In this chapter we will calculate the rational homotopy groups of the spheres us
 
 The generators $e$ and $f$ in the last proof are related by the so called \Def{Whitehead product}. The whitehead product is a bilinear map $\pi_p(X) \times \pi_q(X) \to \pi_{p+q-1}(X)$ satisfying a graded commutativity relation and a graded Jacobi relation, see \cite{felix}. If we define a \Def{Whitehead algebra} to be a graded vector space with such a map satisfying these relations, we can summarize the above two propositions as follows \cite{berglund}.
 
-\Corollary{}{
+\Corollary{all-spheres-homotopy-groups}{
 	The rational homotopy groups of $S^n$ are given by
 	$$ \pi_\ast(S^n) \tensor \Q = \text{the free whitehead algebra on 1 generator}. $$
 }
@@ -55,7 +55,7 @@ Together with the fact that all groups $\pi_i(S^n)$ are finitely generated (this
 
 The following result is already used in proving the main theorem. But using the main theorem it is an easy and elegant consequence.
 
-\Proposition{}{
+\Proposition{em-space-homology-groups}{
 	For an Eilenberg-MacLane space of type $K(\Z, n)$ we have:
 	$$ H^\ast(K(\Z, n); \Q) \iso \Q[x], $$
 	i.e. the free graded commutative algebra on 1 generator.

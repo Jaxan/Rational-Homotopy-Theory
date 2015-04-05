@@ -2,9 +2,6 @@
 
 \usepackage{amsmath, amsthm}
 \usepackage[T1]{fontenc} 
-% use english, does not work with classicthesis
-% \usepackage{polyglossia}
-% \setmainlanguage[variant=british]{english}
 
 \usepackage[parts,eulerchapternumbers]{classicthesis}
 \setcounter{tocdepth}{0} % parts, chapters
@@ -15,9 +12,10 @@
 \title{Rational Homotopy Theory}
 \author{Joshua Moerman}
 
-\begin{document}
-\pagenumbering{roman}
 
+\begin{document}
+
+\pagenumbering{roman}
 \begin{titlepage}
 \large
 
@@ -34,28 +32,46 @@
 	\vspace{7cm}
 
 	Radboud University Nijmegen\\
-	Supervisor: Ieke Moerdijk
+	Supervisor: Ieke Moerdijk\\
+	Second Reader: Javier J. Gutiérrez
 \end{center}
 
 \end{titlepage}
 \blankpage
 
-\include{chapters/Introduction}
+\input{notes/Introduction}
+\input{notes/Preliminaries}
+
 \blankpage
+\tableofcontents
+\addcontentsline{toc}{section}{Contents}
+\blankpage
+
 
 \pagenumbering{arabic}
 \part{Basics Of Rational Homotopy Theory}
-\include{chapters/Basics_Of_Rational_Homotopy_Theory}
+\input{notes/Basics}
+\input{notes/Serre}
+\input{notes/Rationalization}
+
 
 \part{CDGA's As Algebraic Models}
-\include{chapters/CDGA_As_Algebraic_Model_For_Rational_Homotopy_Theory}
+\input{notes/Homotopy_Theory_CDGA}
+\input{notes/Polynomial_Forms}
+\input{notes/Minimal_Models}
+\input{notes/Equivalence}
+
 
 \part{Applications and Further Topics}
-\include{chapters/Applications_And_Further_Topics}
+\input{notes/Calculations}
+\input{notes/Further_Topics}
+
 
 \appendix
 \part{Appendices}
-\include{chapters/Appendices}
+\input{notes/Algebra}
+\input{notes/Model_Categories}
+
 
 \bibliographystyle{alpha}
 \bibliography{references}

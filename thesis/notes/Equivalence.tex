@@ -151,7 +151,7 @@ For the equivalence of rational spaces and cdga's we need that the unit and coun
 where the first of the two maps is given by the composition $X \to K(A(X)) \tot{K(m_X)} K(M(X))$,
 and the second map is obtained by the map $A \to A(K(A))$ and using the bijection from \CorollaryRef{minimal-model-bijection}: $[A, A(K(A))] \iso [A, M(K(A))]$. By the 2-out-of-3 property the map $A \to M(K(A))$ is a weak equivalence if and only if the ordinary unit $A \to A(K(A))$ is a weak equivalence.
 
-\Lemma{}{
+\Lemma{equivalence-base-case}{
 	(Base case) Let $A = (\Lambda(v), 0)$ be a minimal model with one generator of degree $\deg{v} = n \geq 1$. Then $A \we A(K(A))$.
 }
 \Proof{
@@ -162,7 +162,7 @@ and the second map is obtained by the map $A \to A(K(A))$ and using the bijectio
 	Now choose a cycle $z \in A(K(\Q^\ast, n))$ representing the class $x$ and define a map $A \to A(K(A))$ by sending the generator $v$ to $z$. This induces an isomorphism on cohomology. So $A$ is the minimal model for $A(K(A))$.
 }
 
-\Lemma{}{
+\Lemma{equivalence-pushout}{
 	(Induction step) Let $A$ be a cofibrant, connected algebra. Let $B$ be the pushout in the following square, where $m \geq 1$:
 	\begin{displaymath}
 		\xymatrix{
@@ -211,7 +211,7 @@ Note that by \RemarkRef{finited-dim-minimal-model} every cdga of finite type has
 
 Now we want to prove that $X \to K(M(X))$ is a weak equivalence for a simply connected rational space $X$ of finite type. For this, we will use that $A$ preserves and detects such weak equivalences by the Serre-Whitehead theorem (\CorollaryRef{rational-whitehead}). To be precise: for a simply connected rational space $X$ the map $X \to K(M(X))$ is a weak equivalence if and only if $A(K(M(X))) \to A(X)$ is a weak equivalence.
 
-\Lemma{}{
+\Lemma{topological-weak-equivalence}{
 	The map $X \to K(M(X))$ is a weak equivalence for $1$-connected, rational spaces $X$ of finite type.
 }
 \Proof{
